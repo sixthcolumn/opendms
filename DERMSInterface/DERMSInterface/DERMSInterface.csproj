@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1BAB88A0-34B8-4BDA-B5F9-2E922BFD69B6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DERMSInterface</RootNamespace>
+    <AssemblyName>DERMSInterface</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CIM.cs" />
+    <Compile Include="CIMData.cs" />
+    <Compile Include="ConfigigurationException.cs" />
+    <Compile Include="HeaderNotFoundException.cs" />
+    <Compile Include="DERGroupStatusResponse.cs" />
+    <Compile Include="Multispeak.cs" />
+    <Compile Include="MultiSpeakMsgHeader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\CIMChangeDERGroup\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CIMDERGroupDispatch\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CIMDERRequest\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CIMGetDERGroupStatus\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CIMGetDERGroup\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MSDER\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\reqDER\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMChangeDERGroup\DERGroup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMChangeDERGroup\DERMSInterface.CIMChangeDERGroup.CreateDERGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMChangeDERGroup\DERMSInterface.CIMChangeDERGroup.DERGroupResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMChangeDERGroup\Message.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMChangeDERGroup\RequestDERGroupMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMChangeDERGroup\{Request  Execute}DERGroup.wsdl" />
+    <None Include="Service References\CIMDERGroupDispatch\DERGroupDispatch.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMDERGroupDispatch\DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERGroupDispatch\DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERGroupDispatch\Message.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMDERGroupDispatch\RequestDERGroupDispatch.wsdl" />
+    <None Include="Service References\CIMDERGroupDispatch\RequestDERGroupDispatchMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMDERRequest\CIM_Request.wsdl" />
+    <None Include="Service References\CIMDERRequest\CIM_Request.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERGroup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERGroupDispatch.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERGroupForecast.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERGroupStatus.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERMSInterface.CIMDERRequest.ChangeDERGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERMSInterface.CIMDERRequest.CreateDERGroupDispatchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERMSInterface.CIMDERRequest.createDERGroupForecastsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERMSInterface.CIMDERRequest.CreateDERGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERMSInterface.CIMDERRequest.DeleteDERGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERMSInterface.CIMDERRequest.DERGroupDispatchResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERMSInterface.CIMDERRequest.DERGroupForecastResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERMSInterface.CIMDERRequest.DERGroupForecastResponseMessageType1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERMSInterface.CIMDERRequest.DERGroupResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERMSInterface.CIMDERRequest.DERGroupResponseMessageType1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERMSInterface.CIMDERRequest.DERGroupStatusResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERMSInterface.CIMDERRequest.getDERGroupCapabilitiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERMSInterface.CIMDERRequest.GetDERGroupCapabilityResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERMSInterface.CIMDERRequest.getDERGroupForecastsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERMSInterface.CIMDERRequest.getDERGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERRequest\DERMSInterface.CIMDERRequest.getDERGroupStatusesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERRequest\GetDERGroupCapabilityMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMDERRequest\GetDerGroupForecastMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMDERRequest\GetDerGroupMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMDERRequest\GetDERGroupStatusMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMDERRequest\Message.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMDERRequest\RequestDERGroupDispatchMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMDERRequest\RequestDERGroupForecastMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMDERRequest\RequestDERGroupMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMGetDERGroupStatus\DERGroupStatus.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMGetDERGroupStatus\DERMSInterface.CIMGetDERGroupStatus.DERGroupStatusResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMGetDERGroupStatus\DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMGetDERGroupStatus\GetDERGroupStatus.wsdl" />
+    <None Include="Service References\CIMGetDERGroupStatus\GetDERGroupStatusMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMGetDERGroupStatus\Message.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMGetDERGroup\DERMSInterface.CIMGetDERGroup.DERGroupPayloadType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMGetDERGroup\DERMSInterface.CIMGetDERGroup.GetDERGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMGetDERGroup\DERMSInterface.CIMGetDERGroup.HeaderType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMGetDERGroup\DERMSInterface.CIMGetDERGroup.ReplyType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMGetDERGroup\GetDERGroupImplService.wsdl" />
+    <None Include="Service References\CIMGetDERGroup\GetDERGroup_Port.wsdl" />
+    <None Include="Service References\MSDER\mspArrayTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MSDER\mspCommonTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MSDER\mspCPSM.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MSDER\mspEnumerations.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MSDER\mspGeometry.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MSDER\mspPrimitives.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MSDER\MultiSpeak.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MSDER\MultiSpeakWebServicesRequestMsgHeader.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MSDER\MultiSpeakWebServicesResponseMsgHeader.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MSDER\SandBox.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MSDER\SandBoxArrayTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MSDER\SB_DER_Server.wsdl" />
+    <None Include="Service References\MSDER\SB_DER_Server.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MSDER\xlinks.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\reqDER\DERMSInterface.reqDER.attachment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\reqDER\DERMSInterface.reqDER.DER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\reqDER\DERMSInterface.reqDER.DERGroupForecast.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\reqDER\DERMSInterface.reqDER.DERGroupStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\reqDER\DERMSInterface.reqDER.domainMember.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\reqDER\DERMSInterface.reqDER.GetAllDERsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\reqDER\DERMSInterface.reqDER.GetAttachmentsByObjectRefsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\reqDER\DERMSInterface.reqDER.GetDERGroupForecastsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\reqDER\DERMSInterface.reqDER.GetDERGroupStatusesByDERGroupIDsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\reqDER\DERMSInterface.reqDER.GetDERsByDERIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\reqDER\DERMSInterface.reqDER.GetDomainMembersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\reqDER\DERMSInterface.reqDER.GetDomainNamesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\reqDER\DERMSInterface.reqDER.GetMethodsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\reqDER\MspArrayTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\reqDER\mspCommonTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\reqDER\mspCPSM.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\reqDER\mspEnumerations.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\reqDER\mspGeometry.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\reqDER\mspPrimitives.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\reqDER\MultiSpeak.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\reqDER\MultiSpeakWebServicesRequestMsgHeader.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\reqDER\SandBox.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\reqDER\SandBoxArrayTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\reqDER\SB_DER_Request.wsdl" />
+    <None Include="Service References\reqDER\SB_DER_Request.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\reqDER\xlinks.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CIMChangeDERGroup\" />
+    <WCFMetadataStorage Include="Service References\CIMDERGroupDispatch\" />
+    <WCFMetadataStorage Include="Service References\CIMDERRequest\" />
+    <WCFMetadataStorage Include="Service References\CIMGetDERGroupStatus\" />
+    <WCFMetadataStorage Include="Service References\CIMGetDERGroup\" />
+    <WCFMetadataStorage Include="Service References\MSDER\" />
+    <WCFMetadataStorage Include="Service References\reqDER\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MSDER\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MSDER\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MSDER\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMGetDERGroup\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMGetDERGroup\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMGetDERGroup\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMDERRequest\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMDERRequest\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMDERRequest\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\reqDER\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\reqDER\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\reqDER\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMChangeDERGroup\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMChangeDERGroup\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMChangeDERGroup\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMGetDERGroupStatus\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMGetDERGroupStatus\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMGetDERGroupStatus\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMDERGroupDispatch\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMDERGroupDispatch\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMDERGroupDispatch\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

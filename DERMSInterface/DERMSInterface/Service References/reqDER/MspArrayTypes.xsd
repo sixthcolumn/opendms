@@ -1,0 +1,1222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:schema xmlns:com="http://www.multispeak.org/V5.0/commonTypes" xmlns="http://www.multispeak.org/V5.0/commonArrays" xmlns:enum="http://www.multispeak.org/V5.0/enumerations" xmlns:msp="http://www.multispeak.org/V5.0" xmlns:prim="http://www.multispeak.org/V5.0/primitives" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.multispeak.org/V5.0/commonArrays" version="5.0.4" xmlns:s="http://www.w3.org/2001/XMLSchema">
+  <s:import schemaLocation="MultiSpeak.xsd" namespace="http://www.multispeak.org/V5.0" />
+  <s:import schemaLocation="mspCommonTypes.xsd" namespace="http://www.multispeak.org/V5.0/commonTypes" />
+  <s:import schemaLocation="mspEnumerations.xsd" namespace="http://www.multispeak.org/V5.0/enumerations" />
+  <s:import schemaLocation="mspPrimitives.xsd" namespace="http://www.multispeak.org/V5.0/primitives" />
+  <s:complexType name="ArrayOfAccount">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="account" nillable="true" type="msp:account" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfAccountID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="accountID" type="com:objectID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfAccumulatedValue">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="accumulatedValue" nillable="true" type="msp:accumulatedValue" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfAssetHistoryEventsReferable">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="assetHistoryEventsReferable" type="msp:assetHistoryEventsReferable" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfAssetLocationReferable">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="assetLocationReferable" type="msp:assetLocationReferable" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfAssetRef">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="assetRef" type="msp:assetRef" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfAssetsReferable">
+    <s:sequence>
+      <s:element name="assetsReferable" type="msp:assetsReferable" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfAssetType">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="assetType" type="msp:assetType" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfAttachment">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="attachment" nillable="true" type="msp:attachment" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfAttachmentContainer">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="attachmentContainer" type="msp:attachmentContainer" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfAttachmentUnlinkContainer">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="attachmentUnlinkContainer" type="msp:attachmentUnlinkContainer" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfBankID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="bankID" type="s:string" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfBilledUsage">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="billedUsage" type="msp:billedUsage" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfBillingAccountLoad">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="billingAccountLoad" nillable="true" type="msp:billingAccountLoad" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfBillingData">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="billingData" nillable="true" type="msp:billingData" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfBillingDetail">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="billingDetail" nillable="true" type="msp:billingDetail" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfCallBackList">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="callBackList" nillable="true" type="msp:callBackList" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfCapacitorBankSwitch">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="capacitorBankSwitch" type="msp:capacitorBankSwitch" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfCatalogEntries">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="catalogEntries" nillable="true" type="msp:catalogEntries" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfCDDevice">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="CDDevice" nillable="true" type="msp:CDDevice" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfCDDeviceExchange">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="CDDeviceExchange" nillable="true" type="msp:CDDeviceExchange" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfCDState">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="CDState" nillable="true" type="msp:CDState" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfCDStateChange">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="CDStateChange" nillable="true" type="msp:CDStateChange" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfChargeableDevice">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="chargeableDevice" nillable="true" type="msp:chargeableDevice" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfCircuitElement">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="circuitElement" nillable="true" type="msp:circuitElement" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfClearanceInstance">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="clearanceInstance" type="msp:clearanceInstance" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfClearanceInstanceRequest">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="clearanceInstanceRequest" type="msp:clearanceInstanceRequest" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfClearanceTag">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="clearanceTag" type="msp:clearanceTag" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfCommunicationsAddress">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="communicationsAddress" type="msp:communicationsAddress" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfConnectDisconnectEvent">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="connectDisconnectEvent" nillable="true" type="msp:connectDisconnectEvent" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfConnectivity">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="connectivity" type="msp:connectivity" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfConvenienceFeeItem">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="convenienceFeeItem" type="msp:convenienceFeeItem" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfCPR">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="CPR" type="msp:CPR" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfCustomer">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="customer" nillable="true" type="msp:customer" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfCustomerCall">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="customerCall" nillable="true" type="msp:customerCall" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfCustomerCallStatus">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="customerCallStatus" type="msp:customerCallStatus" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfCustomerID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="customerID" type="com:objectID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfCustomersAffectedByOutage">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="customersAffectedByOutage" nillable="true" type="msp:customersAffectedByOutage" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDateType">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="dateType" type="enum:associatedDateType" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDBAName">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="DBAName" type="s:string" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDemandReset">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="demandReset" type="msp:demandReset" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDemandResetCancel">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="demandResetCancel" type="msp:demandResetCancel" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDemandResetEvent">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="demandResetEvent" type="msp:demandResetEvent" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDemandResponseEvent">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="demandResponseEvent" type="msp:demandResponseEvent" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDemandResponseEventStatus">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="demandResponseEventStatus" nillable="true" type="msp:demandResponseEventStatus" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDemandResponseParameters">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="demandResponseParameters" type="msp:demandResponseParameters" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDesign">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="design" type="msp:design" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDesignReference">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="designReference" type="msp:designReference" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDesignSubmission">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="designSubmission" type="msp:designSubmission" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDiscardedOutage">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="discardedOutage" type="msp:discardedOutage" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDomainMember">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="domainMember" nillable="true" type="msp:domainMember" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDomainNameChange">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="domainNameChange" nillable="true" type="msp:domainNameChange" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDomainNames">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="domainName" nillable="true" type="s:string" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDRProgram">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="DRProgram" nillable="true" type="msp:DRProgram" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDRProgramEnrollment">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="DRProgramEnrollment" nillable="true" type="msp:DRProgramEnrollment" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDRProgramEnrollmentStatus">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="DRProgramEnrollmentStatus" type="enum:DRProgramEnrollmentStatus" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDRProgramStatus">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="DRProgramStatus" type="enum:DRProgramStatus" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfElectricLocationFieldsReferable">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="electricLocationFieldsReferable" type="msp:electricLocationFieldsReferable" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfElectricMeter">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="electricMeter" nillable="true" type="msp:electricMeter" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfElectricOutage">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="electricOutage" type="msp:electricOutage" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfEndDeviceEvent">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="endDeviceEvent" type="msp:endDeviceEvent" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfEndDeviceEventReset">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="endDeviceEventReset" type="msp:endDeviceEventReset" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfEndDeviceEventList">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="endDeviceEventList" type="msp:endDeviceEventList" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfEndDeviceEventType">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="endDeviceEventType" type="msp:endDeviceEventType" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfEquipmentItem">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="equipmentItem" type="msp:equipmentItem" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfEquipmentItemID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="equipmentItemID" type="com:objectID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfEquipmentType">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="equipmentType" type="enum:equipmentType" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfEventMonitoringItem">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="eventMonitoringItem" type="msp:eventMonitoringItem" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfFieldNameType">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="fieldNameType" type="enum:fieldNameType" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfFieldValue">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="fieldValue" type="s:string" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfFormattedBlock">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="formattedBlock" nillable="true" type="msp:formattedBlock" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfFormattedBlockTemplate">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="formattedBlockTemplate" nillable="true" type="msp:formattedBlockTemplate" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfGasMeter">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="electricMeter" nillable="true" type="msp:gasMeter" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfSpatialDetails">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="spatialDetails" type="msp:spatialDetails" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfGridLocation">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="gridLocation" type="s:string" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfHighlightDisplayObject">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="highlightDisplayObject" type="msp:highlightDisplayObject" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfHistoryComment">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="historyComment" nillable="true" type="msp:historyComment" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfIntervalData">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="intervalData" type="msp:intervalData" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfLaborCategory">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="laborCategory" nillable="true" type="msp:laborCategory" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfLMDeviceExchange">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="LMDeviceExchange" nillable="true" type="msp:LMDeviceExchange" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfLoadFlowResult">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="loadFlowResult" nillable="true" type="msp:loadFlowResult" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfLoadManagementDevice">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="loadManagementDevice" nillable="true" type="msp:loadManagementDevice" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfLoadManagementEvent">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="loadManagementEvent" nillable="true" type="msp:loadManagementEvent" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfLocationInformationReferable">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="locationInformationReferable" type="msp:locationInformationReferable" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfLTLog">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="LTLog" nillable="true" type="msp:locationTrackingLog" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfLTPosition">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="LTPosition" nillable="true" type="msp:locationTrackingPosition" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfLTDevice">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="LTDevice" type="msp:locationTrackingDevice" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfLTDeviceRef">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="LTDeviceRef" type="msp:locationTrackingDeviceRef" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfMaterialItem">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="materialItem" nillable="true" type="msp:materialItem" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfMaterialManagementAssembly">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="materialManagementAssembly" nillable="true" type="msp:materialManagementAssembly" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfMessage">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="message" nillable="true" type="msp:message" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfMeterConfigurationStatus">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="meterConfigurationStatus" type="msp:meterConfigurationStatus" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfMeterConnectionStatus">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="meterConnectionStatus" type="enum:meterConnectionStatus" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfMeterConnectivity">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="meterConnectivity" nillable="true" type="msp:meterConnectivity" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfMeterExchanges">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="meterExchanges" type="msp:meterExchanges" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfMeterGroup">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="meterGroup" type="msp:meterGroup" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfMeterGroupID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="meterGroupID" type="com:objectID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfMeterGroupName">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="meterGroupName" type="s:string" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfMeterHistoryEvent">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="meterHistoryEvent" nillable="true" type="msp:meterHistoryEvent" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfMeterID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="meterID" nillable="true" type="com:meterID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfMeterReading">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="meterReading" type="msp:meterReading" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfLoadGroup">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="loadGroup" type="msp:loadGroup" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfMultiPartIdentifier">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="multiPartIdentifier" type="com:multiPartIdentifier" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfObjectDeletion">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="objectDeletion" type="msp:objectDeletion" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfObjectDeletionRequest">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="objectDeletionRequest" type="msp:objectDeletionRequest" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfObjectID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="objectID" type="com:objectID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfObjectRef">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="objectRef" type="com:objectRef" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfObjectRefChange">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="objectRefChange" type="msp:objectRefChange" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOtherMeter">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="otherMeter" nillable="true" type="msp:otherMeter" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOtherSpatialFeatures">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="otherSpatialFeatures" type="msp:otherSpatialFeatures" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOutageAttachmentContainer">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="outageAttachmentContainer" type="msp:outageAttachmentContainer" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOutageDetectionDevice">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="outageDetectionDevice" nillable="true" type="msp:outageDetectionDevice" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOutageDetectionDeviceStatus">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="outageDetectionDeviceStatus" type="enum:outageDetectionDeviceStatus" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOutageDetectionEvent">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="outageDetectionEvent" type="msp:outageDetectionEvent" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOutageDetectionSource">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="outageDetectionSource" type="enum:outageDetectionSource" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOutageDurationEvent">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="outageDurationEvent" type="msp:outageDurationEvent" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOutageElementStatuses">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="outageElementStatuses" type="msp:outageElementStatuses" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOutageETOR">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="outageETOR" type="msp:outageETOR" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOutageLocation">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="outageLocation" nillable="true" type="msp:outageLocation" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOutageMerge">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="outageMerge" type="msp:outageMerge" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOutageReasonCodeList">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="outageReasonCodeList" type="msp:outageReasonCodeList" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOutageReasonReferable">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="outageReasonReferable" type="msp:outageReasonReferable" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOutageRef">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="outageRef" type="msp:outageRef" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOutageRemarkReferable">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="outageRemarkReferable" type="msp:outageRemarkReferable" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOutageSplit">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="outageSplit" type="msp:outageSplit" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOutageStatusReferable">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="outageStatusReferable" type="msp:outageStatusReferable" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfOutageWorkUpdate">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="outageWorkUpdate" type="msp:outageWorkUpdate" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPANAddressingGroup">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="PANAddressingGroup" type="msp:PANAddressingGroup" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPANCommission">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="PANCommission" nillable="true" type="msp:PANCommission" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPANDeviceGroup">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="PANDeviceGroup" type="msp:PANDeviceGroup" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPANDeviceGroupID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="PANDeviceGroupID" type="com:objectID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPANDeviceGroupName">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="PANDeviceGroupName" type="s:string" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPANDeviceID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="PANDeviceID" nillable="true" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPANDeviceRef">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="PANDeviceRef" type="msp:PANDeviceRef" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPANInterfaceID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="PANInterfaceID" type="msp:PANInterfaceID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPANRegistration">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="PANRegistration" nillable="true" type="msp:PANRegistration" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPaymentExtension">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="paymentExtension" type="msp:paymentExtension" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPaymentTransaction">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="paymentTransaction" nillable="true" type="msp:paymentTransaction" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPointSubscriptionList">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="pointSubscriptionList" type="msp:pointSubscriptionList" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPole">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="pole" nillable="true" type="msp:pole" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPoleNumber">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="poleNumber" type="s:string" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPowerFactorManagementEvent">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="powerFactorManagementEvent" type="msp:powerFactorManagementEvent" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPowerMonitor">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="powerMonitor" nillable="true" type="msp:powerMonitor" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfNetworkModelRef">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="networkModelRef" type="com:networkModelRef" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPpmBalanceAdjustment">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="ppmBalanceAdjustment" nillable="true" type="msp:ppmBalanceAdjustment" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPpmLocation">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="ppmLocation" nillable="true" type="msp:ppmLocation" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPpmStatus">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="ppmStatus" nillable="true" type="msp:ppmStatus" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPremisesDisplay">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="premisesDisplay" nillable="true" type="msp:premisesDisplay" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPremisesDisplayBillingMessage">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="premisesDisplayBillingMessage" type="msp:premisesDisplayBillingMessage" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPremisesDisplayCapabilitySetting">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="premisesDisplayCapabilitySetting" type="msp:premisesDisplayCapabilitySetting" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPremisesDisplayExchange">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="premisesDisplayExchange" nillable="true" type="msp:premisesDisplayExchange" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPremisesDisplayGroup">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="premisesDisplayGroup" type="msp:premisesDisplayGroup" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPremisesDisplayGroupID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="premisesDisplayGroupID" type="com:objectID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPremisesDisplayGroupName">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="premisesDisplayGroupName" type="s:string" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPremisesDisplayID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="premisesDisplayID" type="com:objectID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPremisesDisplayMessage">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="premisesDisplayMessage" nillable="true" type="msp:premisesDisplayMessage" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPremisesDisplayMessageConfirmation">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="premisesDisplayMessageConfirmation" type="msp:premisesDisplayMessageConfirmation" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPremisesDisplayMessageStatus">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="premisesDisplayMessageStatus" type="msp:premisesDisplayMessageStatus" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPricingEvent">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="pricingEvent" nillable="true" type="msp:pricingEvent" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPrimaryIdentifier">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="primaryIdentifier" type="com:primaryIdentifier" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfPropaneMeter">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="propaneMeter" nillable="true" type="msp:propaneMeter" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfReadingQualityCode">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="readingQualityCode" type="msp:readingQualityCode" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfReadingSchedule">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="readingSchedule" nillable="true" type="msp:readingSchedule" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfReadingScheduleID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="readingScheduleID" type="com:objectID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfReadingScheduleResult">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="readingScheduleResult" nillable="true" type="msp:readingScheduleResult" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfReadingTypeCode">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="readingTypeCode" type="msp:readingTypeCode" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfRecurringPaymentConfiguration">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="recurringPaymentConfiguration" type="msp:recurringPaymentConfiguration" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfRegistrationStatus">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="registrationStatus" type="msp:registrationStatus" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfResource">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="resource" type="msp:resource" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfRestoredOutage">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="restoredOutage" type="msp:restoredOutage" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfScadaAnalog">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="scadaAnalog" nillable="true" type="msp:scadaAnalog" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfScadaControl">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="scadaControl" nillable="true" type="msp:scadaControl" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfScadaPoint">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="scadaPoint" nillable="true" type="msp:scadaPoint" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfScadaPointID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="scadaPointID" type="com:objectID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfScadaStatus">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="scadaStatus" nillable="true" type="msp:scadaStatus" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfSchedule">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="schedulet" nillable="true" type="msp:schedule" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfScheduleDate">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="scheduleDate" type="s:date" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfScheduleID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="scheduleID" type="com:objectID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfSchedulingResult">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="schedulingResult" type="msp:schedulingResult" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfSecurityLight">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="securityLight" nillable="true" type="msp:securityLight" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfServicePointID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="servicePointID" type="com:servicePointID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfServiceLocation">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="serviceLocation" nillable="true" type="msp:serviceLocation" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfServiceLocationID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="serviceLocationID" type="com:objectID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfServiceOrder">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="serviceOrder" nillable="true" type="msp:serviceOrder" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfServiceOrderID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="serviceOrderID" type="com:objectID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfServicePointStatus">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="servicePointStatus" type="msp:servicePointStatus" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfServicePointStatusReferable">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="servicePointStatusReferable" type="msp:servicePointStatusReferable" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfServiceStatus">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="serviceStatus" type="s:string" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfServiceType">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="serviceType" type="enum:serviceType" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfShipmentID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="shipmentID" type="s:string" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfShortCircuitAnalysisResult">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="shortCircuitAnalysisResult" nillable="true" type="msp:shortCircuitAnalysisResult" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfShutOffDate">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="shutOffDate" type="prim:mspDateTime" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfSiteID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="siteID" type="s:string" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfSpatialFeatures">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="spatialFeatures" type="msp:spatialFeatures" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfSpatialFeatureType">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="featureType" type="enum:spatialFeatureType" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfStreetLight">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="streetLight" nillable="true" type="msp:streetLight" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfString">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="theString" nillable="true" type="s:string" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfSubstationLoadControlStatus">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="substationLoadControlStatus" nillable="true" type="msp:substationLoadControlStatus" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfSubstationName">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="substationName" type="s:string" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfSurgeArrestor">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="surgeArrestor" nillable="true" type="msp:surgeArrestor" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfSwitchingOrder">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="switchingOrder" nillable="true" type="msp:switchingOrder" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfSwitchingOrderID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="switchingOrderID" type="com:objectID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfTaggedDeviceRef">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="taggedDeviceRef" type="com:objectRef" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfTariff">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="tariff" type="msp:tariff" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfTelephoneNumber">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="telephoneNumber" type="com:telephoneNumber" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfThermostat">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="thermostat" nillable="true" type="msp:thermostat" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfThermostatConfigurationReferable">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="thermostatConfigurationReferable" type="msp:thermostatConfigurationReferable" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfThermostatSchedule">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="thermostatSchedule" type="msp:thermostatSchedule" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfThermostatScheduleConfirmation">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="thermostatScheduleConfirmation" type="msp:thermostatScheduleConfirmation" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfThresholdMonitoringItem">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="thresholdMonitoringItem" type="msp:thresholdMonitoringItem" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfTimePeriod">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="timePeriod" type="com:timePeriod" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfTrafficLight">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="trafficLight" type="msp:trafficLight" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfTransformerBank">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="transformerBank" nillable="true" type="msp:transformerBank" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfTransponderID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="transponderID" type="s:string" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfUnitID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="unitID" type="com:objectID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfUsage">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="usage" nillable="true" type="msp:usage" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfViewDefinition">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="viewDefinition" type="msp:viewDefinition" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfViewRequest">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="viewRequest" type="msp:viewRequest" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWaterMeter">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="waterMeter" nillable="true" type="msp:waterMeter" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkAssignmentChange">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workAssignmentChange" type="msp:workAssignmentChange" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorker">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="worker" type="msp:worker" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkHistoryReferable">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workHistoryReferable" type="msp:workHistoryReferable" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkItem">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workItem" type="msp:workItem" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkItemDeletionRequest">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workItemDeletionRequest" type="msp:workItemDeletionRequest" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkItemRef">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workItemRef" type="msp:workItemRef" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkItemSummary">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workItemSummary" type="msp:workItemSummary" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkOrder">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workOrder" nillable="true" type="msp:workOrder" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkOrderReference">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workOrderReference" type="msp:workOrderReference" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkOrderSelection">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workOrderSelection" nillable="true" type="msp:workOrderSelection" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkOrderUpdate">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workOrderUpdate" type="msp:workOrderUpdate" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkProgress">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workProgress" type="msp:workProgress" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkProgressItem">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workProgressItem" type="msp:workProgressItem" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkReference">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workReference" type="msp:workReference" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkRequest">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workRequest" nillable="true" type="msp:workRequest" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkRequestRef">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workRequestRef" type="com:objectRef" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkRequestResult">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workRequestResult" type="msp:workRequestResult" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkRequestStatusReferable">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workRequestStatusReferable" type="msp:workRequestStatusReferable" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkScheduleChange">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workScheduleChange" type="msp:workScheduleChange" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkStatusCategory">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workStatusCategory" type="enum:workStatusCategory" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkStatusCode">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workStatusCode" type="s:string" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkType">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workType" type="msp:workType" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkTypeRef">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workTypeRef" type="msp:workTypeRef" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfWorkUnassignment">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="workUnassignment" type="msp:workUnassignment" />
+    </s:sequence>
+  </s:complexType>
+</s:schema>

@@ -1,0 +1,69 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DMSConfig" GeneratedClassName="Settings1">
+  <Profiles />
+  <Settings>
+    <Setting Name="MSMajorVersion" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="MSMinorVersion" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="MSBuild" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="MSBranch" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="MSBuildString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">RC</Value>
+    </Setting>
+    <Setting Name="MSAppName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TestApp</Value>
+    </Setting>
+    <Setting Name="MSAppVersion" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MSCompany" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TestCo</Value>
+    </Setting>
+    <Setting Name="MSAuditID" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MSAuditPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MSSystemID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">X35</Value>
+    </Setting>
+    <Setting Name="MSPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MSCodedNameType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Other</Value>
+    </Setting>
+    <Setting Name="MSCodedValue" Type="System.String" Scope="User">
+      <Value Profile="(Default)">X1</Value>
+    </Setting>
+    <Setting Name="MSCodedNamePart" Type="System.String" Scope="User">
+      <Value Profile="(Default)">X2</Value>
+    </Setting>
+    <Setting Name="MSCodedDescription" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MSCSAuthNameOther" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Feet</Value>
+    </Setting>
+    <Setting Name="MSCSAuthNameValue" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Auth1</Value>
+    </Setting>
+    <Setting Name="MSCSUnitOther" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MSCSUnitValue" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Feet</Value>
+    </Setting>
+    <Setting Name="MSCSDatum" Type="System.String" Scope="User">
+      <Value Profile="(Default)">A7</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

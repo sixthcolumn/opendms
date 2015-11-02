@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0b695026-05a0-4bca-9c73-22bfeb3158dc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="C:\DermWSDL\SB_DER_Server.wsdl" Protocol="file" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="mspGeometry.xsd" MetadataType="Schema" ID="c19da3bc-fdf1-4d1c-b0f9-09c9424e59af" SourceId="1" SourceUrl="file:///C:/DermWSDL/mspGeometry.xsd" />
+    <MetadataFile FileName="mspCommonTypes.xsd" MetadataType="Schema" ID="fc847c18-097b-4a7f-b2ad-6fccc60a90c6" SourceId="1" SourceUrl="file:///C:/DermWSDL/mspCommonTypes.xsd" />
+    <MetadataFile FileName="SandBoxArrayTypes.xsd" MetadataType="Schema" ID="064238b1-6686-4342-9e2f-56c8756b3ef7" SourceId="1" SourceUrl="file:///C:/DermWSDL/SandBoxArrayTypes.xsd" />
+    <MetadataFile FileName="MultiSpeakWebServicesResponseMsgHeader.xsd" MetadataType="Schema" ID="ce465eb6-3568-4e10-b56a-212e1ef324c9" SourceId="1" SourceUrl="file:///C:/DermWSDL/MultiSpeakWebServicesResponseMsgHeader.xsd" />
+    <MetadataFile FileName="SB_DER_Server.wsdl" MetadataType="Wsdl" ID="fc4ec11d-d9a4-4e39-bb04-70205c18851c" SourceId="1" SourceUrl="file:///C:/DermWSDL/SB_DER_Server.wsdl" />
+    <MetadataFile FileName="SB_DER_Server.xsd" MetadataType="Schema" ID="d5648b3d-6ab9-4631-8f1d-0fd08d9728d6" SourceId="1" SourceUrl="file:///C:/DermWSDL/SB_DER_Server.xsd" />
+    <MetadataFile FileName="xlinks.xsd" MetadataType="Schema" ID="c6d5c693-ba73-4068-9aa6-e9f9dee10c4a" SourceId="1" SourceUrl="file:///C:/DermWSDL/xlinks.xsd" />
+    <MetadataFile FileName="mspEnumerations.xsd" MetadataType="Schema" ID="79f9fb78-211c-46dc-976a-b7b816b70994" SourceId="1" SourceUrl="file:///C:/DermWSDL/mspEnumerations.xsd" />
+    <MetadataFile FileName="mspArrayTypes.xsd" MetadataType="Schema" ID="32113c4b-75ae-4c5a-b4f5-f2fe23d2fab2" SourceId="1" SourceUrl="file:///C:/DermWSDL/mspArrayTypes.xsd" />
+    <MetadataFile FileName="mspCPSM.xsd" MetadataType="Schema" ID="e1bef021-7c2c-4c2a-bd7d-9878638ec0fb" SourceId="1" SourceUrl="file:///C:/DermWSDL/mspCPSM.xsd" />
+    <MetadataFile FileName="mspPrimitives.xsd" MetadataType="Schema" ID="7e5ed8a6-03f8-4d7b-9cbe-ce0660ad0115" SourceId="1" SourceUrl="file:///C:/DermWSDL/mspPrimitives.xsd" />
+    <MetadataFile FileName="MultiSpeakWebServicesRequestMsgHeader.xsd" MetadataType="Schema" ID="8a625482-c35e-4f6a-92f3-37ca7a58582d" SourceId="1" SourceUrl="file:///C:/DermWSDL/MultiSpeakWebServicesRequestMsgHeader.xsd" />
+    <MetadataFile FileName="SandBox.xsd" MetadataType="Schema" ID="e87a1c67-76b8-441a-a782-a7004c8b45bb" SourceId="1" SourceUrl="file:///C:/DermWSDL/SandBox.xsd" />
+    <MetadataFile FileName="MultiSpeak.xsd" MetadataType="Schema" ID="a45dcdbe-cd2c-435c-acbd-305fef21490d" SourceId="1" SourceUrl="file:///C:/DermWSDL/MultiSpeak.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

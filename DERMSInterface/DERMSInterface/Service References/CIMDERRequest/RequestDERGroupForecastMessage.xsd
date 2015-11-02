@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:msg="http://iec.ch/TC57/2011/schema/message" xmlns:tns="http://iec.ch/TC57/2011/DERGroupForecastMessage" xmlns:obj="http://www.epri.com/2013/DERGroupForecast#" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://iec.ch/TC57/2011/DERGroupForecastMessage" version="1.0.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="Message.xsd" namespace="http://iec.ch/TC57/2011/schema/message" />
+  <xs:import schemaLocation="DERGroupForecast.xsd" namespace="http://www.epri.com/2013/DERGroupForecast#" />
+  <xs:complexType name="DERGroupForecastPayloadType">
+    <xs:sequence>
+      <xs:element ref="obj:DERGroupForecasts" />
+      <xs:element minOccurs="0" name="OperationSet" type="msg:OperationSet" />
+      <xs:element minOccurs="0" name="Compressed" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>For compressed and/or binary, uuencoded
+						payloads</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Format" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Hint as to format of payload, e.g. XML, RDF, SVF,
+						BINARY,
+						PDF, ...</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DERGroupForecastRequestMessageType">
+    <xs:sequence>
+      <xs:element name="Header" type="msg:HeaderType" />
+      <xs:element minOccurs="0" name="Request" type="msg:RequestType" />
+      <xs:element minOccurs="0" name="Payload" type="tns:DERGroupForecastPayloadType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DERGroupForecastResponseMessageType">
+    <xs:sequence>
+      <xs:element name="Header" type="msg:HeaderType" />
+      <xs:element name="Reply" type="msg:ReplyType" />
+      <xs:element minOccurs="0" name="Payload" type="tns:DERGroupForecastPayloadType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DERGroupForecastEventMessageType">
+    <xs:sequence>
+      <xs:element name="Header" type="msg:HeaderType" />
+      <xs:element minOccurs="0" name="Payload" type="tns:DERGroupForecastPayloadType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DERGroupForecastFaultMessageType">
+    <xs:sequence>
+      <xs:element name="Reply" type="msg:ReplyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateDERGroupForecast" type="tns:DERGroupForecastRequestMessageType" />
+  <xs:element name="ChangeDERGroupForecast" type="tns:DERGroupForecastRequestMessageType" />
+  <xs:element name="CancelDERGroupForecast" type="tns:DERGroupForecastRequestMessageType" />
+  <xs:element name="CloseDERGroupForecast" type="tns:DERGroupForecastRequestMessageType" />
+  <xs:element name="DeleteDERGroupForecast" type="tns:DERGroupForecastRequestMessageType" />
+  <xs:element name="CreatedDERGroupForecast" type="tns:DERGroupForecastEventMessageType" />
+  <xs:element name="ChangedDERGroupForecast" type="tns:DERGroupForecastEventMessageType" />
+  <xs:element name="CanceledDERGroupForecast" type="tns:DERGroupForecastEventMessageType" />
+  <xs:element name="ClosedDERGroupForecast" type="tns:DERGroupForecastEventMessageType" />
+  <xs:element name="DeletedDERGroupForecast" type="tns:DERGroupForecastEventMessageType" />
+  <xs:element name="DERGroupForecastResponseMessage" type="tns:DERGroupForecastResponseMessageType" />
+  <xs:element name="DERGroupForecastFaultMessage" type="tns:DERGroupForecastFaultMessageType" />
+</xs:schema>

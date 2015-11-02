@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:sbarrays="http://www.multispeak.org/V5.0/sandboxArrays" xmlns:arrays="http://www.multispeak.org/V5.0/commonArrays" xmlns:com="http://www.multispeak.org/V5.0/commonTypes" xmlns:enum="http://www.multispeak.org/V5.0/enumerations" xmlns:msp="http://www.multispeak.org/V5.0" xmlns:sandbox="http://www.multispeak.org/V5.0/sandbox" xmlns="http://www.multispeak.org/V5.0/wsdl/SB_DER_Server" xmlns:prim="http://www.multispeak.org/V5.0/primitives" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.multispeak.org/V5.0/wsdl/SB_DER_Server" version="5.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="mspArrayTypes.xsd" namespace="http://www.multispeak.org/V5.0/commonArrays" />
+  <xs:import schemaLocation="mspEnumerations.xsd" namespace="http://www.multispeak.org/V5.0/enumerations" />
+  <xs:import schemaLocation="MultiSpeak.xsd" namespace="http://www.multispeak.org/V5.0" />
+  <xs:import schemaLocation="mspCommonTypes.xsd" namespace="http://www.multispeak.org/V5.0/commonTypes" />
+  <xs:import schemaLocation="mspPrimitives.xsd" namespace="http://www.multispeak.org/V5.0/primitives" />
+  <xs:import schemaLocation="SandBox.xsd" namespace="http://www.multispeak.org/V5.0/sandbox" />
+  <xs:import schemaLocation="SandBoxArrayTypes.xsd" namespace="http://www.multispeak.org/V5.0/sandboxArrays" />
+  <xs:element name="CreateDERGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfDERGroup" type="sbarrays:ArrayOfDERGroup" />
+        <xs:element minOccurs="0" name="responseURL" type="xs:anyURI" />
+        <xs:element minOccurs="0" name="transactionID" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDERGroupsResponse">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="DeleteDERGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfDERGroupID" type="sbarrays:ArrayOfDERGroupID" />
+        <xs:element minOccurs="0" name="responseURL" type="xs:anyURI" />
+        <xs:element minOccurs="0" name="transactionID" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDERGroupsResponse">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="GetAllDERs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lastReceived" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDERsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfDER" type="sbarrays:ArrayOfDER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttachmentsByObjectRefs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfObjectRef" type="arrays:ArrayOfObjectRef" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttachmentsByObjectRefsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfAttachment" type="arrays:ArrayOfAttachment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDERGroupForecasts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="forecastInterval" type="com:duration" />
+        <xs:element minOccurs="0" name="forecastPeriod" type="com:timePeriod" />
+        <xs:element minOccurs="0" name="ArrayOfDERGroup" type="sbarrays:ArrayOfDERGroup" />
+        <xs:element minOccurs="0" name="ArrayOfRequestedCapability" type="sbarrays:ArrayOfRequestedCapability" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDERGroupForecastsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfDERGroupForecast" type="sbarrays:ArrayOfDERGroupForecast" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDERGroupStatusesByDERGroupIDs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfDERGroupID" type="sbarrays:ArrayOfDERGroupID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDERGroupStatusesByDERGroupIDsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfDERGroupStatus" type="sbarrays:ArrayOfDERGroupStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDERsByDERID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfDERID" type="sbarrays:ArrayOfDERID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDERsByDERIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfDER" type="sbarrays:ArrayOfDER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDomainMembers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="domainName" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDomainMembersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfDomainMember" type="arrays:ArrayOfDomainMember" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDomainNames">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="GetDomainNamesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfString" type="arrays:ArrayOfString" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMethods">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="GetMethodsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfString" type="arrays:ArrayOfString" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InitiateDERGroupDispatchRequests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfDERGroupDispatchRequest" type="sbarrays:ArrayOfDERGroupDispatchRequest" />
+        <xs:element minOccurs="0" name="responseURL" type="xs:anyURI" />
+        <xs:element minOccurs="0" name="transactionID" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InitiateDERGroupDispatchRequestsResponse">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="InsertDERsInDERGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfDERID" type="sbarrays:ArrayOfDERID" />
+        <xs:element minOccurs="0" name="DERGroupID" type="com:objectID" />
+        <xs:element minOccurs="0" name="responseURL" type="xs:anyURI" />
+        <xs:element minOccurs="0" name="transactionID" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertDERsInDERGroupResponse">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="LinkAttachmentsToObjects">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfAttachmentContainer" type="arrays:ArrayOfAttachmentContainer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LinkAttachmentsToObjectsResponse">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="PingURL">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="PingURLResponse">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="RemoveDERsFromDERGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfDERID" type="sbarrays:ArrayOfDERID" />
+        <xs:element minOccurs="0" name="DERGroupID" type="com:objectID" />
+        <xs:element minOccurs="0" name="responseURL" type="xs:anyURI" />
+        <xs:element minOccurs="0" name="transactionID" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveDERsFromDERGroupResponse">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="UnlinkAttachmentsFromObjects">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArrayOfAttachmentUnlinkContainer" type="arrays:ArrayOfAttachmentUnlinkContainer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnlinkAttachmentsFromObjectsResponse">
+    <xs:complexType />
+  </xs:element>
+</xs:schema>

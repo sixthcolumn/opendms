@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:msg="http://iec.ch/TC57/2011/schema/message" xmlns:tns="http://iec.ch/TC57/2011/GetDERGroupCapabilityMessage" xmlns:obj1="http://www.epri.com/2013/DERStatus#" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://iec.ch/TC57/2011/GetDERGroupCapabilityMessage" version="1.0.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="Message.xsd" namespace="http://iec.ch/TC57/2011/schema/message" />
+  <xs:import schemaLocation="DERGroupStatus.xsd" namespace="http://www.epri.com/2013/DERStatus#" />
+  <xs:complexType name="GetDERGroupCapabilityRequestType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Start time of interest</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>End time of interest</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Option" type="msg:OptionType">
+        <xs:annotation>
+          <xs:documentation>Request type specialization</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ID" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Object ID for request</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other" processContents="lax">
+        <xs:annotation>
+          <xs:documentation>This can be a CIM profile defined as an XSD with
+						a CIMspecific
+						namespace</xs:documentation>
+        </xs:annotation>
+      </xs:any>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetDERGroupCapabilityPayloadType">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="obj1:DERGroupCapabilities" />
+      <xs:element minOccurs="0" name="OperationSet" type="msg:OperationSet" />
+      <xs:element minOccurs="0" name="Compressed" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>For compressed and/or binary, uuencoded
+						payloads
+					</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Format" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Hint as to format of payload, e.g. XML, RDF, SVF,
+						BINARY,
+						PDF, ...</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetDERGroupCapabilityRequestMessageType">
+    <xs:sequence>
+      <xs:element name="Header" type="msg:HeaderType" />
+      <xs:element name="Request" type="tns:GetDERGroupCapabilityRequestType" />
+      <xs:element minOccurs="0" name="Payload" type="tns:GetDERGroupCapabilityPayloadType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetDERGroupCapabilityResponseMessageType">
+    <xs:sequence>
+      <xs:element name="Header" type="msg:HeaderType" />
+      <xs:element name="Reply" type="msg:ReplyType" />
+      <xs:element minOccurs="0" name="Payload" type="tns:GetDERGroupCapabilityPayloadType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetDERGroupCapabilityFaultMessageType">
+    <xs:sequence>
+      <xs:element name="Reply" type="msg:ReplyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetDERGroupCapability" type="tns:GetDERGroupCapabilityRequestMessageType" />
+  <xs:element name="GetDERGroupCapabilityResponseMessage" type="tns:GetDERGroupCapabilityResponseMessageType" />
+  <xs:element name="GetDERGroupCapabilityFaultMessage" type="tns:GetDERGroupCapabilityFaultMessageType" />
+</xs:schema>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0c2e7f95-2fc1-444e-8c1e-925710a84500" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="Z:\git\openwms\DER\wsdl\RequestDERGroupDispatch.wsdl" Protocol="file" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RequestDERGroupDispatch.wsdl" MetadataType="Wsdl" ID="e0e92a46-29fe-4a9f-8e4f-1fae522893b3" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/RequestDERGroupDispatch.wsdl" />
+    <MetadataFile FileName="Message.xsd" MetadataType="Schema" ID="5411e61c-355c-4579-a889-069963355933" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/Message.xsd" />
+    <MetadataFile FileName="RequestDERGroupDispatchMessage.xsd" MetadataType="Schema" ID="c84919f5-7388-4586-853d-20637037fa3e" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/RequestDERGroupDispatchMessage.xsd" />
+    <MetadataFile FileName="DERGroupDispatch.xsd" MetadataType="Schema" ID="36b730f7-0847-4062-9b3b-07cf8bcd3889" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/DERGroupDispatch.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

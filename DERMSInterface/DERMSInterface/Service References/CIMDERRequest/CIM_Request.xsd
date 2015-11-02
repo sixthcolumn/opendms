@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ns="http://sixthc.com/CIM/Request" xmlns:ns4="http://iec.ch/TC57/2011/DERGroupMessage" xmlns:ns5="http://iec.ch/TC57/2011/GetDERGroupCapabilityMessage" xmlns:ns2="http://www.epri.com/2013/DERGroupForecast#" xmlns:ns7="http://iec.ch/TC57/2011/DERGroupDispatchMessage" xmlns:ns6="http://iec.ch/TC57/2011/GetDERGroupStatusMessage" xmlns:ns3="http://www.epri.com/2013/DERStatus#" xmlns:ns8="http://iec.ch/TC57/2011/DERGroupForecastMessage" xmlns:ns1="http://iec.ch/TC57/2011/GetDERGroupMessage" xmlns:ns9="http://iec.ch/TC57/2011/GetDERGroupForecastMessage" targetNamespace="http://sixthc.com/CIM/Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="xsd/GetDerGroupMessage.xsd" namespace="http://iec.ch/TC57/2011/GetDERGroupMessage" />
+  <xs:import schemaLocation="xsd/DERGroupForecast.xsd" namespace="http://www.epri.com/2013/DERGroupForecast#" />
+  <xs:import schemaLocation="xsd/DERGroupStatus.xsd" namespace="http://www.epri.com/2013/DERStatus#" />
+  <xs:import schemaLocation="xsd/RequestDERGroupMessage.xsd" namespace="http://iec.ch/TC57/2011/DERGroupMessage" />
+  <xs:import schemaLocation="xsd/GetDERGroupCapabilityMessage.xsd" namespace="http://iec.ch/TC57/2011/GetDERGroupCapabilityMessage" />
+  <xs:import schemaLocation="xsd/GetDERGroupStatusMessage.xsd" namespace="http://iec.ch/TC57/2011/GetDERGroupStatusMessage" />
+  <xs:import schemaLocation="xsd/RequestDERGroupDispatchMessage.xsd" namespace="http://iec.ch/TC57/2011/DERGroupDispatchMessage" />
+  <xs:import schemaLocation="xsd/RequestDERGroupForecastMessage.xsd" namespace="http://iec.ch/TC57/2011/DERGroupForecastMessage" />
+  <xs:import schemaLocation="xsd/GetDerGroupForecastMessage.xsd" namespace="http://iec.ch/TC57/2011/GetDERGroupForecastMessage" />
+  <xs:element name="GetDERGroupsPayload" type="ns:getDERGroupsRequest" />
+  <xs:element name="GetDERGroupsResponse" type="ns1:DERGroupResponseMessageType" />
+  <xs:complexType name="getDERGroupsRequest">
+    <xs:sequence>
+      <xs:element name="requestURL" type="xs:string" />
+      <xs:element name="payload" type="ns1:GetDERGroupRequestMessageType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestCreateDERGroupPayload" type="ns:requestDERGroupsRequest" />
+  <xs:element name="RequestCreateDERGroupResponse" type="ns4:DERGroupResponseMessageType" />
+  <xs:element name="RequestDeleteDERGroupPayload" type="ns:requestDERGroupsRequest" />
+  <xs:element name="RequestDeleteDERGroupResponse" type="ns4:DERGroupResponseMessageType" />
+  <xs:element name="RequestChangeDERGroupPayload" type="ns:requestDERGroupsRequest" />
+  <xs:element name="RequestChangeDERGroupResponse" type="ns4:DERGroupResponseMessageType" />
+  <xs:complexType name="requestDERGroupsRequest">
+    <xs:sequence>
+      <xs:element name="requestURL" type="xs:string" />
+      <xs:element name="payload" type="ns4:DERGroupRequestMessageType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetDERGroupCapabilityPayload" type="ns:getDERGroupCapabilityRequest" />
+  <xs:element name="GetDERGroupCapabilityResponse" type="ns5:GetDERGroupCapabilityResponseMessageType" />
+  <xs:complexType name="getDERGroupCapabilityRequest">
+    <xs:sequence>
+      <xs:element name="requestURL" type="xs:string" />
+      <xs:element name="payload" type="ns5:GetDERGroupCapabilityRequestMessageType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetDERGroupStatusPayload" type="ns:getDERGroupStatusRequest" />
+  <xs:element name="GetDERGroupStatusResponse" type="ns6:DERGroupStatusResponseMessageType" />
+  <xs:complexType name="getDERGroupStatusRequest">
+    <xs:sequence>
+      <xs:element name="requestURL" type="xs:string" />
+      <xs:element name="payload" type="ns6:GetDERGroupStatusRequestMessageType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetDERGroupForecastPayload" type="ns:getDERGroupForecastRequest" />
+  <xs:element name="GetDERGroupForecastResponse" type="ns9:DERGroupForecastResponseMessageType" />
+  <xs:complexType name="getDERGroupForecastRequest">
+    <xs:sequence>
+      <xs:element name="requestURL" type="xs:string" />
+      <xs:element name="payload" type="ns6:GetDERGroupStatusRequestMessageType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestCreateDERGroupDispatchPayload" type="ns:changeDERGroupCapabilityRequest" />
+  <xs:element name="RequestCreateDERGroupDispatchResponse" type="ns7:DERGroupDispatchResponseMessageType" />
+  <xs:complexType name="changeDERGroupCapabilityRequest">
+    <xs:sequence>
+      <xs:element name="requestURL" type="xs:string" />
+      <xs:element name="payload" type="ns7:DERGroupDispatchRequestMessageType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChangeDERGroupForecastPayload" type="ns:changeDERGroupForecastRequest" />
+  <xs:element name="ChangeDERGroupForecastResponse" type="ns8:DERGroupForecastResponseMessageType" />
+  <xs:complexType name="changeDERGroupForecastRequest">
+    <xs:sequence>
+      <xs:element name="requestURL" type="xs:string" />
+      <xs:element name="payload" type="ns8:DERGroupForecastRequestMessageType" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

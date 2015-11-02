@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:com="http://www.multispeak.org/V5.0/commonTypes" xmlns:enum="http://www.multispeak.org/V5.0/enumerations" xmlns:msp="http://www.multispeak.org/V5.0" xmlns="http://www.multispeak.org/V5.0/ws/response" xmlns:prim="http://www.multispeak.org/V5.0/primitives" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.multispeak.org/V5.0/ws/response" version="5.0.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="MultiSpeak.xsd" namespace="http://www.multispeak.org/V5.0" />
+  <xsd:import schemaLocation="mspCommonTypes.xsd" namespace="http://www.multispeak.org/V5.0/commonTypes" />
+  <xsd:import schemaLocation="mspPrimitives.xsd" namespace="http://www.multispeak.org/V5.0/primitives" />
+  <xsd:import schemaLocation="mspEnumerations.xsd" namespace="http://www.multispeak.org/V5.0/enumerations" />
+  <xsd:complexType name="MultiSpeakResponseMsgHeader">
+    <xsd:annotation>
+      <xsd:documentation>This is the message header for response-type messages.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="MultiSpeakVersion" type="com:MultiSpeakVersion" />
+      <xsd:element name="Caller" type="com:Caller" />
+      <xsd:element minOccurs="0" name="CodedNames" type="com:CodedNames" />
+      <xsd:element minOccurs="0" name="CoordinateSystemInformation" type="com:CoordinateSystemInformation" />
+      <xsd:element name="Result" type="com:result" />
+    </xsd:sequence>
+    <xsd:attribute name="DefaultRegisteredName" type="prim:alphaNumericRestrictedString">
+      <xsd:annotation>
+        <xsd:documentation>For all objectRefs in this message, this is the default registeredName. This name is part of an optional dotted-quad notation that may be used when necessary to create unique object identifers.  The fully-qualified name is of the form of RegisteredName.SystemName.NounType.objectID.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="DefaultSystemName" type="prim:alphaNumericRestrictedString">
+      <xsd:annotation>
+        <xsd:documentation>For all objectRefs in this message, this is the default systemName.  This name is part of an optional dotted-quad notation that may be used when necessary to create unique object identifers.  The fully-qualified name is of the form of RegisteredName.SystemName.NounType.objectID.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="DefaultUtility" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>String that is used to identify the default utility that is associated with objects contained in this message.   It may be a text string or a pointer to an organization.  If it is a text string, it is suggested that the string be the Internet domain name for the owner in valid XS:anyURI format.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="DefaultCurrencyCode" type="enum:currencyCode" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>This is the default currencyCode for money transactions sent in this file.  Values of currencyCode are defined in the MultiSpeak core data schema as enumeration of the currencyCode simple type, beginning in Version 4.0.0, release candidate a. For instance, USD is the currency code for united states dollars.  </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="MessageID" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>This is a unique identifier for this instance of a message.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="TimeStamp" type="xsd:dateTime" use="required">
+      <xsd:annotation>
+        <xsd:documentation>The time the message was sent.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="MessageCreatedTimeStamp" type="xsd:dateTime">
+      <xsd:annotation>
+        <xsd:documentation>This is the time that the message was originally created.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="Context" type="com:MessageContext">
+      <xsd:annotation>
+        <xsd:documentation>If used, this attribute tells the receiver the context in which this message is being sent. It is suggested that the receiver treat any message without a contexxt as a production message.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:anyAttribute namespace="##any" processContents="lax" />
+  </xsd:complexType>
+</xsd:schema>

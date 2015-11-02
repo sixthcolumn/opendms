@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c4968e3d-9ba9-4dd9-8d70-3da938820261" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="Z:\git\openwms\DER\wsdl\CIM_Request.wsdl" Protocol="file" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="GetDerGroupForecastMessage.xsd" MetadataType="Schema" ID="de1a1a9d-e8a8-407d-af32-d4f7cc4da0c0" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/GetDerGroupForecastMessage.xsd" />
+    <MetadataFile FileName="DERGroupDispatch.xsd" MetadataType="Schema" ID="e3809097-4da5-4835-a67a-6c8f5664625c" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/DERGroupDispatch.xsd" />
+    <MetadataFile FileName="CIM_Request.wsdl" MetadataType="Wsdl" ID="063831e4-5df9-4313-963c-531190be96f9" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/CIM_Request.wsdl" />
+    <MetadataFile FileName="GetDERGroupStatusMessage.xsd" MetadataType="Schema" ID="5ca0fb1f-bd38-4aef-a430-2346eeaac3be" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/GetDERGroupStatusMessage.xsd" />
+    <MetadataFile FileName="RequestDERGroupMessage.xsd" MetadataType="Schema" ID="7e6e1558-fbf0-4005-b5b4-181dc471ad2f" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/RequestDERGroupMessage.xsd" />
+    <MetadataFile FileName="GetDERGroupCapabilityMessage.xsd" MetadataType="Schema" ID="9539cd45-5962-46c8-879f-cd881d499f19" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/GetDERGroupCapabilityMessage.xsd" />
+    <MetadataFile FileName="RequestDERGroupForecastMessage.xsd" MetadataType="Schema" ID="3100dedd-8e92-41e8-8254-b5dea2e65d01" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/RequestDERGroupForecastMessage.xsd" />
+    <MetadataFile FileName="DERGroupStatus.xsd" MetadataType="Schema" ID="fe9e9488-369c-49a2-aaec-42753c2f1c21" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/DERGroupStatus.xsd" />
+    <MetadataFile FileName="CIM_Request.xsd" MetadataType="Schema" ID="e9608199-2d46-499d-80c1-789b06953cce" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/CIM_Request.xsd" />
+    <MetadataFile FileName="DERGroupForecast.xsd" MetadataType="Schema" ID="92c6bb75-b976-4359-9bd9-8e88489a3114" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/DERGroupForecast.xsd" />
+    <MetadataFile FileName="GetDerGroupMessage.xsd" MetadataType="Schema" ID="45eef5d9-b5d7-4e8c-87b3-ab6876c1b6e1" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/GetDerGroupMessage.xsd" />
+    <MetadataFile FileName="RequestDERGroupDispatchMessage.xsd" MetadataType="Schema" ID="1ae0e4dc-6cc3-4d17-8ea2-87100dae9131" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/RequestDERGroupDispatchMessage.xsd" />
+    <MetadataFile FileName="DERGroup.xsd" MetadataType="Schema" ID="885f1015-2b41-4dfe-9b55-b915c4bcf557" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/DERGroup.xsd" />
+    <MetadataFile FileName="Message.xsd" MetadataType="Schema" ID="d8923c5d-6c06-4efd-b55a-dba71f3e2d60" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/Message.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

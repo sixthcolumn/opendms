@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:schema xmlns:sandbox="http://www.multispeak.org/V5.0/sandbox" xmlns:com="http://www.multispeak.org/V5.0/commonTypes" xmlns="http://www.multispeak.org/V5.0/sandboxArrays" xmlns:enum="http://www.multispeak.org/V5.0/enumerations" xmlns:msp="http://www.multispeak.org/V5.0" xmlns:prim="http://www.multispeak.org/V5.0/primitives" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.multispeak.org/V5.0/sandboxArrays" version="5.0.3" xmlns:s="http://www.w3.org/2001/XMLSchema">
+  <s:import schemaLocation="MultiSpeak.xsd" namespace="http://www.multispeak.org/V5.0" />
+  <s:import schemaLocation="mspCommonTypes.xsd" namespace="http://www.multispeak.org/V5.0/commonTypes" />
+  <s:import schemaLocation="mspEnumerations.xsd" namespace="http://www.multispeak.org/V5.0/enumerations" />
+  <s:import schemaLocation="mspPrimitives.xsd" namespace="http://www.multispeak.org/V5.0/primitives" />
+  <s:import schemaLocation="SandBox.xsd" namespace="http://www.multispeak.org/V5.0/sandbox" />
+  <s:complexType name="ArrayOfConfigurationGroup">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="configurationGroup" type="msp:configurationGroup" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDER">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="DER" type="sandbox:DER" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDERGroup">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="DERGroup" type="sandbox:DERGroup" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDERGroupDispatchRequest">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="DERGroupDispatchRequest" type="sandbox:DERGroupDispatchRequest" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDERGroupForecast">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="DERGroupForecast" type="sandbox:DERGroupForecast" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDERGroupID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="DERGroupID" type="sandbox:DERGroupID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDERGroupName">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="DERGroupName" type="sandbox:DERGroupName" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDERGroupStatus">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="DERGroupStatus" type="sandbox:DERGroupStatus" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfDERID">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="DERID" type="sandbox:DERID" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfEndDeviceShipment">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="endDeviceShipment" type="sandbox:endDeviceShipment" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfLTDeviceRef">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="LTDeviceRef" type="msp:locationTrackingDeviceRef" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfMaterialRequisition">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="materialRequisition" type="sandbox:materialRequisition" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfMaterialRequisitionCancellation">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="materialRequisitionCancellation" type="sandbox:materialRequisitionCancellation" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfMaterialRequisitionResult">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="materialRequisitionResult" type="sandbox:materialRequisitionResult" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfRequestedCapability">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="requestedCapability" type="sandbox:requestedCapability" />
+    </s:sequence>
+  </s:complexType>
+  <s:complexType name="ArrayOfTestedElectricMeter">
+    <s:sequence>
+      <s:element minOccurs="0" maxOccurs="unbounded" name="testedElectricMeter" nillable="true" type="sandbox:testedElectricMeter" />
+    </s:sequence>
+  </s:complexType>
+</s:schema>
