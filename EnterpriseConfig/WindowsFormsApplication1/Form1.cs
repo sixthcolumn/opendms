@@ -17,6 +17,7 @@ namespace WindowsFormsApplication1
         DERMSInterface.CIMData _cim = new CIMData();
         private BindingSource DERGroupBindingSource = new BindingSource();
         private BindingSource DERBindingSource = new BindingSource();
+        private Boolean _leavingNewRow = false;
 
         public Form1()
         {
@@ -24,7 +25,8 @@ namespace WindowsFormsApplication1
             DERGroupBindingSource.DataSource = _cim.Groups;
             DERGroupsView.DataSource = DERGroupBindingSource;
             DERGroupBindingSource.ResetBindings(false);
-            DERGroupsView.RowEnter += new DataGridViewCellEventHandler(DERGroupRow_Clicked);
+            DERGroupsView.RowEnter += new DataGridViewCellEventHandler(DERGroupRow_enter);
+            DERGroupsView.RowLeave += new DataGridViewCellEventHandler(DERGroupRow_leave);
             DERGroupsView.CellClick += new DataGridViewCellEventHandler(DERGroupCell_Clicked);
             DERGroupsView.CellValueChanged += new DataGridViewCellEventHandler(DERGroupCell_Changed);
             DERGroupsView.UserDeletedRow += new DataGridViewRowEventHandler(DERGroupRow_Deleted);
@@ -33,6 +35,15 @@ namespace WindowsFormsApplication1
             DERView.ReadOnly = true;
             DERGroupsView.AllowUserToAddRows = true;
             verbText.Text = verb(messageTypeCombo.Text);
+        }
+
+
+        private void DERGroupRow_enter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == 0)
+                return;
+
+            BindDERBindingSource(e.RowIndex);
         }
 
         
@@ -114,19 +125,30 @@ namespace WindowsFormsApplication1
         }
 
         // row selected
-        private void DERGroupRow_Clicked(object sender, DataGridViewCellEventArgs e)
+        private void DERGroupRow_leave(object sender, DataGridViewCellEventArgs e)
         {
+            
             if (e.RowIndex == 0)
                 return;
-
-            BindDERBindingSource(e.RowIndex);
+            /*
+             * kludge. When you select DER (child) cell, the datagrid unselects the
+             * NEW row, and selects the previous row, but leaves the cell you have
+             * selected in the new row hilited. This unselects that cell, which selects
+             * first cell of previous (existing row). trust me.
+             */
+            if (DERGroupsView.NewRowIndex == e.RowIndex)
+                DERGroupsView.Rows[e.RowIndex].Cells[0].Selected = false;
         }
 
         // re-initialize the binding source for DERGroup
         private void bindDevices(CIMData.DERGroup group)
         {
             if (group == null)
+            {
                 DERBindingSource.DataSource = null;
+                DERView.DataSource = null;
+                DERBindingSource.Clear();
+            }
             else
             {
                 if (group.Devices == null)

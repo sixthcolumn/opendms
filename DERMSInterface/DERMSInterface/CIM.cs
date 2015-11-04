@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.IO;
+using System.Runtime.InteropServices;
+
 
 
 namespace DERMSInterface
@@ -41,6 +43,19 @@ namespace DERMSInterface
         private String _lastMessageReceived = "";
         private CIMData _data = new CIMData();
 
+        public static CIM loadConfigFile(string path)
+        {
+            CIM c = new CIM();
+            c._data = DERMSInterface.CIMData.read(path);
+            return c;
+        }
+
+        public static int CreateDERGroup(String derGroup, string path)
+        {
+            CIM c = new CIM();
+            c._data = DERMSInterface.CIMData.read(path);
+            return c.createDERGroup(derGroup, null);
+        }
 
         public String LastMessageReceived
         {
@@ -112,65 +127,7 @@ namespace DERMSInterface
                 return 1;
         }
 
-        public int createDERGroup(CIMData.header header, CIMData.DERGroup group)
-        {
-            CIMChangeDERGroup.DERGroup_PortClient client;
-
-            client = new CIMChangeDERGroup.DERGroup_PortClient("DERGroup_Port", header.EndPoint);
-
-            // Build header string
-            DERMSInterface.CIMChangeDERGroup.DERGroupRequestMessageType req = new DERMSInterface.CIMChangeDERGroup.DERGroupRequestMessageType();
-            CIMChangeDERGroup.HeaderType to = new CIMChangeDERGroup.HeaderType();
-            req.Header = to;
-
-            CIMChangeDERGroup.HeaderTypeVerb v = new CIMChangeDERGroup.HeaderTypeVerb();
-            if (Enum.TryParse(header.Verb, out v))
-                to.Verb = v;
-            to.Noun = header.Noun;
-            to.ReplyAddress = header.ReplyAddress;
-            to.Revision = header.Revision;
-            to.Source = header.Source;
-            if (header.UserID != null || header.UserOrganization != null)
-            {
-                to.User = new CIMChangeDERGroup.UserType();
-                to.User.Organization = header.UserOrganization;
-                to.User.UserID = header.UserID;
-            }
-
-            // initialize the payload
-            req.Payload = new CIMChangeDERGroup.DERGroupPayloadType();
-            req.Payload.DERGroups = new CIMChangeDERGroup.DERGroupsDERGroup[1];
-            req.Payload.DERGroups[0] = new CIMChangeDERGroup.DERGroupsDERGroup();
-
-            if (group != null)
-            {
-                req.Payload.DERGroups[0].name = group.GroupName;
-                req.Payload.DERGroups[0].mRID = group.Mrid;
-
-                if( group.Devices.Count > 0 ) {
-                List<CIMChangeDERGroup.DERMember> DERMembers = new List<CIMChangeDERGroup.DERMember>();
-                foreach( CIMData.device dev in group.Devices ) {
-                    CIMChangeDERGroup.DERMember d = new CIMChangeDERGroup.DERMember();
-                    DERMembers.Add(d);
-                    d.name = dev.Name;
-                    d.mRID = dev.Mrid;
-                    // TODO : Change xsd to allow for reactive, real, etc...
-                }
-
-                req.Payload.DERGroups[0].DERMember = DERMembers.ToArray();
-                }
-            }
-
-            // Send the message to DER Server
-            _lastMessageSent = logMessage<DERMSInterface.CIMChangeDERGroup.DERGroupRequestMessageType>(req);
-            DERMSInterface.CIMChangeDERGroup.DERGroupResponseMessageType reply = client.CreateDERGroup(req);
-            _lastMessageReceived = logMessage<DERMSInterface.CIMChangeDERGroup.DERGroupResponseMessageType>(reply);
-
-            if (reply.Reply.Result.CompareTo(CIMChangeDERGroup.ReplyTypeResult.OK) == 0)
-                return 0;
-            return 1;
-        }
-
+     
 
         /*
          * Creates a new DER Group with children
@@ -209,6 +166,7 @@ namespace DERMSInterface
             to.ReplyAddress = from.ReplyAddress;
             to.Revision = from.Revision;
             to.Source = from.Source;
+            to.User = new CIMChangeDERGroup.UserType();
             to.User.Organization = from.UserOrganization;
             to.User.UserID = from.UserID;
 
@@ -225,11 +183,15 @@ namespace DERMSInterface
                 List<CIMChangeDERGroup.DERMember> DERMembers = new List<CIMChangeDERGroup.DERMember>();
                 foreach (CIMData.device dev in group.Devices)
                 {
-                    CIMChangeDERGroup.DERMember d = new CIMChangeDERGroup.DERMember();
-                    DERMembers.Add(d);
-                    d.name = dev.Name;
-                    d.mRID = dev.Mrid;
-                    // TODO : New xsd, add the watts etc...
+                    // todo : Is the purpose of members to filter our DERS to be created?
+                    if (members != null && Array.Find(members, x => x.Equals(dev.Name)) != null)
+                    {
+                        CIMChangeDERGroup.DERMember d = new CIMChangeDERGroup.DERMember();
+                        DERMembers.Add(d);
+                        d.name = dev.Name;
+                        d.mRID = dev.Mrid;
+                        // TODO : New xsd, add the watts etc...
+                    }
                 }
                 req.Payload.DERGroups[0].DERMember = DERMembers.ToArray();
             }
@@ -300,7 +262,7 @@ namespace DERMSInterface
         /*
          * Returns information on existing DER groups
          */
-        public String[] getDERGroup(String[] groups)
+        public String[] requestDERGroupMembers(String group)
         {
             CIMGetDERGroup.GetDERGroup_PortClient client;
             if (_endPoint != null && _endPoint.Length > 0)
@@ -322,18 +284,14 @@ namespace DERMSInterface
             to.ReplyAddress = from.ReplyAddress;
             to.Revision = from.Revision;
             to.Source = from.Source;
+            to.User = new CIMGetDERGroup.UserType();
             to.User.Organization = from.UserOrganization;
             to.User.UserID = from.UserID;
 
 
             req = new CIMGetDERGroup.GetDERGroupRequestType();
-            req.ID = new string[groups.Length];
-            int count = 0;
-            foreach (String s in groups)
-            {
-                req.ID[count] = s;
-                count++;
-            }
+            req.ID = new string[1];
+            req.ID[0] = group;
 
             XmlSerializer xmlSerializer = new XmlSerializer(to.GetType());
             using (StringWriter textWriter = new StringWriter())
@@ -349,12 +307,20 @@ namespace DERMSInterface
             String[] dergroups = null;
             if (reply.Result.CompareTo("OK") == 0 && payload.DERGroups.Length > 0)
             {
+                List<String> ders = new List<string>();
                 dergroups = new String[payload.DERGroups.Length];
                 for (int i = 0; i < payload.DERGroups.Length; i++)
-                    dergroups[i] = payload.DERGroups[i].mRID;
-                // TODO : Verify it's mrid not name, which is required...
+                {
+                    if (payload.DERGroups[i].DERMember != null)
+                        foreach (CIMGetDERGroup.DERMember der in payload.DERGroups[i].DERMember)
+                        {
+                            // TODO : Verify it's mrid not name, which is required...
+                            ders.Add(der.name);
+                        }
+                }
+                return ders.ToArray();
             }
-            return dergroups;
+            return null;
         }
 
         public static String getUUID()
