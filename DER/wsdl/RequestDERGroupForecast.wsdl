@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="{Request | Execute}DERGroupForecast"
+	targetNamespace="http://iec.ch/TC57/2011/RequestDERGroupForecast"
+	xmlns:tns="http://iec.ch/TC57/2011/RequestDERGroupForecast"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:infoMessage="http://iec.ch/TC57/2011/DERGroupForecastMessage">
+	<wsdl:types>
+		<xs:schema
+			targetNamespace="http://iec.ch/TC57/2011/RequestDERGroupForecast"
+			elementFormDefault="qualified">
+			<xs:import namespace="http://iec.ch/TC57/2011/DERGroupForecastMessage"
+				schemaLocation="xsd/RequestDERGroupForecastMessage.xsd" />
+		</xs:schema>
+	</wsdl:types>
+	<!-- Message Definitions -->
+	<wsdl:message name="CreateDERGroupForecastRequestMessage">
+		<wsdl:part name="CreateDERGroupForecastRequestMessage"
+			element="infoMessage:CreateDERGroupForecast" />
+	</wsdl:message>
+	<wsdl:message name="ChangeDERGroupForecastRequestMessage">
+		<wsdl:part name="ChangeDERGroupForecastRequestMessage"
+			element="infoMessage:ChangeDERGroupForecast" />
+	</wsdl:message>
+	<wsdl:message name="CloseDERGroupForecastRequestMessage">
+		<wsdl:part name="CloseDERGroupForecastRequestMessage"
+			element="infoMessage:CloseDERGroupForecast" />
+	</wsdl:message>
+	<wsdl:message name="CancelDERGroupForecastRequestMessage">
+		<wsdl:part name="CancelDERGroupForecastRequestMessage"
+			element="infoMessage:CancelDERGroupForecast" />
+	</wsdl:message>
+	<wsdl:message name="DeleteDERGroupForecastRequestMessage">
+		<wsdl:part name="DeleteDERGroupForecastRequestMessage"
+			element="infoMessage:DeleteDERGroupForecast" />
+	</wsdl:message>
+	<wsdl:message name="ResponseMessage">
+		<wsdl:part name="ResponseMessage"
+			element="infoMessage:DERGroupForecastResponseMessage" />
+	</wsdl:message>
+	<wsdl:message name="FaultMessage">
+		<wsdl:part name="FaultMessage"
+			element="infoMessage:DERGroupForecastFaultMessage" />
+	</wsdl:message>
+	<!-- Port Definitions -->
+	<wsdl:portType name="DERGroupForecast_Port">
+		<wsdl:operation name="CreateDERGroupForecast">
+			<wsdl:input name="CreateDERGroupForecastRequest"
+				message="tns:CreateDERGroupForecastRequestMessage" />
+			<wsdl:output name="CreateDERGroupForecastResponse"
+				message="tns:ResponseMessage" />
+			<wsdl:fault name="CreateDERGroupForecastFault"
+				message="tns:FaultMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="ChangeDERGroupForecast">
+			<wsdl:input name="ChangeDERGroupForecastRequest"
+				message="tns:ChangeDERGroupForecastRequestMessage" />
+			<wsdl:output name="ChangeDERGroupForecastResponse"
+				message="tns:ResponseMessage" />
+			<wsdl:fault name="ChangeDERGroupForecastFault"
+				message="tns:FaultMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="CancelDERGroupForecast">
+			<wsdl:input name="CancelDERGroupForecastRequest"
+				message="tns:CancelDERGroupForecastRequestMessage" />
+			<wsdl:output name="CancelDERGroupForecastResponse"
+				message="tns:ResponseMessage" />
+			<wsdl:fault name="CancelDERGroupForecastFault"
+				message="tns:FaultMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="CloseDERGroupForecast">
+			<wsdl:input name="CloseDERGroupForecastRequest"
+				message="tns:CloseDERGroupForecastRequestMessage" />
+			<wsdl:output name="CloseDERGroupForecastResponse"
+				message="tns:ResponseMessage" />
+			<wsdl:fault name="CloseDERGroupForecastFault"
+				message="tns:FaultMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="DeleteDERGroupForecast">
+			<wsdl:input name="DeleteDERGroupForecastRequest"
+				message="tns:DeleteDERGroupForecastRequestMessage" />
+			<wsdl:output name="DeleteDERGroupForecastResponse"
+				message="tns:ResponseMessage" />
+			<wsdl:fault name="DeleteDERGroupForecastFault"
+				message="tns:FaultMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="DERGroupForecast_Binding"
+		type="tns:DERGroupForecast_Port">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="CreateDERGroupForecast">
+			<soap:operation
+				soapAction="http://iec.ch/TC57/2011/DERGroupForecast/CreateDERGroupForecast"
+				style="document" />
+			<wsdl:input name="CreateDERGroupForecastRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="CreateDERGroupForecastResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="CreateDERGroupForecastFault">
+				<soap:fault name="CreateDERGroupForecastFault"
+					use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="ChangeDERGroupForecast">
+			<soap:operation
+				soapAction="http://iec.ch/TC57/2011/DERGroupForecast/ChangeDERGroupForecast"
+				style="document" />
+			<wsdl:input name="ChangeDERGroupForecastRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="ChangeDERGroupForecastResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ChangeDERGroupForecastFault">
+				<soap:fault name="ChangeDERGroupForecastFault"
+					use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="CancelDERGroupForecast">
+			<soap:operation
+				soapAction="http://iec.ch/TC57/2011/DERGroupForecast/CancelDERGroupForecast"
+				style="document" />
+			<wsdl:input name="CancelDERGroupForecastRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="CancelDERGroupForecastResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="CancelDERGroupForecastFault">
+				<soap:fault name="CancelDERGroupForecastFault"
+					use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="CloseDERGroupForecast">
+			<soap:operation
+				soapAction="http://iec.ch/TC57/2011/DERGroupForecast/CloseDERGroupForecast"
+				style="document" />
+			<wsdl:input name="CloseDERGroupForecastRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="CloseDERGroupForecastResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="CloseDERGroupForecastFault">
+				<soap:fault name="CloseDERGroupForecastFault"
+					use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="DeleteDERGroupForecast">
+			<soap:operation
+				soapAction="http://iec.ch/TC57/2011/DERGroupForecast/DeleteDERGroupForecast"
+				style="document" />
+			<wsdl:input name="DeleteDERGroupForecastRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="DeleteDERGroupForecastResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="DeleteDERGroupForecastFault">
+				<soap:fault name="DeleteDERGroupForecastFault"
+					use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="RequestDERGroupForecast">
+		<wsdl:port name="DERGroupForecast_Port" binding="tns:DERGroupForecast_Binding">
+			<soap:address
+				location="http://iec.ch/TC57/2011/RequestDERGroupForecast" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

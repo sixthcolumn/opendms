@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="GetDERGroup"
+	targetNamespace="http://iec.ch/TC57/2011/GetDERGroup"
+	xmlns:tns="http://iec.ch/TC57/2011/GetDERGroup"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:infoMessage="http://iec.ch/TC57/2011/GetDERGroupMessage">
+	<wsdl:types>
+		<xs:schema targetNamespace="http://iec.ch/TC57/2011/GetDERGroup"
+			elementFormDefault="qualified">
+			<xs:import
+				namespace="http://iec.ch/TC57/2011/GetDERGroupMessage"
+				schemaLocation="xsd/GetDERGroupMessage.xsd" />
+		</xs:schema>
+	</wsdl:types>
+	<!-- Message Definitions -->
+	<wsdl:message name="GetDERGroupRequestMessage">
+		<wsdl:part name="GetDERGroupRequestMessage"
+			element="infoMessage:GetDERGroup" />
+	</wsdl:message>
+	<wsdl:message name="ResponseMessage">
+		<wsdl:part name="ResponseMessage"
+			element="infoMessage:DERGroupResponseMessage" />
+	</wsdl:message>
+	<wsdl:message name="FaultMessage">
+		<wsdl:part name="FaultMessage"
+			element="infoMessage:DERGroupFaultMessage" />
+	</wsdl:message>
+	<!-- Port Definitions -->
+	<wsdl:portType name="GetDERGroup_Port">
+		<wsdl:operation name="GetDERGroup">
+			<wsdl:input name="GetDERGroupRequest"
+				message="tns:GetDERGroupRequestMessage" />
+			<wsdl:output name="GetDERGroupResponse"
+				message="tns:ResponseMessage" />
+			<wsdl:fault name="GetDERGroupFault"
+				message="tns:FaultMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="GetDERGroup_Binding"
+		type="tns:GetDERGroup_Port">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="GetDERGroup">
+			<soap:operation
+				soapAction="http://iec.ch/TC57/2011/GetDERGroup/GetDERGroup"
+				style="document" />
+			<wsdl:input name="GetDERGroupRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="GetDERGroupResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="GetDERGroupFault">
+				<soap:fault name="GetDERGroupFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="GetDERGroup">
+		<wsdl:port name="GetDERGroup_Port" binding="tns:GetDERGroup_Binding">
+			<soap:address location="http://iec.ch/TC57/2011/GetDERGroup" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

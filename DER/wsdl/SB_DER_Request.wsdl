@@ -1,0 +1,305 @@
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (http://www.altova.com) by Ben Goodwin 
+	(person) -->
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:tns="http://www.sixthc.com/wsdl/DER_Request" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:r="http://www.sixthc.com/wsdl/DER_Request" 
+	xmlns:ns1="http://www.multispeak.org/V5.0" xmlns:ns2="http://www.multispeak.org/V5.0/commonArrays"
+	xmlns:ns3="http://www.multispeak.org/V5.0/commonTypes" xmlns:ns4="http://www.multispeak.org/V5.0/cpsm"
+	xmlns:ns5="http://www.multispeak.org/V5.0/enumerations" xmlns:ns6="http://www.multispeak.org/V5.0/gml"
+	xmlns:ns7="http://www.multispeak.org/V5.0/sandbox" xmlns:ns8="http://www.multispeak.org/V5.0/sandboxArrays"
+	xmlns:ns9="http://www.multispeak.org/V5.0/ws/request" xmlns:ns10="http://www.multispeak.org/V5.0/primitives"
+	targetNamespace="http://www.sixthc.com/wsdl/DER_Request">
+	<wsdl:types>
+		<s:schema>
+			<s:import namespace="http://www.sixthc.com/wsdl/DER_Request"
+				schemaLocation="SB_DER_Request.xsd" />
+		</s:schema>
+		<s:schema elementFormDefault="qualified"
+			targetNamespace="http://www.sixthc.com/wsdl/DER_Request">
+			<s:element name="GetQuote">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="symbol"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetQuoteResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="GetQuoteResult"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="string" nillable="true" type="s:string" />
+		</s:schema>
+	</wsdl:types>
+	<wsdl:message name="DeleteDERGroupsSoapIn">
+		<wsdl:part name="parameter" element="tns:DeleteDERGroups" />
+	</wsdl:message>
+	<wsdl:message name="CreateDERGroupsSoapIn">
+		<wsdl:part name="parameter" element="tns:CreateDERGroups" />
+	</wsdl:message>
+	<wsdl:message name="GetAttachmentsByObjectRefsSoapIn">
+		<wsdl:part name="parameters" element="tns:GetAttachmentsByObjectRefs" />
+	</wsdl:message>
+	<wsdl:message name="GetDERsByDERIDSoapIn">
+		<wsdl:part name="parameters" element="tns:GetDERsByDERID" />
+	</wsdl:message>
+	<wsdl:message name="GetDERsByDERIDSoapOut">
+		<wsdl:part name="parameters" element="tns:GetDERsByDERIDResponse" />
+	</wsdl:message>
+	<wsdl:message name="GetAttachmentsByObjectRefsSoapOut">
+		<wsdl:part name="parameters" element="tns:GetAttachmentsByObjectRefsResponse" />
+	</wsdl:message>
+	<wsdl:message name="GetDERGroupForecastsSoapIn">
+		<wsdl:part name="parameter" element="tns:GetDERGroupForecasts" />
+	</wsdl:message>
+	<wsdl:message name="GetDERGroupForecastsSoapOut">
+		<wsdl:part name="parameter" element="tns:GetDERGroupForecastsResponse" />
+	</wsdl:message>
+	<wsdl:message name="GetDomainMembersSoapIn">
+		<wsdl:part name="parameter" element="tns:GetDomainMembers" />
+	</wsdl:message>
+	<wsdl:message name="GetDomainMembersSoapOut">
+		<wsdl:part name="parameter" element="tns:GetDomainMembersResponse" />
+	</wsdl:message>
+	<wsdl:message name="GetDERGroupStatusesByDERGroupIDsSoapIn">
+		<wsdl:part name="parameter" element="tns:GetDERGroupStatusesByDERGroupIDs" />
+	</wsdl:message>
+	<wsdl:message name="GetDERGroupStatusesByDERGroupIDsSoapOut">
+		<wsdl:part name="parameter"
+			element="tns:GetDERGroupStatusesByDERGroupIDsResponse" />
+	</wsdl:message>
+	<wsdl:message name="LinkAttachmentsToObjectsSoapIn">
+		<wsdl:part name="parameter" element="tns:LinkAttachmentsToObjects" />
+	</wsdl:message>
+	<wsdl:message name="GetDomainNamesSoapIn">
+		<wsdl:part name="parameter" element="tns:GetDomainNames" />
+	</wsdl:message>
+	<wsdl:message name="GetDomainNamesSoapOut">
+		<wsdl:part name="parameter" element="tns:GetDomainNamesResponse" />
+	</wsdl:message>
+	<wsdl:message name="InsertDERsFromDERGroupSoapIn">
+		<wsdl:part name="parameter" element="tns:InsertDERsInDERGroup" />
+	</wsdl:message>
+	<wsdl:message name="UnlinkAttachmentsFromObjectsSoapIn">
+		<wsdl:part name="parameter" element="tns:UnlinkAttachmentsFromObjects" />
+	</wsdl:message>
+	<wsdl:message name="GetAllDERsSoapOut">
+		<wsdl:part name="parameter" element="tns:GetAllDERsResponse" />
+	</wsdl:message>
+	<wsdl:message name="InitiateDERGroupDispatchRequestsSoapIn">
+		<wsdl:part name="parameters" element="tns:InitiateDERGroupDispatchRequests" />
+	</wsdl:message>
+
+	<wsdl:message name="GetMethodsSoapIn">
+		<wsdl:part name="parameter" element="tns:GetMethods" />
+	</wsdl:message>
+	<wsdl:message name="PingURLSoapIn">
+		<wsdl:part name="parameter" element="tns:PingURL" />
+	</wsdl:message>
+	<wsdl:message name="GetMethodsSoapOut">
+		<wsdl:part name="parameter" element="tns:GetMethodsResponse" />
+	</wsdl:message>
+	<wsdl:message name="GetAllDERsSoapIn">
+		<wsdl:part name="parameter" element="tns:GetAllDERs" />
+	</wsdl:message>
+	<wsdl:message name="RemoveDERsFromDERGroupSoapIn">
+		<wsdl:part name="parameter" element="tns:RemoveDERsFromDERGroup" />
+	</wsdl:message>
+	<wsdl:portType name="DERRequest_Port">
+		<wsdl:operation name="DeleteDERGroups">
+			<wsdl:input message="tns:DeleteDERGroupsSoapIn" />
+		</wsdl:operation>
+		<wsdl:operation name="CreateDERGroups">
+			<wsdl:input message="tns:CreateDERGroupsSoapIn" />
+		</wsdl:operation>
+		<wsdl:operation name="GetDERsByDERID">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Request a
+				DERGroupCreate Soap Message</wsdl:documentation>
+			<wsdl:input message="tns:GetDERsByDERIDSoapIn" />
+			<wsdl:output message="tns:GetDERsByDERIDSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetAttachmentsByObjectRefs">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Request a
+				DERGroupCreate Soap Message</wsdl:documentation>
+			<wsdl:input message="tns:GetAttachmentsByObjectRefsSoapIn" />
+			<wsdl:output message="tns:GetAttachmentsByObjectRefsSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetDERGroupForecasts">
+			<wsdl:input message="tns:GetDERGroupForecastsSoapIn" />
+			<wsdl:output message="tns:GetDERGroupForecastsSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetDomainMembers">
+			<wsdl:input message="tns:GetDomainMembersSoapIn" />
+			<wsdl:output message="tns:GetDomainMembersSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetDERGroupStatusesByDERGroupIDs">
+			<wsdl:input message="tns:GetDERGroupStatusesByDERGroupIDsSoapIn" />
+			<wsdl:output message="tns:GetDERGroupStatusesByDERGroupIDsSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="LinkAttachmentsToObjects">
+			<wsdl:input message="tns:LinkAttachmentsToObjectsSoapIn" />
+		</wsdl:operation>
+		<wsdl:operation name="GetDomainNames">
+			<wsdl:input message="tns:GetDomainNamesSoapIn" />
+			<wsdl:output message="tns:GetDomainNamesSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="InsertDERsInDERGroup">
+			<wsdl:input message="tns:InsertDERsFromDERGroupSoapIn" />
+		</wsdl:operation>
+		<wsdl:operation name="UnlinkAttachmentsFromObjects">
+			<wsdl:input message="tns:UnlinkAttachmentsFromObjectsSoapIn" />
+		</wsdl:operation>
+		<wsdl:operation name="GetMethods">
+			<wsdl:input message="tns:GetMethodsSoapIn" />
+			<wsdl:output message="tns:GetMethodsSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetAllDERs">
+			<wsdl:input message="tns:GetAllDERsSoapIn" />
+			<wsdl:output message="tns:GetAllDERsSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="RemoveDERsFromDERGroup">
+			<wsdl:input message="tns:RemoveDERsFromDERGroupSoapIn" />
+		</wsdl:operation>
+		<wsdl:operation name="InitiateDERGroupDispatchRequests">
+			<wsdl:input message="tns:InitiateDERGroupDispatchRequestsSoapIn" />
+		</wsdl:operation>
+		<wsdl:operation name="PingURL">
+			<wsdl:input message="tns:PingURLSoapIn" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="DERRequest_Binding" type="tns:DERRequest_Port">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="DeleteDERGroups">
+			<soap:operation soapAction="#DeleteDERGroups" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+		<wsdl:operation name="CreateDERGroups">
+			<soap:operation soapAction="#CreateDERGroups" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+		<wsdl:operation name="GetDERsByDERID">
+			<soap:operation soapAction="#GetDERsByDERID" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetAttachmentsByObjectRefs">
+			<soap:operation soapAction="urn:#GetAttachmentsByObjectRefs" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetDERGroupForecasts">
+			<soap:operation soapAction="urn:#GetDERGroupsForecasts" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetDomainMembers">
+			<soap:operation soapAction="urn:#GetDomainMembers" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetDERGroupStatusesByDERGroupIDs">
+			<soap:operation soapAction="urn:#GetDERGroupStatusesByDERGroupIDs" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="LinkAttachmentsToObjects">
+			<soap:operation soapAction="urn:#LinkAttachmentsToObjects" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+		<wsdl:operation name="GetDomainNames">
+			<soap:operation soapAction="urn:#GetDomainNames" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="InsertDERsInDERGroup">
+			<soap:operation soapAction="urn:#InsertDERsInDERGroup" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+		<wsdl:operation name="UnlinkAttachmentsFromObjects">
+			<soap:operation soapAction="urn:#UnlinkAttachmentsFromObjects" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+		<wsdl:operation name="GetMethods">
+			<soap:operation soapAction="urn:#GetMethods" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetAllDERs">
+			<soap:operation soapAction="urn:#GetAllDERs" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="RemoveDERsFromDERGroup">
+			<soap:operation soapAction="urn:#RemoveDERsFromDERGroup" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+		<wsdl:operation name="InitiateDERGroupDispatchRequests">
+			<soap:operation soapAction="urn:#InitiateDERGroupDispatchRequests" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+		<wsdl:operation name="PingURL">
+			<soap:operation soapAction="urn:#PingURL" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="DERRequest">
+		<wsdl:port name="tns:DERRequest_Port" binding="tns:DERRequest_Binding">
+			<soap:address location="http://www.sixthc.com/wsdl/DER_Request" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

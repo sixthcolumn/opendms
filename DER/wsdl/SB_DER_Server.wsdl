@@ -1,0 +1,394 @@
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" 
+xmlns:request="http://www.multispeak.org/V5.0/ws/request" 
+xmlns:response="http://www.multispeak.org/V5.0/ws/response" 
+xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
+xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+xmlns:tns="http://www.multispeak.org/V5.0/wsdl/SB_DER_Server" 
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:ns8="http://docs.oasis-open.org/wsrf/bf-2" 
+xmlns:ns9="http://www.w3.org/2005/08/addressing" 
+targetNamespace="http://www.multispeak.org/V5.0/wsdl/SB_DER_Server">
+    <wsdl:types>
+        <s:schema>
+            <s:import namespace="http://www.multispeak.org/V5.0/ws/request" schemaLocation="MultiSpeakWebServicesRequestMsgHeader.xsd" />
+            <s:import namespace="http://www.multispeak.org/V5.0/ws/response" schemaLocation="MultiSpeakWebServicesResponseMsgHeader.xsd" />
+        </s:schema>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://www.multispeak.org/V5.0/wsdl/SB_DER_Server">
+            <s:include schemaLocation="SB_DER_Server.xsd" />
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="MultiSpeakResponseMsgHeader">
+        <wsdl:part name="MultiSpeakResponseMsgHeader" element="response:MultiSpeakResponseMsgHeader" />
+    </wsdl:message>
+    <wsdl:message name="MultiSpeakRequestMsgHeader">
+        <wsdl:part name="MultiSpeakRequestMsgHeader" element="request:MultiSpeakRequestMsgHeader" />
+    </wsdl:message>
+    <wsdl:message name="CreateDERGroupsSoapIn">
+        <wsdl:part name="parameters" element="tns:CreateDERGroups" />
+    </wsdl:message>
+    <wsdl:message name="CreateDERGroupsSoapOut">
+        <wsdl:part name="parameters" element="tns:CreateDERGroupsResponse" />
+    </wsdl:message>
+    <wsdl:message name="DeleteDERGroupsSoapIn">
+        <wsdl:part name="parameters" element="tns:DeleteDERGroups" />
+    </wsdl:message>
+    <wsdl:message name="DeleteDERGroupsSoapOut">
+        <wsdl:part name="parameters" element="tns:DeleteDERGroupsResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetAllDERsSoapIn">
+        <wsdl:part name="parameters" element="tns:GetAllDERs" />
+    </wsdl:message>
+    <wsdl:message name="GetAllDERsSoapOut">
+        <wsdl:part name="parameters" element="tns:GetAllDERsResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetAttachmentsByObjectRefsSoapIn">
+        <wsdl:part name="parameters" element="tns:GetAttachmentsByObjectRefs" />
+    </wsdl:message>
+    <wsdl:message name="GetAttachmentsByObjectRefsSoapOut">
+        <wsdl:part name="parameters" element="tns:GetAttachmentsByObjectRefsResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetDERGroupForecastsSoapIn">
+        <wsdl:part name="parameters" element="tns:GetDERGroupForecasts" />
+    </wsdl:message>
+    <wsdl:message name="GetDERGroupForecastsSoapOut">
+        <wsdl:part name="parameters" element="tns:GetDERGroupForecastsResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetDERGroupStatusesByDERGroupIDsSoapIn">
+        <wsdl:part name="parameters" element="tns:GetDERGroupStatusesByDERGroupIDs" />
+    </wsdl:message>
+    <wsdl:message name="GetDERGroupStatusesByDERGroupIDsSoapOut">
+        <wsdl:part name="parameters" element="tns:GetDERGroupStatusesByDERGroupIDsResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetDERsByDERIDSoapIn">
+        <wsdl:part name="parameters" element="tns:GetDERsByDERID" />
+    </wsdl:message>
+    <wsdl:message name="GetDERsByDERIDSoapOut">
+        <wsdl:part name="parameters" element="tns:GetDERsByDERIDResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetDomainMembersSoapIn">
+        <wsdl:part name="parameters" element="tns:GetDomainMembers" />
+    </wsdl:message>
+    <wsdl:message name="GetDomainMembersSoapOut">
+        <wsdl:part name="parameters" element="tns:GetDomainMembersResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetDomainNamesSoapIn">
+        <wsdl:part name="parameters" element="tns:GetDomainNames" />
+    </wsdl:message>
+    <wsdl:message name="GetDomainNamesSoapOut">
+        <wsdl:part name="parameters" element="tns:GetDomainNamesResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetMethodsSoapIn">
+        <wsdl:part name="parameters" element="tns:GetMethods" />
+    </wsdl:message>
+    <wsdl:message name="GetMethodsSoapOut">
+        <wsdl:part name="parameters" element="tns:GetMethodsResponse" />
+    </wsdl:message>
+    <wsdl:message name="InitiateDERGroupDispatchRequestsSoapIn">
+        <wsdl:part name="parameters" element="tns:InitiateDERGroupDispatchRequests" />
+    </wsdl:message>
+    <wsdl:message name="InitiateDERGroupDispatchRequestsSoapOut">
+        <wsdl:part name="parameters" element="tns:InitiateDERGroupDispatchRequestsResponse" />
+    </wsdl:message>
+    <wsdl:message name="InsertDERsInDERGroupSoapIn">
+        <wsdl:part name="parameters" element="tns:InsertDERsInDERGroup" />
+    </wsdl:message>
+    <wsdl:message name="InsertDERsInDERGroupSoapOut">
+        <wsdl:part name="parameters" element="tns:InsertDERsInDERGroupResponse" />
+    </wsdl:message>
+    <wsdl:message name="LinkAttachmentsToObjectsSoapIn">
+        <wsdl:part name="parameters" element="tns:LinkAttachmentsToObjects" />
+    </wsdl:message>
+    <wsdl:message name="LinkAttachmentsToObjectsSoapOut">
+        <wsdl:part name="parameters" element="tns:LinkAttachmentsToObjectsResponse" />
+    </wsdl:message>
+    <wsdl:message name="PingURLSoapIn">
+        <wsdl:part name="parameters" element="tns:PingURL" />
+    </wsdl:message>
+    <wsdl:message name="PingURLSoapOut">
+        <wsdl:part name="parameters" element="tns:PingURLResponse" />
+    </wsdl:message>
+    <wsdl:message name="RemoveDERsFromDERGroupSoapIn">
+        <wsdl:part name="parameters" element="tns:RemoveDERsFromDERGroup" />
+    </wsdl:message>
+    <wsdl:message name="RemoveDERsFromDERGroupSoapOut">
+        <wsdl:part name="parameters" element="tns:RemoveDERsFromDERGroupResponse" />
+    </wsdl:message>
+    <wsdl:message name="UnlinkAttachmentsFromObjectsSoapIn">
+        <wsdl:part name="parameters" element="tns:UnlinkAttachmentsFromObjects" />
+    </wsdl:message>
+    <wsdl:message name="UnlinkAttachmentsFromObjectsSoapOut">
+        <wsdl:part name="parameters" element="tns:UnlinkAttachmentsFromObjectsResponse" />
+    </wsdl:message>
+    <wsdl:portType name="SB_DER_ServerSoap">
+        <wsdl:operation name="CreateDERGroups">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Publisher requests that subscriber establish new groups of distributed energy resources to address as a DER group.Receiver returns information about failed transactions using the result element of the response message header.</wsdl:documentation>
+            <wsdl:input message="tns:CreateDERGroupsSoapIn" />
+            <wsdl:output message="tns:CreateDERGroupsSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="DeleteDERGroups">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Publisher requests that subscriber eliminate a previously defined group of distributed energy resources to address as a DER group.Receiver returns information about failed transactions using the result element of the response message header.</wsdl:documentation>
+            <wsdl:input message="tns:DeleteDERGroupsSoapIn" />
+            <wsdl:output message="tns:DeleteDERGroupsSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetAllDERs">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all available information for distributed energy resources.</wsdl:documentation>
+            <wsdl:input message="tns:GetAllDERsSoapIn" />
+            <wsdl:output message="tns:GetAllDERsSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetAttachmentsByObjectRefs">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Requests an array of attachments associated with specific objects, given their objectRefs.</wsdl:documentation>
+            <wsdl:input message="tns:GetAttachmentsByObjectRefsSoapIn" />
+            <wsdl:output message="tns:GetAttachmentsByObjectRefsSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetDERGroupForecasts">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The Requester requests forecasts of output for distributed energy resources grouped by DERGroup.</wsdl:documentation>
+            <wsdl:input message="tns:GetDERGroupForecastsSoapIn" />
+            <wsdl:output message="tns:GetDERGroupForecastsSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetDERGroupStatusesByDERGroupIDs">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the status information for distributed energy resource groups chosen by the object identifiers for those DERGroups.  
+</wsdl:documentation>
+            <wsdl:input message="tns:GetDERGroupStatusesByDERGroupIDsSoapIn" />
+            <wsdl:output message="tns:GetDERGroupStatusesByDERGroupIDsSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetDERsByDERID">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the available information for distributed energy resources chosen by the object identifiers for those DERs.  
+			</wsdl:documentation>
+            <wsdl:input message="tns:GetDERsByDERIDSoapIn" />
+            <wsdl:output message="tns:GetDERsByDERIDSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetDomainMembers">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The client requests from the server the members of a specific domain of information, identified by the domainName parameter, which are supported by the server. This method is used, along with the GetDomainNames method to enable systems to exchange information about application-specific or installation-specific lists of information, such as the lists of counties for this installation or the list of serviceStatusCodes used by the server.Responder returns information about failed transactions using the result element of the response message header.</wsdl:documentation>
+            <wsdl:input message="tns:GetDomainMembersSoapIn" />
+            <wsdl:output message="tns:GetDomainMembersSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetDomainNames">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The client requests from the server a list of names of domains supported by the server. This method is used, along with the GetDomainMembers method to enable systems to exchange information about application-specific or installation-specific lists of information, such as the lists of counties for this installation or the list of serviceStatusCodes used by the server. It is recommended that domain names be returned in the form of the name of a named object (noun) in the MultiSpeak schema dotted with the field name of interest. For instance, if the system of record is returningworkFlowStatus identifiers that would be used on designs, it is suggested that the domain name be called design.workflowStatus, using the same spelling and capitalization used in the MultiSpeak schema.Responder returns information about failed transactions using the result element of the response message header.</wsdl:documentation>
+            <wsdl:input message="tns:GetDomainNamesSoapIn" />
+            <wsdl:output message="tns:GetDomainNamesSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetMethods">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Requester requests a list of methods supported by Responder.Responder returns information about failed transactions using the result element of the response message header.</wsdl:documentation>
+            <wsdl:input message="tns:GetMethodsSoapIn" />
+            <wsdl:output message="tns:GetMethodsSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="InitiateDERGroupDispatchRequests">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sender requests that receiver take control actions on DERGroups. Once actions are processed, the receiver returns that information to the sender asynchronously using one or more DERGroupDispatchStatusesNotification method call.</wsdl:documentation>
+            <wsdl:input message="tns:InitiateDERGroupDispatchRequestsSoapIn" />
+            <wsdl:output message="tns:InitiateDERGroupDispatchRequestsSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="InsertDERsInDERGroup">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sender requests that receiver add DER(s) to an existing group of DERs to address as a DER group.Receiver returns information about failed transactions using the result element of the response message header.</wsdl:documentation>
+            <wsdl:input message="tns:InsertDERsInDERGroupSoapIn" />
+            <wsdl:output message="tns:InsertDERsInDERGroupSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="LinkAttachmentsToObjects">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sender requests that receiver link the provided attachments to objects specified by their objectRefs.Receiver returns information about failed transactions using the result element of the response message header.</wsdl:documentation>
+            <wsdl:input message="tns:LinkAttachmentsToObjectsSoapIn" />
+            <wsdl:output message="tns:LinkAttachmentsToObjectsSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="PingURL">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Requester pings URL of Responder to determine its readiness to respond.Receiver returns information about failed transactions using the result element of the response message header.</wsdl:documentation>
+            <wsdl:input message="tns:PingURLSoapIn" />
+            <wsdl:output message="tns:PingURLSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="RemoveDERsFromDERGroup">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sender requests that receiver remove DER(s) from an existing group of DERs to address as a DER group.Receiver returns information about failed transactions using the result element of the response message header.</wsdl:documentation>
+            <wsdl:input message="tns:RemoveDERsFromDERGroupSoapIn" />
+            <wsdl:output message="tns:RemoveDERsFromDERGroupSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="UnlinkAttachmentsFromObjects">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Publisher notifies subscriber that attachments, specified by attachmentID, which is the objectID of the attachment to be unlinked from the referenced object. It is up to the receiver of this method to determine, according to its business rules, whether the attachment should be deleted or retained after it is unlinked.Receiver returns information about failed transactions using the result element of the response message header.</wsdl:documentation>
+            <wsdl:input message="tns:UnlinkAttachmentsFromObjectsSoapIn" />
+            <wsdl:output message="tns:UnlinkAttachmentsFromObjectsSoapOut" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SB_DER_ServerSoap" type="tns:SB_DER_ServerSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="CreateDERGroups">
+            <soap:operation soapAction="http://www.multispeak.org/Version_5.0_Release/CreateDERGroups" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakRequestMsgHeader" part="MultiSpeakRequestMsgHeader" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakResponseMsgHeader" part="MultiSpeakResponseMsgHeader" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteDERGroups">
+            <soap:operation soapAction="http://www.multispeak.org/Version_5.0_Release/DeleteDERGroups" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakRequestMsgHeader" part="MultiSpeakRequestMsgHeader" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakResponseMsgHeader" part="MultiSpeakResponseMsgHeader" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAllDERs">
+            <soap:operation soapAction="http://www.multispeak.org/Version_5.0_Release/GetAllDERs" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakRequestMsgHeader" part="MultiSpeakRequestMsgHeader" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakResponseMsgHeader" part="MultiSpeakResponseMsgHeader" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAttachmentsByObjectRefs">
+            <soap:operation soapAction="http://www.multispeak.org/Version_5.0_Release/GetAttachmentsByObjectRefs" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakRequestMsgHeader" part="MultiSpeakRequestMsgHeader" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakResponseMsgHeader" part="MultiSpeakResponseMsgHeader" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDERGroupForecasts">
+            <soap:operation soapAction="http://www.multispeak.org/Version_5.0_Release/GetDERGroupForecasts" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakRequestMsgHeader" part="MultiSpeakRequestMsgHeader" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakResponseMsgHeader" part="MultiSpeakResponseMsgHeader" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDERGroupStatusesByDERGroupIDs">
+            <soap:operation soapAction="http://www.multispeak.org/Version_5.0_Release/GetDERGroupStatusesByDERGroupIDs" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakRequestMsgHeader" part="MultiSpeakRequestMsgHeader" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakResponseMsgHeader" part="MultiSpeakResponseMsgHeader" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDERsByDERID">
+            <soap:operation soapAction="http://www.multispeak.org/Version_5.0_Release/GetDERsByDERID" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakRequestMsgHeader" part="MultiSpeakRequestMsgHeader" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakResponseMsgHeader" part="MultiSpeakResponseMsgHeader" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDomainMembers">
+            <soap:operation soapAction="http://www.multispeak.org/Version_5.0_Release/GetDomainMembers" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakRequestMsgHeader" part="MultiSpeakRequestMsgHeader" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakResponseMsgHeader" part="MultiSpeakResponseMsgHeader" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDomainNames">
+            <soap:operation soapAction="http://www.multispeak.org/Version_5.0_Release/GetDomainNames" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakRequestMsgHeader" part="MultiSpeakRequestMsgHeader" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakResponseMsgHeader" part="MultiSpeakResponseMsgHeader" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetMethods">
+            <soap:operation soapAction="http://www.multispeak.org/Version_5.0_Release/GetMethods" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakRequestMsgHeader" part="MultiSpeakRequestMsgHeader" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakResponseMsgHeader" part="MultiSpeakResponseMsgHeader" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InitiateDERGroupDispatchRequests">
+            <soap:operation soapAction="http://www.multispeak.org/Version_5.0_Release/InitiateDERGroupDispatchRequests" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakRequestMsgHeader" part="MultiSpeakRequestMsgHeader" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakResponseMsgHeader" part="MultiSpeakResponseMsgHeader" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertDERsInDERGroup">
+            <soap:operation soapAction="http://www.multispeak.org/Version_5.0_Release/InsertDERsInDERGroup" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakRequestMsgHeader" part="MultiSpeakRequestMsgHeader" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakResponseMsgHeader" part="MultiSpeakResponseMsgHeader" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="LinkAttachmentsToObjects">
+            <soap:operation soapAction="http://www.multispeak.org/Version_5.0_Release/LinkAttachmentsToObjects" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakRequestMsgHeader" part="MultiSpeakRequestMsgHeader" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakResponseMsgHeader" part="MultiSpeakResponseMsgHeader" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="PingURL">
+            <soap:operation soapAction="http://www.multispeak.org/Version_5.0_Release/PingURL" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakRequestMsgHeader" part="MultiSpeakRequestMsgHeader" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakResponseMsgHeader" part="MultiSpeakResponseMsgHeader" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveDERsFromDERGroup">
+            <soap:operation soapAction="http://www.multispeak.org/Version_5.0_Release/RemoveDERsFromDERGroup" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakRequestMsgHeader" part="MultiSpeakRequestMsgHeader" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakResponseMsgHeader" part="MultiSpeakResponseMsgHeader" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UnlinkAttachmentsFromObjects">
+            <soap:operation soapAction="http://www.multispeak.org/Version_5.0_Release/UnlinkAttachmentsFromObjects" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakRequestMsgHeader" part="MultiSpeakRequestMsgHeader" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+                <soap:header message="tns:MultiSpeakResponseMsgHeader" part="MultiSpeakResponseMsgHeader" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SB_DER_Server">
+        <wsdl:port name="SB_DER_ServerSoap" binding="tns:SB_DER_ServerSoap">
+            <soap:address location="http://www.msp5.0.example.org" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

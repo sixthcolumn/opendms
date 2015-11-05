@@ -1,0 +1,7 @@
+<jaxb:globalBindings generateMixedExtensions="true">
+        <jaxb:javaType 
+            name="java.util.Calendar" 
+            xmlType="xs:dateTime"           
+            parseMethod="com.sixthc.spring.DateBinder.unmarshalDateTime" 
+            printMethod="com.sixthc.spring.DateBinder.marshalDateTime" />
+</jaxb:globalBindings>

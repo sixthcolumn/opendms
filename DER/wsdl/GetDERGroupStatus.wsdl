@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="GetDERGroupStatus"
+	targetNamespace="http://iec.ch/TC57/2011/GetDERGroupStatus"
+	xmlns:tns="http://iec.ch/TC57/2011/GetDERGroupStatus"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:infoMessage="http://iec.ch/TC57/2011/GetDERGroupStatusMessage">
+	<wsdl:types>
+		<xs:schema targetNamespace="http://iec.ch/TC57/2011/GetDERGroupStatus"
+			elementFormDefault="qualified">
+			<xs:import
+				namespace="http://iec.ch/TC57/2011/GetDERGroupStatusMessage"
+				schemaLocation="xsd/GetDERGroupStatusMessage.xsd" />
+		</xs:schema>
+	</wsdl:types>
+	<!-- Message Definitions -->
+	<wsdl:message name="GetDERGroupStatusRequestMessage">
+		<wsdl:part name="GetDERGroupStatusRequestMessage"
+			element="infoMessage:GetDERGroupStatus" />
+	</wsdl:message>
+	<wsdl:message name="ResponseMessage">
+		<wsdl:part name="ResponseMessage"
+			element="infoMessage:DERGroupStatusResponseMessage" />
+	</wsdl:message>
+	<wsdl:message name="FaultMessage">
+		<wsdl:part name="FaultMessage"
+			element="infoMessage:DERGroupStatusFaultMessage" />
+	</wsdl:message>
+	<!-- Port Definitions -->
+	<wsdl:portType name="GetDERGroupStatus_Port">
+		<wsdl:operation name="GetDERGroupStatus">
+			<wsdl:input name="GetDERGroupStatusRequest"
+				message="tns:GetDERGroupStatusRequestMessage" />
+			<wsdl:output name="GetDERGroupStatusResponse"
+				message="tns:ResponseMessage" />
+			<wsdl:fault name="GetDERGroupStatusFault"
+				message="tns:FaultMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="GetDERGroupStatus_Binding"
+		type="tns:GetDERGroupStatus_Port">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="GetDERGroupStatus">
+			<soap:operation
+				soapAction="http://iec.ch/TC57/2011/GetDERGroupStatus/GetDERGroupStatus"
+				style="document" />
+			<wsdl:input name="GetDERGroupStatusRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="GetDERGroupStatusResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="GetDERGroupStatusFault">
+				<soap:fault name="GetDERGroupStatusFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="GetDERGroupStatus">
+		<wsdl:port name="GetDERGroupStatus_Port" binding="tns:GetDERGroupStatus_Binding">
+			<soap:address location="http://iec.ch/TC57/2011/GetDERGroupStatus" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

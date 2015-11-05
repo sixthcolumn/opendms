@@ -43,6 +43,14 @@ namespace DERMSInterface
         private String _lastMessageReceived = "";
         private CIMData _data = new CIMData();
 
+
+        public CIM() { }
+
+        public CIM(CIMData d)
+        {
+            _data = d;
+        }
+
         public static CIM loadConfigFile(string path)
         {
             CIM c = new CIM();
@@ -184,7 +192,7 @@ namespace DERMSInterface
                 foreach (CIMData.device dev in group.Devices)
                 {
                     // todo : Is the purpose of members to filter our DERS to be created?
-                    if (members != null && Array.Find(members, x => x.Equals(dev.Name)) != null)
+                    if (members == null || (members != null && Array.Find(members, x => x.Equals(dev.Name)) != null))
                     {
                         CIMChangeDERGroup.DERMember d = new CIMChangeDERGroup.DERMember();
                         DERMembers.Add(d);
@@ -192,6 +200,7 @@ namespace DERMSInterface
                         d.mRID = dev.Mrid;
                         // TODO : New xsd, add the watts etc...
                     }
+
                 }
                 req.Payload.DERGroups[0].DERMember = DERMembers.ToArray();
             }

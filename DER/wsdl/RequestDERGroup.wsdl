@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="{Request | Execute}DERGroup"
+	targetNamespace="http://iec.ch/TC57/2011/RequestDERGroup" xmlns:tns="http://iec.ch/TC57/2011/RequestDERGroup"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:infoMessage="http://iec.ch/TC57/2011/DERGroupMessage">
+	<wsdl:types>
+		<xs:schema targetNamespace="http://iec.ch/TC57/2011/RequestDERGroup"
+			elementFormDefault="qualified">
+			<xs:import namespace="http://iec.ch/TC57/2011/DERGroupMessage"
+				schemaLocation="xsd/RequestDERGroupMessage.xsd" />
+		</xs:schema>
+	</wsdl:types>
+	<!-- Message Definitions -->
+	<wsdl:message name="CreateDERGroupRequestMessage">
+		<wsdl:part name="CreateDERGroupRequestMessage" element="infoMessage:CreateDERGroup" />
+	</wsdl:message>
+	<wsdl:message name="ChangeDERGroupRequestMessage">
+		<wsdl:part name="ChangeDERGroupRequestMessage" element="infoMessage:ChangeDERGroup" />
+	</wsdl:message>
+	<wsdl:message name="CloseDERGroupRequestMessage">
+		<wsdl:part name="CloseDERGroupRequestMessage" element="infoMessage:CloseDERGroup" />
+	</wsdl:message>
+	<wsdl:message name="CancelDERGroupRequestMessage">
+		<wsdl:part name="CancelDERGroupRequestMessage" element="infoMessage:CancelDERGroup" />
+	</wsdl:message>
+	<wsdl:message name="DeleteDERGroupRequestMessage">
+		<wsdl:part name="DeleteDERGroupRequestMessage" element="infoMessage:DeleteDERGroup" />
+	</wsdl:message>
+	<wsdl:message name="ResponseMessage">
+		<wsdl:part name="ResponseMessage" element="infoMessage:DERGroupResponseMessage" />
+	</wsdl:message>
+	<wsdl:message name="FaultMessage">
+		<wsdl:part name="FaultMessage" element="infoMessage:DERGroupFaultMessage" />
+	</wsdl:message>
+	<!-- Port Definitions -->
+	<wsdl:portType name="DERGroup_Port">
+		<wsdl:operation name="CreateDERGroup">
+			<wsdl:input name="CreateDERGroupRequest" message="tns:CreateDERGroupRequestMessage" />
+			<wsdl:output name="CreateDERGroupResponse" message="tns:ResponseMessage" />
+			<wsdl:fault name="CreateDERGroupFault" message="tns:FaultMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="ChangeDERGroup">
+			<wsdl:input name="ChangeDERGroupRequest" message="tns:ChangeDERGroupRequestMessage" />
+			<wsdl:output name="ChangeDERGroupResponse" message="tns:ResponseMessage" />
+			<wsdl:fault name="ChangeDERGroupFault" message="tns:FaultMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="CancelDERGroup">
+			<wsdl:input name="CancelDERGroupRequest" message="tns:CancelDERGroupRequestMessage" />
+			<wsdl:output name="CancelDERGroupResponse" message="tns:ResponseMessage" />
+			<wsdl:fault name="CancelDERGroupFault" message="tns:FaultMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="CloseDERGroup">
+			<wsdl:input name="CloseDERGroupRequest" message="tns:CloseDERGroupRequestMessage" />
+			<wsdl:output name="CloseDERGroupResponse" message="tns:ResponseMessage" />
+			<wsdl:fault name="CloseDERGroupFault" message="tns:FaultMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="DeleteDERGroup">
+			<wsdl:input name="DeleteDERGroupRequest" message="tns:DeleteDERGroupRequestMessage" />
+			<wsdl:output name="DeleteDERGroupResponse" message="tns:ResponseMessage" />
+			<wsdl:fault name="DeleteDERGroupFault" message="tns:FaultMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="DERGroup_Binding" type="tns:DERGroup_Port">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="CreateDERGroup">
+			<soap:operation soapAction="http://iec.ch/TC57/2011/DERGroup/CreateDERGroup"
+				style="document" />
+			<wsdl:input name="CreateDERGroupRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="CreateDERGroupResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="CreateDERGroupFault">
+				<soap:fault name="CreateDERGroupFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="ChangeDERGroup">
+			<soap:operation soapAction="http://iec.ch/TC57/2011/DERGroup/ChangeDERGroup"
+				style="document" />
+			<wsdl:input name="ChangeDERGroupRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="ChangeDERGroupResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ChangeDERGroupFault">
+				<soap:fault name="ChangeDERGroupFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="CancelDERGroup">
+			<soap:operation soapAction="http://iec.ch/TC57/2011/DERGroup/CancelDERGroup"
+				style="document" />
+			<wsdl:input name="CancelDERGroupRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="CancelDERGroupResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="CancelDERGroupFault">
+				<soap:fault name="CancelDERGroupFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="CloseDERGroup">
+			<soap:operation soapAction="http://iec.ch/TC57/2011/DERGroup/CloseDERGroup"
+				style="document" />
+			<wsdl:input name="CloseDERGroupRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="CloseDERGroupResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="CloseDERGroupFault">
+				<soap:fault name="CloseDERGroupFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="DeleteDERGroup">
+			<soap:operation soapAction="http://iec.ch/TC57/2011/DERGroup/DeleteDERGroup"
+				style="document" />
+			<wsdl:input name="DeleteDERGroupRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="DeleteDERGroupResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="DeleteDERGroupFault">
+				<soap:fault name="DeleteDERGroupFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="RequestDERGroup">
+		<wsdl:port name="DERGroup_Port" binding="tns:DERGroup_Binding">
+			<soap:address location="http://iec.ch/TC57/2011/RequestDERGroup" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

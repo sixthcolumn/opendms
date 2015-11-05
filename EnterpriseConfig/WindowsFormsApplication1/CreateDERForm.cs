@@ -46,14 +46,14 @@ namespace WindowsFormsApplication1
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            DERMSInterface.CIM cs = new DERMSInterface.CIM();
+            DERMSInterface.CIM cs = new DERMSInterface.CIM(_cim);
             if (_showXML == true)
                 _log = new XMLForm();
 
             int rc = 0;
             try
             {
-                rc = cs.createDERGroup(_cim.Headers.Find(x => x.Name.Equals(DERMSInterface.CIMData.operations.createDER.ToString())), _cim.Groups[_row]);
+                rc = cs.createDERGroup(_cim.Groups[_row].GroupName, null);
                 logBold("Return Code : " + rc.ToString() + Environment.NewLine + Environment.NewLine);
                 MessageBox.Show("Return code : " + rc.ToString(), "Create DER", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

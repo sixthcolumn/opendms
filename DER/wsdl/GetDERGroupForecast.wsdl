@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="GetDERGroupForecast"
+	targetNamespace="http://iec.ch/TC57/2011/GetDERGroupForecast"
+	xmlns:tns="http://iec.ch/TC57/2011/GetDERGroupForecast"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:infoMessage="http://iec.ch/TC57/2011/GetDERGroupForecastMessage">
+	<wsdl:types>
+		<xs:schema targetNamespace="http://iec.ch/TC57/2011/GetDERGroupForecast"
+			elementFormDefault="qualified">
+			<xs:import
+				namespace="http://iec.ch/TC57/2011/GetDERGroupForecastMessage"
+				schemaLocation="xsd/GetDERGroupForecastMessage.xsd" />
+		</xs:schema>
+	</wsdl:types>
+	<!-- Message Definitions -->
+	<wsdl:message name="GetDERGroupForecastRequestMessage">
+		<wsdl:part name="GetDERGroupForecastRequestMessage"
+			element="infoMessage:GetDERGroupForecast" />
+	</wsdl:message>
+	<wsdl:message name="ResponseMessage">
+		<wsdl:part name="ResponseMessage"
+			element="infoMessage:DERGroupForecastResponseMessage" />
+	</wsdl:message>
+	<wsdl:message name="FaultMessage">
+		<wsdl:part name="FaultMessage"
+			element="infoMessage:DERGroupForecastFaultMessage" />
+	</wsdl:message>
+	<!-- Port Definitions -->
+	<wsdl:portType name="GetDERGroupForecast_Port">
+		<wsdl:operation name="GetDERGroupForecast">
+			<wsdl:input name="GetDERGroupForecastRequest"
+				message="tns:GetDERGroupForecastRequestMessage" />
+			<wsdl:output name="GetDERGroupForecastResponse"
+				message="tns:ResponseMessage" />
+			<wsdl:fault name="GetDERGroupForecastFault"
+				message="tns:FaultMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="GetDERGroupForecast_Binding"
+		type="tns:GetDERGroupForecast_Port">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="GetDERGroupForecast">
+			<soap:operation
+				soapAction="http://iec.ch/TC57/2011/GetDERGroupForecast/GetDERGroupForecast"
+				style="document" />
+			<wsdl:input name="GetDERGroupForecastRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="GetDERGroupForecastResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="GetDERGroupForecastFault">
+				<soap:fault name="GetDERGroupForecastFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="GetDERGroupForecast">
+		<wsdl:port name="GetDERGroupForecast_Port" binding="tns:GetDERGroupForecast_Binding">
+			<soap:address location="http://iec.ch/TC57/2011/GetDERGroupForecast" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

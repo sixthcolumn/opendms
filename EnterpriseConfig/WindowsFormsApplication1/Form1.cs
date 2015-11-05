@@ -17,7 +17,6 @@ namespace WindowsFormsApplication1
         DERMSInterface.CIMData _cim = new CIMData();
         private BindingSource DERGroupBindingSource = new BindingSource();
         private BindingSource DERBindingSource = new BindingSource();
-        private Boolean _leavingNewRow = false;
 
         public Form1()
         {

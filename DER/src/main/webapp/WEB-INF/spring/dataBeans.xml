@@ -1,0 +1,217 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:cxf="http://cxf.apache.org/core"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://cxf.apache.org/core
+	http://cxf.apache.org/schemas/core.xsd
+	http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<bean id="dateFormat" class="java.text.SimpleDateFormat">
+		<constructor-arg value="yyyy-MM-dd'T'HH:mm:ss" />
+	</bean>
+
+	<bean id="multiSpeakResponseMsgHeader" name="multiSpeakResponseMsgHeader"
+		class="org.multispeak.v5_0.ws.response.MultiSpeakResponseMsgHeader">
+		<property name="defaultRegisteredName" value="DERTest" />
+		<property name="messageID" value="466" />
+		<property name="defaultSystemName" value="DERTest" />
+		<property name="caller">
+			<bean id="caller" class="org.multispeak.v5_0.commontypes.Caller">
+				<property name="appName" value="EpriTest" />
+				<property name="appVersion" value="0.1beta" />
+				<property name="company" value="epri" />
+				<property name="auditID" value="1.2" />
+				<property name="systemID" value="47" />
+			</bean>
+		</property>
+		<property name="multiSpeakVersion">
+			<bean id="multiSpeakVersion" class="org.multispeak.v5_0.commontypes.MultiSpeakVersion">
+				<property name="majorVersion" value="5" />
+				<property name="minorVersion" value="0" />
+				<property name="build" value="37" />
+				<property name="branch" value="2" />
+				<property name="buildString" value="RC" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="CIMDERGroupForecast" name="CIMDERGroupForecast"
+		class="com.epri._2013.dergroupforecast.DERGroupForecast">
+		<property name="DERGroup">
+			<bean name="DERGroup" class="com.epri._2013.dergroupforecast.DERGroup">
+				<property name="name" value="dg2" />
+				<property name="mRID" value="099" />
+			</bean>
+		</property>
+		<property name="requestedCapability" value="WATTS" />
+		<property name="timeInterval">
+			<bean name="timeInterval" class="com.epri._2013.dergroupforecast.TimeInterval">
+				<property name="value" value="24" />
+				<property name="timeUnit" value="hh" />
+			</bean>
+		</property>
+		<!-- <property name="forecastBegin" value="2002-05-30T09:00:00" /> <property 
+			name="forecastEnd" value="2002-05-30T09:00:00" /> -->
+	</bean>
+<!-- 
+	<bean id="CIMDERGroupStatus" name="CIMDERGroupStatus"
+		class="com.epri._2013.derstatus.DERGroupStatus">
+		<property name="name" value="testing123" />
+		<property name="DERGroup">
+			<bean name="DERGroup" class="com.epri._2013.derstatus.DERGroup">
+				<property name="name" value="dg2" />
+				<property name="mRID" value="099" />
+			</bean>
+		</property>
+		<property name="requestedCapability" value="WATTS" />
+	</bean>
+	-->
+	
+	
+
+	<bean id="CMIDomainMember" name="CMIDomainMember" class="org.multispeak.v5.DomainMember">
+		<property name="code" value="code72" />
+		<property name="description" value="epri testing" />
+		<property name="action" value="CREATED" />
+	</bean>
+
+
+	<bean id="CMIDERGroup" name="CMIDERGroup"
+		class="com.epri._2013.dergroup.DERGroups.DERGroup">
+		<property name="comment" value="epri cim test" />
+		<property name="name" value="testing123" />
+	</bean>
+	
+		<bean id="CMIDERGroup2" name="CMIDERGroup2"
+		class="com.epri._2013.dergroupdispatch.DERGroup">
+		<property name="name" value="testing123" />
+	</bean>
+	
+
+	<bean id="CMIDERGroupDispatch" name="CMIDERGroupDispatch"
+		class="com.epri._2013.dergroupdispatch.DERGroupDispatch">
+		<property name="MRID" value="1122" />
+		
+	</bean>
+
+	<!-- aprs. -->
+
+	<bean id="AttachmentBean" name="AttachmentBean" class="org.multispeak.v5.Attachment">
+		<property name="comments" value="epri test" />
+		<property name="content">
+			<bean name="content" class="org.multispeak.v5.Content">
+				<property name="objectGUID" value="1233:2233:8833" />
+				<property name="caption" value="c1" />
+				<property name="comments" value="content test" />
+				<property name="primaryIdentifier">
+					<bean name="primaryIdentifier" class="org.multispeak.v5_0.commontypes.SingleIdentifier">
+						<property name="identifierLabel" value="id1" />
+						<property name="identifierName" value="idn1" />
+						<property name="value" value="1" />
+					</bean>
+				</property>
+				<property name="contentType">
+					<bean name="contentType" class="org.multispeak.v5.ContentType">
+						<property name="charset" value="ascii" />
+						<property name="subType" value="128" />
+						<property name="value" value="0x10" />
+					</bean>
+				</property>
+			</bean>
+		</property>
+		<property name="primaryIdentifier">
+			<bean name="primaryIdentifier" class="org.multispeak.v5_0.commontypes.SingleIdentifier">
+				<property name="identifierLabel" value="id1" />
+				<property name="identifierName" value="idn1" />
+				<property name="value" value="1" />
+			</bean>
+		</property>
+
+		<property name="objectGUID" value="11:322:99" />
+	</bean>
+
+	<bean id="ReplyTypeBean" name="ReplyTypeBean"
+		class="ch.iec.tc57._2011.schema.message.ReplyType">
+		<property name="result" value="OK" />
+		<property name="operationId" value="102799" />
+	</bean>
+
+	<bean id="DERBean" name="DERBean" class="org.multispeak.v5_0.sandbox.DER">
+		<property name="comments" value="epri test" />
+		<property name="objectGUID" value="1234:5673" />
+		<property name="primaryIdentifier">
+			<bean name="primaryIdentifier" class="org.multispeak.v5_0.commontypes.SingleIdentifier">
+				<property name="identifierLabel" value="id1" />
+				<property name="identifierName" value="idn1" />
+				<property name="value" value="1" />
+			</bean>
+		</property>
+		<property name="contactInfo">
+			<bean name="contactInfo" class="org.multispeak.v5_0.commontypes.ContactInfo">
+				<property name="phoneNumbers">
+					<bean id="phoneNumbers" class="com.sixthc.spring.PhoneNumbersFactoryBean">
+						<property name="phoneNumbers">
+							<list>
+								<bean id="phoneNumber" name="phoneNumber"
+									class="org.multispeak.v5_0.commontypes.PhoneNumber">
+									<property name="phone">
+										<bean id="phone"
+											class="org.multispeak.v5_0.commontypes.TelephoneNumber">
+											<property name="areaCode" value="919" />
+											<property name="localNumber" value="2237777" />
+										</bean>
+									</property>
+								</bean>
+							</list>
+						</property>
+					</bean>
+				</property>
+				<property name="eMailAddresses">
+					<bean id="eMailAddresses" class="com.sixthc.spring.eMailAddressesFactoryBean">
+						<property name="eMailAddresses">
+							<list>
+								<bean id="eMailAddress" name="eMailAddress"
+									class="org.multispeak.v5_0.commontypes.EMailAddress">
+									<property name="eMail" value="epritest@epri.com" />
+								</bean>
+							</list>
+						</property>
+					</bean>
+				</property>
+			</bean>
+		</property>
+		<property name="DERRealPowerRampRate">
+			<bean name="DERRealPowerRampRate" class="org.multispeak.v5_0.sandbox.RealPowerRampRate">
+				<property name="realPowerUnits" value="K_W" />
+				<property name="value" value="102.7" />
+			</bean>
+		</property>
+		<property name="DERType">
+			<bean name="DERType" class="org.multispeak.v5_0.sandbox.DERType">
+				<property name="value" value="PHOTOVOLTAIC" />
+			</bean>
+		</property>
+		<property name="apparentPowerRatings">
+			<bean name="apparentPowerRatings" class="com.sixthc.spring.ApparentPowerRatingsFactoryBean">
+				<property name="apparentPowerRatings">
+					<list>
+						<bean id="apparentPowerRating" class="org.multispeak.v5_0.sandbox.ApparentPowerRating">
+							<property name="apparentPower">
+								<bean id="apparentPower" class="org.multispeak.v5_0.commontypes.ApparentPower">
+									<property name="units" value="K_VA" />
+									<property name="value" value="102.0" />
+								</bean>
+							</property>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+</beans>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (http://www.altova.com) by Ben Goodwin (person) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:tns="http://www.sixthc.com/wsdl/DER_Request" 
+xmlns:sandbox="http://www.multispeak.org/V5.0/sandbox" 
+xmlns:sbarrays="http://www.multispeak.org/V5.0/sandboxArrays" 
+xmlns:request="http://www.multispeak.org/V5.0/ws/request" 
+xmlns:arrays="http://www.multispeak.org/V5.0/commonArrays" 
+xmlns:com="http://www.multispeak.org/V5.0/commonTypes" 
+targetNamespace="http://www.sixthc.com/wsdl/DER_Request"
+ elementFormDefault="qualified" 
+ attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.multispeak.org/V5.0/sandbox" schemaLocation="SandBox.xsd"/>
+	<xs:import namespace="http://www.multispeak.org/V5.0/commonTypes" schemaLocation="mspCommonTypes.xsd"/>
+	<xs:import namespace="http://www.multispeak.org/V5.0/sandboxArrays" schemaLocation="SandBoxArrayTypes.xsd"/>
+	<xs:import namespace="http://www.multispeak.org/V5.0/commonArrays" schemaLocation="MspArrayTypes.xsd"/>
+	<xs:import namespace="http://www.multispeak.org/V5.0/ws/request" schemaLocation="MultiSpeakWebServicesRequestMsgHeader.xsd"/>
+	<xs:element name="DeleteDERGroups" type="tns:ArrayOfDERGroupID2Payload"/>
+	<xs:element name="CreateDERGroups" type="tns:DERGroupsPayload"/>
+	<xs:element name="GetAllDERs" type="tns:LastReceivedPayload"/>
+	<xs:element name="GetAllDERsPayloadMessage" type="tns:GetAllDERsPayload"/>
+	<xs:element name="GetAllDERsResponse" type="sbarrays:ArrayOfDER"/>
+	<xs:element name="GetAttachmentsByObjectRefs" type="tns:ArrayOfObjectRefPayload"/>
+	<xs:element name="GetAttachmentsByObjectRefsResponse" type="arrays:ArrayOfAttachment"/>
+	<xs:element name="GetDERGroupForecasts" type="tns:DERGroupForecastPayload"/>
+	<xs:element name="GetDERGroupForecastsResponse" type="sbarrays:ArrayOfDERGroupForecast"/>
+	<xs:element name="GetDERGroupStatusesByDERGroupIDs" type="tns:ArrayOfDERGroupID1Payload"/>
+	<xs:element name="GetDERGroupStatusesByDERGroupIDsResponse" type="sbarrays:ArrayOfDERGroupStatus"/>
+	<xs:element name="GetDERsByDERID" type="tns:ArrayOfDERID2Payload"/>
+	<xs:element name="GetDERsByDERIDResponse" type="sbarrays:ArrayOfDER"/>
+	<xs:element name="GetDomainMembers" type="tns:DomainMemberPayload"/>
+	<xs:element name="GetDomainMembersResponse" type="arrays:ArrayOfDomainMember"/>
+	<xs:element name="GetDomainNames" type="tns:GetDomainNamePayload"/>
+	<xs:element name="GetDomainNamesResponse" type="arrays:ArrayOfString"/>
+	<xs:element name="GetMethods" type="tns:GetMethodsPayload"/>
+	<xs:element name="GetMethodsResponse" type="arrays:ArrayOfString"/>
+	<xs:element name="InitiateDERGroupDispatchRequests">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="address" type="xs:string"/>
+				<xs:element name="multSpeakMsgHeader" type="request:MultiSpeakRequestMsgHeader"/>
+				<xs:element name="responseURL" type="xs:string"/>
+				<xs:element name="transactionID" type="xs:string"/>
+				<xs:element name="arrayOfDERGroupDispatchRequest" type="sbarrays:ArrayOfDERGroupDispatchRequest"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="InsertDERsInDERGroup" type="tns:ArrayOfDERIDPayload"/>
+	<xs:element name="LinkAttachmentsToObjects" type="tns:LinkAttachmentsToObjectsPayload"/>
+	<xs:element name="PingURL" type="tns:PingURLPayload"/>
+	<xs:element name="RemoveDERsFromDERGroup" type="tns:ArrayOfDERIDPayload"/>
+	<xs:element name="UnlinkAttachmentsFromObjects" type="tns:ArrayOfAttachmentUnlinkContainerPayload"/>
+	<xs:complexType name="ArrayOfAttachmentUnlinkContainerPayload">
+		<xs:sequence>
+			<xs:element name="address" type="xs:string"/>
+			<xs:element name="multiSpeakMsgHeader" type="request:MultiSpeakRequestMsgHeader"/>
+			<xs:element name="arrayOfAttachmentUnlinkContainer" type="arrays:ArrayOfAttachmentUnlinkContainer"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArrayOfDERGroupId">
+		<xs:sequence>
+			<xs:element name="address" type="xs:string"/>
+			<xs:element name="multiSpeakMsgHeader" type="request:MultiSpeakRequestMsgHeader"/>
+			<xs:element name="derGroupID" type="com:objectID"/>
+			<xs:element name="responseURL" type="xs:string"/>
+			<xs:element name="transactionID" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArrayOfDERGroupID1Payload">
+		<xs:sequence>
+			<xs:element name="address" type="xs:string"/>
+			<xs:element name="multiSpeakMsgHeader" type="request:MultiSpeakRequestMsgHeader"/>
+			<xs:element name="arrayOfDERGroupID" type="sbarrays:ArrayOfDERGroupID"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArrayOfDERGroupID2Payload">
+		<xs:sequence>
+			<xs:element name="Address" type="xs:string"/>
+			<xs:element name="multiSpeakMsgHeader" type="request:MultiSpeakRequestMsgHeader" minOccurs="0"/>
+			<xs:element name="responseURL" type="xs:anyURI" minOccurs="0"/>
+			<xs:element name="transactionID" type="xs:string" minOccurs="0"/>
+			<xs:element name="ArrayOfDERGroupID" type="sbarrays:ArrayOfDERGroupID" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArrayOfDERID2Payload">
+		<xs:sequence>
+			<xs:element name="address" type="xs:string"/>
+			<xs:element name="multiSpeakMsgHeader" type="request:MultiSpeakRequestMsgHeader"/>
+			<xs:element name="ArrayOfDERID" type="sbarrays:ArrayOfDERID"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArrayOfDERIDPayload">
+		<xs:sequence>
+			<xs:element name="address" type="xs:string"/>
+			<xs:element name="multiSpeakMsgHeader" type="request:MultiSpeakRequestMsgHeader"/>
+			<xs:element name="ArrayOfDERID" type="sbarrays:ArrayOfDERID"/>
+			<xs:element name="responseURL" type="xs:string"/>
+			<xs:element name="transactionID" type="xs:string"/>
+			<xs:element name="derGroup" type="com:objectID"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArrayOfDERPayload">
+		<xs:sequence>
+			<xs:element name="ArrayOfDER" type="sbarrays:ArrayOfDER" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArrayOfObjectRefPayload">
+		<xs:sequence>
+			<xs:element name="address" type="xs:string"/>
+			<xs:element name="multiSpeakMsgHeader" type="request:MultiSpeakRequestMsgHeader"/>
+			<xs:element name="ArrayOfObjectRef" type="arrays:ArrayOfObjectRef"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DERGroupForecastPayload">
+		<xs:sequence>
+			<xs:element name="Address" type="xs:string"/>
+			<xs:element name="ForeCastInterval" type="com:duration"/>
+			<xs:element name="ForeCastPeriod" type="com:timePeriod"/>
+			<xs:element name="arrayOfDERGroup" type="sbarrays:ArrayOfDERGroup"/>
+			<xs:element name="arrayOfRequestedCapability" type="sbarrays:ArrayOfRequestedCapability"/>
+			<xs:element name="multiSpeakMsgHeader" type="request:MultiSpeakRequestMsgHeader"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DERGroupsPayload">
+		<xs:sequence>
+			<xs:element name="Address" type="xs:string"/>
+			<xs:element name="responseURL" type="xs:string"/>
+			<xs:element name="transactionID" type="xs:string"/>
+			<xs:element name="multiSpeakMsgHeader" type="request:MultiSpeakRequestMsgHeader" minOccurs="0"/>
+			<xs:element name="ArrayOfDERGroup" type="sbarrays:ArrayOfDERGroup" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DomainMemberPayload">
+		<xs:sequence>
+			<xs:element name="address" type="xs:string"/>
+			<xs:element name="multispeakMsgHeader" type="request:MultiSpeakRequestMsgHeader"/>
+			<xs:element name="domainName" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetAllDERsPayload">
+		<xs:sequence>
+			<xs:element name="lastReceived" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetDomainNamePayload">
+		<xs:sequence>
+			<xs:element name="address" type="xs:string"/>
+			<xs:element name="multiSpeakMsgHeader" type="request:MultiSpeakRequestMsgHeader"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetMethodsPayload">
+		<xs:sequence>
+			<xs:element name="address" type="xs:string"/>
+			<xs:element name="multiSpeakMsgHeader" type="request:MultiSpeakRequestMsgHeader"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LastReceivedPayload">
+		<xs:sequence>
+			<xs:element name="address" type="xs:string"/>
+			<xs:element name="lastReceived" type="xs:string"/>
+			<xs:element name="multiSpeakMsgHeader" type="request:MultiSpeakRequestMsgHeader"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LinkAttachmentsToObjectsPayload">
+		<xs:sequence>
+			<xs:element name="address" type="xs:string"/>
+			<xs:element name="multiSpeakMsgHeader" type="request:MultiSpeakRequestMsgHeader"/>
+			<xs:element name="arrayOfAttachmentContainer" type="arrays:ArrayOfAttachmentContainer"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PingURLPayload">
+		<xs:sequence>
+			<xs:element name="address" type="xs:string"/>
+			<xs:element name="multiSpeakMsgHeader" type="request:MultiSpeakRequestMsgHeader"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
