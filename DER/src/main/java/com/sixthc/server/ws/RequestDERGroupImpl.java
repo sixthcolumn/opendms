@@ -14,7 +14,11 @@ import ch.iec.tc57._2011.schema.message.HeaderType;
 import ch.iec.tc57._2011.schema.message.ReplyType;
 import ch.iec.tc57._2011.schema.message.RequestType;
 
-import com.epri._2013.dergroup.DERGroups.DERGroup;
+import com.epri._2013.dergroup.DERGroups;
+import com.epri._2013.dergroup.EndDeviceGroup;
+
+
+
 
 public class RequestDERGroupImpl implements DERGroupPort, ApplicationContextAware {
 
@@ -30,18 +34,23 @@ public class RequestDERGroupImpl implements DERGroupPort, ApplicationContextAwar
 		appContext = arg0;
 	}
 
+
+
 	@Override
 	public void deleteDERGroup(Holder<HeaderType> header, RequestType request,
 			Holder<DERGroupPayloadType> payload, Holder<ReplyType> reply)
 			throws FaultMessage {
 		log.debug("***** OPERATION : deleteDERGroup");
 		
-		DERGroup e =  appContext.getBean(
-				"CMIDERGroup",
-				DERGroup.class);
+		DERGroups groups = new DERGroups();
+		EndDeviceGroup e =  appContext.getBean(
+				"CMIDERGroupPower",
+				EndDeviceGroup.class);
+		groups.getEndDeviceGroup().add(e);
+
 		
-		payload.value.getDERGroups().getDERGroup().clear();
-		payload.value.getDERGroups().getDERGroup().add(e);
+		payload.value.getDERGroups().getEndDeviceGroup().clear();
+		payload.value.setDERGroups(groups);
 		
 		ReplyType r = appContext.getBean(("ReplyTypeBean"), ReplyType.class);
 		reply.value = r;
@@ -59,36 +68,44 @@ public class RequestDERGroupImpl implements DERGroupPort, ApplicationContextAwar
 	public void changeDERGroup(Holder<HeaderType> header, RequestType request,
 			Holder<DERGroupPayloadType> payload, Holder<ReplyType> reply)
 			throws FaultMessage {
-		log.debug("***** OPERATION : changeDERGroup");
 
-				
-		DERGroup e =  appContext.getBean(
-				"CMIDERGroup",
-				DERGroup.class);
+		log.debug("***** OPERATION : changeDERGroup");
 		
-		payload.value.getDERGroups().getDERGroup().clear();
-		payload.value.getDERGroups().getDERGroup().add(e);
+		DERGroups groups = new DERGroups();
+		EndDeviceGroup e =  appContext.getBean(
+				"CMIDERGroupPower",
+				EndDeviceGroup.class);
+		groups.getEndDeviceGroup().add(e);
+
+		
+		payload.value.getDERGroups().getEndDeviceGroup().clear();
+		payload.value.setDERGroups(groups);
 		
 		ReplyType r = appContext.getBean(("ReplyTypeBean"), ReplyType.class);
 		reply.value = r;
+		
 	}
 
 	@Override
 	public void createDERGroup(Holder<HeaderType> header, RequestType request,
 			Holder<DERGroupPayloadType> payload, Holder<ReplyType> reply)
 			throws FaultMessage {
+
 		log.debug("***** OPERATION : createDERGroup");
-
-
-		DERGroup e =  appContext.getBean(
-				"CMIDERGroup",
-				DERGroup.class);
 		
-		payload.value.getDERGroups().getDERGroup().clear();
-		payload.value.getDERGroups().getDERGroup().add(e);	
+		DERGroups groups = new DERGroups();
+		EndDeviceGroup e =  appContext.getBean(
+				"CMIDERGroupPower",
+				EndDeviceGroup.class);
+		groups.getEndDeviceGroup().add(e);
+
+		
+		payload.value.getDERGroups().getEndDeviceGroup().clear();
+		payload.value.setDERGroups(groups);
 		
 		ReplyType r = appContext.getBean(("ReplyTypeBean"), ReplyType.class);
 		reply.value = r;
+		
 	}
 
 	@Override

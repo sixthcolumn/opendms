@@ -14,7 +14,6 @@ import ch.iec.tc57._2011.getdergroupcapabilitymessage.GetDERGroupCapabilityReque
 import ch.iec.tc57._2011.schema.message.HeaderType;
 import ch.iec.tc57._2011.schema.message.ReplyType;
 
-import com.epri._2013.dergroup.DERGroup;
 
 public class ChangeDERGroupCapabilitiesImpl implements
 		GetDERGroupCapabilityPort, ApplicationContextAware {
@@ -37,13 +36,6 @@ public class ChangeDERGroupCapabilitiesImpl implements
 			Holder<GetDERGroupCapabilityPayloadType> payload,
 			Holder<ReplyType> reply) throws FaultMessage {
 		log.debug("getDERGroupCapability");
-
-	//	DERGroup ds = appContext.getBean("CIMDERGroupStatus",
-	//			DERGroup.class);
-
-//		payload.value.getDERGroupCapabilities().getDERGroupStatuses().clear();
-//		payload.value.getDERGroupCapabilities().getDERGroupStatuses().add(e);
-		
 		
 		ReplyType r = appContext.getBean(("ReplyTypeBean"), ReplyType.class);
 		reply.value = r;

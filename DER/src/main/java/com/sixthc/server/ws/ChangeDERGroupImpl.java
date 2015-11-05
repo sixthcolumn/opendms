@@ -1,5 +1,11 @@
 package com.sixthc.server.ws;
 
+import java.math.BigInteger;
+import java.util.GregorianCalendar;
+
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.Holder;
 
 import org.apache.log4j.Logger;
@@ -14,7 +20,11 @@ import ch.iec.tc57._2011.schema.message.HeaderType;
 import ch.iec.tc57._2011.schema.message.ReplyType;
 import ch.iec.tc57._2011.schema.message.RequestType;
 
-import com.epri._2013.dergroup.DERGroups.DERGroup;
+import com.epri._2013.dergroup.DERGroups;
+import com.epri._2013.dergroup.EndDeviceGroup;
+import com.epri._2013.dergroup.EndDeviceGroup.Version;
+
+
 
 public class ChangeDERGroupImpl implements DERGroupPort, ApplicationContextAware {
 
@@ -30,18 +40,38 @@ public class ChangeDERGroupImpl implements DERGroupPort, ApplicationContextAware
 		appContext = arg0;
 	}
 
+
 	@Override
 	public void deleteDERGroup(Holder<HeaderType> header, RequestType request,
 			Holder<DERGroupPayloadType> payload, Holder<ReplyType> reply)
 			throws FaultMessage {
 		log.debug("***** OPERATION : deleteDERGroup");
 		
-		DERGroup e =  appContext.getBean(
-				"CMIDERGroup",
-				DERGroup.class);
+		DERGroups groups = new DERGroups();
+		EndDeviceGroup e =  appContext.getBean(
+				"CMIDERGroupPower",
+				EndDeviceGroup.class);
+		groups.getEndDeviceGroup().add(e);
 		
-		payload.value.getDERGroups().getDERGroup().clear();
-		payload.value.getDERGroups().getDERGroup().add(e);
+		Version v = new Version();
+		v.setMajor(BigInteger.valueOf(1));
+		v.setMinor(BigInteger.valueOf(72));
+		v.setRevision(BigInteger.valueOf(2));
+		e.setVersion(v);
+		GregorianCalendar c = new GregorianCalendar();
+		c.setTimeInMillis(System.currentTimeMillis());
+		XMLGregorianCalendar date2;
+		try {
+			date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
+			v.setVersionDate(date2);
+		} catch (DatatypeConfigurationException ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
+		}
+
+		
+		payload.value.getDERGroups().getEndDeviceGroup().clear();
+		payload.value.setDERGroups(groups);
 		
 		ReplyType r = appContext.getBean(("ReplyTypeBean"), ReplyType.class);
 		reply.value = r;
@@ -51,44 +81,87 @@ public class ChangeDERGroupImpl implements DERGroupPort, ApplicationContextAware
 	public void cancelDERGroup(Holder<HeaderType> header, RequestType request,
 			Holder<DERGroupPayloadType> payload, Holder<ReplyType> reply)
 			throws FaultMessage {
+		
 		log.error("***** OPERATION : cancelDERGroup");
 		throw new FaultMessage("Operation not supported");
+		
 	}
 
 	@Override
 	public void changeDERGroup(Holder<HeaderType> header, RequestType request,
 			Holder<DERGroupPayloadType> payload, Holder<ReplyType> reply)
 			throws FaultMessage {
-		log.debug("***** OPERATION : changeDERGroup");
 
-				
-		DERGroup e =  appContext.getBean(
-				"CMIDERGroup",
-				DERGroup.class);
+
+		log.debug("***** OPERATION : changeDERGroup");
 		
-		payload.value.getDERGroups().getDERGroup().clear();
-		payload.value.getDERGroups().getDERGroup().add(e);
+		DERGroups groups = new DERGroups();
+		EndDeviceGroup e =  appContext.getBean(
+				"CMIDERGroupPower",
+				EndDeviceGroup.class);
+		groups.getEndDeviceGroup().add(e);
+		
+		Version v = new Version();
+		v.setMajor(BigInteger.valueOf(1));
+		v.setMinor(BigInteger.valueOf(72));
+		v.setRevision(BigInteger.valueOf(2));
+		e.setVersion(v);
+		GregorianCalendar c = new GregorianCalendar();
+		c.setTimeInMillis(System.currentTimeMillis());
+		XMLGregorianCalendar date2;
+		try {
+			date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
+			v.setVersionDate(date2);
+		} catch (DatatypeConfigurationException ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
+		}
+
+		
+		payload.value.getDERGroups().getEndDeviceGroup().clear();
+		payload.value.setDERGroups(groups);
 		
 		ReplyType r = appContext.getBean(("ReplyTypeBean"), ReplyType.class);
 		reply.value = r;
+		
 	}
 
 	@Override
 	public void createDERGroup(Holder<HeaderType> header, RequestType request,
 			Holder<DERGroupPayloadType> payload, Holder<ReplyType> reply)
 			throws FaultMessage {
+
 		log.debug("***** OPERATION : createDERGroup");
-
-
-		DERGroup e =  appContext.getBean(
-				"CMIDERGroup",
-				DERGroup.class);
 		
-		payload.value.getDERGroups().getDERGroup().clear();
-		payload.value.getDERGroups().getDERGroup().add(e);	
+		DERGroups groups = new DERGroups();
+		EndDeviceGroup e =  appContext.getBean(
+				"CMIDERGroupPower",
+				EndDeviceGroup.class);
+		groups.getEndDeviceGroup().add(e);
+		
+		Version v = new Version();
+		v.setMajor(BigInteger.valueOf(1));
+		v.setMinor(BigInteger.valueOf(72));
+		v.setRevision(BigInteger.valueOf(2));
+		e.setVersion(v);
+		GregorianCalendar c = new GregorianCalendar();
+		c.setTimeInMillis(System.currentTimeMillis());
+		XMLGregorianCalendar date2;
+		try {
+			date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
+			v.setVersionDate(date2);
+		} catch (DatatypeConfigurationException ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
+		}
+
+		
+		payload.value.getDERGroups().getEndDeviceGroup().clear();
+		payload.value.setDERGroups(groups);
 		
 		ReplyType r = appContext.getBean(("ReplyTypeBean"), ReplyType.class);
 		reply.value = r;
+		
 	}
 
 	@Override

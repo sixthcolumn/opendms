@@ -80,13 +80,19 @@
 		<property name="action" value="CREATED" />
 	</bean>
 
+	<bean id="CMIDERGroupPower" name="CMIDERGroupPower"
+		class="com.epri._2013.dergroup.EndDeviceGroup">
+		<property name="comment" value="epri cim test" />
+		<property name="name" value="testing123" />
+	</bean>
 
+<!-- 
 	<bean id="CMIDERGroup" name="CMIDERGroup"
 		class="com.epri._2013.dergroup.DERGroups.DERGroup">
 		<property name="comment" value="epri cim test" />
 		<property name="name" value="testing123" />
 	</bean>
-	
+-->	
 		<bean id="CMIDERGroup2" name="CMIDERGroup2"
 		class="com.epri._2013.dergroupdispatch.DERGroup">
 		<property name="name" value="testing123" />
