@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="Z:\git\openwms\DER\wsdl\RequestDERGroup.wsdl" Protocol="file" SourceId="1" />
+    <MetadataSource Address="Z:\git\opendms\DER\wsdl\RequestDERGroup.wsdl" Protocol="file" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="RequestDERGroupMessage.xsd" MetadataType="Schema" ID="edceb5ea-527a-4ac0-ada1-e8e24a3be086" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/RequestDERGroupMessage.xsd" />
-    <MetadataFile FileName="DERGroup.xsd" MetadataType="Schema" ID="0967396f-6c79-43a5-81e1-3f59ad4f0fd3" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/DERGroup.xsd" />
-    <MetadataFile FileName="{Request  Execute}DERGroup.wsdl" MetadataType="Wsdl" ID="bf8fd977-f7bb-4cad-9efc-f8c85bf792e6" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/RequestDERGroup.wsdl" />
-    <MetadataFile FileName="Message.xsd" MetadataType="Schema" ID="c1d565b1-13ad-4e9c-abc2-df71f1e455ca" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/Message.xsd" />
+    <MetadataFile FileName="{Request  Execute}DERGroup1.wsdl" MetadataType="Wsdl" ID="14d5c50b-95dd-4fa6-9c99-c69099431dd7" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/RequestDERGroup.wsdl" />
+    <MetadataFile FileName="RequestDERGroupMessage1.xsd" MetadataType="Schema" ID="820a0f1f-c517-40b3-8b98-53545fc56e43" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/xsd/RequestDERGroupMessage.xsd" />
+    <MetadataFile FileName="DERGroup1.xsd" MetadataType="Schema" ID="5aab2f59-acb4-4f63-8068-83b6f0dae45e" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/xsd/DERGroup.xsd" />
+    <MetadataFile FileName="Message1.xsd" MetadataType="Schema" ID="fe15adcc-03d9-44d8-b37a-bcfed65dd2ce" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/xsd/Message.xsd" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

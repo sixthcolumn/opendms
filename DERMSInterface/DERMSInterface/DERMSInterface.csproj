@@ -85,6 +85,7 @@
     <Compile Include="CIM.cs" />
     <Compile Include="CIMData.cs" />
     <Compile Include="ConfigigurationException.cs" />
+    <Compile Include="DERResponseException.cs" />
     <Compile Include="HeaderNotFoundException.cs" />
     <Compile Include="DERGroupStatusResponse.cs" />
     <Compile Include="Multispeak.cs" />
@@ -134,7 +135,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <None Include="Service References\CIMChangeDERGroup\DERGroup.xsd">
+    <None Include="Service References\CIMChangeDERGroup\DERGroup1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\CIMChangeDERGroup\DERMSInterface.CIMChangeDERGroup.CreateDERGroupResponse.datasource">
@@ -143,13 +144,13 @@
     <None Include="Service References\CIMChangeDERGroup\DERMSInterface.CIMChangeDERGroup.DERGroupResponseMessageType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\CIMChangeDERGroup\Message.xsd">
+    <None Include="Service References\CIMChangeDERGroup\Message1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CIMChangeDERGroup\RequestDERGroupMessage.xsd">
+    <None Include="Service References\CIMChangeDERGroup\RequestDERGroupMessage1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CIMChangeDERGroup\{Request  Execute}DERGroup.wsdl" />
+    <None Include="Service References\CIMChangeDERGroup\{Request  Execute}DERGroup1.wsdl" />
     <None Include="Service References\CIMDERGroupDispatch\DERGroupDispatch.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -254,7 +255,7 @@
     <None Include="Service References\CIMDERRequest\RequestDERGroupMessage.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CIMGetDERGroupStatus\DERGroupStatus.xsd">
+    <None Include="Service References\CIMGetDERGroupStatus\DERGroupStatus1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\CIMGetDERGroupStatus\DERMSInterface.CIMGetDERGroupStatus.DERGroupStatusResponseMessageType.datasource">
@@ -263,11 +264,11 @@
     <None Include="Service References\CIMGetDERGroupStatus\DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\CIMGetDERGroupStatus\GetDERGroupStatus.wsdl" />
-    <None Include="Service References\CIMGetDERGroupStatus\GetDERGroupStatusMessage.xsd">
+    <None Include="Service References\CIMGetDERGroupStatus\GetDERGroupStatus1.wsdl" />
+    <None Include="Service References\CIMGetDERGroupStatus\GetDERGroupStatusMessage1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CIMGetDERGroupStatus\Message.xsd">
+    <None Include="Service References\CIMGetDERGroupStatus\Message1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\CIMGetDERGroup\DERMSInterface.CIMGetDERGroup.DERGroupPayloadType.datasource">

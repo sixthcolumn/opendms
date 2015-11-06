@@ -50,11 +50,23 @@
     <Compile Include="CreateDERForm.Designer.cs">
       <DependentUpon>CreateDERForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DispatchDERForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DispatchDERForm.Designer.cs">
+      <DependentUpon>DispatchDERForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GetDERStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GetDERStatusForm.Designer.cs">
+      <DependentUpon>GetDERStatusForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,8 +79,14 @@
     <EmbeddedResource Include="CreateDERForm.resx">
       <DependentUpon>CreateDERForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DispatchDERForm.resx">
+      <DependentUpon>DispatchDERForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GetDERStatusForm.resx">
+      <DependentUpon>GetDERStatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

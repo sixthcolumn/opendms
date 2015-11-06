@@ -15,7 +15,7 @@ namespace DERMSInterface
     public class CIMData
     {
 
-        public enum operations { createDER, getDER, dispatchDER, getDERStatus  };
+        public enum operations { createDER, getDER, dispatchDER, getDERStatus };
 
         List<header> headers = new List<header>();
         public List<header> Headers
@@ -31,7 +31,7 @@ namespace DERMSInterface
             set { groups = value; }
         }
 
-     
+
 
         /*
         * Write a cim header out to xml file
@@ -157,10 +157,58 @@ namespace DERMSInterface
 
         }
 
+        public class DERStatus
+        {
+            private float presentMaxCapability = 0;
+
+            public float PresentMaxCapability
+            {
+                get { return presentMaxCapability; }
+                set { presentMaxCapability = value; }
+            }
+            private float presentValue = 0;
+
+            public float PresentValue
+            {
+                get { return presentValue; }
+                set { presentValue = value; }
+            }
+            private float presentMinCapability = 0;
+
+            public float PresentMinCapability
+            {
+                get { return presentMinCapability; }
+                set { presentMinCapability = value; }
+            }
+            private string DERGroupID;
+
+            public string DERGroupID1
+            {
+                get { return DERGroupID; }
+                set { DERGroupID = value; }
+            }
+            private int quantity = 0;
+
+            public int Quantity
+            {
+                get { return quantity; }
+                set { quantity = value; }
+            }
+
+            private string mrid;
+
+            public string Mrid
+            {
+                get { return mrid; }
+                set { mrid = value; }
+            }
+        }
+
+
         /*
          * DERGroup
          */
-        public class DERGroup 
+        public class DERGroup
         {
             private string groupName;
 
@@ -233,7 +281,7 @@ namespace DERMSInterface
         /*
          * device
          */
-        public class device 
+        public class device
         {
             string name;
 

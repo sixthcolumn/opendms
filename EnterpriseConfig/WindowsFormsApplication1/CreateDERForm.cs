@@ -74,7 +74,7 @@ namespace WindowsFormsApplication1
             this.Close();
         }
 
-        private void Form1_Load(object sender, System.EventArgs e)
+        private void FormLoad(object sender, System.EventArgs e)
         {
 
             string DERGroupName = DERMSInterface.CIMData.operations.createDER.ToString();

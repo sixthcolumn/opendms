@@ -579,7 +579,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "CreateDERForm";
             this.Text = "CreateDERForm";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.FormLoad);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DERView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deviceBindingSource)).EndInit();

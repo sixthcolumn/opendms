@@ -9,13 +9,13 @@ using System.Runtime.InteropServices;
 
 
 
+
 namespace DERMSInterface
 {
     public enum quantity
     {
-        Watts,
         RealPower,
-        ApparentPower,
+        Reactive,
     }
 
     public enum headerVerb
@@ -42,6 +42,9 @@ namespace DERMSInterface
         private String _lastMessageSent = "";
         private String _lastMessageReceived = "";
         private CIMData _data = new CIMData();
+
+
+
 
 
         public CIM() { }
@@ -135,7 +138,8 @@ namespace DERMSInterface
                 return 1;
         }
 
-     
+
+
 
         /*
          * Creates a new DER Group with children
@@ -180,8 +184,15 @@ namespace DERMSInterface
 
             // initialize the payload
             req.Payload = new CIMChangeDERGroup.DERGroupPayloadType();
-            req.Payload.DERGroups = new CIMChangeDERGroup.DERGroupsDERGroup[1];
-            req.Payload.DERGroups[0] = new CIMChangeDERGroup.DERGroupsDERGroup();
+            req.Payload.DERGroups = new CIMChangeDERGroup.EndDeviceGroup[1];
+            req.Payload.DERGroups[0] = new CIMChangeDERGroup.EndDeviceGroup();
+
+            req.Payload.DERGroups[0].Version = new CIMChangeDERGroup.EndDeviceGroupVersion();
+            req.Payload.DERGroups[0].Version.major = "1";
+            req.Payload.DERGroups[0].Version.minor = "46";
+            req.Payload.DERGroups[0].Version.revision = "1";
+            req.Payload.DERGroups[0].Version.versionDate = System.DateTime.Now;
+
 
             CIMData.DERGroup group = _data.Groups.Find(x => x.GroupName.Equals(name));
             if (group != null)
@@ -198,11 +209,22 @@ namespace DERMSInterface
                         DERMembers.Add(d);
                         d.name = dev.Name;
                         d.mRID = dev.Mrid;
+                        d.CapabilityList = new CIMChangeDERGroup.DERMemberCapabilityList();
+                        d.CapabilityList.ActivePower = new CIMChangeDERGroup.ActivePower();
+                        d.CapabilityList.ActivePower.value = (float)dev.WattCapacity;
+                        d.CapabilityList.ActivePower.multiplier = CIMChangeDERGroup.multiplier.k;
+                        d.CapabilityList.ActivePower.unit = "W";
+                        d.CapabilityList.ReactivePower = new CIMChangeDERGroup.ReactivePower();
+                        d.CapabilityList.ReactivePower.value = (float)dev.VarCapacity;
+                        d.CapabilityList.ReactivePower.multiplier = CIMChangeDERGroup.multiplier.k;
+                        d.CapabilityList.ReactivePower.unit = "VAr";
+
                         // TODO : New xsd, add the watts etc...
                     }
 
                 }
-                req.Payload.DERGroups[0].DERMember = DERMembers.ToArray();
+                req.Payload.DERGroups[0].EndDevice = DERMembers.ToArray();
+
             }
             else
                 throw new ConfigureException("DERGroup Name " + name + " not found in configuration file");
@@ -221,7 +243,7 @@ namespace DERMSInterface
         /*
          * getDERGroupStatus
          */
-        public DERGroupStatusResponse getDERGroupStatus(String[] groups, quantity q)
+        public CIMData.DERStatus getDERGroupStatus(String mrid, quantity q)
         {
             CIMGetDERGroupStatus.GetDERGroupStatus_PortClient client;
             if (_endPoint != null && _endPoint.Length > 0)
@@ -247,25 +269,60 @@ namespace DERMSInterface
             to.ReplyAddress = from.ReplyAddress;
             to.Revision = from.Revision;
             to.Source = from.Source;
+            to.User = new CIMGetDERGroupStatus.UserType();
             to.User.Organization = from.UserOrganization;
             to.User.UserID = from.UserID;
 
-            for (int i = 0; i < groups.Length; i++)
-            {
-                if (payload.DERGroupStatuses == null)
-                    payload.DERGroupStatuses = new CIMGetDERGroupStatus.DERGroupStatus[groups.Length];
-                payload.DERGroupStatuses[i] = new CIMGetDERGroupStatus.DERGroupStatus();
-                payload.DERGroupStatuses[i].DERGroup = new CIMGetDERGroupStatus.DERGroup();
-                payload.DERGroupStatuses[i].DERGroup.name = groups[i];
-                payload.DERGroupStatuses[i].RequestedCapability = (CIMGetDERGroupStatus.RequestedCapability)Enum.Parse(typeof(CIMGetDERGroupStatus.RequestedCapability), q.ToString());
-            }
+
+            payload.DERGroupStatuses = new CIMGetDERGroupStatus.EndDeviceGroup[1];
+            payload.DERGroupStatuses[0] = new CIMGetDERGroupStatus.EndDeviceGroup();
+            payload.DERGroupStatuses[0].mRID = mrid;
+
+            req.Payload.DERGroupStatuses[0].Version = new CIMGetDERGroupStatus.EndDeviceGroupVersion();
+            req.Payload.DERGroupStatuses[0].Version.major = "1";
+            req.Payload.DERGroupStatuses[0].Version.minor = "46";
+            req.Payload.DERGroupStatuses[0].Version.revision = "1";
+            req.Payload.DERGroupStatuses[0].Version.versionDate = System.DateTime.Now;
 
             _lastMessageSent = logMessage<CIMGetDERGroupStatus.GetDERGroupStatusRequestMessageType>(req);
             CIMGetDERGroupStatus.DERGroupStatusResponseMessageType reply = client.GetDERGroupStatus(req);
             _lastMessageReceived = logMessage<CIMGetDERGroupStatus.DERGroupStatusResponseMessageType>(reply);
 
-            DERGroupStatusResponse resp = new DERGroupStatusResponse();
-            return resp;
+            CIMGetDERGroupStatus.EndDeviceGroup[] statuses = reply.Payload.DERGroupStatuses;
+            if (statuses.Length > 1)
+            {
+                throw new DERResponseException("GETDERGroupStatus returned multiple DER Groups.");
+            }
+            else
+            {
+                CIMData.DERStatus status = new CIMData.DERStatus();
+                status.Mrid = reply.Payload.DERGroupStatuses[0].mRID;
+
+                if (statuses[0].CapabilityList == null)
+                    return status;
+
+                CIMGetDERGroupStatus.EndDeviceGroupCapabilityList cap = statuses[0].CapabilityList;
+                if (q.Equals(quantity.RealPower))
+                {
+                    if (cap.currentActivePower != null)
+                        status.PresentValue = cap.currentActivePower.value;
+                    if (cap.minActivePower != null)
+                        status.PresentMinCapability = cap.minActivePower.value;
+                    if (cap.maxActivePower != null)
+                        status.PresentMaxCapability = cap.maxActivePower.value;
+                    // TODO : Doesn't handle case where ders have diff multipliers
+                }
+                else if (q.Equals(quantity.Reactive))
+                {
+                    if (cap.currentReactivePower != null)
+                        status.PresentValue = cap.currentReactivePower.value;
+                    if (cap.minReactivePower != null)
+                        status.PresentMinCapability = cap.minReactivePower.value;
+                    if (cap.maxReactivePower != null)
+                        status.PresentMaxCapability = cap.maxReactivePower.value;
+                }
+                return status;
+            }
         }
 
         /*

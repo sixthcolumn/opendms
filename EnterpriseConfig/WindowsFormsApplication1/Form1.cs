@@ -367,5 +367,45 @@ namespace WindowsFormsApplication1
             else
                 MessageBox.Show("Please selected a SINGLE row", "Create DER", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        private void getDERStatusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Boolean isValid = false;
+            int row = getSingleSelectedRow(ref isValid);
+
+            if (isValid == true)
+            {
+                // name must be defined
+                if (_cim.Groups[row].GroupName == null || _cim.Groups[row].GroupName.Length < 1)
+                    MessageBox.Show("Name required to create DER Group", "Create DER", MessageBoxButtons.OK);
+                else
+                    new GetDERStatusForm(_cim, DERGroupsView.SelectedRows[0].Index).Show();
+            }
+            else if (DERGroupsView.SelectedRows.Count == 0)
+            {
+                if (_cim.Groups.Count == 0)
+                    MessageBox.Show("Please create and then select a DER Group", "Create DER", MessageBoxButtons.OK);
+                else
+                    MessageBox.Show("Please select a DER Group ROW", "Create DER", MessageBoxButtons.OK);
+            }
+            else
+                MessageBox.Show("Please selected a SINGLE row", "Create DER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void dispatchDERToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Boolean isValid = false;
+            int row = getSingleSelectedRow(ref isValid);
+
+            if (isValid == true)
+            {
+                if (_cim.Groups[row].Mrid == null || _cim.Groups[row].Mrid.Length < 1)
+                    MessageBox.Show("MRID requried to dispatch DER Group", "Dispatch DER", MessageBoxButtons.OK);
+                else
+                    new DispatchDERForm(_cim, DERGroupsView.SelectedRows[0].Index).Show();
+            }
+        }
+
+
     }
 }

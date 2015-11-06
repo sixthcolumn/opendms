@@ -1163,7 +1163,7 @@ namespace DERMSInterface.CIMGetDERGroupStatus {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/GetDERGroupStatusMessage")]
     public partial class DERGroupStatusPayloadType : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private DERGroupStatus[] dERGroupStatusesField;
+        private EndDeviceGroup[] dERGroupStatusesField;
         
         private OperationSet operationSetField;
         
@@ -1173,8 +1173,8 @@ namespace DERMSInterface.CIMGetDERGroupStatus {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(Namespace="http://www.epri.com/2013/DERStatus#", Order=0)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("DERGroupStatuses", IsNullable=false)]
-        public DERGroupStatus[] DERGroupStatuses {
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public EndDeviceGroup[] DERGroupStatuses {
             get {
                 return this.dERGroupStatusesField;
             }
@@ -1236,21 +1236,27 @@ namespace DERMSInterface.CIMGetDERGroupStatus {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERStatus#")]
-    public partial class DERGroupStatus : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class EndDeviceGroup : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string mRIDField;
         
-        private string nameField;
-        
         private Name[] namesField;
         
-        private RequestedCapability requestedCapabilityField;
+        private EndDeviceGroupCapabilityList capabilityListField;
+        
+        private EndDeviceGroupVersion versionField;
+        
+        private Status statusField;
+        
+        private string nameField;
+        
+        private DERMember[] endDeviceField;
         
         private extensionsItem[] extensionsListField;
         
-        private otherCapability otherCapabilitiesField;
+        private string descriptionField;
         
-        private DERGroup dERGroupField;
+        private string commentField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
@@ -1265,19 +1271,7 @@ namespace DERMSInterface.CIMGetDERGroupStatus {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-                this.RaisePropertyChanged("name");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Names", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute("Names", Order=1)]
         public Name[] Names {
             get {
                 return this.namesField;
@@ -1289,19 +1283,67 @@ namespace DERMSInterface.CIMGetDERGroupStatus {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public RequestedCapability RequestedCapability {
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public EndDeviceGroupCapabilityList CapabilityList {
             get {
-                return this.requestedCapabilityField;
+                return this.capabilityListField;
             }
             set {
-                this.requestedCapabilityField = value;
-                this.RaisePropertyChanged("RequestedCapability");
+                this.capabilityListField = value;
+                this.RaisePropertyChanged("CapabilityList");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public EndDeviceGroupVersion Version {
+            get {
+                return this.versionField;
+            }
+            set {
+                this.versionField = value;
+                this.RaisePropertyChanged("Version");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public Status Status {
+            get {
+                return this.statusField;
+            }
+            set {
+                this.statusField = value;
+                this.RaisePropertyChanged("Status");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("EndDevice", Order=6)]
+        public DERMember[] EndDevice {
+            get {
+                return this.endDeviceField;
+            }
+            set {
+                this.endDeviceField = value;
+                this.RaisePropertyChanged("EndDevice");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=7)]
         [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
         public extensionsItem[] extensionsList {
             get {
@@ -1314,26 +1356,26 @@ namespace DERMSInterface.CIMGetDERGroupStatus {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public otherCapability otherCapabilities {
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string description {
             get {
-                return this.otherCapabilitiesField;
+                return this.descriptionField;
             }
             set {
-                this.otherCapabilitiesField = value;
-                this.RaisePropertyChanged("otherCapabilities");
+                this.descriptionField = value;
+                this.RaisePropertyChanged("description");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public DERGroup DERGroup {
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string comment {
             get {
-                return this.dERGroupField;
+                return this.commentField;
             }
             set {
-                this.dERGroupField = value;
-                this.RaisePropertyChanged("DERGroup");
+                this.commentField = value;
+                this.RaisePropertyChanged("comment");
             }
         }
         
@@ -1502,17 +1544,650 @@ namespace DERMSInterface.CIMGetDERGroupStatus {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
     [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.epri.com/2013/DERStatus#")]
+    public partial class EndDeviceGroupCapabilityList : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private ActivePower currentActivePowerField;
+        
+        private ApparentPower currentApparentPowerField;
+        
+        private ReactivePower currentReactivePowerField;
+        
+        private ActivePower minActivePowerField;
+        
+        private ApparentPower minApparentPowerField;
+        
+        private ReactivePower minReactivePowerField;
+        
+        private ActivePower maxActivePowerField;
+        
+        private ApparentPower maxApparentPowerField;
+        
+        private ReactivePower maxReactivePowerField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ActivePower currentActivePower {
+            get {
+                return this.currentActivePowerField;
+            }
+            set {
+                this.currentActivePowerField = value;
+                this.RaisePropertyChanged("currentActivePower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public ApparentPower currentApparentPower {
+            get {
+                return this.currentApparentPowerField;
+            }
+            set {
+                this.currentApparentPowerField = value;
+                this.RaisePropertyChanged("currentApparentPower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public ReactivePower currentReactivePower {
+            get {
+                return this.currentReactivePowerField;
+            }
+            set {
+                this.currentReactivePowerField = value;
+                this.RaisePropertyChanged("currentReactivePower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public ActivePower minActivePower {
+            get {
+                return this.minActivePowerField;
+            }
+            set {
+                this.minActivePowerField = value;
+                this.RaisePropertyChanged("minActivePower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public ApparentPower minApparentPower {
+            get {
+                return this.minApparentPowerField;
+            }
+            set {
+                this.minApparentPowerField = value;
+                this.RaisePropertyChanged("minApparentPower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public ReactivePower minReactivePower {
+            get {
+                return this.minReactivePowerField;
+            }
+            set {
+                this.minReactivePowerField = value;
+                this.RaisePropertyChanged("minReactivePower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public ActivePower maxActivePower {
+            get {
+                return this.maxActivePowerField;
+            }
+            set {
+                this.maxActivePowerField = value;
+                this.RaisePropertyChanged("maxActivePower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public ApparentPower maxApparentPower {
+            get {
+                return this.maxApparentPowerField;
+            }
+            set {
+                this.maxApparentPowerField = value;
+                this.RaisePropertyChanged("maxApparentPower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public ReactivePower maxReactivePower {
+            get {
+                return this.maxReactivePowerField;
+            }
+            set {
+                this.maxReactivePowerField = value;
+                this.RaisePropertyChanged("maxReactivePower");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERStatus#")]
-    public enum RequestedCapability {
+    public partial class ActivePower : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private multiplier multiplierField;
+        
+        private string unitField;
+        
+        private float valueField;
+        
+        public ActivePower() {
+            this.unitField = "W";
+        }
         
         /// <remarks/>
-        Watts,
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public multiplier multiplier {
+            get {
+                return this.multiplierField;
+            }
+            set {
+                this.multiplierField = value;
+                this.RaisePropertyChanged("multiplier");
+            }
+        }
         
         /// <remarks/>
-        RealPower,
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string unit {
+            get {
+                return this.unitField;
+            }
+            set {
+                this.unitField = value;
+                this.RaisePropertyChanged("unit");
+            }
+        }
         
         /// <remarks/>
-        ApparentPower,
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public float value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+                this.RaisePropertyChanged("value");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERStatus#")]
+    public enum multiplier {
+        
+        /// <remarks/>
+        G,
+        
+        /// <remarks/>
+        M,
+        
+        /// <remarks/>
+        k,
+        
+        /// <remarks/>
+        h,
+        
+        /// <remarks/>
+        da,
+        
+        /// <remarks/>
+        d,
+        
+        /// <remarks/>
+        c,
+        
+        /// <remarks/>
+        m,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERStatus#")]
+    public partial class ApparentPower : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private multiplier multiplierField;
+        
+        private string unitField;
+        
+        private float valueField;
+        
+        public ApparentPower() {
+            this.unitField = "VA";
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public multiplier multiplier {
+            get {
+                return this.multiplierField;
+            }
+            set {
+                this.multiplierField = value;
+                this.RaisePropertyChanged("multiplier");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string unit {
+            get {
+                return this.unitField;
+            }
+            set {
+                this.unitField = value;
+                this.RaisePropertyChanged("unit");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public float value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+                this.RaisePropertyChanged("value");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERStatus#")]
+    public partial class ReactivePower : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private multiplier multiplierField;
+        
+        private string unitField;
+        
+        private float valueField;
+        
+        public ReactivePower() {
+            this.unitField = "VAr";
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public multiplier multiplier {
+            get {
+                return this.multiplierField;
+            }
+            set {
+                this.multiplierField = value;
+                this.RaisePropertyChanged("multiplier");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string unit {
+            get {
+                return this.unitField;
+            }
+            set {
+                this.unitField = value;
+                this.RaisePropertyChanged("unit");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public float value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+                this.RaisePropertyChanged("value");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.epri.com/2013/DERStatus#")]
+    public partial class EndDeviceGroupVersion : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string majorField;
+        
+        private string minorField;
+        
+        private string revisionField;
+        
+        private System.DateTime versionDateField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=0)]
+        public string major {
+            get {
+                return this.majorField;
+            }
+            set {
+                this.majorField = value;
+                this.RaisePropertyChanged("major");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=1)]
+        public string minor {
+            get {
+                return this.minorField;
+            }
+            set {
+                this.minorField = value;
+                this.RaisePropertyChanged("minor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=2)]
+        public string revision {
+            get {
+                return this.revisionField;
+            }
+            set {
+                this.revisionField = value;
+                this.RaisePropertyChanged("revision");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public System.DateTime versionDate {
+            get {
+                return this.versionDateField;
+            }
+            set {
+                this.versionDateField = value;
+                this.RaisePropertyChanged("versionDate");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERStatus#")]
+    public partial class Status : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.DateTime dateTimeField;
+        
+        private string reasonField;
+        
+        private string remarkField;
+        
+        private string valueField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public System.DateTime dateTime {
+            get {
+                return this.dateTimeField;
+            }
+            set {
+                this.dateTimeField = value;
+                this.RaisePropertyChanged("dateTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string reason {
+            get {
+                return this.reasonField;
+            }
+            set {
+                this.reasonField = value;
+                this.RaisePropertyChanged("reason");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string remark {
+            get {
+                return this.remarkField;
+            }
+            set {
+                this.remarkField = value;
+                this.RaisePropertyChanged("remark");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+                this.RaisePropertyChanged("value");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERStatus#")]
+    public partial class DERMember : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string mRIDField;
+        
+        private string nameField;
+        
+        private Name namesField;
+        
+        private DERMemberCapabilityList capabilityListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string mRID {
+            get {
+                return this.mRIDField;
+            }
+            set {
+                this.mRIDField = value;
+                this.RaisePropertyChanged("mRID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public Name Names {
+            get {
+                return this.namesField;
+            }
+            set {
+                this.namesField = value;
+                this.RaisePropertyChanged("Names");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public DERMemberCapabilityList CapabilityList {
+            get {
+                return this.capabilityListField;
+            }
+            set {
+                this.capabilityListField = value;
+                this.RaisePropertyChanged("CapabilityList");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.epri.com/2013/DERStatus#")]
+    public partial class DERMemberCapabilityList : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private ActivePower activePowerField;
+        
+        private ApparentPower apparentPowerField;
+        
+        private ReactivePower reactivePowerField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ActivePower ActivePower {
+            get {
+                return this.activePowerField;
+            }
+            set {
+                this.activePowerField = value;
+                this.RaisePropertyChanged("ActivePower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public ApparentPower ApparentPower {
+            get {
+                return this.apparentPowerField;
+            }
+            set {
+                this.apparentPowerField = value;
+                this.RaisePropertyChanged("ApparentPower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public ReactivePower ReactivePower {
+            get {
+                return this.reactivePowerField;
+            }
+            set {
+                this.reactivePowerField = value;
+                this.RaisePropertyChanged("ReactivePower");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     /// <remarks/>
@@ -1562,154 +2237,6 @@ namespace DERMSInterface.CIMGetDERGroupStatus {
             set {
                 this.extTypeField = value;
                 this.RaisePropertyChanged("extType");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERStatus#")]
-    public partial class otherCapability : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string capabilityTypeField;
-        
-        private string capabilitySubTypeField;
-        
-        private float capabilityValueField;
-        
-        private bool capabilityValueFieldSpecified;
-        
-        private string capabilityUnitsField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string capabilityType {
-            get {
-                return this.capabilityTypeField;
-            }
-            set {
-                this.capabilityTypeField = value;
-                this.RaisePropertyChanged("capabilityType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string capabilitySubType {
-            get {
-                return this.capabilitySubTypeField;
-            }
-            set {
-                this.capabilitySubTypeField = value;
-                this.RaisePropertyChanged("capabilitySubType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public float capabilityValue {
-            get {
-                return this.capabilityValueField;
-            }
-            set {
-                this.capabilityValueField = value;
-                this.RaisePropertyChanged("capabilityValue");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool capabilityValueSpecified {
-            get {
-                return this.capabilityValueFieldSpecified;
-            }
-            set {
-                this.capabilityValueFieldSpecified = value;
-                this.RaisePropertyChanged("capabilityValueSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string capabilityUnits {
-            get {
-                return this.capabilityUnitsField;
-            }
-            set {
-                this.capabilityUnitsField = value;
-                this.RaisePropertyChanged("capabilityUnits");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERStatus#")]
-    public partial class DERGroup : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string nameField;
-        
-        private string mRIDField;
-        
-        private Name[] namesField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-                this.RaisePropertyChanged("name");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string mRID {
-            get {
-                return this.mRIDField;
-            }
-            set {
-                this.mRIDField = value;
-                this.RaisePropertyChanged("mRID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Names", Order=2)]
-        public Name[] Names {
-            get {
-                return this.namesField;
-            }
-            set {
-                this.namesField = value;
-                this.RaisePropertyChanged("Names");
             }
         }
         

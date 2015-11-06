@@ -85,6 +85,7 @@
             this.reactivePower = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.getDERStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.DERs.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -160,7 +161,8 @@
             // 
             this.testToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createDERToolStripMenuItem,
-            this.dispatchDERToolStripMenuItem});
+            this.dispatchDERToolStripMenuItem,
+            this.getDERStatusToolStripMenuItem});
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
             this.testToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.testToolStripMenuItem.Text = "Test";
@@ -168,15 +170,16 @@
             // createDERToolStripMenuItem
             // 
             this.createDERToolStripMenuItem.Name = "createDERToolStripMenuItem";
-            this.createDERToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.createDERToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.createDERToolStripMenuItem.Text = "Create DER";
             this.createDERToolStripMenuItem.Click += new System.EventHandler(this.createDERToolStripMenuItem_Click);
             // 
             // dispatchDERToolStripMenuItem
             // 
             this.dispatchDERToolStripMenuItem.Name = "dispatchDERToolStripMenuItem";
-            this.dispatchDERToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.dispatchDERToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.dispatchDERToolStripMenuItem.Text = "Dispatch DER";
+            this.dispatchDERToolStripMenuItem.Click += new System.EventHandler(this.dispatchDERToolStripMenuItem_Click);
             // 
             // DERs
             // 
@@ -634,6 +637,13 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(632, 21);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
+            // getDERStatusToolStripMenuItem
+            // 
+            this.getDERStatusToolStripMenuItem.Name = "getDERStatusToolStripMenuItem";
+            this.getDERStatusToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.getDERStatusToolStripMenuItem.Text = "Get DER Status";
+            this.getDERStatusToolStripMenuItem.Click += new System.EventHandler(this.getDERStatusToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -721,6 +731,7 @@
         private System.Windows.Forms.ToolStripMenuItem dispatchDERToolStripMenuItem;
         private System.Windows.Forms.TextBox nounText;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ToolStripMenuItem getDERStatusToolStripMenuItem;
     }
 }
 

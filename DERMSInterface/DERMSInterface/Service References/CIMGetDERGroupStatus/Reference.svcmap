@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="Z:\git\openwms\DER\wsdl\GetDERGroupStatus.wsdl" Protocol="file" SourceId="1" />
+    <MetadataSource Address="Z:\git\opendms\DER\wsdl\GetDERGroupStatus.wsdl" Protocol="file" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="GetDERGroupStatus.wsdl" MetadataType="Wsdl" ID="cab95886-e17b-47f8-ab25-c01cc0612dda" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/GetDERGroupStatus.wsdl" />
-    <MetadataFile FileName="Message.xsd" MetadataType="Schema" ID="3186b96c-d3a1-4f53-b190-0f842f4eef9a" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/Message.xsd" />
-    <MetadataFile FileName="GetDERGroupStatusMessage.xsd" MetadataType="Schema" ID="05017b82-84ed-42a4-9949-277b5fc5cc3a" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/GetDERGroupStatusMessage.xsd" />
-    <MetadataFile FileName="DERGroupStatus.xsd" MetadataType="Schema" ID="adbab244-3331-4f4a-9171-78a14f3ba213" SourceId="1" SourceUrl="file:///Z:/git/openwms/DER/wsdl/xsd/DERGroupStatus.xsd" />
+    <MetadataFile FileName="DERGroupStatus1.xsd" MetadataType="Schema" ID="484b5245-17a4-491d-8edf-68c7b3816eda" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/xsd/DERGroupStatus.xsd" />
+    <MetadataFile FileName="GetDERGroupStatusMessage1.xsd" MetadataType="Schema" ID="6ddbc829-3bdf-40cd-a0b5-47ba474993ef" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/xsd/GetDERGroupStatusMessage.xsd" />
+    <MetadataFile FileName="Message1.xsd" MetadataType="Schema" ID="53a4b44a-11f9-4009-a2a6-a8bac49b279a" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/xsd/Message.xsd" />
+    <MetadataFile FileName="GetDERGroupStatus1.wsdl" MetadataType="Wsdl" ID="4558b092-653e-4277-8cd9-de5df7773456" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/GetDERGroupStatus.wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
