@@ -72,27 +72,79 @@ namespace DERMSInterface
         /// <summary>
         /// convenience function reads CIMData file, calls createDER, returns all in one call
         /// </summary>
-        /// <param name="derGroup">group to be created, must be in the config file</param>
+        /// <param name="DERGroupName">group to be created, must be in the config file</param>
         /// <param name="path">file name</param>
         /// <returns></returns>
-        public static int CreateDERGroup(String derGroup, string path)
+        public static int CreateDERGroup(string path, String DERGroupName, String[] members, ref String SOAPMessage)
         {
             CIM c = new CIM();
             c._data = DERMSInterface.CIMData.read(path);
-            return c.createDERGroup(derGroup, null);
+            SOAPMessage = c.LastMessageSent;
+            SOAPMessage += c.LastMessageReceived;
+            return c.createDERGroup(DERGroupName, null);
         }
 
+        /// <summary>
+        /// convenience function reads cimdata file, calls dispatch
+        /// </summary>
+        /// <param name="path"> filename</param>
+        /// <param name="DERGroupName">DER group name</param>
+        /// <param name="q">apparent or real</param>
+        /// <param name="isOverride">send my own value, rather than pulling from config</param>
+        /// <param name="overrideValue">value to send</param>
+        /// <returns></returns>
+        public static int DispatchDERGroup(String path, String DERGroupName, quantity q, ref String SOAPMessage, Boolean isOverride = false, double overrideValue = 0.0)
+        {
+            CIM c = new CIM();
+            c._data = DERMSInterface.CIMData.read(path);
+            SOAPMessage = c.LastMessageSent;
+            int rc = c.DispatchDERGroup(DERGroupName, q, isOverride, overrideValue);
+            SOAPMessage += c.LastMessageReceived;
+            return rc;
+        }
+
+        /// <summary>
+        /// convenience function, reads cimdata file, calls getGroupStatus, returns result
+        /// </summary>
+        /// <param name="path">file name</param>
+        /// <param name="mrid">der group unique identifier</param>
+        /// <param name="q">apparent or real</param>
+        /// <returns></returns>
+        public static CIMData.DERStatus getDERGroupStatus(String path, String mrid, quantity q, ref String SOAPMessage)
+        {
+            CIM c = new CIM();
+
+            c._data = DERMSInterface.CIMData.read(path);
+            SOAPMessage = c.LastMessageSent;
+            CIMData.DERStatus status = c.getDERGroupStatus(mrid, q);
+            SOAPMessage += c.LastMessageReceived;
+            return status;
+        }
+
+        /// <summary>
+        /// convenience function, loads config and requests der member info
+        /// </summary>
+        /// <param name="path">file name</param>
+        /// <param name="mrid">unique identifier for DER group</param>
+        /// <returns></returns>
+        public static String[] requestDERGroupMembers(String path, String mrid, ref String SOAPMessage)
+        {
+            CIM c = new CIM();
+            SOAPMessage = c.LastMessageSent;
+            c._data = DERMSInterface.CIMData.read(path);
+            return c.requestDERGroupMembers(mrid);
+        }
 
 
         /// <summary>
         /// executes a create DERdispatch soap command
         /// </summary>
-        /// <param name="name">DERGroup name</param>
+        /// <param name="DERGroupName">DERGroup name</param>
         /// <param name="q">realPower or reactivePower</param>
         /// <param name="isOverride">send overrideValue instead of value from cimdata</param>
         /// <param name="overrideValue">value to be used for dispatch</param>
         /// <returns></returns>
-        public int DispatchDERGroup(String name, quantity q, Boolean isOverride = false, double overrideValue = 0.0)
+        public int DispatchDERGroup(String DERGroupName, quantity q, Boolean isOverride = false, double overrideValue = 0.0)
         {
             CIMDERGroupDispatch.DERGroupDispatch_PortClient client;
             CIMData.header header = _data.DispatchDERHeader;
@@ -133,7 +185,7 @@ namespace DERMSInterface
             }
 
             // load the data for the SOAP call
-            CIMData.DERGroup group = _data.Groups.Find(x => x.GroupName.Equals(name));
+            CIMData.DERGroup group = _data.Groups.Find(x => x.GroupName.Equals(DERGroupName));
             if (group != null)
             {
                 payload.DERGroupDispatches = new CIMDERGroupDispatch.DERGroupDispatch[1];
@@ -177,19 +229,19 @@ namespace DERMSInterface
                     return 1;
             }
             else
-                throw new DERConfigureException("DERGroup Name " + name + " not found in configuration file");
+                throw new DERConfigureException("DERGroup Name " + DERGroupName + " not found in configuration file");
         }
 
         /// <summary>
         /// executes a create DER SOAP command
         /// </summary>
-        /// <param name="name">name of der group to create</param>
+        /// <param name="DERGroupName">name of der group to create</param>
         /// <param name="members">list of der's (their names) to create, defaultNull = all</param>
         /// <returns></returns>
-        public int createDERGroup(String name, String[] members)
+        public int createDERGroup(String DERGroupName, String[] members)
         {
 
-            if (name == null || name.Length < 1)
+            if (DERGroupName == null || DERGroupName.Length < 1)
                 throw new DERConfigureException("createDERGroup illegal argument, DERGroup name not set");
 
             // intialize service
@@ -240,9 +292,9 @@ namespace DERMSInterface
             req.Payload.DERGroups[0].Version.versionDate = _data.Version.Date;
 
             // find the data that matches the DER name passed
-            CIMData.DERGroup group = _data.Groups.Find(x => x.GroupName.Equals(name));
+            CIMData.DERGroup group = _data.Groups.Find(x => x.GroupName.Equals(DERGroupName));
             if (group == null)
-                throw new DERConfigureException("DERGroup Name " + name + " not found in configuration file");
+                throw new DERConfigureException("DERGroup Name " + DERGroupName + " not found in configuration file");
             else
             {
                 req.Payload.DERGroups[0].name = group.GroupName;
@@ -390,15 +442,7 @@ namespace DERMSInterface
             }
         }
 
-        /// <summary>
-        /// convenience method to determine if string is empty
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        private Boolean hasData(string s)
-        {
-            return (s != null && s.Length > 0);
-        }
+
 
         /// <summary>
         /// SOAP call to get the list of DERs within a DERGroup
@@ -471,6 +515,16 @@ namespace DERMSInterface
                 return ders.ToArray();
             }
             return null;
+        }
+
+        /// <summary>
+        /// convenience method to determine if string is empty
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        private Boolean hasData(string s)
+        {
+            return (s != null && s.Length > 0);
         }
 
         public static String getUUID()
