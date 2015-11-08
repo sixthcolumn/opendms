@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<CIMData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Headers>
+    <header>
+      <Name>createDER</Name>
+      <EndPoint>http://10.3.253.100:8080/DERConnect/cim/changeDERGroup</EndPoint>
+      <Verb>create</Verb>
+      <Noun>DER Request</Noun>
+      <ReplyAddress>http://localhost:8080/DERConnect/cim/Forecasts</ReplyAddress>
+      <Context>Testing</Context>
+      <Comment>general comments</Comment>
+      <AckRequired>false</AckRequired>
+      <UserOrganization>Epri</UserOrganization>
+      <UserID>epri1</UserID>
+    </header>
+    <header>
+      <Name>dispatchDER</Name>
+      <EndPoint>http://10.3.253.100:8080/DERConnect/cim/changeDERGroupDispatch</EndPoint>
+      <Verb>create</Verb>
+      <Noun>DER Request</Noun>
+      <ReplyAddress>http://10.3.253.100:8080/DERConnect/cim/requestChangeDERGroupDispatch</ReplyAddress>
+      <Context>dispatch message</Context>
+      <Comment>dispatch test comment</Comment>
+      <AckRequired>false</AckRequired>
+      <UserOrganization>Epri</UserOrganization>
+      <UserID>epri</UserID>
+    </header>
+    <header>
+      <Name>getDER</Name>
+      <EndPoint>http://10.3.253.100:8080/DERConnect/cim/getDERGroup</EndPoint>
+      <Verb>get</Verb>
+      <Noun>DER Get</Noun>
+      <ReplyAddress>http://localhost:8080/DERConnect/cim/RequestGetDERGroup</ReplyAddress>
+      <Context>get DER</Context>
+      <Comment>test get der</Comment>
+      <AckRequired>false</AckRequired>
+      <UserOrganization>Epri</UserOrganization>
+      <UserID>epriUser</UserID>
+    </header>
+    <header>
+      <Name>getDERStatus</Name>
+      <EndPoint>http://10.3.253.100:8080/DERConnect/cim/getDERGroupStatus</EndPoint>
+      <Verb>get</Verb>
+      <Noun>DER Request</Noun>
+      <ReplyAddress>http://localhost:8080/DERConnect/cim/requestGetDERGroupStatus</ReplyAddress>
+      <Context>status get</Context>
+      <Comment>status request</Comment>
+      <AckRequired>false</AckRequired>
+      <UserOrganization>epri</UserOrganization>
+      <UserID>epriUser</UserID>
+    </header>
+  </Headers>
+  <Groups>
+    <DERGroup>
+      <GroupName>dergroup1</GroupName>
+      <Mrid>123</Mrid>
+      <Revision>0.1a</Revision>
+      <Substation>hawk</Substation>
+      <Feeder>grifin</Feeder>
+      <Segment>23a</Segment>
+      <Devices>
+        <device>
+          <Name>der1</Name>
+          <WattCapacity>75.77</WattCapacity>
+          <VarCapacity>82.01</VarCapacity>
+        </device>
+        <device>
+          <Name>der2</Name>
+          <WattCapacity>167.22</WattCapacity>
+          <VarCapacity>100</VarCapacity>
+        </device>
+        <device>
+          <Name>abc</Name>
+          <WattCapacity>12.5</WattCapacity>
+          <VarCapacity>15.77</VarCapacity>
+        </device>
+      </Devices>
+    </DERGroup>
+    <DERGroup>
+      <GroupName>dergroup2</GroupName>
+      <Mrid>128</Mrid>
+      <Revision>0.1a</Revision>
+      <Substation>hawk</Substation>
+      <Feeder>grifin</Feeder>
+      <Segment>23b</Segment>
+      <Devices>
+        <device>
+          <Name>h1</Name>
+          <WattCapacity>73</WattCapacity>
+          <VarCapacity>174.8</VarCapacity>
+        </device>
+        <device>
+          <Name>h2</Name>
+          <WattCapacity>83.5</WattCapacity>
+          <VarCapacity>180.2</VarCapacity>
+        </device>
+      </Devices>
+    </DERGroup>
+  </Groups>
+</CIMData>

@@ -79,9 +79,9 @@ namespace DERMSInterface
         {
             CIM c = new CIM();
             c._data = DERMSInterface.CIMData.read(path);
-            SOAPMessage = c.LastMessageSent;
-            SOAPMessage += c.LastMessageReceived;
-            return c.createDERGroup(DERGroupName, null);
+            int rc =  c.createDERGroup(DERGroupName, null);
+            SOAPMessage = c.LastMessageSent + c.LastMessageReceived;
+            return rc;
         }
 
         /// <summary>
@@ -97,9 +97,8 @@ namespace DERMSInterface
         {
             CIM c = new CIM();
             c._data = DERMSInterface.CIMData.read(path);
-            SOAPMessage = c.LastMessageSent;
             int rc = c.DispatchDERGroup(DERGroupName, q, isOverride, overrideValue);
-            SOAPMessage += c.LastMessageReceived;
+            SOAPMessage = c.LastMessageSent + c.LastMessageReceived;
             return rc;
         }
 
@@ -115,9 +114,8 @@ namespace DERMSInterface
             CIM c = new CIM();
 
             c._data = DERMSInterface.CIMData.read(path);
-            SOAPMessage = c.LastMessageSent;
             CIMData.DERStatus status = c.getDERGroupStatus(mrid, q);
-            SOAPMessage += c.LastMessageReceived;
+            SOAPMessage = c.LastMessageSent + c.LastMessageReceived;
             return status;
         }
 
@@ -130,9 +128,10 @@ namespace DERMSInterface
         public static String[] requestDERGroupMembers(String path, String mrid, ref String SOAPMessage)
         {
             CIM c = new CIM();
-            SOAPMessage = c.LastMessageSent;
             c._data = DERMSInterface.CIMData.read(path);
-            return c.requestDERGroupMembers(mrid);
+            String[] s = c.requestDERGroupMembers(mrid);
+            SOAPMessage = c.LastMessageSent + c.LastMessageReceived;
+            return s;
         }
 
 
