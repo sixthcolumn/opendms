@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="wreg60xGP/o3XqIgtZqNe4PILlM=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="QJ2vxl9aufwFr+duX0MFLF0FKEE=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="GetDERGroupImplServiceSoapBinding">
+    <bindingConfiguration bindingType="basicHttpBinding" name="GetDERGroup_Binding">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>GetDERGroupImplServiceSoapBinding</serializedValue>
+          <serializedValue>GetDERGroup_Binding</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="GetDERGroupImplPort" contract="CIMGetDERGroup.GetDERGroup_Port" bindingType="basicHttpBinding" address="http://10.3.253.100:8080/DERConnect/cim/getDERGroup" bindingConfiguration="GetDERGroupImplServiceSoapBinding">
+    <endpoint name="GetDERGroup_Port" contract="CIMGetDERGroup.GetDERGroup_Port" bindingType="basicHttpBinding" address="http://iec.ch/TC57/2011/GetDERGroup" bindingConfiguration="GetDERGroup_Binding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.3.253.100:8080/DERConnect/cim/getDERGroup</serializedValue>
+          <serializedValue>http://iec.ch/TC57/2011/GetDERGroup</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -124,7 +124,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>GetDERGroupImplServiceSoapBinding</serializedValue>
+          <serializedValue>GetDERGroup_Binding</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>CIMGetDERGroup.GetDERGroup_Port</serializedValue>
@@ -187,7 +187,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>GetDERGroupImplPort</serializedValue>
+          <serializedValue>GetDERGroup_Port</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

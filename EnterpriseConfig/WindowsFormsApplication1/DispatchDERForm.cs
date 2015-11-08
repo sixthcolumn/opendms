@@ -14,15 +14,48 @@ namespace WindowsFormsApplication1
     {
         DERMSInterface.CIMData _cim = null;
         int _row = -1;
-        Boolean _showXML = false;
         XMLForm _log = null;
         DERMSInterface.quantity _q;
+        double realValue = 0.0;
+        double reactiveValue = 0.0;
 
+        /// <summary>
+        /// convenience function to get the dispatch der header
+        /// </summary>
+        private DERMSInterface.CIMData.header header
+        {
+            get { return _cim.DispatchDERHeader; }
+        }
+
+        /// <summary>
+        /// convenience function. Get the currently selected DER Group
+        /// </summary>
+        private DERMSInterface.CIMData.DERGroup group
+        {
+            get { return _cim.Groups[_row]; }
+        }
+
+        /// <summary>
+        /// convenience function. Returns the real/reactive power
+        /// </summary>
+        private double dispatchValue
+        {
+            get { return _q.Equals(DERMSInterface.quantity.RealPower) ? realValue : reactiveValue; }
+        }
+
+        /// <summary>
+        /// default constructor, don't use
+        /// </summary>
         public DispatchDERForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        ///  constructor
+        /// </summary>
+        /// <param name="cim">the config data object</param>
+        /// <param name="row">the row of data from the object to be sent</param>
         public DispatchDERForm(DERMSInterface.CIMData cim, int row)
         {
             _cim = cim;
@@ -30,40 +63,74 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
+        /// <summary>
+        /// call the SOAP dispatch method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dispatchButton_Click(object sender, EventArgs e)
         {
+            DERMSInterface.CIM cs = new DERMSInterface.CIM(_cim);
+            int rc = 1;
+
+            try
+            {
+                _log = new XMLForm();
+                // because we allow user to edit real/reactive values, we always force send it
+                rc = cs.DispatchDERGroup(_cim.Groups[_row].Mrid, _q, true, dispatchValue);
+                _log.addBoldText("Return Code : " + rc.ToString() + Environment.NewLine + Environment.NewLine);
+            }
+            catch (Exception ex)
+            {
+                _log.addBoldText("Exception...");
+                _log.addText(ex.ToString());
+            }
+            finally
+            {
+                _log.addBoldText("Message Sent..." + Environment.NewLine + Environment.NewLine);
+                _log.addText(cs.LastMessageSent + Environment.NewLine + Environment.NewLine);
+                _log.addBoldText("Message Received..." + Environment.NewLine + Environment.NewLine);
+                _log.addText(cs.LastMessageReceived + Environment.NewLine + Environment.NewLine);
+            }
+            _log.Show();
+            MessageBox.Show("Return code : " + rc.ToString(), "Dispatch DER", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
+        /// <summary>
+        /// initializes the form, loads up all its widgets with data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DispatchDERForm_Load(object sender, System.EventArgs e)
         {
+            _log = new XMLForm();
             string DERGroupName = DERMSInterface.CIMData.operations.dispatchDER.ToString();
-            DERMSInterface.CIMData.header header = _cim.Headers.Find(x => x.Name.Equals(DERGroupName));
-            if (header != null)
-            {
-                this.endPointText.Text = header.EndPoint;
-                this.messageTypeText.Text = "Dispatch DER";
-                this.replyAddressText.Text = header.ReplyAddress;
-                this.userIDText.Text = header.UserID;
-                this.organizationText.Text = header.UserOrganization;
-                this.contextText.Text = header.Context;
-                this.verbText.Text = header.Verb;
-                this.ackRequiredCheck.Checked = header.AckRequired;
-                this.commentText.Text = header.Comment;
-            }
+            DERMSInterface.CIMData.header header = _cim.DispatchDERHeader;
+            this.endPointText.Text = header.EndPoint;
+            this.messageTypeText.Text = "Dispatch DER";
+            this.replyAddressText.Text = header.ReplyAddress;
+            this.userIDText.Text = header.UserID;
+            this.organizationText.Text = header.UserOrganization;
+            this.contextText.Text = header.Context;
+            this.verbText.Text = header.Verb;
+            this.ackRequiredCheck.Checked = header.AckRequired;
+            this.commentText.Text = header.Comment;
 
+            // set to real by default. Why not?
             this.realRadio.Checked = true;
-
-            if (_row >= 0 && _cim.Groups.Count > _row)
-            {
-                DERMSInterface.CIMData.DERGroup group = _cim.Groups[_row];
-                DERGroupMRIDText.Text = group.Mrid;
-                realValueText.Text = group.getWattCapacity().ToString();
-                reactiveValueText.Text = group.getVarCapacity().ToString();
-                // TODO : we do not set count, reactive and total power values, they are derived    
-            }
+            DERMSInterface.CIMData.DERGroup group = this.group;
+            DERGroupMRIDText.Text = group.Mrid;
+            realValue = group.getWattCapacity();
+            reactiveValue = group.getVarCapacity();
+            realValueText.Text = realValue.ToString();
+            reactiveValueText.Text = reactiveValue.ToString();
         }
 
+        // -----
+        // form values changed handlers
+        // -----
+        #region value changed event handlers
         private void realRadio_CheckedChanged(object sender, EventArgs e)
         {
             _q = DERMSInterface.quantity.RealPower;
@@ -71,7 +138,7 @@ namespace WindowsFormsApplication1
 
         private void reactiveRadio_CheckedChanged(object sender, EventArgs e)
         {
-            _q = DERMSInterface.quantity.Reactive;
+            _q = DERMSInterface.quantity.ApparentPower;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -79,10 +146,58 @@ namespace WindowsFormsApplication1
             this.Close();
         }
 
-        private void showXMLBox_CheckedChanged(object sender, EventArgs e)
+        private void endPointText_TextChanged(object sender, EventArgs e)
         {
-            CheckBox check = (CheckBox)sender;
-            _showXML = check.Checked;
+            header.EndPoint = ((TextBox)sender).Text;
         }
+
+        private void replyAddressText_TextChanged(object sender, EventArgs e)
+        {
+            header.ReplyAddress = ((TextBox)sender).Text;
+        }
+
+        private void userIDText_TextChanged(object sender, EventArgs e)
+        {
+            header.UserID = ((TextBox)sender).Text;
+        }
+
+        private void organizationText_TextChanged(object sender, EventArgs e)
+        {
+            header.UserOrganization = ((TextBox)sender).Text;
+        }
+
+        private void contextText_TextChanged(object sender, EventArgs e)
+        {
+            header.Context = ((TextBox)sender).Text;
+        }
+
+        private void ackRequiredCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            header.AckRequired = ((CheckBox)sender).Checked;
+        }
+
+        private void commentText_TextChanged(object sender, EventArgs e)
+        {
+            header.Comment = ((TextBox)sender).Text;
+        }
+
+        private void DERGroupMRIDText_TextChanged(object sender, EventArgs e)
+        {
+            group.Mrid = ((TextBox)sender).Text;
+        }
+
+        private void realValueText_TextChanged(object sender, EventArgs e)
+        {
+            realValueText.Text = ((TextBox)sender).Text;
+        }
+
+        private void reactiveValueText_TextChanged(object sender, EventArgs e)
+        {
+            reactiveValueText.Text = ((TextBox)sender).Text;
+        }
+        #endregion
+        // -----
+        // END form values changed handlers
+        // -----
     }
 }

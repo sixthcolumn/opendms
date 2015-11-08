@@ -14,28 +14,45 @@ namespace DERMSInterface
      */
     public class CIMData
     {
+        List<header> headers = new List<header>();
+        List<DERGroup> groups = new List<DERGroup>();
+        private version _version = new version();
 
+        /// <summary>
+        /// represents the types of headers supported 
+        /// </summary>
         public enum operations { createDER, getDER, dispatchDER, getDERStatus };
 
-        List<header> headers = new List<header>();
-        public List<header> Headers
+        /// <summary>
+        /// constructor
+        /// </summary>
+        public CIMData()
         {
-            get { return headers; }
-            set { headers = value; }
+
         }
 
-        List<DERGroup> groups = new List<DERGroup>();
-        public List<DERGroup> Groups
+        /// <summary>
+        /// clones the current object and returns the new object
+        /// </summary>
+        /// <returns></returns>
+        public CIMData clone()
         {
-            get { return groups; }
-            set { groups = value; }
+            System.IO.StringWriter s = new System.IO.StringWriter();
+            System.Xml.Serialization.XmlSerializer writer = new System.Xml.Serialization.XmlSerializer(typeof(CIMData));
+            writer.Serialize(s, this);
+
+            XmlSerializer serializer = new XmlSerializer(typeof(CIMData));
+            System.IO.StringReader r = new System.IO.StringReader(s.ToString());
+            CIMData data;
+            data = (CIMData)serializer.Deserialize(r);
+
+            return data;
         }
 
-
-
-        /*
-        * Write a cim header out to xml file
-        */
+        /// <summary>
+        /// writes itself out to a xml file
+        /// </summary>
+        /// <param name="path"></param>
         public void write(String path)
         {
             System.Xml.Serialization.XmlSerializer writer =
@@ -47,10 +64,11 @@ namespace DERMSInterface
             file.Close();
         }
 
-
-        /*
-         * read xml serialized cim header in from config file
-         */
+        /// <summary>
+        /// reads from xml file and returns new cimdata object
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public static CIMData read(String path)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(CIMData));
@@ -65,6 +83,109 @@ namespace DERMSInterface
             {
                 file.Close();
             }
+        }
+
+        public static String OpCreateDER
+        {
+            get { return operations.createDER.ToString(); }
+        }
+
+        public header CreateDERHeader
+        {
+            get
+            {
+                header h = this.Headers.Find(x => x.Name.Equals(OpCreateDER));
+                if (h == null)
+                {
+                    h = new header();
+                    h.Name = OpCreateDER;
+                    this.headers.Add(h);
+                }
+                return h;
+
+            }
+        }
+
+        public header GetDERHeader
+        {
+            get
+            {
+                header h = this.Headers.Find(x => x.Name.Equals(OpGetDER));
+                if (h == null)
+                {
+                    h = new header();
+                    h.Name = OpGetDER;
+                    this.headers.Add(h);
+                }
+                return h;
+            }
+        }
+
+        public header DispatchDERHeader
+        {
+            get
+            {
+                {
+                    header h = this.Headers.Find(x => x.Name.Equals(OpDispatchDER));
+                    if (h == null)
+                    {
+                        h = new header();
+                        h.Name = OpDispatchDER;
+                        this.headers.Add(h);
+                    }
+                    return h;
+                }
+            }
+        }
+
+        public header GetDERStatusHeader
+        {
+            get
+            {
+                {
+                    header h = this.Headers.Find(x => x.Name.Equals(OpGetDERStatus));
+                    if (h == null)
+                    {
+                        h = new header();
+                        h.Name = OpGetDERStatus;
+                        this.headers.Add(h);
+                    }
+                    return h;
+                }
+            }
+        }
+
+        public static String OpGetDER
+        {
+            get { return operations.getDER.ToString(); }
+        }
+
+        public static String OpGetDERStatus
+        {
+            get { return operations.getDERStatus.ToString(); }
+        }
+
+        public static String OpDispatchDER
+        {
+            get { return operations.dispatchDER.ToString(); }
+        }
+
+        public List<header> Headers
+        {
+            get { return headers; }
+            set { headers = value; }
+        }
+
+        public List<DERGroup> Groups
+        {
+            get { return groups; }
+            set { groups = value; }
+        }
+
+        public version Version
+        {
+            get { return _version; }
+            set { _version = value; }
         }
 
         public class header
@@ -95,7 +216,14 @@ namespace DERMSInterface
 
             public String Noun
             {
-                get { return noun; }
+                // Noun is required
+                get
+                {
+                    if (noun == null || noun.Length < 1)
+                        return "default";
+                    else
+                        return noun;
+                }
                 set { noun = value; }
             }
             private String replyAddress;
@@ -153,6 +281,66 @@ namespace DERMSInterface
             {
                 get { return userID; }
                 set { userID = value; }
+            }
+
+        }
+
+        public class version
+        {
+            string major;
+            string minor;
+            DateTime date;
+            string revision;
+
+            public string Major
+            {
+                get
+                {
+                    // required field, can't be empty
+                    if (major == null || major.Length < 1)
+                        return "1";
+                    return major;
+                }
+                set { major = value; }
+            }
+
+
+            public string Minor
+            {
+                get
+                {
+                    // required, can't be null
+                    if (minor == null || minor.Length < 1)
+                        return "1";
+                    return minor;
+                }
+                set { minor = value; }
+            }
+
+
+            public string Revision
+            {
+                get
+                {
+                    // required, can't be null
+                    if (revision == null || revision.Length < 1)
+                        return "1";
+                    return revision;
+                }
+                set { revision = value; }
+            }
+
+
+            public DateTime Date
+            {
+                get
+                {
+                    // required, can't be null
+                    if (date == null)
+                        return System.DateTime.Now;
+                    return date;
+                }
+                set { date = value; }
             }
 
         }

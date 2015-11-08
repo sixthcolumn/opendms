@@ -18,6 +18,9 @@ namespace WindowsFormsApplication1
         private BindingSource DERGroupBindingSource = new BindingSource();
         private BindingSource DERBindingSource = new BindingSource();
 
+        /// <summary>
+        /// initializes the form and the event handlers
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
@@ -37,56 +40,37 @@ namespace WindowsFormsApplication1
         }
 
 
-        private void DERGroupRow_enter(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex == 0)
-                return;
-
-            BindDERBindingSource(e.RowIndex);
-        }
-
-        
-        private void DERGroupRow_Deleted(object sender, DataGridViewRowEventArgs e)
-        {
-           DERGroupsView.Rows[0].Selected = true;
-           BindDERBindingSource(0);
-        }
-
-        // Validates that the value in reactive and real cells are legal floating point
-        private void DERCell_Validating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
-            double d;
-            if (e.ColumnIndex == 2 || e.ColumnIndex == 3)
-            {
-                if (!double.TryParse(Convert.ToString(e.FormattedValue), out d))
-                {
-                    e.Cancel = true;
-                    MessageBox.Show("Please enter floating point number", "Cell Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        // when a dergroup is selected, makes the DER data grid show the DERGroups children DERs  
+        /// <summary>
+        /// re-binds the DERs gridview whenever the user selects a different DER Group
+        /// </summary>
+        /// <param name="row">DER Group row</param>
         private void BindDERBindingSource(int row)
         {
-            string name = _cim.Groups[row].GroupName;
-            if (name != null && name.Length > 0)
+            if (_cim.Groups.Count > 0)
             {
-                // DERS can only be accessed if their parent is named
-                // TODO : Design flaw? Not really. You can't have an un-named DERGroup
-                bindDevices(_cim.Groups[row]);
-                DERView.ReadOnly = false;
+                string name = _cim.Groups[row].GroupName;
+                if (name != null && name.Length > 0)
+                {
+                    // DERS can only be accessed if their parent is named
+                    // TODO : Design flaw? Not really. You can't have an un-named DERGroup
+                    bindDevices(_cim.Groups[row]);
+                    DERView.ReadOnly = false;
+                    return;
+                }
+
             }
-            else
-            {
-                // DERGroup has not been named yet, don't let them edit DER
-                bindDevices(null);
-                DERView.ReadOnly = true;
-            }
+
+            // No DERGroups or no named DERGroups
+            bindDevices(null);
+            DERView.ReadOnly = true;
+
         }
 
-        // returns index of currently selected row. valid == true if
-        // one row selected, exactly. Not 0 and not 2.
+        /// <summary>
+        /// returns the row number of the currently selected group
+        /// </summary>
+        /// <param name="valid">a single row is selected</param>
+        /// <returns></returns>
         private int getSingleSelectedRow(ref Boolean valid)
         {
             if (DERGroupsView.SelectedRows.Count != 1)
@@ -98,93 +82,10 @@ namespace WindowsFormsApplication1
             return DERGroupsView.SelectedRows[0].Index;
         }
 
-        private void DERGroupCell_Clicked(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) // header
-                return;
-            BindDERBindingSource(e.RowIndex);
-        }
-
-
-        private void DERGroupCell_Changed(object sender, DataGridViewCellEventArgs e)
-        {
-            // TODO : This might be buggy. Not sure why I set it...
-            BindDERBindingSource(e.RowIndex);
-        }
-
-        /*
-         * update handlers for DERS, when certain cells are changed, we modify
-         * the readonly summation cells in DERGroup
-         * 
-         * eg: DER count, sum(watts), sum(var)
-         */
-        private void DERCellValue_Updated(object sender, DataGridViewCellEventArgs e)
-        {
-            updateDERGroupViewReadOnlyCells();
-        }
-
-        // row selected
-        private void DERGroupRow_leave(object sender, DataGridViewCellEventArgs e)
-        {
-            
-            if (e.RowIndex == 0)
-                return;
-            /*
-             * kludge. When you select DER (child) cell, the datagrid unselects the
-             * NEW row, and selects the previous row, but leaves the cell you have
-             * selected in the new row hilited. This unselects that cell, which selects
-             * first cell of previous (existing row). trust me.
-             */
-            if (DERGroupsView.NewRowIndex == e.RowIndex)
-                DERGroupsView.Rows[e.RowIndex].Cells[0].Selected = false;
-        }
-
-        // re-initialize the binding source for DERGroup
-        private void bindDevices(CIMData.DERGroup group)
-        {
-            if (group == null)
-            {
-                DERBindingSource.DataSource = null;
-                DERView.DataSource = null;
-                DERBindingSource.Clear();
-            }
-            else
-            {
-                if (group.Devices == null)
-                    group.Devices = new List<CIMData.device>();
-                DERBindingSource = new BindingSource();
-                DERBindingSource.DataSource = group.Devices;
-                DERView.DataSource = DERBindingSource;
-                DERBindingSource.ResetBindings(false);
-            }
-        }
-
-        // open file menu item
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog d = new OpenFileDialog();
-            d.Filter = "XML|*.xml";
-            d.Title = "Save Header File";
-            d.ShowDialog();
-
-            if (d.FileName != "")
-            {
-                openFile(d.FileName);
-            }
-        }
-
-        // save file menu item
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            _cim.Groups.ToString();
-            // if _filepath not set, send them to 'save as'
-            if (_filepath == null || _filepath.Length < 1)
-                saveAsToolStripMenuItem_Click(sender, e);
-            else
-                saveFile(_filepath);
-        }
-
-        // saves the to xml format
+        /// <summary>
+        /// save the in memory cim data to a file
+        /// </summary>
+        /// <param name="_filepath">file name</param>
         private void saveFile(string _filepath)
         {
             foreach (CIMData.DERGroup group in _cim.Groups)
@@ -198,12 +99,15 @@ namespace WindowsFormsApplication1
             _cim.write(_filepath);
         }
 
-        // reads in the config file
+        /// <summary>
+        /// loads cim config file into memory
+        /// </summary>
+        /// <param name="path">file name</param>
         private void openFile(string path)
         {
             // currently four diff headers: create, get, dispatch, status
             string name = messageTypeCombo.Text;
-           
+
             // read the xml config file
             this._filepath = path;
             _cim = DERMSInterface.CIMData.read(path);
@@ -218,13 +122,14 @@ namespace WindowsFormsApplication1
                 DERGroupsView.Rows[0].Selected = true;
                 BindDERBindingSource(0);
             }
+            else
+                bindDevices(null);
         }
 
-        /*
-         * Some of the DERGroup cells are readonly and are populated by
-         * summing values in the children DER. This updates those
-         * read only cells
-         */
+        /// <summary>
+        /// When changes are made to DER (child) members watt/var this updates
+        /// the read only values in the DER group gridview with new values
+        /// </summary>
         private void updateDERGroupViewReadOnlyCells()
         {
             for (int i = 0; i < DERGroupsView.RowCount && i < _cim.Groups.Count; i++)
@@ -249,33 +154,11 @@ namespace WindowsFormsApplication1
                 return null;
         }
 
-        // file save as menu item
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog d = new SaveFileDialog();
-            d.Filter = "XML|*.xml";
-            d.Title = "Save Header File";
-            d.ShowDialog();
-
-            if (d.FileName != "")
-            {
-                this._filepath = d.FileName;
-                saveFile(d.FileName);
-            }
-        }
-
-        /*
-         * on the header page, when user changes value of the DERGroup type:
-         * createDERGroup, Get, etc... this loads the values from the correct
-         * config header onto the header form.
-         */
-        private void messageTypeCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string name = ((ComboBox)sender).Text;
-            loadHeader(name);
-        }
-
-        // loads the correct header type from config (createDERGroup, get...) onto header form
+        /// <summary>
+        /// loads the header information for the currently selected header type (create, get...)
+        /// onto the form
+        /// </summary>
+        /// <param name="name"></param>
         private void loadHeader(string name)
         {
             DERMSInterface.CIMData.header h = getHeader(name);
@@ -284,15 +167,28 @@ namespace WindowsFormsApplication1
             ackRequiredCheck.Checked = h.AckRequired;
             // hardcoded!
             verbText.Text = h.Verb = verb(name);
-            nounText.Text = h.Noun = "DER Request";
+            nounText.Text = h.Noun = h.Noun;
 
             userIDText.Text = h.UserID;
             organizationText.Text = h.UserOrganization;
             contextText.Text = h.Context;
             commentText.Text = h.Comment;
+
+            majorVersionText.Text = _cim.Version.Major;
+            minorVersionText.Text = _cim.Version.Minor;
+            revVersionText.Text = _cim.Version.Revision;
+            if (_cim.Version.Date < dateVersionPicker.MinDate)
+                dateVersionPicker.Value = System.DateTime.Now;
+            else
+                dateVersionPicker.Value = _cim.Version.Date;
         }
 
-        // get the cim headers, instantiate if currently null
+        /// <summary>
+        /// retrieves correct header based on name. If that header doesn't currently exist
+        /// in memory, intializes it
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         private DERMSInterface.CIMData.header getHeader(string name)
         {
             DERMSInterface.CIMData.header h = _cim.Headers.Find(x => x.Name.Equals(name));
@@ -306,7 +202,10 @@ namespace WindowsFormsApplication1
             return h;
         }
 
-        // the following handlers sync data objects with cells
+        // -----
+        // Text Changed events
+        // -----
+        #region value changed event handlers
         private void endPointText_TextChanged(object sender, EventArgs e)
         {
             getHeader(messageTypeCombo.Text).EndPoint = ((TextBox)sender).Text;
@@ -342,20 +241,54 @@ namespace WindowsFormsApplication1
             getHeader(messageTypeCombo.Text).Context = ((TextBox)sender).Text;
         }
 
+        private void nounText_TextChanged(object sender, EventArgs e)
+        {
+            getHeader(messageTypeCombo.Text).Noun = ((TextBox)sender).Text;
+        }
 
 
-        // Sends a test create der group message
+        private void minorVersionText_TextChanged(object sender, EventArgs e)
+        {
+            _cim.Version.Minor = ((TextBox)sender).Text;
+        }
+
+        private void dateVersionPicker_ValueChanged(object sender, EventArgs e)
+        {
+            _cim.Version.Date = ((DateTimePicker)sender).Value;
+        }
+
+        private void majorVersionText_TextChanged(object sender, EventArgs e)
+        {
+            _cim.Version.Major = ((TextBox)sender).Text;
+        }
+
+        private void revVersionText_TextChanged(object sender, EventArgs e)
+        {
+            _cim.Version.Revision = ((TextBox)sender).Text;
+        }
+        #endregion
+        // -----
+        // end text change event handlers
+        // -----
+
+
+        /// <summary>
+        /// event handler. displays create DER form to send SOAP messages
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void createDERToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Boolean isValid = false;
             int row = getSingleSelectedRow(ref isValid);
 
-            if (isValid == true) { 
+            if (isValid == true)
+            {
                 // name must be defined
                 if (_cim.Groups[row].GroupName == null || _cim.Groups[row].GroupName.Length < 1)
                     MessageBox.Show("Name required to create DER Group", "Create DER", MessageBoxButtons.OK);
                 else
-                    new CreateDERForm(_cim, DERGroupsView.SelectedRows[0].Index).Show();
+                    new CreateDERForm(_cim.clone(), DERGroupsView.SelectedRows[0].Index).Show();
             }
             else if (DERGroupsView.SelectedRows.Count == 0)
             {
@@ -368,6 +301,11 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("Please selected a SINGLE row", "Create DER", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        /// <summary>
+        /// event handler. Displays the GET DER Status form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void getDERStatusToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Boolean isValid = false;
@@ -379,7 +317,7 @@ namespace WindowsFormsApplication1
                 if (_cim.Groups[row].GroupName == null || _cim.Groups[row].GroupName.Length < 1)
                     MessageBox.Show("Name required to create DER Group", "Create DER", MessageBoxButtons.OK);
                 else
-                    new GetDERStatusForm(_cim, DERGroupsView.SelectedRows[0].Index).Show();
+                    new GetDERStatusForm(_cim.clone(), DERGroupsView.SelectedRows[0].Index).Show();
             }
             else if (DERGroupsView.SelectedRows.Count == 0)
             {
@@ -392,6 +330,11 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("Please selected a SINGLE row", "Create DER", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        /// <summary>
+        /// event handler. Displays the Dispatch DER form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dispatchDERToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Boolean isValid = false;
@@ -402,10 +345,224 @@ namespace WindowsFormsApplication1
                 if (_cim.Groups[row].Mrid == null || _cim.Groups[row].Mrid.Length < 1)
                     MessageBox.Show("MRID requried to dispatch DER Group", "Dispatch DER", MessageBoxButtons.OK);
                 else
-                    new DispatchDERForm(_cim, DERGroupsView.SelectedRows[0].Index).Show();
+                    new DispatchDERForm(_cim.clone(), DERGroupsView.SelectedRows[0].Index).Show();
+            }
+        }
+
+        /// <summary>
+        /// event handler. Displays the get DER form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void getDERsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Boolean isValid = false;
+            int row = getSingleSelectedRow(ref isValid);
+
+            if (isValid == true)
+            {
+                if (_cim.Groups[row].Mrid == null || _cim.Groups[row].Mrid.Length < 1)
+                    MessageBox.Show("MRID requried to dispatch DER Group", "Dispatch DER", MessageBoxButtons.OK);
+                else
+                    new GetDERGroupForm(_cim.clone(), DERGroupsView.SelectedRows[0].Index).Show();
+            }
+        }
+
+        /// <summary>
+        /// binds the DER children to the newly selected DERGroup user just clicked on
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DERGroupRow_enter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == 0)
+                return;
+
+            BindDERBindingSource(e.RowIndex);
+        }
+
+        /// <summary>
+        /// When user deletes a row, moves selection back to first DER Group row.
+        /// Why? I don't know.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DERGroupRow_Deleted(object sender, DataGridViewRowEventArgs e)
+        {
+            DERGroupsView.Rows[0].Selected = true;
+            BindDERBindingSource(0);
+        }
+
+        /// <summary>
+        /// complains when user enters non float value into DER member power cells
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DERCell_Validating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            double d;
+            if (e.ColumnIndex == 2 || e.ColumnIndex == 3)
+            {
+                if (!double.TryParse(Convert.ToString(e.FormattedValue), out d))
+                {
+                    e.Cancel = true;
+                    MessageBox.Show("Please enter floating point number", "Cell Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        /// <summary>
+        /// binds the DER member data grid to the just newly selected der group
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DERGroupCell_Clicked(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) // header
+                return;
+            BindDERBindingSource(e.RowIndex);
+        }
+
+        /// <summary>
+        /// possibly deprecated...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DERGroupCell_Changed(object sender, DataGridViewCellEventArgs e)
+        {
+            // TODO : This might be buggy. Not sure why I set it...
+            BindDERBindingSource(e.RowIndex);
+        }
+
+        /// <summary>
+        /// When a DER member cell value changes, update the readonly DER group cells
+        /// with new summed/counted values
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DERCellValue_Updated(object sender, DataGridViewCellEventArgs e)
+        {
+            updateDERGroupViewReadOnlyCells();
+        }
+
+        /// <summary>
+        /// read kludge below
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DERGroupRow_leave(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex == 0)
+                return;
+            /*
+             * kludge. When you select DER (child) cell, the datagrid unselects the
+             * NEW row, and selects the previous row, but leaves the cell you have
+             * selected in the new row hilited. This unselects that cell, which selects
+             * first cell of previous (existing row). trust me.
+             */
+            if (DERGroupsView.NewRowIndex == e.RowIndex)
+                DERGroupsView.Rows[e.RowIndex].Cells[0].Selected = false;
+        }
+
+
+        /// <summary>
+        /// binds the DER Group and DER Members to the group passed
+        /// </summary>
+        /// <param name="group"></param>
+        private void bindDevices(CIMData.DERGroup group)
+        {
+            if (group == null)
+            {
+                DERBindingSource.DataSource = null;
+                DERView.DataSource = null;
+                DERBindingSource.Clear();
+            }
+            else
+            {
+                if (group.Devices == null)
+                    group.Devices = new List<CIMData.device>();
+                DERBindingSource = new BindingSource();
+                DERBindingSource.DataSource = group.Devices;
+                DERView.DataSource = DERBindingSource;
+                DERBindingSource.ResetBindings(false);
             }
         }
 
 
+        /// <summary>
+        /// displays open file widget and opens new config file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog d = new OpenFileDialog();
+            d.Filter = "XML|*.xml";
+            d.Title = "Save Header File";
+            d.ShowDialog();
+
+            if (d.FileName != "")
+            {
+                openFile(d.FileName);
+            }
+        }
+
+        /// <summary>
+        /// saves config information to file. If file name not set, calls save as...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _cim.Groups.ToString();
+            // if _filepath not set, send them to 'save as'
+            if (_filepath == null || _filepath.Length < 1)
+                saveAsToolStripMenuItem_Click(sender, e);
+            else
+                saveFile(_filepath);
+        }
+
+        /// <summary>
+        /// when the user selects different header (create, get, get status, dispatch) this
+        /// re-initializes the form fields on the screen to show that header's
+        /// data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void messageTypeCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string name = ((ComboBox)sender).Text;
+            loadHeader(name);
+        }
+
+        /// <summary>
+        /// displays file save as menu, and saves config to xml file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog d = new SaveFileDialog();
+            d.Filter = "XML|*.xml";
+            d.Title = "Save Header File";
+            d.ShowDialog();
+
+            if (d.FileName != "")
+            {
+                this._filepath = d.FileName;
+                saveFile(d.FileName);
+            }
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _cim = new CIMData();
+            string name = messageTypeCombo.Text;
+            loadHeader(name);
+            DERGroupBindingSource.DataSource = _cim.Groups;
+            bindDevices(null);
+            updateDERGroupViewReadOnlyCells();
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1
 {
-    partial class DispatchDERForm
+    partial class GetDERGroupForm
     {
         /// <summary>
         /// Required designer variable.
@@ -50,24 +50,19 @@
             this.userIDText = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.reactiveValueText = new System.Windows.Forms.TextBox();
-            this.realRadio = new System.Windows.Forms.RadioButton();
-            this.realValueText = new System.Windows.Forms.TextBox();
-            this.reactiveRadio = new System.Windows.Forms.RadioButton();
             this.DERGroupMRIDText = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dispatchButton = new System.Windows.Forms.Button();
+            this.getButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.resultText = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -81,15 +76,16 @@
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox3, 0, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(521, 338);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(521, 427);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // panel2
@@ -287,92 +283,18 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.DERGroupMRIDText);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Location = new System.Drawing.Point(3, 203);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(514, 94);
+            this.groupBox2.Size = new System.Drawing.Size(514, 78);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "DER Group";
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Controls.Add(this.reactiveValueText);
-            this.groupBox4.Controls.Add(this.realRadio);
-            this.groupBox4.Controls.Add(this.realValueText);
-            this.groupBox4.Controls.Add(this.reactiveRadio);
-            this.groupBox4.Location = new System.Drawing.Point(315, 16);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(189, 72);
-            this.groupBox4.TabIndex = 42;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Quantity";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(93, 49);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 13);
-            this.label11.TabIndex = 45;
-            this.label11.Text = "Value";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(93, 21);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 13);
-            this.label10.TabIndex = 43;
-            this.label10.Text = "Value";
-            // 
-            // reactiveValueText
-            // 
-            this.reactiveValueText.Location = new System.Drawing.Point(134, 44);
-            this.reactiveValueText.Name = "reactiveValueText";
-            this.reactiveValueText.Size = new System.Drawing.Size(49, 20);
-            this.reactiveValueText.TabIndex = 44;
-            this.reactiveValueText.TextChanged += new System.EventHandler(this.reactiveValueText_TextChanged);
-            // 
-            // realRadio
-            // 
-            this.realRadio.AutoSize = true;
-            this.realRadio.Location = new System.Drawing.Point(6, 21);
-            this.realRadio.Name = "realRadio";
-            this.realRadio.Size = new System.Drawing.Size(47, 17);
-            this.realRadio.TabIndex = 40;
-            this.realRadio.TabStop = true;
-            this.realRadio.Text = "Real";
-            this.realRadio.UseVisualStyleBackColor = true;
-            this.realRadio.CheckedChanged += new System.EventHandler(this.realRadio_CheckedChanged);
-            // 
-            // realValueText
-            // 
-            this.realValueText.Location = new System.Drawing.Point(134, 18);
-            this.realValueText.Name = "realValueText";
-            this.realValueText.Size = new System.Drawing.Size(49, 20);
-            this.realValueText.TabIndex = 43;
-            this.realValueText.TextChanged += new System.EventHandler(this.realValueText_TextChanged);
-            // 
-            // reactiveRadio
-            // 
-            this.reactiveRadio.AutoSize = true;
-            this.reactiveRadio.Location = new System.Drawing.Point(6, 47);
-            this.reactiveRadio.Name = "reactiveRadio";
-            this.reactiveRadio.Size = new System.Drawing.Size(68, 17);
-            this.reactiveRadio.TabIndex = 41;
-            this.reactiveRadio.TabStop = true;
-            this.reactiveRadio.Text = "Reactive";
-            this.reactiveRadio.UseVisualStyleBackColor = true;
-            this.reactiveRadio.CheckedChanged += new System.EventHandler(this.reactiveRadio_CheckedChanged);
-            // 
             // DERGroupMRIDText
             // 
-            this.DERGroupMRIDText.Location = new System.Drawing.Point(55, 19);
+            this.DERGroupMRIDText.Location = new System.Drawing.Point(55, 33);
             this.DERGroupMRIDText.Name = "DERGroupMRIDText";
             this.DERGroupMRIDText.Size = new System.Drawing.Size(242, 20);
             this.DERGroupMRIDText.TabIndex = 38;
@@ -381,7 +303,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(14, 22);
+            this.label12.Location = new System.Drawing.Point(11, 36);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(35, 13);
             this.label12.TabIndex = 28;
@@ -389,22 +311,22 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dispatchButton);
+            this.panel3.Controls.Add(this.getButton);
             this.panel3.Controls.Add(this.cancelButton);
-            this.panel3.Location = new System.Drawing.Point(3, 303);
+            this.panel3.Location = new System.Drawing.Point(3, 395);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(515, 29);
             this.panel3.TabIndex = 33;
             // 
-            // dispatchButton
+            // getButton
             // 
-            this.dispatchButton.Location = new System.Drawing.Point(183, 3);
-            this.dispatchButton.Name = "dispatchButton";
-            this.dispatchButton.Size = new System.Drawing.Size(75, 23);
-            this.dispatchButton.TabIndex = 33;
-            this.dispatchButton.Text = "Dispatch";
-            this.dispatchButton.UseVisualStyleBackColor = true;
-            this.dispatchButton.Click += new System.EventHandler(this.dispatchButton_Click);
+            this.getButton.Location = new System.Drawing.Point(183, 3);
+            this.getButton.Name = "getButton";
+            this.getButton.Size = new System.Drawing.Size(75, 23);
+            this.getButton.TabIndex = 33;
+            this.getButton.Text = "Get";
+            this.getButton.UseVisualStyleBackColor = true;
+            this.getButton.Click += new System.EventHandler(this.getButton_Click);
             // 
             // cancelButton
             // 
@@ -416,15 +338,35 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // DispatchDERForm
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.resultText);
+            this.groupBox3.Location = new System.Drawing.Point(3, 287);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(515, 100);
+            this.groupBox3.TabIndex = 34;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Results";
+            // 
+            // resultText
+            // 
+            this.resultText.Location = new System.Drawing.Point(6, 19);
+            this.resultText.Multiline = true;
+            this.resultText.Name = "resultText";
+            this.resultText.ReadOnly = true;
+            this.resultText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.resultText.Size = new System.Drawing.Size(291, 75);
+            this.resultText.TabIndex = 0;
+            // 
+            // GetDERGroupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 343);
+            this.ClientSize = new System.Drawing.Size(528, 432);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "DispatchDERForm";
-            this.Text = "DispatchDER";
-            this.Load += new System.EventHandler(this.DispatchDERForm_Load);
+            this.Name = "GetDERGroupForm";
+            this.Text = "Get DER  Members";
+            this.Load += new System.EventHandler(this.GetDERGroupForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -432,9 +374,9 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -465,17 +407,12 @@
         private System.Windows.Forms.TextBox userIDText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox realValueText;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RadioButton realRadio;
-        private System.Windows.Forms.RadioButton reactiveRadio;
         private System.Windows.Forms.TextBox DERGroupMRIDText;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button dispatchButton;
+        private System.Windows.Forms.Button getButton;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox reactiveValueText;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox resultText;
     }
 }

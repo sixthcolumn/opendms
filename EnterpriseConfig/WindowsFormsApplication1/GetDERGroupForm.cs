@@ -5,31 +5,28 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class GetDERStatusForm : Form
+    public partial class GetDERGroupForm : Form
     {
         DERMSInterface.CIMData _cim = null;
         int _row = -1;
         XMLForm _log = null;
-        DERMSInterface.quantity _q;
-        string _key = DERMSInterface.CIMData.operations.getDERStatus.ToString();
-
+        string _key = DERMSInterface.CIMData.operations.createDER.ToString();
 
         /// <summary>
-        /// convenience function returns the correct header for getDERStatus
+        /// convenience function to get the dispatch der header
         /// </summary>
         private DERMSInterface.CIMData.header header
         {
-            get { return _cim.Headers.Find(x => x.Name.Equals(_key)); ; }
+            get { return _cim.GetDERHeader; }
         }
 
         /// <summary>
-        /// convenience function, returns the group by row number
+        /// convenience function. Gets the currently selected DER group
         /// </summary>
         private DERMSInterface.CIMData.DERGroup group
         {
@@ -37,11 +34,19 @@ namespace WindowsFormsApplication1
         }
 
         /// <summary>
+        ///  constructor, do not call this one
+        /// </summary>
+        public GetDERGroupForm()
+        {
+            InitializeComponent();
+        }
+
+        /// <summary>
         /// constructor
         /// </summary>
-        /// <param name="cim">CIMData object</param>
-        /// <param name="row">currently selected DERGroup row</param>
-        public GetDERStatusForm(DERMSInterface.CIMData cim, int row)
+        /// <param name="cim">the config object</param>
+        /// <param name="row">the currently selected der group</param>
+        public GetDERGroupForm(DERMSInterface.CIMData cim, int row)
         {
             _cim = cim;
             _row = row;
@@ -49,48 +54,31 @@ namespace WindowsFormsApplication1
         }
 
         /// <summary>
-        /// default constructor, should not be called
-        /// </summary>
-        public GetDERStatusForm()
-        {
-            InitializeComponent();
-        }
-
-        /// <summary>
-        /// destroy this form
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        /// <summary>
-        /// execute the get der status SOAP call
+        /// call SOAP function get DER
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void getButton_Click(object sender, EventArgs e)
         {
             DERMSInterface.CIM cs = new DERMSInterface.CIM(_cim);
-            int rc = 1;
+            int rc = 0;
 
             try
             {
                 _log = new XMLForm();
+                // call SOAP Get DER
+                string[] results = cs.requestDERGroupMembers(_cim.Groups[_row].Mrid);
 
-                // call SOAP function
-                DERMSInterface.CIMData.DERStatus reply = cs.getDERGroupStatus(_cim.Groups[_row].Mrid, _q);
-
-                // load screen with return values from call
-                this.minValueText.Text = reply.PresentMinCapability.ToString();
-                this.currentValueText.Text = reply.PresentValue.ToString();
-                this.maxValueText.Text = reply.PresentMaxCapability.ToString();
-                this.MRIDReturnText.Text = reply.Mrid;
-                this.quantityText.Text = _q.ToString();
+                // takes list of DER members, add new lines and display to our result text box
+                System.Text.StringBuilder buffer = new StringBuilder();
+                if (results != null)
+                {
+                    foreach (string s in results)
+                        buffer.Append(s + Environment.NewLine);
+                }
+                this.resultText.Text = buffer.ToString();
+                // print our result code to the xml form
                 _log.addBoldText("Return Code : " + rc.ToString() + Environment.NewLine + Environment.NewLine);
-
             }
             catch (Exception ex)
             {
@@ -105,41 +93,20 @@ namespace WindowsFormsApplication1
                 _log.addText(cs.LastMessageReceived + Environment.NewLine + Environment.NewLine);
             }
             _log.Show();
-
         }
 
         /// <summary>
-        /// user wants to get real power in watts
+        /// initializes the form, filling in the values of all the widgets
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void realRadio_CheckedChanged(object sender, EventArgs e)
+        private void GetDERGroupForm_Load(object sender, System.EventArgs e)
         {
-            _q = DERMSInterface.quantity.RealPower;
-        }
-
-        /// <summary>
-        /// user wants to get reactive power in VAr
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void reactiveRadio_CheckedChanged(object sender, EventArgs e)
-        {
-            _q = DERMSInterface.quantity.ApparentPower;
-        }
-
-        /// <summary>
-        /// populate screen with values
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void GetDERStatusForm_Load(object sender, EventArgs e)
-        {
-
-            string DERGroupName = DERMSInterface.CIMData.operations.getDERStatus.ToString();
-            DERMSInterface.CIMData.header header = _cim.GetDERStatusHeader;
+            _log = new XMLForm();
+            string DERGroupName = DERMSInterface.CIMData.operations.getDER.ToString();
+            DERMSInterface.CIMData.header header = _cim.GetDERHeader;
             this.endPointText.Text = header.EndPoint;
-            this.messageTypeText.Text = "Get DER Status";
+            this.messageTypeText.Text = "Dispatch DER";
             this.replyAddressText.Text = header.ReplyAddress;
             this.userIDText.Text = header.UserID;
             this.organizationText.Text = header.UserOrganization;
@@ -147,21 +114,21 @@ namespace WindowsFormsApplication1
             this.verbText.Text = header.Verb;
             this.ackRequiredCheck.Checked = header.AckRequired;
             this.commentText.Text = header.Comment;
+            DERGroupMRIDText.Text = group.Mrid;
+        }
 
-            this.realRadio.Checked = true;
-
-            if (_row >= 0 && _cim.Groups.Count > _row)
-            {
-
-                DERMSInterface.CIMData.DERGroup group = _cim.Groups[_row];
-                DERGroupNameText.Text = group.GroupName;
-                DERGroupMRIDText.Text = group.Mrid;
-                // TODO : we do not set count, reactive and total power values, they are derived    
-            }
+        /// <summary>
+        /// destroy this form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         // -----
-        // value changed handlers
+        // form widget change handlers
         // -----
         #region value changed event handlers
         private void endPointText_TextChanged(object sender, EventArgs e)
@@ -189,28 +156,28 @@ namespace WindowsFormsApplication1
             header.Context = ((TextBox)sender).Text;
         }
 
-        private void ackRequiredCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            header.AckRequired = ((CheckBox)sender).Checked;
-        }
-
         private void commentText_TextChanged(object sender, EventArgs e)
         {
             header.Comment = ((TextBox)sender).Text;
         }
 
-        private void DERGroupNameText_TextChanged(object sender, EventArgs e)
+        private void ackRequiredCheck_CheckedChanged(object sender, EventArgs e)
         {
-            group.GroupName = ((TextBox)sender).Text;
+            header.AckRequired = ((CheckBox)sender).Checked;
         }
 
         private void DERGroupMRIDText_TextChanged(object sender, EventArgs e)
         {
             group.Mrid = ((TextBox)sender).Text;
         }
+
+        private void nameText_TextChanged(object sender, EventArgs e)
+        {
+            group.GroupName = ((TextBox)sender).Text;
+        }
         #endregion
         // -----
-        // end value changed handlers
+        // END form widget change handlers
         // -----
     }
 }

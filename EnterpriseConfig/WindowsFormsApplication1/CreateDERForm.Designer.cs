@@ -79,7 +79,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.showXMLBox = new System.Windows.Forms.CheckBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DERView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deviceBindingSource)).BeginInit();
@@ -224,6 +223,7 @@
             this.DERGroupSegmentText.Name = "DERGroupSegmentText";
             this.DERGroupSegmentText.Size = new System.Drawing.Size(124, 20);
             this.DERGroupSegmentText.TabIndex = 47;
+            this.DERGroupSegmentText.TextChanged += new System.EventHandler(this.DERGroupSegmentText_TextChanged);
             // 
             // DERGroupFeederText
             // 
@@ -231,6 +231,7 @@
             this.DERGroupFeederText.Name = "DERGroupFeederText";
             this.DERGroupFeederText.Size = new System.Drawing.Size(124, 20);
             this.DERGroupFeederText.TabIndex = 46;
+            this.DERGroupFeederText.TextChanged += new System.EventHandler(this.DERGroupFeederText_TextChanged);
             // 
             // DERGroupSubText
             // 
@@ -238,6 +239,7 @@
             this.DERGroupSubText.Name = "DERGroupSubText";
             this.DERGroupSubText.Size = new System.Drawing.Size(124, 20);
             this.DERGroupSubText.TabIndex = 45;
+            this.DERGroupSubText.TextChanged += new System.EventHandler(this.DERGroupSubText_TextChanged);
             // 
             // label18
             // 
@@ -290,6 +292,7 @@
             this.DERGroupNameText.Name = "DERGroupNameText";
             this.DERGroupNameText.Size = new System.Drawing.Size(165, 20);
             this.DERGroupNameText.TabIndex = 39;
+            this.DERGroupNameText.TextChanged += new System.EventHandler(this.DERGroupNameText_TextChanged);
             // 
             // DERGroupMRIDText
             // 
@@ -297,6 +300,7 @@
             this.DERGroupMRIDText.Name = "DERGroupMRIDText";
             this.DERGroupMRIDText.Size = new System.Drawing.Size(165, 20);
             this.DERGroupMRIDText.TabIndex = 38;
+            this.DERGroupMRIDText.TextChanged += new System.EventHandler(this.DERGroupMRIDText_TextChanged);
             // 
             // DERGroupRevisionText
             // 
@@ -304,6 +308,7 @@
             this.DERGroupRevisionText.Name = "DERGroupRevisionText";
             this.DERGroupRevisionText.Size = new System.Drawing.Size(67, 20);
             this.DERGroupRevisionText.TabIndex = 37;
+            this.DERGroupRevisionText.TextChanged += new System.EventHandler(this.DERGroupRevisionText_TextChanged);
             // 
             // label13
             // 
@@ -373,6 +378,7 @@
             this.commentText.Name = "commentText";
             this.commentText.Size = new System.Drawing.Size(227, 66);
             this.commentText.TabIndex = 38;
+            this.commentText.TextChanged += new System.EventHandler(this.commentText_TextChanged);
             // 
             // label9
             // 
@@ -385,10 +391,12 @@
             // 
             // messageTypeText
             // 
+            this.messageTypeText.Enabled = false;
             this.messageTypeText.Location = new System.Drawing.Point(89, 13);
             this.messageTypeText.Name = "messageTypeText";
             this.messageTypeText.Size = new System.Drawing.Size(100, 20);
             this.messageTypeText.TabIndex = 36;
+            this.messageTypeText.TextChanged += new System.EventHandler(this.messageTypeText_TextChanged);
             // 
             // verbText
             // 
@@ -416,6 +424,7 @@
             this.ackRequiredCheck.Size = new System.Drawing.Size(15, 14);
             this.ackRequiredCheck.TabIndex = 33;
             this.ackRequiredCheck.UseVisualStyleBackColor = true;
+            this.ackRequiredCheck.CheckedChanged += new System.EventHandler(this.ackRequiredCheck_CheckedChanged);
             // 
             // contextText
             // 
@@ -423,6 +432,7 @@
             this.contextText.Name = "contextText";
             this.contextText.Size = new System.Drawing.Size(182, 20);
             this.contextText.TabIndex = 32;
+            this.contextText.TextChanged += new System.EventHandler(this.contextText_TextChanged);
             // 
             // organizationText
             // 
@@ -430,6 +440,7 @@
             this.organizationText.Name = "organizationText";
             this.organizationText.Size = new System.Drawing.Size(182, 20);
             this.organizationText.TabIndex = 31;
+            this.organizationText.TextChanged += new System.EventHandler(this.organizationText_TextChanged);
             // 
             // replyAddressText
             // 
@@ -437,6 +448,7 @@
             this.replyAddressText.Name = "replyAddressText";
             this.replyAddressText.Size = new System.Drawing.Size(475, 20);
             this.replyAddressText.TabIndex = 29;
+            this.replyAddressText.TextChanged += new System.EventHandler(this.replyAddressText_TextChanged);
             // 
             // label6
             // 
@@ -489,6 +501,7 @@
             this.userIDText.Name = "userIDText";
             this.userIDText.Size = new System.Drawing.Size(182, 20);
             this.userIDText.TabIndex = 22;
+            this.userIDText.TextChanged += new System.EventHandler(this.userIDText_TextChanged);
             // 
             // label1
             // 
@@ -514,6 +527,7 @@
             this.endPointText.Name = "endPointText";
             this.endPointText.Size = new System.Drawing.Size(475, 20);
             this.endPointText.TabIndex = 30;
+            this.endPointText.TextChanged += new System.EventHandler(this.endPointText_TextChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -552,24 +566,12 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.showXMLBox);
             this.panel3.Controls.Add(this.createButton);
             this.panel3.Controls.Add(this.cancelButton);
             this.panel3.Location = new System.Drawing.Point(3, 452);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(570, 29);
             this.panel3.TabIndex = 33;
-            // 
-            // showXMLBox
-            // 
-            this.showXMLBox.AutoSize = true;
-            this.showXMLBox.Location = new System.Drawing.Point(3, 7);
-            this.showXMLBox.Name = "showXMLBox";
-            this.showXMLBox.Size = new System.Drawing.Size(78, 17);
-            this.showXMLBox.TabIndex = 35;
-            this.showXMLBox.Text = "Show XML";
-            this.showXMLBox.UseVisualStyleBackColor = true;
-            this.showXMLBox.CheckedChanged += new System.EventHandler(this.showXMLBox_CheckedChanged);
             // 
             // CreateDERForm
             // 
@@ -592,7 +594,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -651,6 +652,5 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.CheckBox showXMLBox;
     }
 }

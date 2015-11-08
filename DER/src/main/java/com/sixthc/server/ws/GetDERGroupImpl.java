@@ -1,5 +1,6 @@
 package com.sixthc.server.ws;
 
+import java.math.BigInteger;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import org.springframework.context.ApplicationContextAware;
 import com.epri._2013.dergroup.DERGroups;
 import com.epri._2013.dergroup.EndDeviceGroup;
 import com.epri._2013.dergroup.Status;
+import com.epri._2013.dergroup.EndDeviceGroup.Version;
 
 import ch.iec.tc57._2011.getdergroup.FaultMessage;
 import ch.iec.tc57._2011.getdergroup.GetDERGroupPort;
@@ -59,6 +61,12 @@ public class GetDERGroupImpl implements GetDERGroupPort,
 		endDevice.setMRID("1234");
 		endDevice.setName("name1");
 		
+		Version v = new Version();
+		v.setMajor(BigInteger.valueOf(1));
+		v.setMinor(BigInteger.valueOf(72));
+		v.setRevision(BigInteger.valueOf(2));
+		endDevice.setVersion(v);
+				
 		GregorianCalendar gregorianCalendar = new GregorianCalendar();
 	    Status status = new Status();
 	    DatatypeFactory datatypeFactory;
@@ -75,6 +83,16 @@ public class GetDERGroupImpl implements GetDERGroupPort,
 	    status.setReason("reason");
 	    status.setRemark("remark");
 	    status.setValue("value");
+		GregorianCalendar c = new GregorianCalendar();
+		c.setTimeInMillis(System.currentTimeMillis());
+		XMLGregorianCalendar date2;
+		try {
+			date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
+			v.setVersionDate(date2);
+		} catch (DatatypeConfigurationException ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
+		}
 	    endDevice.setStatus(status);
 
 		

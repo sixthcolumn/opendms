@@ -41,7 +41,8 @@ namespace DERMSInterface
             req.ID = new string[1];
             req.ID[0] = "DER1";
             
-            CIMGetDERGroup.ReplyType reply = client.GetDERGroup(ref cimheader, req, ref payload);
+       //     CIMGetDERGroup.ReplyType reply = client.GetDERGroup(ref cimheader, req, ref payload);
+
         }
 
 

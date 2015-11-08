@@ -50,6 +50,12 @@
     <Compile Include="CreateDERForm.Designer.cs">
       <DependentUpon>CreateDERForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GetDERGroupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GetDERGroupForm.Designer.cs">
+      <DependentUpon>GetDERGroupForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DispatchDERForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <EmbeddedResource Include="CreateDERForm.resx">
       <DependentUpon>CreateDERForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GetDERGroupForm.resx">
+      <DependentUpon>GetDERGroupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DispatchDERForm.resx">
       <DependentUpon>DispatchDERForm.cs</DependentUpon>

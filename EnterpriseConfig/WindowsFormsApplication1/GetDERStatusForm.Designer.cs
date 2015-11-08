@@ -58,6 +58,10 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.quantityText = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.MRIDReturnText = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.minValueText = new System.Windows.Forms.TextBox();
             this.maxValueText = new System.Windows.Forms.TextBox();
             this.currentValueText = new System.Windows.Forms.TextBox();
@@ -65,13 +69,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.showXMLBox = new System.Windows.Forms.CheckBox();
             this.getButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.MRIDReturnText = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.quantityText = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -131,6 +130,7 @@
             this.endPointText.Name = "endPointText";
             this.endPointText.Size = new System.Drawing.Size(416, 20);
             this.endPointText.TabIndex = 30;
+            this.endPointText.TextChanged += new System.EventHandler(this.endPointText_TextChanged);
             // 
             // groupBox1
             // 
@@ -164,6 +164,7 @@
             this.commentText.Name = "commentText";
             this.commentText.Size = new System.Drawing.Size(227, 66);
             this.commentText.TabIndex = 38;
+            this.commentText.TextChanged += new System.EventHandler(this.commentText_TextChanged);
             // 
             // label9
             // 
@@ -207,6 +208,7 @@
             this.ackRequiredCheck.Size = new System.Drawing.Size(15, 14);
             this.ackRequiredCheck.TabIndex = 33;
             this.ackRequiredCheck.UseVisualStyleBackColor = true;
+            this.ackRequiredCheck.CheckedChanged += new System.EventHandler(this.ackRequiredCheck_CheckedChanged);
             // 
             // contextText
             // 
@@ -214,6 +216,7 @@
             this.contextText.Name = "contextText";
             this.contextText.Size = new System.Drawing.Size(182, 20);
             this.contextText.TabIndex = 32;
+            this.contextText.TextChanged += new System.EventHandler(this.contextText_TextChanged);
             // 
             // organizationText
             // 
@@ -221,6 +224,7 @@
             this.organizationText.Name = "organizationText";
             this.organizationText.Size = new System.Drawing.Size(182, 20);
             this.organizationText.TabIndex = 31;
+            this.organizationText.TextChanged += new System.EventHandler(this.organizationText_TextChanged);
             // 
             // replyAddressText
             // 
@@ -228,6 +232,7 @@
             this.replyAddressText.Name = "replyAddressText";
             this.replyAddressText.Size = new System.Drawing.Size(415, 20);
             this.replyAddressText.TabIndex = 29;
+            this.replyAddressText.TextChanged += new System.EventHandler(this.replyAddressText_TextChanged);
             // 
             // label6
             // 
@@ -280,6 +285,7 @@
             this.userIDText.Name = "userIDText";
             this.userIDText.Size = new System.Drawing.Size(182, 20);
             this.userIDText.TabIndex = 22;
+            this.userIDText.TextChanged += new System.EventHandler(this.userIDText_TextChanged);
             // 
             // label1
             // 
@@ -345,6 +351,7 @@
             this.DERGroupNameText.Name = "DERGroupNameText";
             this.DERGroupNameText.Size = new System.Drawing.Size(165, 20);
             this.DERGroupNameText.TabIndex = 39;
+            this.DERGroupNameText.TextChanged += new System.EventHandler(this.DERGroupNameText_TextChanged);
             // 
             // DERGroupMRIDText
             // 
@@ -352,6 +359,7 @@
             this.DERGroupMRIDText.Name = "DERGroupMRIDText";
             this.DERGroupMRIDText.Size = new System.Drawing.Size(165, 20);
             this.DERGroupMRIDText.TabIndex = 38;
+            this.DERGroupMRIDText.TextChanged += new System.EventHandler(this.DERGroupMRIDText_TextChanged);
             // 
             // label13
             // 
@@ -390,10 +398,45 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Results";
             // 
+            // quantityText
+            // 
+            this.quantityText.Location = new System.Drawing.Point(238, 45);
+            this.quantityText.Name = "quantityText";
+            this.quantityText.ReadOnly = true;
+            this.quantityText.Size = new System.Drawing.Size(121, 20);
+            this.quantityText.TabIndex = 44;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(186, 48);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(46, 13);
+            this.label16.TabIndex = 43;
+            this.label16.Text = "Quantity";
+            // 
+            // MRIDReturnText
+            // 
+            this.MRIDReturnText.Location = new System.Drawing.Point(238, 19);
+            this.MRIDReturnText.Name = "MRIDReturnText";
+            this.MRIDReturnText.ReadOnly = true;
+            this.MRIDReturnText.Size = new System.Drawing.Size(266, 20);
+            this.MRIDReturnText.TabIndex = 39;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(197, 22);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(35, 13);
+            this.label14.TabIndex = 37;
+            this.label14.Text = "MRID";
+            // 
             // minValueText
             // 
             this.minValueText.Location = new System.Drawing.Point(88, 19);
             this.minValueText.Name = "minValueText";
+            this.minValueText.ReadOnly = true;
             this.minValueText.Size = new System.Drawing.Size(83, 20);
             this.minValueText.TabIndex = 36;
             // 
@@ -401,6 +444,7 @@
             // 
             this.maxValueText.Location = new System.Drawing.Point(88, 71);
             this.maxValueText.Name = "maxValueText";
+            this.maxValueText.ReadOnly = true;
             this.maxValueText.Size = new System.Drawing.Size(83, 20);
             this.maxValueText.TabIndex = 34;
             // 
@@ -408,6 +452,7 @@
             // 
             this.currentValueText.Location = new System.Drawing.Point(88, 45);
             this.currentValueText.Name = "currentValueText";
+            this.currentValueText.ReadOnly = true;
             this.currentValueText.Size = new System.Drawing.Size(83, 20);
             this.currentValueText.TabIndex = 33;
             // 
@@ -440,24 +485,12 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.showXMLBox);
             this.panel3.Controls.Add(this.getButton);
             this.panel3.Controls.Add(this.cancelButton);
             this.panel3.Location = new System.Drawing.Point(3, 408);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(518, 29);
             this.panel3.TabIndex = 33;
-            // 
-            // showXMLBox
-            // 
-            this.showXMLBox.AutoSize = true;
-            this.showXMLBox.Location = new System.Drawing.Point(3, 7);
-            this.showXMLBox.Name = "showXMLBox";
-            this.showXMLBox.Size = new System.Drawing.Size(78, 17);
-            this.showXMLBox.TabIndex = 35;
-            this.showXMLBox.Text = "Show XML";
-            this.showXMLBox.UseVisualStyleBackColor = true;
-            this.showXMLBox.CheckedChanged += new System.EventHandler(this.showXMLBox_CheckedChanged);
             // 
             // getButton
             // 
@@ -478,38 +511,6 @@
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(197, 22);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(35, 13);
-            this.label14.TabIndex = 37;
-            this.label14.Text = "MRID";
-            // 
-            // MRIDReturnText
-            // 
-            this.MRIDReturnText.Location = new System.Drawing.Point(238, 19);
-            this.MRIDReturnText.Name = "MRIDReturnText";
-            this.MRIDReturnText.Size = new System.Drawing.Size(266, 20);
-            this.MRIDReturnText.TabIndex = 39;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(186, 48);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(46, 13);
-            this.label16.TabIndex = 43;
-            this.label16.Text = "Quantity";
-            // 
-            // quantityText
-            // 
-            this.quantityText.Location = new System.Drawing.Point(238, 45);
-            this.quantityText.Name = "quantityText";
-            this.quantityText.Size = new System.Drawing.Size(121, 20);
-            this.quantityText.TabIndex = 44;
             // 
             // GetDERStatusForm
             // 
@@ -532,7 +533,6 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -569,7 +569,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.CheckBox showXMLBox;
         private System.Windows.Forms.Button getButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.GroupBox groupBox3;

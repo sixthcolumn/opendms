@@ -92,7 +92,7 @@
             this.ClientSize = new System.Drawing.Size(437, 371);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "XMLForm";
-            this.Text = "XMLForm";
+            this.Text = "Log";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

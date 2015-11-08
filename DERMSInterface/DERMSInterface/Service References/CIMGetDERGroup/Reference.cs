@@ -51,7 +51,7 @@ namespace DERMSInterface.CIMGetDERGroup {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
     public partial class ReplyType : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private string resultField;
+        private ReplyTypeResult resultField;
         
         private ErrorType[] errorField;
         
@@ -63,7 +63,7 @@ namespace DERMSInterface.CIMGetDERGroup {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string Result {
+        public ReplyTypeResult Result {
             get {
                 return this.resultField;
             }
@@ -134,6 +134,22 @@ namespace DERMSInterface.CIMGetDERGroup {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
     [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://iec.ch/TC57/2011/schema/message")]
+    public enum ReplyTypeResult {
+        
+        /// <remarks/>
+        OK,
+        
+        /// <remarks/>
+        PARTIAL,
+        
+        /// <remarks/>
+        FAILED,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
@@ -141,7 +157,9 @@ namespace DERMSInterface.CIMGetDERGroup {
         
         private string codeField;
         
-        private string levelField;
+        private ErrorTypeLevel levelField;
+        
+        private bool levelFieldSpecified;
         
         private string reasonField;
         
@@ -175,13 +193,25 @@ namespace DERMSInterface.CIMGetDERGroup {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string level {
+        public ErrorTypeLevel level {
             get {
                 return this.levelField;
             }
             set {
                 this.levelField = value;
                 this.RaisePropertyChanged("level");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool levelSpecified {
+            get {
+                return this.levelFieldSpecified;
+            }
+            set {
+                this.levelFieldSpecified = value;
+                this.RaisePropertyChanged("levelSpecified");
             }
         }
         
@@ -301,6 +331,25 @@ namespace DERMSInterface.CIMGetDERGroup {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://iec.ch/TC57/2011/schema/message")]
+    public enum ErrorTypeLevel {
+        
+        /// <remarks/>
+        INFORM,
+        
+        /// <remarks/>
+        WARNING,
+        
+        /// <remarks/>
+        FATAL,
+        
+        /// <remarks/>
+        CATASTROPHIC,
     }
     
     /// <remarks/>
@@ -580,1030 +629,48 @@ namespace DERMSInterface.CIMGetDERGroup {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
-    public partial class OperationType : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string operationIdField;
-        
-        private string nounField;
-        
-        private string verbField;
-        
-        private bool elementOperationField;
-        
-        private System.Xml.XmlElement anyField;
-        
-        public OperationType() {
-            this.elementOperationField = false;
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=0)]
-        public string operationId {
-            get {
-                return this.operationIdField;
-            }
-            set {
-                this.operationIdField = value;
-                this.RaisePropertyChanged("operationId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string noun {
-            get {
-                return this.nounField;
-            }
-            set {
-                this.nounField = value;
-                this.RaisePropertyChanged("noun");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string verb {
-            get {
-                return this.verbField;
-            }
-            set {
-                this.verbField = value;
-                this.RaisePropertyChanged("verb");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        [System.ComponentModel.DefaultValueAttribute(false)]
-        public bool elementOperation {
-            get {
-                return this.elementOperationField;
-            }
-            set {
-                this.elementOperationField = value;
-                this.RaisePropertyChanged("elementOperation");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAnyElementAttribute(Order=4)]
-        public System.Xml.XmlElement Any {
-            get {
-                return this.anyField;
-            }
-            set {
-                this.anyField = value;
-                this.RaisePropertyChanged("Any");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
-    public partial class OperationSet : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private bool enforceMsgSequenceField;
-        
-        private bool enforceMsgSequenceFieldSpecified;
-        
-        private bool enforceTransactionalIntegrityField;
-        
-        private bool enforceTransactionalIntegrityFieldSpecified;
-        
-        private OperationType[] operationField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public bool enforceMsgSequence {
-            get {
-                return this.enforceMsgSequenceField;
-            }
-            set {
-                this.enforceMsgSequenceField = value;
-                this.RaisePropertyChanged("enforceMsgSequence");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool enforceMsgSequenceSpecified {
-            get {
-                return this.enforceMsgSequenceFieldSpecified;
-            }
-            set {
-                this.enforceMsgSequenceFieldSpecified = value;
-                this.RaisePropertyChanged("enforceMsgSequenceSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public bool enforceTransactionalIntegrity {
-            get {
-                return this.enforceTransactionalIntegrityField;
-            }
-            set {
-                this.enforceTransactionalIntegrityField = value;
-                this.RaisePropertyChanged("enforceTransactionalIntegrity");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool enforceTransactionalIntegritySpecified {
-            get {
-                return this.enforceTransactionalIntegrityFieldSpecified;
-            }
-            set {
-                this.enforceTransactionalIntegrityFieldSpecified = value;
-                this.RaisePropertyChanged("enforceTransactionalIntegritySpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Operation", Order=2)]
-        public OperationType[] Operation {
-            get {
-                return this.operationField;
-            }
-            set {
-                this.operationField = value;
-                this.RaisePropertyChanged("Operation");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
-    public partial class DERMember : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string mRIDField;
-        
-        private string nameField;
-        
-        private Name namesField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string mRID {
-            get {
-                return this.mRIDField;
-            }
-            set {
-                this.mRIDField = value;
-                this.RaisePropertyChanged("mRID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-                this.RaisePropertyChanged("name");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public Name Names {
-            get {
-                return this.namesField;
-            }
-            set {
-                this.namesField = value;
-                this.RaisePropertyChanged("Names");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
-    public partial class Name : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string nameField;
-        
-        private NameType nameTypeField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-                this.RaisePropertyChanged("name");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public NameType NameType {
-            get {
-                return this.nameTypeField;
-            }
-            set {
-                this.nameTypeField = value;
-                this.RaisePropertyChanged("NameType");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
-    public partial class NameType : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string descriptionField;
-        
-        private string nameField;
-        
-        private NameTypeAuthority nameTypeAuthorityField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-                this.RaisePropertyChanged("description");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-                this.RaisePropertyChanged("name");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public NameTypeAuthority NameTypeAuthority {
-            get {
-                return this.nameTypeAuthorityField;
-            }
-            set {
-                this.nameTypeAuthorityField = value;
-                this.RaisePropertyChanged("NameTypeAuthority");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
-    public partial class NameTypeAuthority : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string descriptionField;
-        
-        private string nameField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-                this.RaisePropertyChanged("description");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-                this.RaisePropertyChanged("name");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
-    public partial class status : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private System.DateTime dateTimeField;
-        
-        private string reasonField;
-        
-        private string remarkField;
-        
-        private string valueField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public System.DateTime dateTime {
-            get {
-                return this.dateTimeField;
-            }
-            set {
-                this.dateTimeField = value;
-                this.RaisePropertyChanged("dateTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string reason {
-            get {
-                return this.reasonField;
-            }
-            set {
-                this.reasonField = value;
-                this.RaisePropertyChanged("reason");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string remark {
-            get {
-                return this.remarkField;
-            }
-            set {
-                this.remarkField = value;
-                this.RaisePropertyChanged("remark");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-                this.RaisePropertyChanged("value");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
-    public partial class extensionsItem : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string extNameField;
-        
-        private string extValueField;
-        
-        private string extTypeField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string extName {
-            get {
-                return this.extNameField;
-            }
-            set {
-                this.extNameField = value;
-                this.RaisePropertyChanged("extName");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string extValue {
-            get {
-                return this.extValueField;
-            }
-            set {
-                this.extValueField = value;
-                this.RaisePropertyChanged("extValue");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string extType {
-            get {
-                return this.extTypeField;
-            }
-            set {
-                this.extTypeField = value;
-                this.RaisePropertyChanged("extType");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
-    public partial class DERGroup : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private extensionsItem[] extensionsListField;
-        
-        private status statusField;
-        
-        private string nameField;
-        
-        private string mRIDField;
-        
-        private Name[] namesField;
-        
-        private DERMember[] dERMemberField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
-        public extensionsItem[] extensionsList {
-            get {
-                return this.extensionsListField;
-            }
-            set {
-                this.extensionsListField = value;
-                this.RaisePropertyChanged("extensionsList");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public status status {
-            get {
-                return this.statusField;
-            }
-            set {
-                this.statusField = value;
-                this.RaisePropertyChanged("status");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-                this.RaisePropertyChanged("name");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string mRID {
-            get {
-                return this.mRIDField;
-            }
-            set {
-                this.mRIDField = value;
-                this.RaisePropertyChanged("mRID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Names", Order=4)]
-        public Name[] Names {
-            get {
-                return this.namesField;
-            }
-            set {
-                this.namesField = value;
-                this.RaisePropertyChanged("Names");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("DERMember", Order=5)]
-        public DERMember[] DERMember {
-            get {
-                return this.dERMemberField;
-            }
-            set {
-                this.dERMemberField = value;
-                this.RaisePropertyChanged("DERMember");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/GetDERGroupMessage")]
-    public partial class DERGroupPayloadType : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class DERGroupResponseMessageType : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private DERGroupsDERGroup[] dERGroupsField;
+        private HeaderType headerField;
         
-        private OperationSet operationSetField;
+        private ReplyType replyField;
         
-        private string compressedField;
-        
-        private string formatField;
+        private DERGroupPayloadType payloadField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Namespace="http://www.epri.com/2013/DERGroup#", Order=0)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("DERGroup", IsNullable=false)]
-        public DERGroupsDERGroup[] DERGroups {
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public HeaderType Header {
             get {
-                return this.dERGroupsField;
+                return this.headerField;
             }
             set {
-                this.dERGroupsField = value;
-                this.RaisePropertyChanged("DERGroups");
+                this.headerField = value;
+                this.RaisePropertyChanged("Header");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public OperationSet OperationSet {
+        public ReplyType Reply {
             get {
-                return this.operationSetField;
+                return this.replyField;
             }
             set {
-                this.operationSetField = value;
-                this.RaisePropertyChanged("OperationSet");
+                this.replyField = value;
+                this.RaisePropertyChanged("Reply");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Compressed {
+        public DERGroupPayloadType Payload {
             get {
-                return this.compressedField;
+                return this.payloadField;
             }
             set {
-                this.compressedField = value;
-                this.RaisePropertyChanged("Compressed");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Format {
-            get {
-                return this.formatField;
-            }
-            set {
-                this.formatField = value;
-                this.RaisePropertyChanged("Format");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.epri.com/2013/DERGroup#")]
-    public partial class DERGroupsDERGroup : DERGroup {
-        
-        private string descriptionField;
-        
-        private string commentField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-                this.RaisePropertyChanged("description");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string comment {
-            get {
-                return this.commentField;
-            }
-            set {
-                this.commentField = value;
-                this.RaisePropertyChanged("comment");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
-    public partial class OptionType : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string nameField;
-        
-        private string valueField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-                this.RaisePropertyChanged("name");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-                this.RaisePropertyChanged("value");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/GetDERGroupMessage")]
-    public partial class GetDERGroupRequestType : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private System.DateTime startTimeField;
-        
-        private bool startTimeFieldSpecified;
-        
-        private System.DateTime endTimeField;
-        
-        private bool endTimeFieldSpecified;
-        
-        private OptionType[] optionField;
-        
-        private string[] idField;
-        
-        private System.Xml.XmlElement[] anyField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public System.DateTime StartTime {
-            get {
-                return this.startTimeField;
-            }
-            set {
-                this.startTimeField = value;
-                this.RaisePropertyChanged("StartTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool StartTimeSpecified {
-            get {
-                return this.startTimeFieldSpecified;
-            }
-            set {
-                this.startTimeFieldSpecified = value;
-                this.RaisePropertyChanged("StartTimeSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public System.DateTime EndTime {
-            get {
-                return this.endTimeField;
-            }
-            set {
-                this.endTimeField = value;
-                this.RaisePropertyChanged("EndTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool EndTimeSpecified {
-            get {
-                return this.endTimeFieldSpecified;
-            }
-            set {
-                this.endTimeFieldSpecified = value;
-                this.RaisePropertyChanged("EndTimeSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Option", Order=2)]
-        public OptionType[] Option {
-            get {
-                return this.optionField;
-            }
-            set {
-                this.optionField = value;
-                this.RaisePropertyChanged("Option");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ID", Order=3)]
-        public string[] ID {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-                this.RaisePropertyChanged("ID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAnyElementAttribute(Order=4)]
-        public System.Xml.XmlElement[] Any {
-            get {
-                return this.anyField;
-            }
-            set {
-                this.anyField = value;
-                this.RaisePropertyChanged("Any");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
-    public partial class MessageProperty : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string nameField;
-        
-        private string valueField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-                this.RaisePropertyChanged("Name");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-                this.RaisePropertyChanged("Value");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
-    public partial class UserType : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string userIDField;
-        
-        private string organizationField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string UserID {
-            get {
-                return this.userIDField;
-            }
-            set {
-                this.userIDField = value;
-                this.RaisePropertyChanged("UserID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string Organization {
-            get {
-                return this.organizationField;
-            }
-            set {
-                this.organizationField = value;
-                this.RaisePropertyChanged("Organization");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
-    public partial class ReplayDetectionType : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string nonceField;
-        
-        private System.DateTime createdField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string Nonce {
-            get {
-                return this.nonceField;
-            }
-            set {
-                this.nonceField = value;
-                this.RaisePropertyChanged("Nonce");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public System.DateTime Created {
-            get {
-                return this.createdField;
-            }
-            set {
-                this.createdField = value;
-                this.RaisePropertyChanged("Created");
+                this.payloadField = value;
+                this.RaisePropertyChanged("Payload");
             }
         }
         
@@ -1625,7 +692,7 @@ namespace DERMSInterface.CIMGetDERGroup {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
     public partial class HeaderType : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private string verbField;
+        private HeaderTypeVerb verbField;
         
         private string nounField;
         
@@ -1665,7 +732,7 @@ namespace DERMSInterface.CIMGetDERGroup {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string Verb {
+        public HeaderTypeVerb Verb {
             get {
                 return this.verbField;
             }
@@ -1888,6 +955,1691 @@ namespace DERMSInterface.CIMGetDERGroup {
             set {
                 this.anyField = value;
                 this.RaisePropertyChanged("Any");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://iec.ch/TC57/2011/schema/message")]
+    public enum HeaderTypeVerb {
+        
+        /// <remarks/>
+        cancel,
+        
+        /// <remarks/>
+        canceled,
+        
+        /// <remarks/>
+        change,
+        
+        /// <remarks/>
+        changed,
+        
+        /// <remarks/>
+        create,
+        
+        /// <remarks/>
+        created,
+        
+        /// <remarks/>
+        close,
+        
+        /// <remarks/>
+        closed,
+        
+        /// <remarks/>
+        delete,
+        
+        /// <remarks/>
+        deleted,
+        
+        /// <remarks/>
+        get,
+        
+        /// <remarks/>
+        reply,
+        
+        /// <remarks/>
+        execute,
+        
+        /// <remarks/>
+        executed,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    public partial class ReplayDetectionType : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string nonceField;
+        
+        private System.DateTime createdField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string Nonce {
+            get {
+                return this.nonceField;
+            }
+            set {
+                this.nonceField = value;
+                this.RaisePropertyChanged("Nonce");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public System.DateTime Created {
+            get {
+                return this.createdField;
+            }
+            set {
+                this.createdField = value;
+                this.RaisePropertyChanged("Created");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    public partial class UserType : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string userIDField;
+        
+        private string organizationField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string UserID {
+            get {
+                return this.userIDField;
+            }
+            set {
+                this.userIDField = value;
+                this.RaisePropertyChanged("UserID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Organization {
+            get {
+                return this.organizationField;
+            }
+            set {
+                this.organizationField = value;
+                this.RaisePropertyChanged("Organization");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    public partial class MessageProperty : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string nameField;
+        
+        private string valueField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("Name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+                this.RaisePropertyChanged("Value");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/GetDERGroupMessage")]
+    public partial class DERGroupPayloadType : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private EndDeviceGroup[] dERGroupsField;
+        
+        private OperationSet operationSetField;
+        
+        private string compressedField;
+        
+        private string formatField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Namespace="http://www.epri.com/2013/DERGroup#", Order=0)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public EndDeviceGroup[] DERGroups {
+            get {
+                return this.dERGroupsField;
+            }
+            set {
+                this.dERGroupsField = value;
+                this.RaisePropertyChanged("DERGroups");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public OperationSet OperationSet {
+            get {
+                return this.operationSetField;
+            }
+            set {
+                this.operationSetField = value;
+                this.RaisePropertyChanged("OperationSet");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Compressed {
+            get {
+                return this.compressedField;
+            }
+            set {
+                this.compressedField = value;
+                this.RaisePropertyChanged("Compressed");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Format {
+            get {
+                return this.formatField;
+            }
+            set {
+                this.formatField = value;
+                this.RaisePropertyChanged("Format");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
+    public partial class EndDeviceGroup : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string mRIDField;
+        
+        private Name[] namesField;
+        
+        private EndDeviceGroupCapabilityList capabilityListField;
+        
+        private EndDeviceGroupVersion versionField;
+        
+        private Status statusField;
+        
+        private string nameField;
+        
+        private DERMember[] endDeviceField;
+        
+        private extensionsItem[] extensionsListField;
+        
+        private string descriptionField;
+        
+        private string commentField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string mRID {
+            get {
+                return this.mRIDField;
+            }
+            set {
+                this.mRIDField = value;
+                this.RaisePropertyChanged("mRID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Names", Order=1)]
+        public Name[] Names {
+            get {
+                return this.namesField;
+            }
+            set {
+                this.namesField = value;
+                this.RaisePropertyChanged("Names");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public EndDeviceGroupCapabilityList CapabilityList {
+            get {
+                return this.capabilityListField;
+            }
+            set {
+                this.capabilityListField = value;
+                this.RaisePropertyChanged("CapabilityList");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public EndDeviceGroupVersion Version {
+            get {
+                return this.versionField;
+            }
+            set {
+                this.versionField = value;
+                this.RaisePropertyChanged("Version");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public Status Status {
+            get {
+                return this.statusField;
+            }
+            set {
+                this.statusField = value;
+                this.RaisePropertyChanged("Status");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("EndDevice", Order=6)]
+        public DERMember[] EndDevice {
+            get {
+                return this.endDeviceField;
+            }
+            set {
+                this.endDeviceField = value;
+                this.RaisePropertyChanged("EndDevice");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=7)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public extensionsItem[] extensionsList {
+            get {
+                return this.extensionsListField;
+            }
+            set {
+                this.extensionsListField = value;
+                this.RaisePropertyChanged("extensionsList");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+                this.RaisePropertyChanged("description");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string comment {
+            get {
+                return this.commentField;
+            }
+            set {
+                this.commentField = value;
+                this.RaisePropertyChanged("comment");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
+    public partial class Name : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string nameField;
+        
+        private NameType nameTypeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public NameType NameType {
+            get {
+                return this.nameTypeField;
+            }
+            set {
+                this.nameTypeField = value;
+                this.RaisePropertyChanged("NameType");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
+    public partial class NameType : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string descriptionField;
+        
+        private string nameField;
+        
+        private NameTypeAuthority nameTypeAuthorityField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+                this.RaisePropertyChanged("description");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public NameTypeAuthority NameTypeAuthority {
+            get {
+                return this.nameTypeAuthorityField;
+            }
+            set {
+                this.nameTypeAuthorityField = value;
+                this.RaisePropertyChanged("NameTypeAuthority");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
+    public partial class NameTypeAuthority : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string descriptionField;
+        
+        private string nameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+                this.RaisePropertyChanged("description");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("name");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.epri.com/2013/DERGroup#")]
+    public partial class EndDeviceGroupCapabilityList : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private ActivePower currentActivePowerField;
+        
+        private ApparentPower currentApparentPowerField;
+        
+        private ReactivePower currentReactivePowerField;
+        
+        private ActivePower minActivePowerField;
+        
+        private ApparentPower minApparentPowerField;
+        
+        private ReactivePower minReactivePowerField;
+        
+        private ActivePower maxActivePowerField;
+        
+        private ApparentPower maxApparentPowerField;
+        
+        private ReactivePower maxReactivePowerField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ActivePower currentActivePower {
+            get {
+                return this.currentActivePowerField;
+            }
+            set {
+                this.currentActivePowerField = value;
+                this.RaisePropertyChanged("currentActivePower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public ApparentPower currentApparentPower {
+            get {
+                return this.currentApparentPowerField;
+            }
+            set {
+                this.currentApparentPowerField = value;
+                this.RaisePropertyChanged("currentApparentPower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public ReactivePower currentReactivePower {
+            get {
+                return this.currentReactivePowerField;
+            }
+            set {
+                this.currentReactivePowerField = value;
+                this.RaisePropertyChanged("currentReactivePower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public ActivePower minActivePower {
+            get {
+                return this.minActivePowerField;
+            }
+            set {
+                this.minActivePowerField = value;
+                this.RaisePropertyChanged("minActivePower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public ApparentPower minApparentPower {
+            get {
+                return this.minApparentPowerField;
+            }
+            set {
+                this.minApparentPowerField = value;
+                this.RaisePropertyChanged("minApparentPower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public ReactivePower minReactivePower {
+            get {
+                return this.minReactivePowerField;
+            }
+            set {
+                this.minReactivePowerField = value;
+                this.RaisePropertyChanged("minReactivePower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public ActivePower maxActivePower {
+            get {
+                return this.maxActivePowerField;
+            }
+            set {
+                this.maxActivePowerField = value;
+                this.RaisePropertyChanged("maxActivePower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public ApparentPower maxApparentPower {
+            get {
+                return this.maxApparentPowerField;
+            }
+            set {
+                this.maxApparentPowerField = value;
+                this.RaisePropertyChanged("maxApparentPower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public ReactivePower maxReactivePower {
+            get {
+                return this.maxReactivePowerField;
+            }
+            set {
+                this.maxReactivePowerField = value;
+                this.RaisePropertyChanged("maxReactivePower");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
+    public partial class ActivePower : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private multiplier multiplierField;
+        
+        private string unitField;
+        
+        private float valueField;
+        
+        public ActivePower() {
+            this.unitField = "W";
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public multiplier multiplier {
+            get {
+                return this.multiplierField;
+            }
+            set {
+                this.multiplierField = value;
+                this.RaisePropertyChanged("multiplier");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string unit {
+            get {
+                return this.unitField;
+            }
+            set {
+                this.unitField = value;
+                this.RaisePropertyChanged("unit");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public float value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+                this.RaisePropertyChanged("value");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
+    public enum multiplier {
+        
+        /// <remarks/>
+        G,
+        
+        /// <remarks/>
+        M,
+        
+        /// <remarks/>
+        k,
+        
+        /// <remarks/>
+        h,
+        
+        /// <remarks/>
+        da,
+        
+        /// <remarks/>
+        d,
+        
+        /// <remarks/>
+        c,
+        
+        /// <remarks/>
+        m,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
+    public partial class ApparentPower : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private multiplier multiplierField;
+        
+        private string unitField;
+        
+        private float valueField;
+        
+        public ApparentPower() {
+            this.unitField = "VA";
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public multiplier multiplier {
+            get {
+                return this.multiplierField;
+            }
+            set {
+                this.multiplierField = value;
+                this.RaisePropertyChanged("multiplier");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string unit {
+            get {
+                return this.unitField;
+            }
+            set {
+                this.unitField = value;
+                this.RaisePropertyChanged("unit");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public float value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+                this.RaisePropertyChanged("value");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
+    public partial class ReactivePower : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private multiplier multiplierField;
+        
+        private string unitField;
+        
+        private float valueField;
+        
+        public ReactivePower() {
+            this.unitField = "VAr";
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public multiplier multiplier {
+            get {
+                return this.multiplierField;
+            }
+            set {
+                this.multiplierField = value;
+                this.RaisePropertyChanged("multiplier");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string unit {
+            get {
+                return this.unitField;
+            }
+            set {
+                this.unitField = value;
+                this.RaisePropertyChanged("unit");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public float value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+                this.RaisePropertyChanged("value");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.epri.com/2013/DERGroup#")]
+    public partial class EndDeviceGroupVersion : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string majorField;
+        
+        private string minorField;
+        
+        private string revisionField;
+        
+        private System.DateTime versionDateField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=0)]
+        public string major {
+            get {
+                return this.majorField;
+            }
+            set {
+                this.majorField = value;
+                this.RaisePropertyChanged("major");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=1)]
+        public string minor {
+            get {
+                return this.minorField;
+            }
+            set {
+                this.minorField = value;
+                this.RaisePropertyChanged("minor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=2)]
+        public string revision {
+            get {
+                return this.revisionField;
+            }
+            set {
+                this.revisionField = value;
+                this.RaisePropertyChanged("revision");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public System.DateTime versionDate {
+            get {
+                return this.versionDateField;
+            }
+            set {
+                this.versionDateField = value;
+                this.RaisePropertyChanged("versionDate");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
+    public partial class Status : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.DateTime dateTimeField;
+        
+        private string reasonField;
+        
+        private string remarkField;
+        
+        private string valueField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public System.DateTime dateTime {
+            get {
+                return this.dateTimeField;
+            }
+            set {
+                this.dateTimeField = value;
+                this.RaisePropertyChanged("dateTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string reason {
+            get {
+                return this.reasonField;
+            }
+            set {
+                this.reasonField = value;
+                this.RaisePropertyChanged("reason");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string remark {
+            get {
+                return this.remarkField;
+            }
+            set {
+                this.remarkField = value;
+                this.RaisePropertyChanged("remark");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+                this.RaisePropertyChanged("value");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
+    public partial class DERMember : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string mRIDField;
+        
+        private string nameField;
+        
+        private Name namesField;
+        
+        private DERMemberCapabilityList capabilityListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string mRID {
+            get {
+                return this.mRIDField;
+            }
+            set {
+                this.mRIDField = value;
+                this.RaisePropertyChanged("mRID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public Name Names {
+            get {
+                return this.namesField;
+            }
+            set {
+                this.namesField = value;
+                this.RaisePropertyChanged("Names");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public DERMemberCapabilityList CapabilityList {
+            get {
+                return this.capabilityListField;
+            }
+            set {
+                this.capabilityListField = value;
+                this.RaisePropertyChanged("CapabilityList");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.epri.com/2013/DERGroup#")]
+    public partial class DERMemberCapabilityList : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private ActivePower activePowerField;
+        
+        private ApparentPower apparentPowerField;
+        
+        private ReactivePower reactivePowerField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ActivePower ActivePower {
+            get {
+                return this.activePowerField;
+            }
+            set {
+                this.activePowerField = value;
+                this.RaisePropertyChanged("ActivePower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public ApparentPower ApparentPower {
+            get {
+                return this.apparentPowerField;
+            }
+            set {
+                this.apparentPowerField = value;
+                this.RaisePropertyChanged("ApparentPower");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public ReactivePower ReactivePower {
+            get {
+                return this.reactivePowerField;
+            }
+            set {
+                this.reactivePowerField = value;
+                this.RaisePropertyChanged("ReactivePower");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
+    public partial class extensionsItem : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string extNameField;
+        
+        private string extValueField;
+        
+        private string extTypeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string extName {
+            get {
+                return this.extNameField;
+            }
+            set {
+                this.extNameField = value;
+                this.RaisePropertyChanged("extName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string extValue {
+            get {
+                return this.extValueField;
+            }
+            set {
+                this.extValueField = value;
+                this.RaisePropertyChanged("extValue");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string extType {
+            get {
+                return this.extTypeField;
+            }
+            set {
+                this.extTypeField = value;
+                this.RaisePropertyChanged("extType");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    public partial class OperationSet : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool enforceMsgSequenceField;
+        
+        private bool enforceMsgSequenceFieldSpecified;
+        
+        private bool enforceTransactionalIntegrityField;
+        
+        private bool enforceTransactionalIntegrityFieldSpecified;
+        
+        private OperationType[] operationField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public bool enforceMsgSequence {
+            get {
+                return this.enforceMsgSequenceField;
+            }
+            set {
+                this.enforceMsgSequenceField = value;
+                this.RaisePropertyChanged("enforceMsgSequence");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool enforceMsgSequenceSpecified {
+            get {
+                return this.enforceMsgSequenceFieldSpecified;
+            }
+            set {
+                this.enforceMsgSequenceFieldSpecified = value;
+                this.RaisePropertyChanged("enforceMsgSequenceSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public bool enforceTransactionalIntegrity {
+            get {
+                return this.enforceTransactionalIntegrityField;
+            }
+            set {
+                this.enforceTransactionalIntegrityField = value;
+                this.RaisePropertyChanged("enforceTransactionalIntegrity");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool enforceTransactionalIntegritySpecified {
+            get {
+                return this.enforceTransactionalIntegrityFieldSpecified;
+            }
+            set {
+                this.enforceTransactionalIntegrityFieldSpecified = value;
+                this.RaisePropertyChanged("enforceTransactionalIntegritySpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Operation", Order=2)]
+        public OperationType[] Operation {
+            get {
+                return this.operationField;
+            }
+            set {
+                this.operationField = value;
+                this.RaisePropertyChanged("Operation");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    public partial class OperationType : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string operationIdField;
+        
+        private string nounField;
+        
+        private string verbField;
+        
+        private bool elementOperationField;
+        
+        private System.Xml.XmlElement anyField;
+        
+        public OperationType() {
+            this.elementOperationField = false;
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=0)]
+        public string operationId {
+            get {
+                return this.operationIdField;
+            }
+            set {
+                this.operationIdField = value;
+                this.RaisePropertyChanged("operationId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string noun {
+            get {
+                return this.nounField;
+            }
+            set {
+                this.nounField = value;
+                this.RaisePropertyChanged("noun");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string verb {
+            get {
+                return this.verbField;
+            }
+            set {
+                this.verbField = value;
+                this.RaisePropertyChanged("verb");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        [System.ComponentModel.DefaultValueAttribute(false)]
+        public bool elementOperation {
+            get {
+                return this.elementOperationField;
+            }
+            set {
+                this.elementOperationField = value;
+                this.RaisePropertyChanged("elementOperation");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAnyElementAttribute(Order=4)]
+        public System.Xml.XmlElement Any {
+            get {
+                return this.anyField;
+            }
+            set {
+                this.anyField = value;
+                this.RaisePropertyChanged("Any");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    public partial class OptionType : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string nameField;
+        
+        private string valueField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+                this.RaisePropertyChanged("value");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/GetDERGroupMessage")]
+    public partial class GetDERGroupRequestType : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.DateTime startTimeField;
+        
+        private bool startTimeFieldSpecified;
+        
+        private System.DateTime endTimeField;
+        
+        private bool endTimeFieldSpecified;
+        
+        private OptionType[] optionField;
+        
+        private string[] idField;
+        
+        private System.Xml.XmlElement[] anyField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public System.DateTime StartTime {
+            get {
+                return this.startTimeField;
+            }
+            set {
+                this.startTimeField = value;
+                this.RaisePropertyChanged("StartTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool StartTimeSpecified {
+            get {
+                return this.startTimeFieldSpecified;
+            }
+            set {
+                this.startTimeFieldSpecified = value;
+                this.RaisePropertyChanged("StartTimeSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public System.DateTime EndTime {
+            get {
+                return this.endTimeField;
+            }
+            set {
+                this.endTimeField = value;
+                this.RaisePropertyChanged("EndTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool EndTimeSpecified {
+            get {
+                return this.endTimeFieldSpecified;
+            }
+            set {
+                this.endTimeFieldSpecified = value;
+                this.RaisePropertyChanged("EndTimeSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Option", Order=2)]
+        public OptionType[] Option {
+            get {
+                return this.optionField;
+            }
+            set {
+                this.optionField = value;
+                this.RaisePropertyChanged("Option");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ID", Order=3)]
+        public string[] ID {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("ID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAnyElementAttribute(Order=4)]
+        public System.Xml.XmlElement[] Any {
+            get {
+                return this.anyField;
+            }
+            set {
+                this.anyField = value;
+                this.RaisePropertyChanged("Any");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/GetDERGroupMessage")]
+    public partial class GetDERGroupRequestMessageType : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private HeaderType headerField;
+        
+        private GetDERGroupRequestType requestField;
+        
+        private DERGroupPayloadType payloadField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public HeaderType Header {
+            get {
+                return this.headerField;
+            }
+            set {
+                this.headerField = value;
+                this.RaisePropertyChanged("Header");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public GetDERGroupRequestType Request {
+            get {
+                return this.requestField;
+            }
+            set {
+                this.requestField = value;
+                this.RaisePropertyChanged("Request");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public DERGroupPayloadType Payload {
+            get {
+                return this.payloadField;
+            }
+            set {
+                this.payloadField = value;
+                this.RaisePropertyChanged("Payload");
             }
         }
         
@@ -2230,62 +2982,47 @@ namespace DERMSInterface.CIMGetDERGroup {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://iec.ch/TC57/2011/GetDERGroup", ConfigurationName="CIMGetDERGroup.GetDERGroup_Port")]
     public interface GetDERGroup_Port {
         
+        // CODEGEN: Generating message contract since the operation GetDERGroup is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://iec.ch/TC57/2011/GetDERGroup/GetDERGroup", ReplyAction="*")]
         [System.ServiceModel.FaultContractAttribute(typeof(DERMSInterface.CIMGetDERGroup.DERGroupFaultMessageType), Action="http://iec.ch/TC57/2011/GetDERGroup/GetDERGroup", Name="DERGroupFaultMessage", Namespace="http://iec.ch/TC57/2011/GetDERGroupMessage")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(DERGroup))]
-        DERMSInterface.CIMGetDERGroup.GetDERGroupResponse GetDERGroup(DERMSInterface.CIMGetDERGroup.GetDERGroup request);
+        DERMSInterface.CIMGetDERGroup.GetDERGroupResponse GetDERGroup(DERMSInterface.CIMGetDERGroup.GetDERGroupRequest request);
         
-        // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://iec.ch/TC57/2011/GetDERGroup/GetDERGroup", ReplyAction="*")]
-        System.Threading.Tasks.Task<DERMSInterface.CIMGetDERGroup.GetDERGroupResponse> GetDERGroupAsync(DERMSInterface.CIMGetDERGroup.GetDERGroup request);
+        System.Threading.Tasks.Task<DERMSInterface.CIMGetDERGroup.GetDERGroupResponse> GetDERGroupAsync(DERMSInterface.CIMGetDERGroup.GetDERGroupRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetDERGroup", WrapperNamespace="http://iec.ch/TC57/2011/GetDERGroupMessage", IsWrapped=true)]
-    public partial class GetDERGroup {
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDERGroupRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://iec.ch/TC57/2011/GetDERGroupMessage", Order=0)]
-        public DERMSInterface.CIMGetDERGroup.HeaderType Header;
+        public DERMSInterface.CIMGetDERGroup.GetDERGroupRequestMessageType GetDERGroup;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://iec.ch/TC57/2011/GetDERGroupMessage", Order=1)]
-        public DERMSInterface.CIMGetDERGroup.GetDERGroupRequestType Request;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://iec.ch/TC57/2011/GetDERGroupMessage", Order=2)]
-        public DERMSInterface.CIMGetDERGroup.DERGroupPayloadType Payload;
-        
-        public GetDERGroup() {
+        public GetDERGroupRequest() {
         }
         
-        public GetDERGroup(DERMSInterface.CIMGetDERGroup.HeaderType Header, DERMSInterface.CIMGetDERGroup.GetDERGroupRequestType Request, DERMSInterface.CIMGetDERGroup.DERGroupPayloadType Payload) {
-            this.Header = Header;
-            this.Request = Request;
-            this.Payload = Payload;
+        public GetDERGroupRequest(DERMSInterface.CIMGetDERGroup.GetDERGroupRequestMessageType GetDERGroup) {
+            this.GetDERGroup = GetDERGroup;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="DERGroupResponseMessage", WrapperNamespace="http://iec.ch/TC57/2011/GetDERGroupMessage", IsWrapped=true)]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetDERGroupResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://iec.ch/TC57/2011/GetDERGroupMessage", Order=0)]
-        public DERMSInterface.CIMGetDERGroup.HeaderType Header;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://iec.ch/TC57/2011/GetDERGroupMessage", Order=1)]
-        public DERMSInterface.CIMGetDERGroup.ReplyType Reply;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://iec.ch/TC57/2011/GetDERGroupMessage", Order=2)]
-        public DERMSInterface.CIMGetDERGroup.DERGroupPayloadType Payload;
+        public DERMSInterface.CIMGetDERGroup.DERGroupResponseMessageType DERGroupResponseMessage;
         
         public GetDERGroupResponse() {
         }
         
-        public GetDERGroupResponse(DERMSInterface.CIMGetDERGroup.HeaderType Header, DERMSInterface.CIMGetDERGroup.ReplyType Reply, DERMSInterface.CIMGetDERGroup.DERGroupPayloadType Payload) {
-            this.Header = Header;
-            this.Reply = Reply;
-            this.Payload = Payload;
+        public GetDERGroupResponse(DERMSInterface.CIMGetDERGroup.DERGroupResponseMessageType DERGroupResponseMessage) {
+            this.DERGroupResponseMessage = DERGroupResponseMessage;
         }
     }
     
@@ -2317,23 +3054,26 @@ namespace DERMSInterface.CIMGetDERGroup {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DERMSInterface.CIMGetDERGroup.GetDERGroupResponse DERMSInterface.CIMGetDERGroup.GetDERGroup_Port.GetDERGroup(DERMSInterface.CIMGetDERGroup.GetDERGroup request) {
+        DERMSInterface.CIMGetDERGroup.GetDERGroupResponse DERMSInterface.CIMGetDERGroup.GetDERGroup_Port.GetDERGroup(DERMSInterface.CIMGetDERGroup.GetDERGroupRequest request) {
             return base.Channel.GetDERGroup(request);
         }
         
-        public DERMSInterface.CIMGetDERGroup.ReplyType GetDERGroup(ref DERMSInterface.CIMGetDERGroup.HeaderType Header, DERMSInterface.CIMGetDERGroup.GetDERGroupRequestType Request, ref DERMSInterface.CIMGetDERGroup.DERGroupPayloadType Payload) {
-            DERMSInterface.CIMGetDERGroup.GetDERGroup inValue = new DERMSInterface.CIMGetDERGroup.GetDERGroup();
-            inValue.Header = Header;
-            inValue.Request = Request;
-            inValue.Payload = Payload;
+        public DERMSInterface.CIMGetDERGroup.DERGroupResponseMessageType GetDERGroup(DERMSInterface.CIMGetDERGroup.GetDERGroupRequestMessageType GetDERGroup1) {
+            DERMSInterface.CIMGetDERGroup.GetDERGroupRequest inValue = new DERMSInterface.CIMGetDERGroup.GetDERGroupRequest();
+            inValue.GetDERGroup = GetDERGroup1;
             DERMSInterface.CIMGetDERGroup.GetDERGroupResponse retVal = ((DERMSInterface.CIMGetDERGroup.GetDERGroup_Port)(this)).GetDERGroup(inValue);
-            Header = retVal.Header;
-            Payload = retVal.Payload;
-            return retVal.Reply;
+            return retVal.DERGroupResponseMessage;
         }
         
-        public System.Threading.Tasks.Task<DERMSInterface.CIMGetDERGroup.GetDERGroupResponse> GetDERGroupAsync(DERMSInterface.CIMGetDERGroup.GetDERGroup request) {
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<DERMSInterface.CIMGetDERGroup.GetDERGroupResponse> DERMSInterface.CIMGetDERGroup.GetDERGroup_Port.GetDERGroupAsync(DERMSInterface.CIMGetDERGroup.GetDERGroupRequest request) {
             return base.Channel.GetDERGroupAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<DERMSInterface.CIMGetDERGroup.GetDERGroupResponse> GetDERGroupAsync(DERMSInterface.CIMGetDERGroup.GetDERGroupRequestMessageType GetDERGroup) {
+            DERMSInterface.CIMGetDERGroup.GetDERGroupRequest inValue = new DERMSInterface.CIMGetDERGroup.GetDERGroupRequest();
+            inValue.GetDERGroup = GetDERGroup;
+            return ((DERMSInterface.CIMGetDERGroup.GetDERGroup_Port)(this)).GetDERGroupAsync(inValue);
         }
     }
 }

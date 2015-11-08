@@ -19,11 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://10.3.253.100:8080/DERConnect/cim/getDERGroup?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="Z:\git\opendms\DER\wsdl\GetDERGroup.wsdl" Protocol="file" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="GetDERGroup_Port.wsdl" MetadataType="Wsdl" ID="1cb1e9f4-344c-4396-aa53-c147fddc0457" SourceId="1" SourceUrl="http://10.3.253.100:8080/DERConnect/cim/getDERGroup?wsdl=GetDERGroup_Port.wsdl" />
-    <MetadataFile FileName="GetDERGroupImplService.wsdl" MetadataType="Wsdl" ID="246c1f51-9c2f-4af0-9658-ff1064c008ad" SourceId="1" SourceUrl="http://10.3.253.100:8080/DERConnect/cim/getDERGroup?wsdl" />
+    <MetadataFile FileName="DERGroup.xsd" MetadataType="Schema" ID="97689a52-1195-4945-93f2-01a5fca2a859" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/xsd/DERGroup.xsd" />
+    <MetadataFile FileName="Message.xsd" MetadataType="Schema" ID="2a1b17d6-83ac-4792-b206-b6dd627e352a" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/xsd/Message.xsd" />
+    <MetadataFile FileName="GetDERGroup.wsdl" MetadataType="Wsdl" ID="ecd516d7-de1b-4c9c-85a8-8e0ce1ef3b76" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/GetDERGroup.wsdl" />
+    <MetadataFile FileName="GetDERGroupMessage.xsd" MetadataType="Schema" ID="935720f6-71d3-4831-bacd-f34cb2147a0a" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/xsd/GetDERGroupMessage.xsd" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

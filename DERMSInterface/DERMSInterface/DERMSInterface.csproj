@@ -84,7 +84,7 @@
   <ItemGroup>
     <Compile Include="CIM.cs" />
     <Compile Include="CIMData.cs" />
-    <Compile Include="ConfigigurationException.cs" />
+    <Compile Include="DERConfigigurationException.cs" />
     <Compile Include="DERResponseException.cs" />
     <Compile Include="HeaderNotFoundException.cs" />
     <Compile Include="DERGroupStatusResponse.cs" />
@@ -164,9 +164,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\CIMDERGroupDispatch\RequestDERGroupDispatch.wsdl" />
-    <None Include="Service References\CIMDERGroupDispatch\RequestDERGroupDispatchMessage.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\CIMDERRequest\CIM_Request.wsdl" />
     <None Include="Service References\CIMDERRequest\CIM_Request.xsd">
       <SubType>Designer</SubType>
@@ -271,20 +268,22 @@
     <None Include="Service References\CIMGetDERGroupStatus\Message1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CIMGetDERGroup\DERMSInterface.CIMGetDERGroup.DERGroupPayloadType.datasource">
+    <None Include="Service References\CIMGetDERGroup\DERGroup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMGetDERGroup\DERMSInterface.CIMGetDERGroup.DERGroupResponseMessageType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CIMGetDERGroup\DERMSInterface.CIMGetDERGroup.GetDERGroupResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\CIMGetDERGroup\DERMSInterface.CIMGetDERGroup.HeaderType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Service References\CIMGetDERGroup\GetDERGroup.wsdl" />
+    <None Include="Service References\CIMGetDERGroup\GetDERGroupMessage.xsd">
+      <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CIMGetDERGroup\DERMSInterface.CIMGetDERGroup.ReplyType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Service References\CIMGetDERGroup\Message.xsd">
+      <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CIMGetDERGroup\GetDERGroupImplService.wsdl" />
-    <None Include="Service References\CIMGetDERGroup\GetDERGroup_Port.wsdl" />
     <None Include="Service References\MSDER\mspArrayTypes.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -424,7 +423,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CIMGetDERGroup\configuration91.svcinfo" />
+    <None Include="Service References\CIMGetDERGroup\configuration91.svcinfo">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\CIMGetDERGroup\configuration.svcinfo" />

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace DERMSInterface
 {
-    class ConfigureException : Exception
+    class DERConfigureException : Exception
     {
-        public ConfigureException()
+        public DERConfigureException()
         {
 
         }
 
-        public ConfigureException(string message)
+        public DERConfigureException(string message)
             : base(message)
         {
 
