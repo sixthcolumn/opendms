@@ -143,7 +143,7 @@ namespace DERMSInterface
         /// <param name="isOverride">send overrideValue instead of value from cimdata</param>
         /// <param name="overrideValue">value to be used for dispatch</param>
         /// <returns></returns>
-        public int DispatchDERGroup(String DERGroupName, quantity q, Boolean isOverride = false, double overrideValue = 0.0)
+        public int DispatchDERGroup(String MRID, quantity q, Boolean isOverride = false, double overrideValue = 0.0)
         {
             CIMDERGroupDispatch.DERGroupDispatch_PortClient client;
             CIMData.header header = _data.DispatchDERHeader;
@@ -184,7 +184,7 @@ namespace DERMSInterface
             }
 
             // load the data for the SOAP call
-            CIMData.DERGroup group = _data.Groups.Find(x => x.GroupName.Equals(DERGroupName));
+            CIMData.DERGroup group = _data.Groups.Find(x => x.Mrid.Equals(MRID));
             if (group != null)
             {
                 payload.DERGroupDispatches = new CIMDERGroupDispatch.DERGroupDispatch[1];
@@ -228,7 +228,7 @@ namespace DERMSInterface
                     return 1;
             }
             else
-                throw new DERConfigureException("DERGroup Name " + DERGroupName + " not found in configuration file");
+                throw new DERConfigureException("DERGroup MRID " + MRID + " not found in configuration file");
         }
 
         /// <summary>
