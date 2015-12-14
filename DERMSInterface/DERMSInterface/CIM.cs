@@ -1,13 +1,12 @@
-﻿using System;
+﻿using RGiesecke.DllExport;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-using System.IO;
-using System.Runtime.InteropServices;
-
-
 
 
 namespace DERMSInterface
@@ -15,7 +14,7 @@ namespace DERMSInterface
     public enum quantity
     {
         RealPower,
-        ApparentPower,
+        ApparentPower, m
     }
 
     public enum headerVerb
@@ -43,10 +42,26 @@ namespace DERMSInterface
         private String _lastMessageReceived = "";
         private CIMData _data = new CIMData();
 
+        [DllExport("add", CallingConvention = CallingConvention.Cdecl)]
+        public static int TestExport(int left, int right)
+        {
+            return left + right;
+        }
+
+        [DllExport("loadAppConfig", CallingConvention = CallingConvention.Cdecl)]
+        public static void loadAppConfig([MarshalAs(UnmanagedType.LPTStr)]String path)
+        {
+            Console.WriteLine("loading app config file : " + path);
+            AppDomain.CurrentDomain.SetData("APP_CONFIG_FILE", path);
+        }
+
         /// <summary>
         /// base constructor. Do not use
         /// </summary>
-        public CIM() { }
+        public CIM()
+        {
+            //  AppDomain.CurrentDomain.SetData("APP_CONFIG_FILE", "Z:/git/opendms/DERMSInterface/DERMSInterface/bin/x86/Release/app.config");
+        }
 
         /// <summary>
         /// creates a CIM object initialized with header and data
@@ -79,7 +94,7 @@ namespace DERMSInterface
         {
             CIM c = new CIM();
             c._data = DERMSInterface.CIMData.read(path);
-            int rc =  c.createDERGroup(DERGroupName, null);
+            int rc = c.createDERGroup(DERGroupName, null);
             SOAPMessage = c.LastMessageSent + c.LastMessageReceived;
             return rc;
         }
@@ -119,18 +134,125 @@ namespace DERMSInterface
             return status;
         }
 
+        static String foostr
+        {
+            // this is how to add attributes to a getter's result parameter
+            [return: MarshalAs(UnmanagedType.LPStr)]
+            get;
+            // this is how to add attributes to a setter's value parameter
+            [param: MarshalAs(UnmanagedType.LPStr)]
+            set;
+        }
+
+
+
+        [DllExport("testRef", CallingConvention = CallingConvention.Cdecl)]
+        public static void testRef(ref int[] arr)
+        {
+            try
+            {
+                arr = new int[4];
+                arr[0] = 1;
+                arr[1] = 2;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("exception : " + e.ToString());
+            }
+        }
+
+        [DllExport("requestDERGroupMembers2", CallingConvention = CallingConvention.Cdecl)]
+        public static int requestDERGroupMembers2([MarshalAs(UnmanagedType.LPTStr)]String path, [MarshalAs(UnmanagedType.LPTStr)]String mrid, [MarshalAs(UnmanagedType.LPTStr)]ref String xml)
+        {
+            RequestDERGroupResult result = new RequestDERGroupResult();
+            try
+            {
+                Console.WriteLine("DER file : " + path);
+                Console.WriteLine("MRID : " + mrid);
+                String SOAPMessage = null;
+                String SOAPResponse = null;
+                String[] rvalue = requestDERGroupMembers("foo10.xml", "1234-5678", ref SOAPMessage, ref SOAPResponse);
+                Console.WriteLine("soap message : " + SOAPMessage);
+                Console.WriteLine("post request");
+
+                result.Members = rvalue;
+                result.SOAPMessage = SOAPMessage;
+                result.SOAPResponse = SOAPResponse;
+                result.Returncode = 0;
+
+            }
+            catch (Exception e)
+            {
+                result.Returncode = 1;
+                result.ErrorMessage = e.ToString();
+                Console.Write("Exception thrown by requestDERGroupMembers : ", e);
+            }
+
+            XmlSerializer ser = new XmlSerializer(typeof(RequestDERGroupResult));
+            StringWriter writer = new StringWriter();
+            ser.Serialize(writer, result);
+            xml = writer.ToString();
+
+            return result.Returncode;
+        }
+
+
+        [DllExport("requestDERGroupMembers", CallingConvention = CallingConvention.Cdecl)]
+        public static int requestDERGroupMembers([MarshalAs(UnmanagedType.LPTStr)]ref String path, [MarshalAs(UnmanagedType.LPTStr)]String mrid)
+        {
+            try
+            {
+                Console.WriteLine("reading DER config file : " + path);
+                Console.WriteLine("requesting DER devices for DER : " + mrid);
+                String SOAPMessage = null;
+                String SOAPResponse = null;
+                String[] rvalue = requestDERGroupMembers("foo10.xml", "1234-5678", ref SOAPMessage, ref SOAPResponse);
+                Console.WriteLine(SOAPMessage);
+                string.Join(",", rvalue);
+                return 0;
+            }
+            catch (Exception e)
+            {
+                Console.Write("Exception thrown by requestDERGroupMembers : ", e);
+                return 1;
+            }
+        }
+
+        [DllExport("foo2", CallingConvention = CallingConvention.Cdecl)]
+        public static String foo2()
+        {
+            foostr = "hello";
+            Console.WriteLine("foo2");
+            String SOAPMessage = null;
+            String SOAPResponse = null;
+            String[] rvalue = requestDERGroupMembers("foo10.xml", "1234-5678", ref SOAPMessage, ref SOAPResponse);
+            return foostr;
+        }
+
         /// <summary>
         /// convenience function, loads config and requests der member info
         /// </summary>
         /// <param name="path">file name</param>
         /// <param name="mrid">unique identifier for DER group</param>
         /// <returns></returns>
-        public static String[] requestDERGroupMembers(String path, String mrid, ref String SOAPMessage)
+        public static String[] requestDERGroupMembers(String path, String mrid, ref String SOAPMessage, ref String SOAPResponse)
         {
             CIM c = new CIM();
             c._data = DERMSInterface.CIMData.read(path);
+
             String[] s = c.requestDERGroupMembers(mrid);
-            SOAPMessage = c.LastMessageSent + c.LastMessageReceived;
+            if (s == null || s.Length < 1)
+                Console.WriteLine("DEBUG : soap call returned 0 records");
+            else
+            {
+                Console.WriteLine("DEBUG : soap call returned " + s.Length + " records");
+                foreach (string a in s)
+                {
+                    Console.WriteLine("DEBUG : member = " + a);
+                }
+            }
+            SOAPMessage = c.LastMessageSent;
+            SOAPResponse = c.LastMessageReceived;
             return s;
         }
 
@@ -450,68 +572,74 @@ namespace DERMSInterface
         /// <returns>array of strings of DER member names</returns>
         public String[] requestDERGroupMembers(String mrid)
         {
-            // initialize SOAP call
-            CIMGetDERGroup.GetDERGroup_PortClient client;
-            CIMData.header header = _data.GetDERHeader;
-            if (!hasData(header.EndPoint))
-                throw new DERConfigureException("End Point required");
-            client = new CIMGetDERGroup.GetDERGroup_PortClient("GetDERGroupImplPort", header.EndPoint);
-
-            // initialize SOAP vars
-            CIMGetDERGroup.GetDERGroupRequestMessageType req = new CIMGetDERGroup.GetDERGroupRequestMessageType();
-            CIMGetDERGroup.DERGroupPayloadType payload = new CIMGetDERGroup.DERGroupPayloadType();
-            req.Payload = payload;
-            req.Request = new CIMGetDERGroup.GetDERGroupRequestType();
-            req.Request.StartTime = System.DateTime.Now;
-            CIMGetDERGroup.HeaderType to = new CIMGetDERGroup.HeaderType();
-            req.Header = to;
-
-            // build header
-
-            CIMGetDERGroup.HeaderTypeVerb v = new CIMGetDERGroup.HeaderTypeVerb();
-            if (Enum.TryParse(header.Verb, out v))
-                to.Verb = v;
-            to.Verb = CIMGetDERGroup.HeaderTypeVerb.get;
-            to.Noun = header.Noun;
-            to.ReplyAddress = header.ReplyAddress;
-            to.Revision = header.Revision;
-            to.Source = header.Source;
-            to.AckRequired = header.AckRequired;
-            if (to.AckRequired == true)
-                to.AckRequiredSpecified = true;
-            to.Comment = header.Comment;
-            to.Context = header.Context;
-            if (hasData(header.UserOrganization) || hasData(header.UserID))
+            try
             {
-                to.User = new CIMGetDERGroup.UserType();
-                to.User.UserID = (hasData(header.UserID)) ? header.UserID : "epri"; // required
-                to.User.Organization = header.UserOrganization; // optional
-            }
+                // initialize SOAP call
+                CIMGetDERGroup.GetDERGroup_PortClient client;
+                CIMData.header header = _data.GetDERHeader;
+                if (!hasData(header.EndPoint))
+                    throw new DERConfigureException("End Point required");
+                client = new CIMGetDERGroup.GetDERGroup_PortClient("GetDERGroupImplPort", header.EndPoint);
+                // initialize SOAP vars
+                CIMGetDERGroup.GetDERGroupRequestMessageType req = new CIMGetDERGroup.GetDERGroupRequestMessageType();
+                CIMGetDERGroup.DERGroupPayloadType payload = new CIMGetDERGroup.DERGroupPayloadType();
+                req.Payload = payload;
+                req.Request = new CIMGetDERGroup.GetDERGroupRequestType();
+                req.Request.StartTime = System.DateTime.Now;
+                CIMGetDERGroup.HeaderType to = new CIMGetDERGroup.HeaderType();
+                req.Header = to;
 
-            // load the SOAP payload
-            payload.DERGroups = new CIMGetDERGroup.EndDeviceGroup[1];
-            payload.DERGroups[0] = new CIMGetDERGroup.EndDeviceGroup();
-            payload.DERGroups[0].mRID = mrid;
+                // build header
 
-            payload.DERGroups[0].Version = new CIMGetDERGroup.EndDeviceGroupVersion();
-            payload.DERGroups[0].Version.major = _data.Version.Major;
-            payload.DERGroups[0].Version.minor = _data.Version.Minor;
-            payload.DERGroups[0].Version.revision = _data.Version.Revision;
-            payload.DERGroups[0].Version.versionDate = _data.Version.Date;
-
-            //' log out message, make call, log return message
-            _lastMessageSent = logMessage<CIMGetDERGroup.GetDERGroupRequestMessageType>(req);
-            CIMGetDERGroup.DERGroupResponseMessageType reply = client.GetDERGroup(req);
-            _lastMessageReceived = logMessage<CIMGetDERGroup.DERGroupResponseMessageType>(reply);
-
-            if (reply.Payload.DERGroups != null && reply.Payload.DERGroups.Length > 0)
-            {
-                List<String> ders = new List<string>();
-                foreach (CIMGetDERGroup.EndDeviceGroup dev in reply.Payload.DERGroups)
+                CIMGetDERGroup.HeaderTypeVerb v = new CIMGetDERGroup.HeaderTypeVerb();
+                if (Enum.TryParse(header.Verb, out v))
+                    to.Verb = v;
+                to.Verb = CIMGetDERGroup.HeaderTypeVerb.get;
+                to.Noun = header.Noun;
+                to.ReplyAddress = header.ReplyAddress;
+                to.Revision = header.Revision;
+                to.Source = header.Source;
+                to.AckRequired = header.AckRequired;
+                if (to.AckRequired == true)
+                    to.AckRequiredSpecified = true;
+                to.Comment = header.Comment;
+                to.Context = header.Context;
+                if (hasData(header.UserOrganization) || hasData(header.UserID))
                 {
-                    ders.Add(dev.name);
+                    to.User = new CIMGetDERGroup.UserType();
+                    to.User.UserID = (hasData(header.UserID)) ? header.UserID : "epri"; // required
+                    to.User.Organization = header.UserOrganization; // optional
                 }
-                return ders.ToArray();
+
+                // load the SOAP payload
+                payload.DERGroups = new CIMGetDERGroup.EndDeviceGroup[1];
+                payload.DERGroups[0] = new CIMGetDERGroup.EndDeviceGroup();
+                payload.DERGroups[0].mRID = mrid;
+
+                payload.DERGroups[0].Version = new CIMGetDERGroup.EndDeviceGroupVersion();
+                payload.DERGroups[0].Version.major = _data.Version.Major;
+                payload.DERGroups[0].Version.minor = _data.Version.Minor;
+                payload.DERGroups[0].Version.revision = _data.Version.Revision;
+                payload.DERGroups[0].Version.versionDate = _data.Version.Date;
+
+                //' log out message, make call, log return message
+                _lastMessageSent = logMessage<CIMGetDERGroup.GetDERGroupRequestMessageType>(req);
+                CIMGetDERGroup.DERGroupResponseMessageType reply = client.GetDERGroup(req);
+                _lastMessageReceived = logMessage<CIMGetDERGroup.DERGroupResponseMessageType>(reply);
+
+                if (reply.Payload.DERGroups != null && reply.Payload.DERGroups.Length > 0)
+                {
+                    List<String> ders = new List<string>();
+                    foreach (CIMGetDERGroup.EndDeviceGroup dev in reply.Payload.DERGroups)
+                    {
+                        ders.Add(dev.name);
+                    }
+                    return ders.ToArray();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception : " + e.ToString());
             }
             return null;
         }

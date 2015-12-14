@@ -91,6 +91,7 @@
     <Compile Include="Multispeak.cs" />
     <Compile Include="MultiSpeakMsgHeader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestDERGroupResult.cs" />
     <Compile Include="Service References\CIMChangeDERGroup\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
