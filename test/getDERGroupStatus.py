@@ -1,23 +1,25 @@
 from sys import exit
 import ctypes
 from ctypes import *
+import os
+
 
 def main():
 	# load the dll library 
 	a = ctypes.cdll.LoadLibrary("DERMSInterface.dll")
 
 	# full path required for this call. Sorry
+	appConfig = os.path.realpath("app.config")
 	a.loadAppConfig('Z:/git/opendms/DERMSInterface/DERMSInterface/bin/x86/Release/app.config');
 
-	func = a.requestDERGroupMembers
-	func.argtypes = [POINTER(c_char_p), POINTER(c_char_p)]
-	func.restype = c_int
-	groups = c_char_p()
-	mrid = c_char_p(b'1234-5678')
-	
-	rc = func(byref(groups), byref(mrid))
-	s = cast(groups, c_char_p).value.decode("utf-8")
-	print("returned : " + s + ", rc = " + str(rc))
+	xml = c_wchar_p()
+
+	rc = a.getDERGroupStatus("enterpriseConfig.xml", "dergroup1", "RealPower", byref(xml))
+
+	print("createDERGroup return code =  " + str(rc))
+
+	s = cast(xml, c_wchar_p).value
+	print("returned : " + s)
 
 
 if __name__ == "__main__":
@@ -25,3 +27,5 @@ if __name__ == "__main__":
 		main()
 	except SystemExit as e:
 		print(e)
+
+
