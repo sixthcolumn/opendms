@@ -84,6 +84,7 @@
   <ItemGroup>
     <Compile Include="CIM.cs" />
     <Compile Include="CIMData.cs" />
+    <Compile Include="CIMExternal.cs" />
     <Compile Include="DERConfigigurationException.cs" />
     <Compile Include="DERResponseException.cs" />
     <Compile Include="HeaderNotFoundException.cs" />
@@ -91,7 +92,7 @@
     <Compile Include="Multispeak.cs" />
     <Compile Include="MultiSpeakMsgHeader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestDERGroupResult.cs" />
+    <Compile Include="DERResult.cs" />
     <Compile Include="Service References\CIMChangeDERGroup\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

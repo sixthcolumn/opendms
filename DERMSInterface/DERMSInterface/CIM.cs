@@ -90,12 +90,13 @@ namespace DERMSInterface
         /// <param name="DERGroupName">group to be created, must be in the config file</param>
         /// <param name="path">file name</param>
         /// <returns></returns>
-        public static int CreateDERGroup(string path, String DERGroupName, String[] members, ref String SOAPMessage)
+        public static int CreateDERGroup(string path, String DERGroupName, String[] members, ref String SOAPMessage, ref String SOAPResponse)
         {
             CIM c = new CIM();
             c._data = DERMSInterface.CIMData.read(path);
             int rc = c.createDERGroup(DERGroupName, null);
-            SOAPMessage = c.LastMessageSent + c.LastMessageReceived;
+            SOAPMessage = c.LastMessageSent;
+            SOAPResponse = c.LastMessageReceived;
             return rc;
         }
 
@@ -108,12 +109,13 @@ namespace DERMSInterface
         /// <param name="isOverride">send my own value, rather than pulling from config</param>
         /// <param name="overrideValue">value to send</param>
         /// <returns></returns>
-        public static int DispatchDERGroup(String path, String DERGroupName, quantity q, ref String SOAPMessage, Boolean isOverride = false, double overrideValue = 0.0)
+        public static int DispatchDERGroup(String path, String DERGroupName, quantity q, ref String SOAPMessage, ref String SoapResponse, Boolean isOverride = false, double overrideValue = 0.0)
         {
             CIM c = new CIM();
             c._data = DERMSInterface.CIMData.read(path);
             int rc = c.DispatchDERGroup(DERGroupName, q, isOverride, overrideValue);
-            SOAPMessage = c.LastMessageSent + c.LastMessageReceived;
+            SOAPMessage = c.LastMessageSent;
+            SoapResponse = c.LastMessageReceived;
             return rc;
         }
 
@@ -124,13 +126,14 @@ namespace DERMSInterface
         /// <param name="mrid">der group unique identifier</param>
         /// <param name="q">apparent or real</param>
         /// <returns></returns>
-        public static CIMData.DERStatus getDERGroupStatus(String path, String mrid, quantity q, ref String SOAPMessage)
+        public static CIMData.DERStatus getDERGroupStatus(String path, String mrid, quantity q, ref String SOAPMessage, ref String SoapResponse)
         {
             CIM c = new CIM();
 
             c._data = DERMSInterface.CIMData.read(path);
             CIMData.DERStatus status = c.getDERGroupStatus(mrid, q);
-            SOAPMessage = c.LastMessageSent + c.LastMessageReceived;
+            SOAPMessage = c.LastMessageSent;
+            SoapResponse = c.LastMessageReceived;
             return status;
         }
 
@@ -164,7 +167,7 @@ namespace DERMSInterface
         [DllExport("requestDERGroupMembers2", CallingConvention = CallingConvention.Cdecl)]
         public static int requestDERGroupMembers2([MarshalAs(UnmanagedType.LPTStr)]String path, [MarshalAs(UnmanagedType.LPTStr)]String mrid, [MarshalAs(UnmanagedType.LPTStr)]ref String xml)
         {
-            RequestDERGroupResult result = new RequestDERGroupResult();
+            DERResult result = new DERResult();
             try
             {
                 Console.WriteLine("DER file : " + path);
@@ -188,7 +191,7 @@ namespace DERMSInterface
                 Console.Write("Exception thrown by requestDERGroupMembers : ", e);
             }
 
-            XmlSerializer ser = new XmlSerializer(typeof(RequestDERGroupResult));
+            XmlSerializer ser = new XmlSerializer(typeof(DERResult));
             StringWriter writer = new StringWriter();
             ser.Serialize(writer, result);
             xml = writer.ToString();

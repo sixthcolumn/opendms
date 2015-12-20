@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 
 namespace DERMSInterface
 {
-   public  class RequestDERGroupResult
+    public class DERResult
     {
         private int _returncode;
         private string _errorMessage;
         private string _SOAPMessage;
         private string _SOAPResponse;
         private string[] _members;
+        private CIMData.DERStatus _status;
+
+        public CIMData.DERStatus Status
+        {
+            get { return _status; }
+            set { _status = value; }
+        }
 
         public int Returncode
         {
