@@ -14,9 +14,11 @@ namespace WindowsFormsApplication1
     public partial class Form1 : Form
     {
         string _filepath;
-        DERMSInterface.CIMData _cim = new CIMData();
+        public static DERMSInterface.CIMData _cim = new CIMData();
         private BindingSource DERGroupBindingSource = new BindingSource();
         private BindingSource DERBindingSource = new BindingSource();
+        private BindingSource ScadaBindingSource = new BindingSource();
+
 
         /// <summary>
         /// initializes the form and the event handlers
@@ -27,6 +29,9 @@ namespace WindowsFormsApplication1
             DERGroupBindingSource.DataSource = _cim.Groups;
             DERGroupsView.DataSource = DERGroupBindingSource;
             DERGroupBindingSource.ResetBindings(false);
+
+            scadaControl.BindDataSource(_cim.Scada);
+
             DERGroupsView.RowEnter += new DataGridViewCellEventHandler(DERGroupRow_enter);
             DERGroupsView.RowLeave += new DataGridViewCellEventHandler(DERGroupRow_leave);
             DERGroupsView.CellClick += new DataGridViewCellEventHandler(DERGroupCell_Clicked);
@@ -37,6 +42,10 @@ namespace WindowsFormsApplication1
             DERView.ReadOnly = true;
             DERGroupsView.AllowUserToAddRows = true;
             verbText.Text = verb(messageTypeCombo.Text);
+
+
+
+            
         }
 
 
@@ -116,6 +125,7 @@ namespace WindowsFormsApplication1
             loadHeader(name);
             DERGroupBindingSource.DataSource = _cim.Groups;
             updateDERGroupViewReadOnlyCells();
+            scadaControl.BindDataSource(_cim.Scada);
 
             if (DERGroupsView.Rows.Count > 0)
             {
@@ -562,7 +572,14 @@ namespace WindowsFormsApplication1
             loadHeader(name);
             DERGroupBindingSource.DataSource = _cim.Groups;
             bindDevices(null);
+            scadaControl.reset();
+            scadaControl.BindDataSource(_cim.Scada);
             updateDERGroupViewReadOnlyCells();
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

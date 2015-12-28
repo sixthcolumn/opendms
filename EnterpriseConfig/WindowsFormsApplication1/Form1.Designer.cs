@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,26 +80,16 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DERView = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mridDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wattCapacityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.varCapacityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dERGroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.DERGroupsView = new System.Windows.Forms.DataGridView();
-            this.groupNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.revisionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.substationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.feederDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.segmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Members = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.realPower = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reactivePower = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.scadaControl = new WindowsFormsApplication1.ScadaControl();
             this.menuStrip1.SuspendLayout();
             this.DERs.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -112,10 +103,11 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DERView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.devicesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dERGroupBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DERGroupsView)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -126,7 +118,7 @@
             this.testToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(632, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(778, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -142,31 +134,38 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.saveAsToolStripMenuItem.Text = "Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // editToolStripMenuItem
@@ -221,11 +220,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DERs.Controls.Add(this.tabPage1);
             this.DERs.Controls.Add(this.tabPage2);
-            this.DERs.Location = new System.Drawing.Point(3, 0);
+            this.DERs.Location = new System.Drawing.Point(6, 3);
             this.DERs.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.DERs.Name = "DERs";
             this.DERs.SelectedIndex = 0;
-            this.DERs.Size = new System.Drawing.Size(632, 370);
+            this.DERs.Size = new System.Drawing.Size(758, 511);
             this.DERs.TabIndex = 2;
             this.DERs.Tag = "";
             // 
@@ -235,7 +234,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(624, 344);
+            this.tabPage1.Size = new System.Drawing.Size(750, 485);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Headers";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -254,7 +253,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(621, 335);
+            this.panel1.Size = new System.Drawing.Size(622, 335);
             this.panel1.TabIndex = 0;
             // 
             // groupBox6
@@ -562,7 +561,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(624, 344);
+            this.tabPage2.Size = new System.Drawing.Size(750, 485);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "DER Groups";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -581,7 +580,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(618, 338);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(744, 479);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox1
@@ -591,9 +590,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 2);
             this.groupBox1.Controls.Add(this.DERView);
-            this.groupBox1.Location = new System.Drawing.Point(3, 172);
+            this.groupBox1.Location = new System.Drawing.Point(3, 242);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(612, 163);
+            this.groupBox1.Size = new System.Drawing.Size(738, 234);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DERs";
@@ -606,49 +605,15 @@
             this.DERView.AutoGenerateColumns = false;
             this.DERView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.DERView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DERView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.mridDataGridViewTextBoxColumn1,
-            this.wattCapacityDataGridViewTextBoxColumn,
-            this.varCapacityDataGridViewTextBoxColumn});
             this.DERView.DataSource = this.devicesBindingSource;
             this.DERView.Location = new System.Drawing.Point(2, 15);
             this.DERView.Name = "DERView";
-            this.DERView.Size = new System.Drawing.Size(604, 142);
+            this.DERView.Size = new System.Drawing.Size(730, 213);
             this.DERView.TabIndex = 0;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // mridDataGridViewTextBoxColumn1
-            // 
-            this.mridDataGridViewTextBoxColumn1.DataPropertyName = "Mrid";
-            this.mridDataGridViewTextBoxColumn1.HeaderText = "Mrid";
-            this.mridDataGridViewTextBoxColumn1.Name = "mridDataGridViewTextBoxColumn1";
-            // 
-            // wattCapacityDataGridViewTextBoxColumn
-            // 
-            this.wattCapacityDataGridViewTextBoxColumn.DataPropertyName = "WattCapacity";
-            this.wattCapacityDataGridViewTextBoxColumn.HeaderText = "Watts";
-            this.wattCapacityDataGridViewTextBoxColumn.Name = "wattCapacityDataGridViewTextBoxColumn";
-            // 
-            // varCapacityDataGridViewTextBoxColumn
-            // 
-            this.varCapacityDataGridViewTextBoxColumn.DataPropertyName = "VarCapacity";
-            this.varCapacityDataGridViewTextBoxColumn.HeaderText = "Variable";
-            this.varCapacityDataGridViewTextBoxColumn.Name = "varCapacityDataGridViewTextBoxColumn";
             // 
             // devicesBindingSource
             // 
             this.devicesBindingSource.DataMember = "Devices";
-            this.devicesBindingSource.DataSource = this.dERGroupBindingSource;
-            // 
-            // dERGroupBindingSource
-            // 
-            this.dERGroupBindingSource.DataSource = typeof(DERMSInterface.CIMData.DERGroup);
             // 
             // groupBox2
             // 
@@ -659,7 +624,7 @@
             this.groupBox2.Controls.Add(this.DERGroupsView);
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(612, 163);
+            this.groupBox2.Size = new System.Drawing.Size(738, 233);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "DER Group";
@@ -669,60 +634,15 @@
             this.DERGroupsView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DERGroupsView.AutoGenerateColumns = false;
             this.DERGroupsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DERGroupsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.groupNameDataGridViewTextBoxColumn,
-            this.mridDataGridViewTextBoxColumn,
-            this.revisionDataGridViewTextBoxColumn,
-            this.substationDataGridViewTextBoxColumn,
-            this.feederDataGridViewTextBoxColumn,
-            this.segmentDataGridViewTextBoxColumn,
             this.Members,
             this.realPower,
             this.reactivePower});
-            this.DERGroupsView.DataSource = this.dERGroupBindingSource;
             this.DERGroupsView.Location = new System.Drawing.Point(6, 19);
             this.DERGroupsView.Name = "DERGroupsView";
-            this.DERGroupsView.Size = new System.Drawing.Size(604, 138);
+            this.DERGroupsView.Size = new System.Drawing.Size(730, 208);
             this.DERGroupsView.TabIndex = 0;
-            // 
-            // groupNameDataGridViewTextBoxColumn
-            // 
-            this.groupNameDataGridViewTextBoxColumn.DataPropertyName = "GroupName";
-            this.groupNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.groupNameDataGridViewTextBoxColumn.Name = "groupNameDataGridViewTextBoxColumn";
-            // 
-            // mridDataGridViewTextBoxColumn
-            // 
-            this.mridDataGridViewTextBoxColumn.DataPropertyName = "Mrid";
-            this.mridDataGridViewTextBoxColumn.HeaderText = "Mrid";
-            this.mridDataGridViewTextBoxColumn.Name = "mridDataGridViewTextBoxColumn";
-            // 
-            // revisionDataGridViewTextBoxColumn
-            // 
-            this.revisionDataGridViewTextBoxColumn.DataPropertyName = "Revision";
-            this.revisionDataGridViewTextBoxColumn.HeaderText = "Revision";
-            this.revisionDataGridViewTextBoxColumn.Name = "revisionDataGridViewTextBoxColumn";
-            this.revisionDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // substationDataGridViewTextBoxColumn
-            // 
-            this.substationDataGridViewTextBoxColumn.DataPropertyName = "Substation";
-            this.substationDataGridViewTextBoxColumn.HeaderText = "Substation";
-            this.substationDataGridViewTextBoxColumn.Name = "substationDataGridViewTextBoxColumn";
-            // 
-            // feederDataGridViewTextBoxColumn
-            // 
-            this.feederDataGridViewTextBoxColumn.DataPropertyName = "Feeder";
-            this.feederDataGridViewTextBoxColumn.HeaderText = "Feeder";
-            this.feederDataGridViewTextBoxColumn.Name = "feederDataGridViewTextBoxColumn";
-            // 
-            // segmentDataGridViewTextBoxColumn
-            // 
-            this.segmentDataGridViewTextBoxColumn.DataPropertyName = "Segment";
-            this.segmentDataGridViewTextBoxColumn.HeaderText = "Segment";
-            this.segmentDataGridViewTextBoxColumn.Name = "segmentDataGridViewTextBoxColumn";
             // 
             // Members
             // 
@@ -745,51 +665,55 @@
             this.reactivePower.ReadOnly = true;
             this.reactivePower.Width = 75;
             // 
-            // tableLayoutPanel2
+            // tabControl1
             // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.AutoSize = true;
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.DERs, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 27);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(638, 397);
-            this.tableLayoutPanel2.TabIndex = 3;
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Location = new System.Drawing.Point(0, 27);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(778, 543);
+            this.tabControl1.TabIndex = 4;
+            this.tabControl1.Tag = "";
             // 
-            // tableLayoutPanel3
+            // tabPage3
             // 
-            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 373);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(632, 21);
-            this.tableLayoutPanel3.TabIndex = 3;
+            this.tabPage3.Controls.Add(this.DERs);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(770, 517);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "Enterprise Config";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // newToolStripMenuItem
+            // tabPage4
             // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.newToolStripMenuItem.Text = "New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            this.tabPage4.Controls.Add(this.scadaControl);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(770, 517);
+            this.tabPage4.TabIndex = 1;
+            this.tabPage4.Text = "SCADA";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // scadaControl
+            // 
+            this.scadaControl.Location = new System.Drawing.Point(4, 7);
+            this.scadaControl.Name = "scadaControl";
+            this.scadaControl.Size = new System.Drawing.Size(763, 507);
+            this.scadaControl.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 424);
-            this.Controls.Add(this.tableLayoutPanel2);
+            this.ClientSize = new System.Drawing.Size(778, 569);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";
             this.Text = "Enterprise Config";
@@ -812,10 +736,11 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DERView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.devicesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dERGroupBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DERGroupsView)).EndInit();
-            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -852,27 +777,14 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView DERGroupsView;
-        private System.Windows.Forms.BindingSource dERGroupBindingSource;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView DERView;
         private System.Windows.Forms.BindingSource devicesBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn groupNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mridDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn revisionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn substationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn feederDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn segmentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Members;
         private System.Windows.Forms.DataGridViewTextBoxColumn realPower;
         private System.Windows.Forms.DataGridViewTextBoxColumn reactivePower;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mridDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn wattCapacityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn varCapacityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createDERToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dispatchDERToolStripMenuItem;
@@ -893,6 +805,10 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private ScadaControl scadaControl;
     }
 }
 

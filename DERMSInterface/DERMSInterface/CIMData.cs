@@ -16,6 +16,9 @@ namespace DERMSInterface
     {
         List<header> headers = new List<header>();
         List<DERGroup> groups = new List<DERGroup>();
+        List<SCADAInfo> scada = new List<SCADAInfo>();
+
+
         private version _version = new version();
 
         /// <summary>
@@ -28,7 +31,7 @@ namespace DERMSInterface
         /// </summary>
         public CIMData()
         {
-
+            Console.WriteLine("Creating cimdata");
         }
 
         /// <summary>
@@ -180,6 +183,12 @@ namespace DERMSInterface
         {
             get { return groups; }
             set { groups = value; }
+        }
+
+        public List<SCADAInfo> Scada
+        {
+            get { return scada; }
+            set { scada = value; }
         }
 
         public version Version
@@ -390,6 +399,358 @@ namespace DERMSInterface
                 get { return mrid; }
                 set { mrid = value; }
             }
+        }
+
+        public class SCADAInfo
+        {
+            private string _mrid;
+            private string _logLevel;
+            private string _name;
+            private string _substation;
+            private string _feeder;
+            private string _description;
+            private string _deviceType;
+            private string _protocol;
+            private DNP dnp = new DNP();
+
+            public DNP Dnp
+            {
+                get { return dnp; }
+                set { dnp = value; }
+            }
+
+            public string Mrid
+            {
+                get { return _mrid; }
+                set { _mrid = value; }
+            }
+
+
+            public string Name
+            {
+                get { return _name; }
+                set { _name = value; }
+            }
+
+
+            public string Description
+            {
+                get { return _description; }
+                set { _description = value; }
+            }
+
+            public string Substation
+            {
+                get { return _substation; }
+                set { _substation = value; }
+            }
+
+            public string Feeder
+            {
+                get { return _feeder; }
+                set { _feeder = value; }
+            }
+
+
+            public string DeviceType
+            {
+                get { return _deviceType; }
+                set { _deviceType = value; }
+            }
+
+
+            public string Protocol
+            {
+                get { return _protocol; }
+                set { _protocol = value; }
+            }
+
+
+            public string LogLevel
+            {
+                get { return _logLevel; }
+                set { _logLevel = value; }
+            }
+        }
+
+        public class DNP
+        {
+            // basic
+            public enum transportEnum { TCP, UDP };
+            public enum initiationEnum { Local, Remote };
+            public enum DNPFunctionEnum { SB0, D0, DO_NOACK };
+            private string ipAddress;
+            private string remoteAddress;
+            private string localAddress;
+            private string port;
+            private int integrityScanRate;
+            private int saveInterval;
+            private bool isUnsolictedOnStartup;
+            private bool isEnableUnsolicited;
+            private bool isTimeSync;
+            private bool isUseConfirms;
+            private transportEnum transport;
+            private initiationEnum initiation;
+            private DNPFunctionEnum dnpfunction;
+            private bool class0;
+            private bool class1;
+            private bool class2;
+            private bool class3;
+
+            // advanced
+            private int maxFragSize;
+            private int frameRetries;
+            private int responseTimeout;
+            private int fragSize;
+            private int taskRetryRate;
+            private int numRetries;
+            private int confirmationTimeout;
+            private int retryTimeout;
+
+
+
+            public int TaskRetryRate
+            {
+                get { return taskRetryRate; }
+                set { taskRetryRate = value; }
+            }
+
+            public int FragSize
+            {
+                get { return fragSize; }
+                set { fragSize = value; }
+            }
+
+            public int RetryTimeout
+            {
+                get { return retryTimeout; }
+                set { retryTimeout = value; }
+            }
+
+            public int ConfirmationTimeout
+            {
+                get { return confirmationTimeout; }
+                set { confirmationTimeout = value; }
+            }
+
+            public int NumRetries
+            {
+                get { return numRetries; }
+                set { numRetries = value; }
+            }
+
+            public int ResponseTimeout
+            {
+                get { return responseTimeout; }
+                set { responseTimeout = value; }
+            }
+
+            public int FrameRetries
+            {
+                get { return frameRetries; }
+                set { frameRetries = value; }
+            }
+
+            public int MaxFragSize
+            {
+                get { return maxFragSize; }
+                set { maxFragSize = value; }
+            }
+
+            public bool Class3
+            {
+                get { return class3; }
+                set { class3 = value; }
+            }
+
+            public bool Class2
+            {
+                get { return class2; }
+                set { class2 = value; }
+            }
+
+            public bool Class1
+            {
+                get { return class1; }
+                set { class1 = value; }
+            }
+
+            public bool Class0
+            {
+                get { return class0; }
+                set { class0 = value; }
+            }
+
+            public DNPFunctionEnum Dnpfunction
+            {
+                get { return dnpfunction; }
+                set { dnpfunction = value; }
+            }
+
+            public initiationEnum Initiation
+            {
+                get { return initiation; }
+                set { initiation = value; }
+            }
+
+
+            public transportEnum Transport
+            {
+                get { return transport; }
+                set { transport = value; }
+            }
+
+
+            public bool IsUseConfirms
+            {
+                get { return isUseConfirms; }
+                set { isUseConfirms = value; }
+            }
+
+            public bool IsTimeSync
+            {
+                get { return isTimeSync; }
+                set { isTimeSync = value; }
+            }
+
+            public bool IsEnableUnsolicited
+            {
+                get { return isEnableUnsolicited; }
+                set { isEnableUnsolicited = value; }
+            }
+
+            public bool IsUnsolictedOnStartup
+            {
+                get { return isUnsolictedOnStartup; }
+                set { isUnsolictedOnStartup = value; }
+            }
+
+            public int SaveInterval
+            {
+                get { return saveInterval; }
+                set { saveInterval = value; }
+            }
+
+            public int IntegrityScanRate
+            {
+                get { return integrityScanRate; }
+                set { integrityScanRate = value; }
+            }
+
+            public string Port
+            {
+                get { return port; }
+                set { port = value; }
+            }
+
+            public string LocalAddress
+            {
+                get { return localAddress; }
+                set { localAddress = value; }
+            }
+
+            public string RemoteAddress
+            {
+                get { return remoteAddress; }
+                set { remoteAddress = value; }
+            }
+
+            public string IPAddress
+            {
+                get { return ipAddress; }
+                set { ipAddress = value; }
+            }
+        }
+
+        public class DeviceType
+        {
+            private string name;
+            private List<Protocol> protocols = new List<Protocol>();
+
+            public string Name
+            {
+                get { return name; }
+                set { name = value; }
+            }
+
+            public List<Protocol> Protocols
+            {
+                get { return protocols; }
+                set { protocols = value; }
+            }
+
+            public class Protocol
+            {
+                private string name;
+                private List<DNP3PointTypeDef> _DNP3PointDefinitions = new List<DNP3PointTypeDef>();
+
+                public string Name
+                {
+                    get { return name; }
+                    set { name = value; }
+                }
+
+                public List<DNP3PointTypeDef> DNP3PointDefinitions
+                {
+                    get { return _DNP3PointDefinitions; }
+                    set { _DNP3PointDefinitions = value; }
+                }
+
+            }
+
+            public class DNP3PointTypeDef
+            {
+                private string _DNP3TypeName;
+                private List<DNP3PointDef> _DNP3PointList = new List<DNP3PointDef>();
+
+                public List<DNP3PointDef> DNP3PointList
+                {
+                    get { return _DNP3PointList; }
+                    set { _DNP3PointList = value; }
+                }
+
+                public string DNP3TypeName
+                {
+                    get { return _DNP3TypeName; }
+                    set { _DNP3TypeName = value; }
+                }
+            }
+
+            public class DNP3PointDef
+            {
+                private int _DNP3PointNum;
+                private string _DNP3PointName;
+                private string _DNP3PointDesc;
+                private int _DNP3EventClass;
+
+
+
+                public string DNP3PointName
+                {
+                    get { return _DNP3PointName; }
+                    set { _DNP3PointName = value; }
+                }
+
+                public int DNP3PointNum
+                {
+                    get { return _DNP3PointNum; }
+                    set { _DNP3PointNum = value; }
+                }
+
+                public string DNP3PointDesc
+                {
+                    get { return _DNP3PointDesc; }
+                    set { _DNP3PointDesc = value; }
+                }
+
+                public int DNP3EventClass
+                {
+                    get { return _DNP3EventClass; }
+                    set { _DNP3EventClass = value; }
+                }
+            }
+
+            List<DNP3PointDef> DNP3PointList;
         }
 
 
