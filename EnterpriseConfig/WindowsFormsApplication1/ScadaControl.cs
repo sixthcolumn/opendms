@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DERMSInterface;
 using System.IO;
 using System.Xml.Serialization;
+using System.Configuration;
 
 namespace WindowsFormsApplication1
 {
@@ -30,7 +31,9 @@ namespace WindowsFormsApplication1
             scadaDeviceView.RowEnter += scadaDeviceView_RowEnter;
             // todo : Get real device type names from files
 
-            loadDeviceTypes("z:/Downloads");
+            string deviceDirectory = ConfigurationManager.AppSettings["deviceFilesDir"];
+            loadDeviceTypes(deviceDirectory);
+
             scadaInfoControl1.setDeviceTypes(devices);
 
         }

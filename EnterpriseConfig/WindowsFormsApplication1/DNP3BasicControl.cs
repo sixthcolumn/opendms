@@ -140,13 +140,13 @@ namespace WindowsFormsApplication1
 
         private void integrityScanText_TextChanged(object sender, EventArgs e)
         {
-            dnp.IntegrityScanRate = parseInt(((TextBox)sender).Text);
+            dnp.IntegrityScanRate = ((TextBox)sender).Text;
 
         }
 
         private void saveIntervalText_TextChanged(object sender, EventArgs e)
         {
-            dnp.SaveInterval = parseInt(((TextBox)sender).Text);
+            dnp.SaveInterval = ((TextBox)sender).Text;
         }
 
         private void UnsolicitedCheck_CheckedChanged(object sender, EventArgs e)

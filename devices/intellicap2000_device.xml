@@ -1,0 +1,82 @@
+<DeviceType>
+    <Name>S&amp;C IntelliCap 2000</Name>
+    <Protocols>
+        <Protocol>
+            <Name>DNP3</Name>
+            <DNP3PointDefinitions>
+                <DNP3PointTypeDef>
+                    <DNP3PointList>
+                        <DNP3PointDef>
+                            <DNP3PointNum>0</DNP3PointNum>
+                            <DNP3PointName>CapBankClosed</DNP3PointName>
+                            <DNP3PointDesc>On if the capacitor bank is switched in.</DNP3PointDesc>
+                            <DNP3EventClass>1</DNP3EventClass>
+                        </DNP3PointDef>
+                        <DNP3PointDef>
+                            <DNP3PointNum>1</DNP3PointNum>
+                            <DNP3PointName>CapBankOpen</DNP3PointName>
+                            <DNP3PointDesc>On if the capacitor bank is switched out.</DNP3PointDesc>
+                            <DNP3EventClass>1</DNP3EventClass>
+                        </DNP3PointDef>
+                        <DNP3PointDef>
+                            <DNP3PointNum>2</DNP3PointNum>
+                            <DNP3PointName>AutoManualOperation</DNP3PointName>
+                            <DNP3PointDesc>On when the control is in the automatic mode.</DNP3PointDesc>
+                            <DNP3EventClass>1</DNP3EventClass>
+                        </DNP3PointDef>
+                    </DNP3PointList>
+                    <DNP3TypeName>Status</DNP3TypeName>
+                </DNP3PointTypeDef>
+                <DNP3PointTypeDef>
+                    <TypeName>AnalogInput</TypeName>
+                    <DNP3PointList>
+                        <DNP3PointDef>
+                            <DNP3PointNum>0</DNP3PointNum>
+                            <DNP3PointName>90PercVoltageRefStandard</DNP3PointName>
+                            <DNP3PointDesc>This is provided for the benefit of protocol implementation to conform to the RTU standard. It is loaded as a constant. The value returned is 24300.</DNP3PointDesc>
+                            <DNP3EventClass>2</DNP3EventClass>
+                        </DNP3PointDef>
+                        <DNP3PointDef>
+                            <DNP3PointNum>1</DNP3PointNum>
+                            <DNP3PointName>0PercVoltageRefStandard</DNP3PointName>
+                            <DNP3PointDesc>This is provided for the benefit of protocol implementation to conform to the RTU standard. It is loaded as a constant with the value zero.</DNP3PointDesc>
+                            <DNP3EventClass>1</DNP3EventClass>
+                        </DNP3PointDef>
+                        <DNP3PointDef>
+                            <DNP3PointNum>2</DNP3PointNum>
+                            <DNP3PointName>ControlStrategy</DNP3PointName>
+                            <DNP3PointDesc>This is the presently configured control strategy in use. The possible values are:
+0 Temperature
+1 Timeclock
+2 Voltage Only
+3 Time-Biased Voltage
+4 Time-Biased Temperature
+5 Auto Off-Line Mode
+6 Auto On-Line Mode
+7 Current
+8 VAR
+9 Reverse Current Voltage Only
+10 Temperature Sensor Error, Voltage Only
+11 SCADA Override
+12 Timeclock with Temperature Override
+13 Current with Temperature Override
+14 VAR with Temperature Override
+15 Manual Operation
+16 Reserved
+17 Voltage Override
+18 Reverse Current Trip Inhibit
+NOTE: Values 7, 8, 13, 14, and 18 do not apply to non-VAR versions.</DNP3PointDesc>
+                            <DNP3EventClass>3</DNP3EventClass>
+                        </DNP3PointDef>
+                        <DNP3PointDef>
+                            <DNP3PointNum>3</DNP3PointNum>
+                            <DNP3PointName>MostRecentTemp</DNP3PointName>
+                            <DNP3PointDesc>Farenheit</DNP3PointDesc>
+                            <DNP3EventClass>1</DNP3EventClass>
+                        </DNP3PointDef>
+                    </DNP3PointList>
+                </DNP3PointTypeDef>
+            </DNP3PointDefinitions>
+        </Protocol>
+    </Protocols>
+</DeviceType>

@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<CIMData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Headers>
+    <header>
+      <Name>createDER</Name>
+      <EndPoint>http://10.3.253.100:8080/DERConnect/cim/changeDERGroup</EndPoint>
+      <Verb>create</Verb>
+      <Noun>DER Request</Noun>
+      <ReplyAddress>http://localhost:8080/DERConnect/cim/Forecasts</ReplyAddress>
+      <Context>Testing</Context>
+      <Comment>general comments</Comment>
+      <AckRequired>false</AckRequired>
+      <UserOrganization>Epri</UserOrganization>
+      <UserID>epri1</UserID>
+    </header>
+    <header>
+      <Name>dispatchDER</Name>
+      <EndPoint>http://10.3.253.100:8080/DERConnect/cim/changeDERGroupDispatch</EndPoint>
+      <Verb>create</Verb>
+      <Noun>DER Request</Noun>
+      <ReplyAddress>http://10.3.253.100:8080/DERConnect/cim/requestChangeDERGroupDispatch</ReplyAddress>
+      <Context>dispatch message</Context>
+      <Comment>dispatch test comment</Comment>
+      <AckRequired>false</AckRequired>
+      <UserOrganization>Epri</UserOrganization>
+      <UserID>epri</UserID>
+    </header>
+    <header>
+      <Name>getDER</Name>
+      <EndPoint>http://10.3.253.100:8080/DERConnect/cim/getDERGroup</EndPoint>
+      <Verb>get</Verb>
+      <Noun>DER Get</Noun>
+      <ReplyAddress>http://localhost:8080/DERConnect/cim/RequestGetDERGroup</ReplyAddress>
+      <Context>get DER</Context>
+      <Comment>test get der</Comment>
+      <AckRequired>false</AckRequired>
+      <UserOrganization>Epri</UserOrganization>
+      <UserID>epriUser</UserID>
+    </header>
+    <header>
+      <Name>getDERStatus</Name>
+      <EndPoint>http://10.3.253.100:8080/DERConnect/cim/getDERGroupStatus</EndPoint>
+      <Verb>get</Verb>
+      <Noun>DER Request</Noun>
+      <ReplyAddress>http://localhost:8080/DERConnect/cim/requestGetDERGroupStatus</ReplyAddress>
+      <Context>status get</Context>
+      <Comment>status request</Comment>
+      <AckRequired>false</AckRequired>
+      <UserOrganization>epri</UserOrganization>
+      <UserID>epriUser</UserID>
+    </header>
+  </Headers>
+  <Groups>
+    <DERGroup>
+      <GroupName>dergroup1</GroupName>
+      <Mrid>123</Mrid>
+      <Revision>0.1a</Revision>
+      <Substation>3</Substation>
+      <Feeder>255.49</Feeder>
+      <Segment>197.78</Segment>
+      <Devices>
+        <device>
+          <Name>der1</Name>
+          <WattCapacity>75.77</WattCapacity>
+          <VarCapacity>82.01</VarCapacity>
+        </device>
+        <device>
+          <Name>der2</Name>
+          <WattCapacity>167.22</WattCapacity>
+          <VarCapacity>100</VarCapacity>
+        </device>
+        <device>
+          <Name>abc</Name>
+          <WattCapacity>12.5</WattCapacity>
+          <VarCapacity>15.77</VarCapacity>
+        </device>
+      </Devices>
+    </DERGroup>
+    <DERGroup>
+      <GroupName>dergroup2</GroupName>
+      <Mrid>128</Mrid>
+      <Revision>0.1a</Revision>
+      <Substation>2</Substation>
+      <Feeder>156.5</Feeder>
+      <Segment>355</Segment>
+      <Devices>
+        <device>
+          <Name>h1</Name>
+          <WattCapacity>73</WattCapacity>
+          <VarCapacity>174.8</VarCapacity>
+        </device>
+        <device>
+          <Name>h2</Name>
+          <WattCapacity>83.5</WattCapacity>
+          <VarCapacity>180.2</VarCapacity>
+        </device>
+      </Devices>
+    </DERGroup>
+  </Groups>
+  <Scada>
+    <SCADAInfo>
+      <Dnp>
+        <TaskRetryRate>1</TaskRetryRate>
+        <FragSize>128</FragSize>
+        <RetryTimeout>1</RetryTimeout>
+        <ConfirmationTimeout>100</ConfirmationTimeout>
+        <NumRetries>4</NumRetries>
+        <ResponseTimeout>100</ResponseTimeout>
+        <FrameRetries>10</FrameRetries>
+        <MaxFragSize>1000</MaxFragSize>
+        <Class3>true</Class3>
+        <Class2>true</Class2>
+        <Class1>true</Class1>
+        <Class0>true</Class0>
+        <Dnpfunction>SB0</Dnpfunction>
+        <Initiation>Local</Initiation>
+        <Transport>TCP</Transport>
+        <IsUseConfirms>true</IsUseConfirms>
+        <IsTimeSync>true</IsTimeSync>
+        <IsEnableUnsolicited>true</IsEnableUnsolicited>
+        <IsUnsolictedOnStartup>true</IsUnsolictedOnStartup>
+        <SaveInterval>20</SaveInterval>
+        <IntegrityScanRate>1230</IntegrityScanRate>
+        <Port>152</Port>
+        <LocalAddress>10.11.15.2</LocalAddress>
+        <RemoteAddress>12.2.11.1</RemoteAddress>
+        <IPAddress>12.15.201.10</IPAddress>
+      </Dnp>
+      <Mrid>1233</Mrid>
+      <Name>testing</Name>
+      <Description>this is a description</Description>
+      <Substation>sub22</Substation>
+      <Feeder>hij</Feeder>
+      <Protocol>DNP3</Protocol>
+    </SCADAInfo>
+    <SCADAInfo>
+      <Dnp>
+        <TaskRetryRate />
+        <FragSize />
+        <ConfirmationTimeout />
+        <NumRetries />
+        <ResponseTimeout />
+        <FrameRetries />
+        <MaxFragSize />
+        <Class3>false</Class3>
+        <Class2>false</Class2>
+        <Class1>false</Class1>
+        <Class0>false</Class0>
+        <Dnpfunction>SB0</Dnpfunction>
+        <Initiation>Local</Initiation>
+        <Transport>TCP</Transport>
+        <IsUseConfirms>false</IsUseConfirms>
+        <IsTimeSync>false</IsTimeSync>
+        <IsEnableUnsolicited>false</IsEnableUnsolicited>
+        <IsUnsolictedOnStartup>false</IsUnsolictedOnStartup>
+        <SaveInterval />
+        <IntegrityScanRate />
+        <Port />
+        <LocalAddress />
+        <RemoteAddress />
+        <IPAddress />
+      </Dnp>
+      <Mrid />
+      <Name>test2</Name>
+      <Description />
+      <Substation>sub33</Substation>
+      <Feeder>feeder12</Feeder>
+    </SCADAInfo>
+  </Scada>
+  <Version>
+    <Major>1</Major>
+    <Minor>1</Minor>
+    <Revision>1</Revision>
+    <Date>2015-12-26T11:34:00.966121-05:00</Date>
+  </Version>
+</CIMData>
