@@ -10,7 +10,7 @@ def main():
 
 	# full path required for this call. Sorry
 	appConfig = os.path.realpath("app.config")
-	a.loadAppConfig('Z:/git/opendms/DERMSInterface/DERMSInterface/bin/x86/Release/app.config');
+	a.loadAppConfig(appConfig)
 
 	xml = c_wchar_p()
 
