@@ -59,14 +59,14 @@ namespace WindowsFormsApplication1
             // todo : For all numerics (timeouts, etc...), is there a default value, use 0, or null if not set?
             this.dnp = dnp;
 
-            maxFragSizeText.Text = dnp.MaxFragSize;
-            frameRetriesText.Text = dnp.FrameRetries;
-            ResponseTimeoutText.Text = dnp.ResponseTimeout;
-            fragSizeText.Text = dnp.FragSize;
-            taskRetryRateText.Text = dnp.TaskRetryRate;
-            linkRetriesText.Text = dnp.NumRetries;
-            confirmTimeoutText.Text = dnp.ConfirmationTimeout;
-            taskRetryRateText.Text = dnp.RetryTimeout;
+            maxFragSizeText.Text = dnp.MaxFragSize.ToString();
+            frameRetriesText.Text = dnp.FrameRetries.ToString();
+            ResponseTimeoutText.Text = dnp.ResponseTimeout.ToString();
+            fragSizeText.Text = dnp.FragSize.ToString();
+            taskRetryRateText.Text = dnp.TaskRetryRate.ToString();
+            linkRetriesText.Text = dnp.NumRetries.ToString();
+            confirmTimeoutText.Text = dnp.ConfirmationTimeout.ToString();
+            taskRetryRateText.Text = dnp.RetryTimeout.ToString();
             this.Enabled = true;
         }
 
@@ -86,42 +86,42 @@ namespace WindowsFormsApplication1
 
         private void maxFragSizeText_TextChanged(object sender, EventArgs e)
         {
-            dnp.MaxFragSize = ((TextBox)sender).Text;
+            dnp.MaxFragSize = Int32.Parse(((TextBox)sender).Text);
         }
 
         private void frameRetriesText_TextChanged(object sender, EventArgs e)
         {
-            dnp.FrameRetries = ((TextBox)sender).Text;
+            dnp.FrameRetries = Int32.Parse(((TextBox)sender).Text);
         }
 
         private void ResponseTimeoutText_TextChanged(object sender, EventArgs e)
         {
-            dnp.ResponseTimeout =((TextBox)sender).Text;
+            dnp.ResponseTimeout = Int32.Parse(((TextBox)sender).Text);
         }
 
         private void fragSizeText_TextChanged(object sender, EventArgs e)
         {
-            dnp.FragSize = ((TextBox)sender).Text;
+            dnp.FragSize = Int32.Parse(((TextBox)sender).Text);
         }
 
         private void taskRetryRateText_TextChanged(object sender, EventArgs e)
         {
-            dnp.TaskRetryRate = ((TextBox)sender).Text;
+            dnp.TaskRetryRate = Int32.Parse(((TextBox)sender).Text);
         }
 
         private void linkRetriesText_TextChanged(object sender, EventArgs e)
         {
-            dnp.NumRetries = ((TextBox)sender).Text;
+            dnp.NumRetries = Int32.Parse(((TextBox)sender).Text);
         }
 
         private void confirmTimeoutText_TextChanged(object sender, EventArgs e)
         {
-            dnp.ConfirmationTimeout = ((TextBox)sender).Text;
+            dnp.ConfirmationTimeout = Int32.Parse(((TextBox)sender).Text);
         }
 
         private void physicalRetriesText_TextChanged(object sender, EventArgs e)
         {
-            dnp.RetryTimeout = ((TextBox)sender).Text;
+            dnp.RetryTimeout = Int32.Parse(((TextBox)sender).Text);
         }
     }
 }
