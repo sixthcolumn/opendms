@@ -131,7 +131,7 @@ namespace WindowsFormsApplication1
                 if (text != null && text.Length > 0)
                     return Int32.Parse(text);
             }
-            catch (FormatException e)
+            catch (FormatException)
             {
                 Console.WriteLine("illegal format for numeric text box. value = " + text);
             }
@@ -140,7 +140,7 @@ namespace WindowsFormsApplication1
 
         private void integrityScanText_TextChanged(object sender, EventArgs e)
         {
-            dnp.IntegrityScanRate = Int32.Parse(((TextBox)sender).Text);
+            dnp.IntegrityScanRate = ((TextBox)sender).Text;
 
         }
 

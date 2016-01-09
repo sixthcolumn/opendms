@@ -49,12 +49,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DERView = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mridDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wattCapacityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.varCapacityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dERGroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.DERGroupsView = new System.Windows.Forms.DataGridView();
             this.groupNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,7 +73,6 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DERView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.devicesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dERGroupBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DERGroupsView)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -272,49 +266,15 @@
             this.DERView.AutoGenerateColumns = false;
             this.DERView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.DERView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DERView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.mridDataGridViewTextBoxColumn1,
-            this.wattCapacityDataGridViewTextBoxColumn,
-            this.varCapacityDataGridViewTextBoxColumn});
             this.DERView.DataSource = this.devicesBindingSource;
             this.DERView.Location = new System.Drawing.Point(2, 15);
             this.DERView.Name = "DERView";
             this.DERView.Size = new System.Drawing.Size(730, 213);
             this.DERView.TabIndex = 0;
             // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // mridDataGridViewTextBoxColumn1
-            // 
-            this.mridDataGridViewTextBoxColumn1.DataPropertyName = "Mrid";
-            this.mridDataGridViewTextBoxColumn1.HeaderText = "Mrid";
-            this.mridDataGridViewTextBoxColumn1.Name = "mridDataGridViewTextBoxColumn1";
-            // 
-            // wattCapacityDataGridViewTextBoxColumn
-            // 
-            this.wattCapacityDataGridViewTextBoxColumn.DataPropertyName = "WattCapacity";
-            this.wattCapacityDataGridViewTextBoxColumn.HeaderText = "Watts";
-            this.wattCapacityDataGridViewTextBoxColumn.Name = "wattCapacityDataGridViewTextBoxColumn";
-            // 
-            // varCapacityDataGridViewTextBoxColumn
-            // 
-            this.varCapacityDataGridViewTextBoxColumn.DataPropertyName = "VarCapacity";
-            this.varCapacityDataGridViewTextBoxColumn.HeaderText = "Variable";
-            this.varCapacityDataGridViewTextBoxColumn.Name = "varCapacityDataGridViewTextBoxColumn";
-            // 
             // devicesBindingSource
             // 
             this.devicesBindingSource.DataMember = "Devices";
-            this.devicesBindingSource.DataSource = this.dERGroupBindingSource;
-            // 
-            // dERGroupBindingSource
-            // 
-            this.dERGroupBindingSource.DataSource = typeof(DERMSInterface.CIMData.DERGroup);
             // 
             // groupBox2
             // 
@@ -350,45 +310,8 @@
             this.DERGroupsView.DataSource = this.dERGroupBindingSource;
             this.DERGroupsView.Location = new System.Drawing.Point(6, 19);
             this.DERGroupsView.Name = "DERGroupsView";
-            this.DERGroupsView.Size = new System.Drawing.Size(726, 208);
+            this.DERGroupsView.Size = new System.Drawing.Size(604, 138);
             this.DERGroupsView.TabIndex = 0;
-            // 
-            // groupNameDataGridViewTextBoxColumn
-            // 
-            this.groupNameDataGridViewTextBoxColumn.DataPropertyName = "GroupName";
-            this.groupNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.groupNameDataGridViewTextBoxColumn.Name = "groupNameDataGridViewTextBoxColumn";
-            // 
-            // mridDataGridViewTextBoxColumn
-            // 
-            this.mridDataGridViewTextBoxColumn.DataPropertyName = "Mrid";
-            this.mridDataGridViewTextBoxColumn.HeaderText = "Mrid";
-            this.mridDataGridViewTextBoxColumn.Name = "mridDataGridViewTextBoxColumn";
-            // 
-            // revisionDataGridViewTextBoxColumn
-            // 
-            this.revisionDataGridViewTextBoxColumn.DataPropertyName = "Revision";
-            this.revisionDataGridViewTextBoxColumn.HeaderText = "Revision";
-            this.revisionDataGridViewTextBoxColumn.Name = "revisionDataGridViewTextBoxColumn";
-            this.revisionDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // substationDataGridViewTextBoxColumn
-            // 
-            this.substationDataGridViewTextBoxColumn.DataPropertyName = "Substation";
-            this.substationDataGridViewTextBoxColumn.HeaderText = "Substation";
-            this.substationDataGridViewTextBoxColumn.Name = "substationDataGridViewTextBoxColumn";
-            // 
-            // feederDataGridViewTextBoxColumn
-            // 
-            this.feederDataGridViewTextBoxColumn.DataPropertyName = "Feeder";
-            this.feederDataGridViewTextBoxColumn.HeaderText = "Feeder";
-            this.feederDataGridViewTextBoxColumn.Name = "feederDataGridViewTextBoxColumn";
-            // 
-            // segmentDataGridViewTextBoxColumn
-            // 
-            this.segmentDataGridViewTextBoxColumn.DataPropertyName = "Segment";
-            this.segmentDataGridViewTextBoxColumn.HeaderText = "Segment";
-            this.segmentDataGridViewTextBoxColumn.Name = "segmentDataGridViewTextBoxColumn";
             // 
             // Members
             // 
@@ -472,7 +395,6 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DERView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.devicesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dERGroupBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DERGroupsView)).EndInit();
             this.tabControl1.ResumeLayout(false);
@@ -496,7 +418,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView DERGroupsView;
-        private System.Windows.Forms.BindingSource dERGroupBindingSource;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView DERView;
@@ -511,10 +432,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn realPower;
         private System.Windows.Forms.DataGridViewTextBoxColumn reactivePower;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mridDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn wattCapacityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn varCapacityDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createDERToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dispatchDERToolStripMenuItem;

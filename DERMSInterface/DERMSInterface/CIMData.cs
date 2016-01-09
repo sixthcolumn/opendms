@@ -483,7 +483,7 @@ namespace DERMSInterface
             private string remoteAddress;
             private string localAddress;
             private string port;
-            private int integrityScanRate;
+            private string integrityScanRate;
             private int saveInterval;
             private bool isUnsolictedOnStartup;
             private bool isEnableUnsolicited;
@@ -498,60 +498,60 @@ namespace DERMSInterface
             private bool class3;
 
             // advanced
-            private int maxFragSize;
-            private int frameRetries;
-            private int responseTimeout;
-            private int fragSize;
-            private int taskRetryRate;
-            private int numRetries;
-            private int confirmationTimeout;
-            private int retryTimeout;
+            private string maxFragSize;
+            private string frameRetries;
+            private string responseTimeout;
+            private string fragSize;
+            private string taskRetryRate;
+            private string numRetries;
+            private string confirmationTimeout;
+            private string retryTimeout;
 
 
 
-            public int TaskRetryRate
+            public string TaskRetryRate
             {
                 get { return taskRetryRate; }
                 set { taskRetryRate = value; }
             }
 
-            public int FragSize
+            public string FragSize
             {
                 get { return fragSize; }
                 set { fragSize = value; }
             }
 
-            public int RetryTimeout
+            public string RetryTimeout
             {
                 get { return retryTimeout; }
                 set { retryTimeout = value; }
             }
 
-            public int ConfirmationTimeout
+            public string ConfirmationTimeout
             {
                 get { return confirmationTimeout; }
                 set { confirmationTimeout = value; }
             }
 
-            public int NumRetries
+            public string NumRetries
             {
                 get { return numRetries; }
                 set { numRetries = value; }
             }
 
-            public int ResponseTimeout
+            public string ResponseTimeout
             {
                 get { return responseTimeout; }
                 set { responseTimeout = value; }
             }
 
-            public int FrameRetries
+            public string FrameRetries
             {
                 get { return frameRetries; }
                 set { frameRetries = value; }
             }
 
-            public int MaxFragSize
+            public string MaxFragSize
             {
                 get { return maxFragSize; }
                 set { maxFragSize = value; }
@@ -631,7 +631,7 @@ namespace DERMSInterface
                 set { saveInterval = value; }
             }
 
-            public int IntegrityScanRate
+            public string IntegrityScanRate
             {
                 get { return integrityScanRate; }
                 set { integrityScanRate = value; }

@@ -75,6 +75,12 @@
     <Compile Include="CreateDERForm.Designer.cs">
       <DependentUpon>CreateDERForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DERHeaderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DERHeaderControl.Designer.cs">
+      <DependentUpon>DERHeaderControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="DNP3Advanced.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </Compile>
     <EmbeddedResource Include="CreateDERForm.resx">
       <DependentUpon>CreateDERForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DERHeaderControl.resx">
+      <DependentUpon>DERHeaderControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DNP3Advanced.resx">
       <DependentUpon>DNP3Advanced.cs</DependentUpon>

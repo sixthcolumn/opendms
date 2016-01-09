@@ -42,6 +42,9 @@ namespace WindowsFormsApplication1
 
         public void loadDeviceTypes(string path)
         {
+            // todo : Put in place for code gen, fix
+            if( path == null )
+                path = "./";
             XmlSerializer serializer = new XmlSerializer(typeof(CIMData.DeviceType));
             var files = Directory.GetFiles(path, "*_device.xml");
             foreach (string f in files)

@@ -86,42 +86,42 @@ namespace WindowsFormsApplication1
 
         private void maxFragSizeText_TextChanged(object sender, EventArgs e)
         {
-            dnp.MaxFragSize = Int32.Parse(((TextBox)sender).Text);
+            dnp.MaxFragSize = ((TextBox)sender).Text;
         }
 
         private void frameRetriesText_TextChanged(object sender, EventArgs e)
         {
-            dnp.FrameRetries = Int32.Parse(((TextBox)sender).Text);
+            dnp.FrameRetries = ((TextBox)sender).Text;
         }
 
         private void ResponseTimeoutText_TextChanged(object sender, EventArgs e)
         {
-            dnp.ResponseTimeout = Int32.Parse(((TextBox)sender).Text);
+            dnp.ResponseTimeout = ((TextBox)sender).Text;
         }
 
         private void fragSizeText_TextChanged(object sender, EventArgs e)
         {
-            dnp.FragSize = Int32.Parse(((TextBox)sender).Text);
+            dnp.FragSize = ((TextBox)sender).Text;
         }
 
         private void taskRetryRateText_TextChanged(object sender, EventArgs e)
         {
-            dnp.TaskRetryRate = Int32.Parse(((TextBox)sender).Text);
+            dnp.TaskRetryRate = ((TextBox)sender).Text;
         }
 
         private void linkRetriesText_TextChanged(object sender, EventArgs e)
         {
-            dnp.NumRetries = Int32.Parse(((TextBox)sender).Text);
+            dnp.NumRetries = ((TextBox)sender).Text;
         }
 
         private void confirmTimeoutText_TextChanged(object sender, EventArgs e)
         {
-            dnp.ConfirmationTimeout = Int32.Parse(((TextBox)sender).Text);
+            dnp.ConfirmationTimeout = ((TextBox)sender).Text;
         }
 
         private void physicalRetriesText_TextChanged(object sender, EventArgs e)
         {
-            dnp.RetryTimeout = Int32.Parse(((TextBox)sender).Text);
+            dnp.RetryTimeout = ((TextBox)sender).Text;
         }
     }
 }
