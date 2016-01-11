@@ -73,15 +73,15 @@ namespace WindowsFormsApplication1
             List<CIMData.SCADAInfo> list = (List<CIMData.SCADAInfo>)ScadaBindingSource.DataSource;
             CIMData.SCADAInfo row = list.ElementAt(e.RowIndex);
             scadaInfoControl1.bindScadaRecord(row, scadaDeviceView);
-            dnP3Control1.bindDNP(row.Dnp);
+            dnP3Control1.bindDataSource(row.Dnp);
         }
-
+/*
         public void reset()
         {
             scadaInfoControl1.reset();
             dnP3Control1.reset();
         }
-
+        */
 
         /// <summary>
         /// Sets default values for the scada view table's columns. Currently

@@ -13,7 +13,7 @@ namespace WindowsFormsApplication1
     public partial class DispatchDERForm : Form
     {
         DERMSInterface.CIMData _cim = null;
-        int _row = -1;
+        DERMSInterface.CIMData.DERGroup _group = null;
         XMLForm _log = null;
         DERMSInterface.quantity _q;
         double realValue = 0.0;
@@ -32,7 +32,7 @@ namespace WindowsFormsApplication1
         /// </summary>
         private DERMSInterface.CIMData.DERGroup group
         {
-            get { return _cim.Groups[_row]; }
+            get { return _group; }
         }
 
         /// <summary>
@@ -56,10 +56,10 @@ namespace WindowsFormsApplication1
         /// </summary>
         /// <param name="cim">the config data object</param>
         /// <param name="row">the row of data from the object to be sent</param>
-        public DispatchDERForm(DERMSInterface.CIMData cim, int row)
+        public DispatchDERForm(DERMSInterface.CIMData cim, DERMSInterface.CIMData.DERGroup group)
         {
             _cim = cim;
-            _row = row;
+            _group = group;
             InitializeComponent();
         }
 
@@ -77,7 +77,7 @@ namespace WindowsFormsApplication1
             {
                 _log = new XMLForm();
                 // because we allow user to edit real/reactive values, we always force send it
-                rc = cs.DispatchDERGroup(_cim.Groups[_row].Mrid, _q, true, dispatchValue);
+                rc = cs.DispatchDERGroup(_group.Mrid, _q, true, dispatchValue);
                 _log.addBoldText("Return Code : " + rc.ToString() + Environment.NewLine + Environment.NewLine);
             }
             catch (Exception ex)

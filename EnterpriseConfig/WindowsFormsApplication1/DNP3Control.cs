@@ -20,16 +20,10 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-        public void reset()
-        {
-            dnP3BasicControl1.reset();
-            dnP3Advanced1.reset();
-        }
-
-        public void bindDNP(CIMData.DNP dnp) {
+        public void bindDataSource(CIMData.DNP dnp) {
             this.dnp = dnp;
-            dnP3BasicControl1.bindDNPData(dnp);
-            dnP3Advanced1.bindDNPData(dnp);
+            dnP3BasicControl1.bindDataSource(dnp);
+            dnP3Advanced1.bindDataSource(dnp);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace WindowsFormsApplication1
     public partial class GetDERStatusForm : Form
     {
         DERMSInterface.CIMData _cim = null;
-        int _row = -1;
+        DERMSInterface.CIMData.DERGroup _group = null;
         XMLForm _log = null;
         DERMSInterface.quantity _q;
         string _key = DERMSInterface.CIMData.operations.getDERStatus.ToString();
@@ -33,7 +33,7 @@ namespace WindowsFormsApplication1
         /// </summary>
         private DERMSInterface.CIMData.DERGroup group
         {
-            get { return _cim.Groups[_row]; }
+            get { return _group; }
         }
 
         /// <summary>
@@ -41,10 +41,10 @@ namespace WindowsFormsApplication1
         /// </summary>
         /// <param name="cim">CIMData object</param>
         /// <param name="row">currently selected DERGroup row</param>
-        public GetDERStatusForm(DERMSInterface.CIMData cim, int row)
+        public GetDERStatusForm(DERMSInterface.CIMData cim, DERMSInterface.CIMData.DERGroup group)
         {
             _cim = cim;
-            _row = row;
+            _group = group;
             InitializeComponent();
         }
 
@@ -81,7 +81,7 @@ namespace WindowsFormsApplication1
                 _log = new XMLForm();
 
                 // call SOAP function
-                DERMSInterface.CIMData.DERStatus reply = cs.getDERGroupStatus(_cim.Groups[_row].Mrid, _q);
+                DERMSInterface.CIMData.DERStatus reply = cs.getDERGroupStatus(_group.Mrid, _q);
 
                 // load screen with return values from call
                 this.minValueText.Text = reply.PresentMinCapability.ToString();
@@ -150,14 +150,11 @@ namespace WindowsFormsApplication1
 
             this.realRadio.Checked = true;
 
-            if (_row >= 0 && _cim.Groups.Count > _row)
-            {
 
-                DERMSInterface.CIMData.DERGroup group = _cim.Groups[_row];
-                DERGroupNameText.Text = group.GroupName;
-                DERGroupMRIDText.Text = group.Mrid;
-                // TODO : we do not set count, reactive and total power values, they are derived    
-            }
+            DERMSInterface.CIMData.DERGroup group = _group;
+            DERGroupNameText.Text = group.GroupName;
+            DERGroupMRIDText.Text = group.Mrid;
+
         }
 
         // -----

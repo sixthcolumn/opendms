@@ -13,7 +13,7 @@ namespace WindowsFormsApplication1
     public partial class GetDERGroupForm : Form
     {
         DERMSInterface.CIMData _cim = null;
-        int _row = -1;
+        DERMSInterface.CIMData.DERGroup _group = null;
         XMLForm _log = null;
         string _key = DERMSInterface.CIMData.operations.createDER.ToString();
 
@@ -30,7 +30,7 @@ namespace WindowsFormsApplication1
         /// </summary>
         private DERMSInterface.CIMData.DERGroup group
         {
-            get { return _cim.Groups[_row]; }
+            get { return _group; }
         }
 
         /// <summary>
@@ -46,10 +46,10 @@ namespace WindowsFormsApplication1
         /// </summary>
         /// <param name="cim">the config object</param>
         /// <param name="row">the currently selected der group</param>
-        public GetDERGroupForm(DERMSInterface.CIMData cim, int row)
+        public GetDERGroupForm(DERMSInterface.CIMData cim, DERMSInterface.CIMData.DERGroup group)
         {
             _cim = cim;
-            _row = row;
+            _group = group;
             InitializeComponent();
         }
 
@@ -67,7 +67,7 @@ namespace WindowsFormsApplication1
             {
                 _log = new XMLForm();
                 // call SOAP Get DER
-                string[] results = cs.requestDERGroupMembers(_cim.Groups[_row].Mrid);
+                string[] results = cs.requestDERGroupMembers(_group.Mrid);
 
                 // takes list of DER members, add new lines and display to our result text box
                 System.Text.StringBuilder buffer = new StringBuilder();
@@ -94,6 +94,8 @@ namespace WindowsFormsApplication1
             }
             _log.Show();
         }
+
+
 
         /// <summary>
         /// initializes the form, filling in the values of all the widgets

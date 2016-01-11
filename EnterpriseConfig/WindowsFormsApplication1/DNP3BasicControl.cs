@@ -13,22 +13,13 @@ namespace WindowsFormsApplication1
 {
     public partial class DNP3BasicControl : UserControl
     {
-        CIMData.DNP dnp = new CIMData.DNP();
+        private CIMData.DNP _dnp = new CIMData.DNP();
 
         public DNP3BasicControl()
         {
             InitializeComponent();
-
             integrityScanText.KeyPress += numericVerify_KeyPress;
             saveIntervalText.KeyPress += numericVerify_KeyPress;
-
-            this.Enabled = false;
-        }
-
-        public void reset()
-        {
-            dnp = new CIMData.DNP();
-            clear();
             this.Enabled = false;
         }
 
@@ -76,16 +67,16 @@ namespace WindowsFormsApplication1
         /// this form to the current row
         /// </summary>
         /// <param name="dnp"></param>
-        public void bindDNPData(CIMData.DNP dnp)
+        public void bindDataSource(CIMData.DNP dnp)
         {
             // todo : For all numerics (timeouts, etc...), is there a default value, use 0, or null if not set?
-            this.dnp = dnp;
+            this._dnp = dnp;
             ipAddressText.Text = dnp.IPAddress;
             remoteAddressText.Text = dnp.RemoteAddress;
             localAddressText.Text = dnp.LocalAddress;
             portText.Text = dnp.Port;
-            integrityScanText.Text = dnp.IntegrityScanRate.ToString();
-            saveIntervalText.Text = dnp.SaveInterval.ToString();
+            integrityScanText.Text = dnp.IntegrityScanRate;
+            saveIntervalText.Text = dnp.SaveInterval;
             UnsolicitedCheck.Checked = dnp.IsUnsolictedOnStartup;
             EnableUnsolCheck.Checked = dnp.IsEnableUnsolicited;
             timeSyncCheck.Checked = dnp.IsTimeSync;
@@ -106,22 +97,22 @@ namespace WindowsFormsApplication1
 
         private void ipAddressText_TextChanged(object sender, EventArgs e)
         {
-            dnp.IPAddress = ((TextBox)sender).Text;
+            _dnp.IPAddress = ((TextBox)sender).Text;
         }
 
         private void remoteAddressText_TextChanged(object sender, EventArgs e)
         {
-            dnp.RemoteAddress = ((TextBox)sender).Text;
+            _dnp.RemoteAddress = ((TextBox)sender).Text;
         }
 
         private void localAddressText_TextChanged(object sender, EventArgs e)
         {
-            dnp.LocalAddress = ((TextBox)sender).Text;
+            _dnp.LocalAddress = ((TextBox)sender).Text;
         }
 
         private void portText_TextChanged(object sender, EventArgs e)
         {
-            dnp.Port = ((TextBox)sender).Text;
+            _dnp.Port = ((TextBox)sender).Text;
         }
 
         public static int parseInt(string text)
@@ -140,95 +131,95 @@ namespace WindowsFormsApplication1
 
         private void integrityScanText_TextChanged(object sender, EventArgs e)
         {
-            dnp.IntegrityScanRate = ((TextBox)sender).Text;
+            _dnp.IntegrityScanRate = ((TextBox)sender).Text;
 
         }
 
         private void saveIntervalText_TextChanged(object sender, EventArgs e)
         {
-            dnp.SaveInterval = Int32.Parse(((TextBox)sender).Text);
+            _dnp.SaveInterval = ((TextBox)sender).Text;
         }
 
         private void UnsolicitedCheck_CheckedChanged(object sender, EventArgs e)
         {
-            dnp.IsUnsolictedOnStartup = ((CheckBox)sender).Checked;
+            _dnp.IsUnsolictedOnStartup = ((CheckBox)sender).Checked;
         }
 
         private void EnableUnsolCheck_CheckedChanged(object sender, EventArgs e)
         {
-            dnp.IsEnableUnsolicited = ((CheckBox)sender).Checked;
+            _dnp.IsEnableUnsolicited = ((CheckBox)sender).Checked;
         }
 
         private void class0Check_CheckedChanged(object sender, EventArgs e)
         {
-            dnp.Class0 = ((CheckBox)sender).Checked;
+            _dnp.Class0 = ((CheckBox)sender).Checked;
         }
 
         private void Class1Check_CheckedChanged(object sender, EventArgs e)
         {
-            dnp.Class1 = ((CheckBox)sender).Checked;
+            _dnp.Class1 = ((CheckBox)sender).Checked;
         }
 
         private void class2Check_CheckedChanged(object sender, EventArgs e)
         {
-            dnp.Class2 = ((CheckBox)sender).Checked;
+            _dnp.Class2 = ((CheckBox)sender).Checked;
         }
 
         private void class3Check_CheckedChanged(object sender, EventArgs e)
         {
-            dnp.Class3 = ((CheckBox)sender).Checked;
+            _dnp.Class3 = ((CheckBox)sender).Checked;
         }
 
         private void timeSyncCheck_CheckedChanged(object sender, EventArgs e)
         {
-            dnp.IsTimeSync = ((CheckBox)sender).Checked;
+            _dnp.IsTimeSync = ((CheckBox)sender).Checked;
         }
 
         private void useConfirmsCheck_CheckedChanged(object sender, EventArgs e)
         {
-            dnp.IsUseConfirms = ((CheckBox)sender).Checked;
+            _dnp.IsUseConfirms = ((CheckBox)sender).Checked;
         }
 
         private void tcpRadio_CheckedChanged(object sender, EventArgs e)
         {
             if (((RadioButton)sender).Checked)
-                dnp.Transport = CIMData.DNP.transportEnum.TCP;
+                _dnp.Transport = CIMData.DNP.transportEnum.TCP;
         }
 
         private void udpRadio_CheckedChanged(object sender, EventArgs e)
         {
             if (((RadioButton)sender).Checked)
-                dnp.Transport = CIMData.DNP.transportEnum.UDP;
+                _dnp.Transport = CIMData.DNP.transportEnum.UDP;
         }
 
         private void SBORadio_CheckedChanged(object sender, EventArgs e)
         {
             if (((RadioButton)sender).Checked)
-                dnp.Dnpfunction = CIMData.DNP.DNPFunctionEnum.SB0;
+                _dnp.Dnpfunction = CIMData.DNP.DNPFunctionEnum.SB0;
         }
 
         private void DORadio_CheckedChanged(object sender, EventArgs e)
         {
             if (((RadioButton)sender).Checked)
-                dnp.Dnpfunction = CIMData.DNP.DNPFunctionEnum.D0;
+                _dnp.Dnpfunction = CIMData.DNP.DNPFunctionEnum.D0;
         }
 
         private void doNoAckRadio_CheckedChanged(object sender, EventArgs e)
         {
             if (((RadioButton)sender).Checked)
-                dnp.Dnpfunction = CIMData.DNP.DNPFunctionEnum.DO_NOACK;
+                _dnp.Dnpfunction = CIMData.DNP.DNPFunctionEnum.DO_NOACK;
         }
 
         private void localRadio_CheckedChanged(object sender, EventArgs e)
         {
             if (((RadioButton)sender).Checked)
-                dnp.Initiation = CIMData.DNP.initiationEnum.Local;
+                _dnp.Initiation = CIMData.DNP.initiationEnum.Local;
         }
 
         private void remoteRadio_CheckedChanged(object sender, EventArgs e)
         {
             if (((RadioButton)sender).Checked)
-                dnp.Initiation = CIMData.DNP.initiationEnum.Remote;
+                _dnp.Initiation = CIMData.DNP.initiationEnum.Remote;
         }
     }
 }

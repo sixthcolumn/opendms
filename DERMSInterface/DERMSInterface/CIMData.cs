@@ -484,7 +484,7 @@ namespace DERMSInterface
             private string localAddress;
             private string port;
             private string integrityScanRate;
-            private int saveInterval;
+            private string saveInterval;
             private bool isUnsolictedOnStartup;
             private bool isEnableUnsolicited;
             private bool isTimeSync;
@@ -625,7 +625,7 @@ namespace DERMSInterface
                 set { isUnsolictedOnStartup = value; }
             }
 
-            public int SaveInterval
+            public string SaveInterval
             {
                 get { return saveInterval; }
                 set { saveInterval = value; }

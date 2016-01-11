@@ -16,24 +16,20 @@ namespace WindowsFormsApplication1
         // as a local for further access
         DERMSInterface.CIMData _cim;
 
-
-        public string MessageTypeComboText
-        {
-            get { return messageTypeCombo.Text; }
-        }
-
         public DERHeaderControl()
         {
             InitializeComponent();
         }
 
-        public void loadHeader(DERMSInterface.CIMData cim, String name)
+        public void bindDataSource(DERMSInterface.CIMData cim)
         {
             _cim = cim;
-            loadHeader(name);
+            string name = messageTypeCombo.Text;
+            loadHeader();
         }
 
-        private void loadHeader(String name) {
+        private void loadHeader() {
+            string name = messageTypeCombo.Text;
 
             DERMSInterface.CIMData.header h = getHeader(name);
             endPointText.Text = h.EndPoint;
@@ -158,7 +154,7 @@ namespace WindowsFormsApplication1
 
         private void messageTypeCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loadHeader(messageTypeCombo.Text);
+            loadHeader();
         }
         #endregion
 

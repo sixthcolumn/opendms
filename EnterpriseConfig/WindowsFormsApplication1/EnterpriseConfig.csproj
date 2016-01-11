@@ -75,6 +75,12 @@
     <Compile Include="CreateDERForm.Designer.cs">
       <DependentUpon>CreateDERForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DERGroupViewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DERGroupViewControl.Designer.cs">
+      <DependentUpon>DERGroupViewControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="DERHeaderControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </Compile>
     <EmbeddedResource Include="CreateDERForm.resx">
       <DependentUpon>CreateDERForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DERGroupViewControl.resx">
+      <DependentUpon>DERGroupViewControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DERHeaderControl.resx">
       <DependentUpon>DERHeaderControl.cs</DependentUpon>

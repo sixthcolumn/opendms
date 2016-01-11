@@ -13,7 +13,7 @@ namespace WindowsFormsApplication1
     public partial class CreateDERForm : Form
     {
         DERMSInterface.CIMData _cim = null;
-        int _row = -1;
+        DERMSInterface.CIMData.DERGroup _group = null;
         BindingSource bs = new BindingSource();
         XMLForm _log = null;
         string _key = DERMSInterface.CIMData.operations.createDER.ToString();
@@ -23,10 +23,10 @@ namespace WindowsFormsApplication1
         /// </summary>
         /// <param name="cim"></param>
         /// <param name="row"></param>
-        public CreateDERForm(DERMSInterface.CIMData cim, int row)
+        public CreateDERForm(DERMSInterface.CIMData cim, DERMSInterface.CIMData.DERGroup group)
         {
             _cim = cim;
-            _row = row;
+            _group = group;
             InitializeComponent();
         }
 
@@ -43,7 +43,7 @@ namespace WindowsFormsApplication1
             {
                 _log = new XMLForm();
                 // call the create DER SOAP method
-                rc = cs.createDERGroup(_cim.Groups[_row].GroupName, null);
+                rc = cs.createDERGroup(_group.GroupName, null);
                 _log.addBoldText("Return Code : " + rc.ToString() + Environment.NewLine + Environment.NewLine);
             }
             catch (Exception ex)
@@ -75,7 +75,7 @@ namespace WindowsFormsApplication1
         /// </summary>
         private DERMSInterface.CIMData.DERGroup group
         {
-            get { return _cim.Groups[_row]; }
+            get { return _group; }
         }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace WindowsFormsApplication1
             this.commentText.Text = header.Comment;
 
             // group widgets
-            DERMSInterface.CIMData.DERGroup group = _cim.Groups[_row];
+            DERMSInterface.CIMData.DERGroup group = _group;
             DERGroupNameText.Text = group.GroupName;
             DERGroupMRIDText.Text = group.Mrid;
             DERGroupRevisionText.Text = group.Revision;

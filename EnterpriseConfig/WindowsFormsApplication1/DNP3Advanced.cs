@@ -13,7 +13,7 @@ namespace WindowsFormsApplication1
 {
     public partial class DNP3Advanced : UserControl
     {
-        CIMData.DNP dnp;
+        private CIMData.DNP _dnp;
 
         public DNP3Advanced()
         {
@@ -41,32 +41,24 @@ namespace WindowsFormsApplication1
             taskRetryRateText.Text = "";
         }
 
-        public void reset()
-        {
-            dnp = new CIMData.DNP();
-            bindDNPData(dnp);
-            clear();
-            this.Enabled = false;
-        }
-
         /// <summary>
         /// whenever a new row from the datagrid view (scada) is selected, this re-binds
         /// this form to the current row
         /// </summary>
         /// <param name="dnp"></param>
-        public void bindDNPData(CIMData.DNP dnp)
+        public void bindDataSource(CIMData.DNP dnp)
         {
             // todo : For all numerics (timeouts, etc...), is there a default value, use 0, or null if not set?
-            this.dnp = dnp;
+            this._dnp = dnp;
 
-            maxFragSizeText.Text = dnp.MaxFragSize.ToString();
-            frameRetriesText.Text = dnp.FrameRetries.ToString();
-            ResponseTimeoutText.Text = dnp.ResponseTimeout.ToString();
-            fragSizeText.Text = dnp.FragSize.ToString();
-            taskRetryRateText.Text = dnp.TaskRetryRate.ToString();
-            linkRetriesText.Text = dnp.NumRetries.ToString();
-            confirmTimeoutText.Text = dnp.ConfirmationTimeout.ToString();
-            taskRetryRateText.Text = dnp.RetryTimeout.ToString();
+            maxFragSizeText.Text = dnp.MaxFragSize;
+            frameRetriesText.Text = dnp.FrameRetries;
+            ResponseTimeoutText.Text = dnp.ResponseTimeout;
+            fragSizeText.Text = dnp.FragSize;
+            taskRetryRateText.Text = dnp.TaskRetryRate;
+            linkRetriesText.Text = dnp.NumRetries;
+            confirmTimeoutText.Text = dnp.ConfirmationTimeout;
+            taskRetryRateText.Text = dnp.RetryTimeout;
             this.Enabled = true;
         }
 
@@ -86,42 +78,42 @@ namespace WindowsFormsApplication1
 
         private void maxFragSizeText_TextChanged(object sender, EventArgs e)
         {
-            dnp.MaxFragSize = ((TextBox)sender).Text;
+            _dnp.MaxFragSize = ((TextBox)sender).Text;
         }
 
         private void frameRetriesText_TextChanged(object sender, EventArgs e)
         {
-            dnp.FrameRetries = ((TextBox)sender).Text;
+            _dnp.FrameRetries = ((TextBox)sender).Text;
         }
 
         private void ResponseTimeoutText_TextChanged(object sender, EventArgs e)
         {
-            dnp.ResponseTimeout = ((TextBox)sender).Text;
+            _dnp.ResponseTimeout = ((TextBox)sender).Text;
         }
 
         private void fragSizeText_TextChanged(object sender, EventArgs e)
         {
-            dnp.FragSize = ((TextBox)sender).Text;
+            _dnp.FragSize = ((TextBox)sender).Text;
         }
 
         private void taskRetryRateText_TextChanged(object sender, EventArgs e)
         {
-            dnp.TaskRetryRate = ((TextBox)sender).Text;
+            _dnp.TaskRetryRate = ((TextBox)sender).Text;
         }
 
         private void linkRetriesText_TextChanged(object sender, EventArgs e)
         {
-            dnp.NumRetries = ((TextBox)sender).Text;
+            _dnp.NumRetries = ((TextBox)sender).Text;
         }
 
         private void confirmTimeoutText_TextChanged(object sender, EventArgs e)
         {
-            dnp.ConfirmationTimeout = ((TextBox)sender).Text;
+            _dnp.ConfirmationTimeout = ((TextBox)sender).Text;
         }
 
         private void physicalRetriesText_TextChanged(object sender, EventArgs e)
         {
-            dnp.RetryTimeout = ((TextBox)sender).Text;
+            _dnp.RetryTimeout = ((TextBox)sender).Text;
         }
     }
 }
