@@ -10,9 +10,6 @@ import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.frontend.ClientProxy;
 import org.apache.log4j.Logger;
 
-import ch.iec.tc57._2011.dergroupdispatchmessage.DERGroupDispatchPayloadType;
-import ch.iec.tc57._2011.dergroupdispatchmessage.DERGroupDispatchRequestMessageType;
-import ch.iec.tc57._2011.dergroupdispatchmessage.DERGroupDispatchResponseMessageType;
 import ch.iec.tc57._2011.dergroupforecastmessage.DERGroupForecastPayloadType;
 import ch.iec.tc57._2011.dergroupforecastmessage.DERGroupForecastResponseMessageType;
 import ch.iec.tc57._2011.dergroupmessage.DERGroupPayloadType;
@@ -23,25 +20,28 @@ import ch.iec.tc57._2011.getdergroupcapability.GetDERGroupCapability;
 import ch.iec.tc57._2011.getdergroupcapability.GetDERGroupCapabilityPort;
 import ch.iec.tc57._2011.getdergroupcapabilitymessage.GetDERGroupCapabilityPayloadType;
 import ch.iec.tc57._2011.getdergroupcapabilitymessage.GetDERGroupCapabilityResponseMessageType;
-import ch.iec.tc57._2011.getdergroupstatus.GetDERGroupStatus;
-import ch.iec.tc57._2011.getdergroupstatus.GetDERGroupStatusPort;
-import ch.iec.tc57._2011.getdergroupstatusmessage.DERGroupStatusPayloadType;
-import ch.iec.tc57._2011.getdergroupstatusmessage.DERGroupStatusResponseMessageType;
 import ch.iec.tc57._2011.requestdergroup.DERGroupPort;
 import ch.iec.tc57._2011.requestdergroup.FaultMessage;
 import ch.iec.tc57._2011.requestdergroup.RequestDERGroup;
-import ch.iec.tc57._2011.requestdergroupdispatch.DERGroupDispatchPort;
-import ch.iec.tc57._2011.requestdergroupdispatch.RequestDERGroupDispatch;
 import ch.iec.tc57._2011.requestdergroupforecast.DERGroupForecastPort;
 import ch.iec.tc57._2011.requestdergroupforecast.RequestDERGroupForecast;
 import ch.iec.tc57._2011.schema.message.HeaderType;
 import ch.iec.tc57._2011.schema.message.ReplyType;
 import ch.iec.tc57._2011.schema.message.RequestType;
 
+import com.epri._2016.dergroupdispatchesmessage.DERGroupDispatchesPayloadType;
+import com.epri._2016.dergroupdispatchesmessage.DERGroupDispatchesResponseMessageType;
+import com.epri._2016.executedergroupdispatches.DERGroupDispatchesPort;
+import com.epri._2016.executedergroupdispatches.ExecuteDERGroupDispatches;
+import com.epri._2016.getdergroupstatuses.GetDERGroupStatuses;
+import com.epri._2016.getdergroupstatuses.GetDERGroupStatusesFaultMessage;
+import com.epri._2016.getdergroupstatuses.GetDERGroupStatusesPort;
+import com.epri._2016.getdergroupstatusesmessage.GetDERGroupStatusesRequestMessageType;
+import com.epri._2016.getdergroupstatusesmessage.GetDERGroupStatusesResponseMessageType;
 import com.sixthc.cim.request.ChangeDERGroupCapabilityRequest;
 import com.sixthc.cim.request.ChangeDERGroupForecastRequest;
 import com.sixthc.cim.request.GetDERGroupCapabilityRequest;
-import com.sixthc.cim.request.GetDERGroupStatusRequest;
+import com.sixthc.cim.request.GetDERGroupStatusesRequest;
 import com.sixthc.cim.request.GetDERGroupsRequest;
 import com.sixthc.cim.request.RequestDERGroupsRequest;
 
@@ -319,15 +319,16 @@ public class CIMRequestClient extends RequestClient {
 
 	}
 
-	public DERGroupStatusResponseMessageType getDERGroupStatuses(
-			GetDERGroupStatusRequest message) {
+	public GetDERGroupStatusesResponseMessageType getDERGroupStatuses(
+			GetDERGroupStatusesRequest message) {
 		log.debug("client request :  changedDERGroupStatuses");
 		URL wsdlURL = DERGroupsClient.class
-				.getResource("/resources/wsdl/GetDERGroupStatus.wsdl");
+				.getResource("/resources/wsdl/GetDERGroupStatuses.wsdl");
 
-		GetDERGroupStatus ss = new GetDERGroupStatus(wsdlURL);
-		GetDERGroupStatusPort port = ss.getGetDERGroupStatusPort();
+		GetDERGroupStatuses ss = new GetDERGroupStatuses(wsdlURL);
+		   GetDERGroupStatusesPort port = ss.getGetDERGroupStatusesPort();
 		BindingProvider provider = (BindingProvider) port;
+		
 
 		provider.getRequestContext().put(
 				BindingProvider.ENDPOINT_ADDRESS_PROPERTY,
@@ -341,39 +342,28 @@ public class CIMRequestClient extends RequestClient {
 		cxfClient.getOutInterceptors().add(loggingOutInterceptor);
 		cxfClient.getOutFaultInterceptors().add(loggingOutFaultInterceptor);
 
-		Holder<HeaderType> header = new Holder<HeaderType>();
-		header.value = message.getPayload().getHeader();
-
-		Holder<DERGroupStatusPayloadType> payload = new Holder<DERGroupStatusPayloadType>();
-		payload.value = message.getPayload().getPayload();
-		Holder<ReplyType> reply = new Holder<ReplyType>();
-		reply.value = new ReplyType();
-
 		try {
-			port.getDERGroupStatus(header, message.getPayload().getRequest(),
-					payload, reply);
-			DERGroupStatusResponseMessageType response = new DERGroupStatusResponseMessageType();
+			GetDERGroupStatusesRequestMessageType newMessage = new GetDERGroupStatusesRequestMessageType();
+			newMessage.setHeader(message.getPayload().getHeader());
+			newMessage.setRequest(message.getPayload().getRequest());
 
-			response.setHeader(header.value);
-			response.setPayload(payload.value);
-			response.setReply(reply.value);
-			return response;
-		} catch (ch.iec.tc57._2011.getdergroupstatus.FaultMessage e) {
-			// TODO Auto-generated catch block
+			GetDERGroupStatusesResponseMessageType reply = port.getDERGroupStatuses(newMessage);
+			return reply;
+		} catch (GetDERGroupStatusesFaultMessage e) {
 			e.printStackTrace();
 			return null;
 		}
 
 	}
 
-	public DERGroupDispatchResponseMessageType createDERGroupDispatch(
-			ChangeDERGroupCapabilityRequest message) throws ch.iec.tc57._2011.requestdergroupdispatch.FaultMessage {
+	public DERGroupDispatchesResponseMessageType createDERGroupDispatch(
+			ChangeDERGroupCapabilityRequest message) throws com.epri._2016.executedergroupdispatches.FaultMessage {
 		log.debug("client request :  createDERGroupDispatch");
 		URL wsdlURL = DERGroupsClient.class
-				.getResource("/resources/wsdl/RequestDERGroupDispatch.wsdl");
+				.getResource("/resources/wsdl/ExecuteDERGroupDispatches.wsdl");
 		
-		RequestDERGroupDispatch ss = new RequestDERGroupDispatch(wsdlURL);
-		DERGroupDispatchPort port = ss.getDERGroupDispatchPort();
+		ExecuteDERGroupDispatches ss = new ExecuteDERGroupDispatches(wsdlURL);
+		DERGroupDispatchesPort port = ss.getDERGroupDispatchesPort();
 		BindingProvider provider = (BindingProvider) port;
 
 		provider.getRequestContext()
@@ -390,15 +380,14 @@ public class CIMRequestClient extends RequestClient {
 
 		Holder<HeaderType> header = new Holder<HeaderType>();
 		header.value = message.getPayload().getHeader();
-		Holder<DERGroupDispatchPayloadType> payload = new Holder<DERGroupDispatchPayloadType>();
+		Holder<DERGroupDispatchesPayloadType> payload = new Holder<DERGroupDispatchesPayloadType>();
 		payload.value = message.getPayload().getPayload();
 		Holder<ReplyType> reply = new Holder<ReplyType>();
 		reply.value = new ReplyType();
 
-		port.createDERGroupDispatch(header, message.getPayload().getRequest(), payload,
-				reply);
+		port.createDERGroupDispatches(header, message.getPayload().getRequest(), payload, reply);
 
-		DERGroupDispatchResponseMessageType response = new DERGroupDispatchResponseMessageType();
+		DERGroupDispatchesResponseMessageType response = new DERGroupDispatchesResponseMessageType();
 		response.setHeader(header.value);
 		response.setPayload(payload.value);
 		response.setReply(reply.value);

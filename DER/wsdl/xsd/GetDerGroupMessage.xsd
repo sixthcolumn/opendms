@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://iec.ch/TC57/2011/GetDERGroupMessage"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-	xmlns:msg="http://iec.ch/TC57/2011/schema/message"
+	xmlns:msg="http://www.iec.ch/TC57/2011/schema/message"
 	xmlns:obj1="http://www.epri.com/2013/DERGroup#"
 	targetNamespace="http://iec.ch/TC57/2011/GetDERGroupMessage"
 	elementFormDefault="qualified" attributeFormDefault="unqualified"
 	version="1.0.0">
 	<!-- Base Message Definitions -->
-	<xs:import namespace="http://iec.ch/TC57/2011/schema/message"
+	<xs:import namespace="http://www.iec.ch/TC57/2011/schema/message"
 		schemaLocation="Message.xsd" />
 	<!-- CIM Information Object Definition -->
 	<xs:import namespace="http://www.epri.com/2013/DERGroup#"

@@ -7,18 +7,19 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-import ch.iec.tc57._2011.dergroupdispatchmessage.DERGroupDispatchPayloadType;
-import ch.iec.tc57._2011.requestdergroupdispatch.DERGroupDispatchPort;
 import ch.iec.tc57._2011.schema.message.HeaderType;
 import ch.iec.tc57._2011.schema.message.ReplyType;
 import ch.iec.tc57._2011.schema.message.RequestType;
 
-import com.epri._2013.dergroupdispatch.CapabilityType;
-import com.epri._2013.dergroupdispatch.DERGroup;
-import com.epri._2013.dergroupdispatch.DERGroupDispatch;
-import com.epri._2013.dergroupdispatch.RequestedCapability;
+import com.epri._2013.dergroupdispatches.CapabilityType;
+import com.epri._2013.dergroupdispatches.DERGroup;
+import com.epri._2013.dergroupdispatches.DERGroupDispatch;
+import com.epri._2013.dergroupdispatches.RequestedCapability;
+import com.epri._2016.dergroupdispatchesmessage.DERGroupDispatchesPayloadType;
+import com.epri._2016.executedergroupdispatches.DERGroupDispatchesPort;
+import com.epri._2016.executedergroupdispatches.FaultMessage;
 
-public class ChangeDERGroupDispatchImpl implements DERGroupDispatchPort,
+public class ChangeDERGroupDispatchImpl implements DERGroupDispatchesPort,
 		ApplicationContextAware {
 
 	private static org.apache.log4j.Logger log = Logger
@@ -31,12 +32,12 @@ public class ChangeDERGroupDispatchImpl implements DERGroupDispatchPort,
 			throws BeansException {
 		appContext = arg0;
 	}
-
+	
 	@Override
-	public void createDERGroupDispatch(Holder<HeaderType> header,
-			RequestType request, Holder<DERGroupDispatchPayloadType> payload,
-			Holder<ReplyType> reply)
-			throws ch.iec.tc57._2011.requestdergroupdispatch.FaultMessage {
+	public void createDERGroupDispatches(Holder<HeaderType> header,
+			RequestType request, Holder<DERGroupDispatchesPayloadType> payload,
+			Holder<ReplyType> reply) throws FaultMessage {
+
 		log.debug("***** OPERATION : createDERGroupDispatch");
 
 		DERGroupDispatch e = appContext.getBean("CMIDERGroupDispatch",
@@ -58,49 +59,4 @@ public class ChangeDERGroupDispatchImpl implements DERGroupDispatchPort,
 		reply.value = r;
 
 	}
-
-	@Override
-	public void cancelDERGroupDispatch(Holder<HeaderType> header,
-			RequestType request, Holder<DERGroupDispatchPayloadType> payload,
-			Holder<ReplyType> reply)
-			throws ch.iec.tc57._2011.requestdergroupdispatch.FaultMessage {
-		log.debug("***** OPERATION : cancelDERGroupDispatch");
-		throw new ch.iec.tc57._2011.requestdergroupdispatch.FaultMessage(
-				"Operation Not Supported");
-
-	}
-
-	@Override
-	public void deleteDERGroupDispatch(Holder<HeaderType> header,
-			RequestType request, Holder<DERGroupDispatchPayloadType> payload,
-			Holder<ReplyType> reply)
-			throws ch.iec.tc57._2011.requestdergroupdispatch.FaultMessage {
-		log.debug("***** OPERATION : deleteDERGroupDispatch");
-		throw new ch.iec.tc57._2011.requestdergroupdispatch.FaultMessage(
-				"Operation Not Supported");
-
-	}
-
-	@Override
-	public void closeDERGroupDispatch(Holder<HeaderType> header,
-			RequestType request, Holder<DERGroupDispatchPayloadType> payload,
-			Holder<ReplyType> reply)
-			throws ch.iec.tc57._2011.requestdergroupdispatch.FaultMessage {
-		log.debug("***** OPERATION : closeDERGroupDispatch");
-		throw new ch.iec.tc57._2011.requestdergroupdispatch.FaultMessage(
-				"Operation Not Supported");
-
-	}
-
-	@Override
-	public void changeDERGroupDispatch(Holder<HeaderType> header,
-			RequestType request, Holder<DERGroupDispatchPayloadType> payload,
-			Holder<ReplyType> reply)
-			throws ch.iec.tc57._2011.requestdergroupdispatch.FaultMessage {
-		log.debug("***** OPERATION : changeDERGroupDispatch");
-		throw new ch.iec.tc57._2011.requestdergroupdispatch.FaultMessage(
-				"Operation Not Supported");
-
-	}
-
 }

@@ -93,15 +93,15 @@
 		<property name="comment" value="epri cim test" />
 		<property name="name" value="testing123" />
 	</bean>
--->	
-		<bean id="CMIDERGroup2" name="CMIDERGroup2"
-		class="com.epri._2013.dergroupdispatch.DERGroup">
+-->
+	<bean id="CMIDERGroup2" name="CMIDERGroup2"
+		class="com.epri._2013.dergroupdispatches.DERGroup">
 		<property name="name" value="testing123" />
 	</bean>
-	
+
 
 	<bean id="CMIDERGroupDispatch" name="CMIDERGroupDispatch"
-		class="com.epri._2013.dergroupdispatch.DERGroupDispatch">
+		class="com.epri._2013.dergroupdispatches.DERGroupDispatch">
 		<property name="MRID" value="1122" />
 		
 	</bean>

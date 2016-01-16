@@ -107,7 +107,7 @@
 									</extraargs>
 								</wsdlOption>
 								<wsdlOption>
-									<wsdl>${basedir}/wsdl/GetDERGroupStatus.wsdl</wsdl>
+									<wsdl>${basedir}/wsdl/GetDERGroupStatuses.wsdl</wsdl>
 									<extraargs>
 										<extraarg>-client</extraarg>
 									</extraargs>
@@ -119,7 +119,7 @@
 									</extraargs>
 								</wsdlOption>
 								<wsdlOption>
-									<wsdl>${basedir}/wsdl/RequestDERGroupDispatch.wsdl</wsdl>
+									<wsdl>${basedir}/wsdl/ExecuteDERGroupDispatches.wsdl</wsdl>
 									<extraargs>
 										<extraarg>-client</extraarg>
 									</extraargs>

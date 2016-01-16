@@ -5,21 +5,20 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-import ch.iec.tc57._2011.dergroupdispatchmessage.DERGroupDispatchRequestMessageType;
-import ch.iec.tc57._2011.dergroupdispatchmessage.DERGroupDispatchResponseMessageType;
 import ch.iec.tc57._2011.dergroupforecastmessage.DERGroupForecastResponseMessageType;
 import ch.iec.tc57._2011.dergroupmessage.DERGroupResponseMessageType;
 import ch.iec.tc57._2011.getdergroupcapabilitymessage.GetDERGroupCapabilityResponseMessageType;
-import ch.iec.tc57._2011.getdergroupstatusmessage.DERGroupStatusResponseMessageType;
 import ch.iec.tc57._2011.requestdergroup.FaultMessage;
 import ch.iec.tc57._2011.schema.message.ReplyType;
 
+import com.epri._2016.dergroupdispatchesmessage.DERGroupDispatchesResponseMessageType;
+import com.epri._2016.getdergroupstatusesmessage.GetDERGroupStatusesResponseMessageType;
 import com.sixthc.cim.der.CimDERGroupRequestServerSoap;
 import com.sixthc.cim.request.ChangeDERGroupCapabilityRequest;
 import com.sixthc.cim.request.ChangeDERGroupForecastRequest;
 import com.sixthc.cim.request.GetDERGroupCapabilityRequest;
 import com.sixthc.cim.request.GetDERGroupForecastRequest;
-import com.sixthc.cim.request.GetDERGroupStatusRequest;
+import com.sixthc.cim.request.GetDERGroupStatusesRequest;
 import com.sixthc.cim.request.GetDERGroupsRequest;
 import com.sixthc.cim.request.RequestDERGroupsRequest;
 import com.sixthc.client.CIMRequestClient;
@@ -63,12 +62,11 @@ public class CIMRequestImpl implements CimDERGroupRequestServerSoap,
 			GetDERGroupCapabilityRequest message) {
 		return client.getDERGroupCapabilities(message);
 	}
-
+	
 	@Override
-	public DERGroupStatusResponseMessageType getDERGroupStatuses(
-			GetDERGroupStatusRequest message) {
+	public GetDERGroupStatusesResponseMessageType getDERGroupStatuses(
+			GetDERGroupStatusesRequest message) {
 		return client.getDERGroupStatuses(message);
-
 	}
 
 	@Override
@@ -140,13 +138,13 @@ public class CIMRequestImpl implements CimDERGroupRequestServerSoap,
 
 
 	@Override
-	public DERGroupDispatchResponseMessageType createDERGroupDispatch(
+	public DERGroupDispatchesResponseMessageType createDERGroupDispatch(
 			ChangeDERGroupCapabilityRequest message) {
-		log.debug("***** REQUEST : createDERGroupDispatch");
+		log.debug("***** REQUEST : createDERGroupDispatches");
 
 		try {
 			return client.createDERGroupDispatch(message);
-		} catch (ch.iec.tc57._2011.requestdergroupdispatch.FaultMessage e) {
+		} catch (com.epri._2016.executedergroupdispatches.FaultMessage e) {
 			// TODO Auto-generated catch block
 			log.error(e);
 		}

@@ -65,11 +65,11 @@
 	</wsdl:message>
 
 	<wsdl:message name="getDERGroupStatusesSoapIn">
-		<wsdl:part name="Message" element="req:GetDERGroupStatusPayload" />
+		<wsdl:part name="Message" element="req:GetDERGroupStatusesPayload" />
 	</wsdl:message>
 
 	<wsdl:message name="getDERGroupStatusesSoapOut">
-		<wsdl:part name="Message" element="req:GetDERGroupStatusResponse" />
+		<wsdl:part name="Message" element="req:GetDERGroupStatusesResponse" />
 	</wsdl:message>
 
 
