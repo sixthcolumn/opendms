@@ -1,0 +1,870 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 rel. 4 sp1 (x64) (http://www.altova.com) by Gerald Gray (Electric Power Research Institute) -->
+<!-- Change log - Updated namespace to reflect EPRI changes 
+                       - Changed MarketParticipant/MarketRole to be consistent across XSDs
+                       - Changed mRID to enforce the use of GUID-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:a="http://langdale.com.au/2005/Message#" xmlns:sawsdl="http://www.w3.org/ns/sawsdl" xmlns="http://langdale.com.au/2005/Message#" xmlns:m="http://www.epri.com/2016/DemandResponse#" targetNamespace="http://www.epri.com/2016/DemandResponse#" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:simpleType name="AutomaticDispatchMode" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#AutomaticDispatchMode">
+		<xs:annotation>
+			<xs:documentation>Automatic Dispatch mode</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CONTINGENCY">
+				<xs:annotation>
+					<xs:documentation>Contingnency occurance, redispatch of contingency reserves</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="INTERVAL">
+				<xs:annotation/>
+			</xs:enumeration>
+			<xs:enumeration value="MANUAL">
+				<xs:annotation>
+					<xs:documentation>Operator override</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="DemandResponseScheduleAward" type="m:DemandResponseScheduleAward"/>
+	<xs:complexType name="DemandResponseScheduleAward">
+		<xs:sequence>
+			<xs:element name="MarketParticipant" type="m:MarketParticipant"/>
+			<xs:element name="ResourceAwardClearing" type="m:ResourceAwardClearing" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MarketParticipant" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketParticipant">
+		<xs:annotation>
+			<xs:documentation>An identification of a party acting in a electricity market business process. This class is used to identify organizations that can participate in market management and/or market operations.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mRID" type="m:mRID" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.mRID">
+				<xs:annotation>
+					<xs:documentation>Master resource identifier issued by a model authority. The mRID is globally unique within an exchange context.</xs:documentation>
+					<xs:documentation>Global uniqeness is easily achived by using a UUID for the mRID. It is strongly recommended to do this.</xs:documentation>
+					<xs:documentation>For CIMXML data files in RDF syntax, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.name">
+				<xs:annotation>
+					<xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MarketRoles" type="m:MarketRole" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketParticipant.MarketRoles">
+				<xs:annotation/>
+			</xs:element>
+			<xs:element name="Names" type="m:Name" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.Names">
+				<xs:annotation>
+					<xs:documentation>All names of this identified object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MarketProduct" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketProduct">
+		<xs:annotation>
+			<xs:documentation>A product traded by an RTO (e.g., energy, 10 minute spinning reserve).Ancillary service product examples include:Regulation UpRegulation DnSpinning ReserveNon-Spinning ReserveOperating Reserve</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="marketProductType" type="m:MarketProductType" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketProduct.marketProductType">
+				<xs:annotation>
+					<xs:documentation>Market product type examples:</xs:documentation>
+					<xs:documentation>EN (Energy)</xs:documentation>
+					<xs:documentation>RU (Regulation Up)</xs:documentation>
+					<xs:documentation>RD (Regulation Dn)</xs:documentation>
+					<xs:documentation>SR (Spinning Reserve)</xs:documentation>
+					<xs:documentation>NR (Non-Spinning Reserve)</xs:documentation>
+					<xs:documentation>RC (RUC)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="MarketProductType" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketProductType">
+		<xs:annotation>
+			<xs:documentation>For example:</xs:documentation>
+			<xs:documentation>Energy, Reg Up, Reg Down, Spin Reserve, Nonspin Reserve, RUC, Load Folloing Up, &amp;amp; Load Following Down.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="EN">
+				<xs:annotation>
+					<xs:documentation>energy type</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="LFD">
+				<xs:annotation>
+					<xs:documentation>Load following down</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="LFU">
+				<xs:annotation>
+					<xs:documentation>Load following up</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NR">
+				<xs:annotation>
+					<xs:documentation>non spinning reserve</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RC">
+				<xs:annotation>
+					<xs:documentation>Residual Unit Commitment</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RD">
+				<xs:annotation>
+					<xs:documentation>regulation down</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="REG">
+				<xs:annotation>
+					<xs:documentation>Regulation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RU">
+				<xs:annotation>
+					<xs:documentation>regulation up</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SR">
+				<xs:annotation>
+					<xs:documentation>spinning reserve</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="MarketRole" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketRole">
+		<xs:annotation>
+			<xs:documentation>The external intended behaviour played by a party within the electricity market.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="roleType" type="m:MarketRoleKind" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketRole.roleType">
+				<xs:annotation>
+					<xs:documentation>Defined using an enumerated list of types of market roles for use when a finite list of types are desired.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="MarketRoleKind" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketRoleKind">
+		<xs:annotation>
+			<xs:documentation>Kind of market role an organisation can have.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BalanceResponsibleParty">
+				<xs:annotation>
+					<xs:documentation>A party that has a contract proving financial security and identifying</xs:documentation>
+					<xs:documentation>balance responsibility with the Imbalance Settlement Responsible of</xs:documentation>
+					<xs:documentation>the Market Balance Area entitling the party to operate in the market.</xs:documentation>
+					<xs:documentation>This is the only role allowing a party to nominate energy on a</xs:documentation>
+					<xs:documentation>wholesale level.</xs:documentation>
+					<xs:documentation>&lt;b&gt;&lt;i&gt;Additional information:&lt;/i&gt;&lt;/b&gt;</xs:documentation>
+					<xs:documentation>The meaning of the word "balance" in this context signifies that that</xs:documentation>
+					<xs:documentation>the quantity contracted to provide or to consume must be equal to the</xs:documentation>
+					<xs:documentation>quantity really provided or consumed.</xs:documentation>
+					<xs:documentation>Equivalent to "Program responsible party" in the Netherlands.</xs:documentation>
+					<xs:documentation>Equivalent to "Balance group manager" in Germany.</xs:documentation>
+					<xs:documentation>Equivalent to "market agent" in Spain.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BalanceSupplier">
+				<xs:annotation>
+					<xs:documentation>A party that markets the difference between actual metered energy</xs:documentation>
+					<xs:documentation>consumption and the energy bought with firm energy contracts by the</xs:documentation>
+					<xs:documentation>Party Connected to the Grid. In addition the Balance Supplier</xs:documentation>
+					<xs:documentation>markets any difference with the firm energy contract (of the Party</xs:documentation>
+					<xs:documentation>Connected to the Grid) and the metered production.</xs:documentation>
+					<xs:documentation>&lt;b&gt;&lt;i&gt;Additional information:&lt;/i&gt;&lt;/b&gt;</xs:documentation>
+					<xs:documentation>There is only one Balance Supplier for each Accounting Point.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BillingAgent">
+				<xs:annotation>
+					<xs:documentation>The party responsible for invoicing a concerned party.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BlockEnergyTrader">
+				<xs:annotation>
+					<xs:documentation>A party that is selling or buying energy on a firm basis (a fixed volume</xs:documentation>
+					<xs:documentation>per market time period).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CapacityCoordinator">
+				<xs:annotation>
+					<xs:documentation>A party, acting on behalf of the System Operators involved,</xs:documentation>
+					<xs:documentation>responsible for establishing a coordinated Offered Capacity and/or</xs:documentation>
+					<xs:documentation>Net Transfer Capacity (NTC) and/or Available Transfer Capacity (ATC) between several Market Balance Areas.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CapacityTrader">
+				<xs:annotation>
+					<xs:documentation>A party that has a contract to participate in the Capacity Market to</xs:documentation>
+					<xs:documentation>acquire capacity through a Transmission Capacity Allocator.</xs:documentation>
+					<xs:documentation>&lt;b&gt;&lt;i&gt;Note:&lt;/i&gt;&lt;/b&gt;</xs:documentation>
+					<xs:documentation>The capacity may be acquired on behalf of an Interconnection Trade</xs:documentation>
+					<xs:documentation>Responsible or for sale on secondary capacity markets.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Consumer">
+				<xs:annotation>
+					<xs:documentation>A party that consumes electricity.</xs:documentation>
+					<xs:documentation>&lt;b&gt;&lt;i&gt;Additional information:&lt;/i&gt;&lt;/b&gt;</xs:documentation>
+					<xs:documentation>This is a Type of Party Connected to the Grid.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ConsumptionResponsibleParty">
+				<xs:annotation>
+					<xs:documentation>A party who can be brought to rights, legally and financially, for any</xs:documentation>
+					<xs:documentation>imbalance between enegry nominated and consumed for all</xs:documentation>
+					<xs:documentation>associated Accounting Points.</xs:documentation>
+					<xs:documentation>&lt;b&gt;&lt;i&gt;Additional information:&lt;/i&gt;&lt;/b&gt;</xs:documentation>
+					<xs:documentation>This is a type of Balance Responsible Party.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ControlAreaOperator">
+				<xs:annotation>
+					<xs:documentation>Responsible for :</xs:documentation>
+					<xs:documentation>1. The coordination of exchange programs between its related Market</xs:documentation>
+					<xs:documentation>Balance Areas and for the exchanges between its associated Control</xs:documentation>
+					<xs:documentation>Areas.</xs:documentation>
+					<xs:documentation>2. The load frequency control for its own area.</xs:documentation>
+					<xs:documentation>3. The coordination of the correction of time deviations.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ControlBlockOperator">
+				<xs:annotation>
+					<xs:documentation>Responsible for :</xs:documentation>
+					<xs:documentation>1. The coordination of exchanges between its associated Control</xs:documentation>
+					<xs:documentation>Blocks and the organisation of the coordination of exchange</xs:documentation>
+					<xs:documentation>programs between its related Control Areas.</xs:documentation>
+					<xs:documentation>2. The load frequency control within its own block and ensuring that</xs:documentation>
+					<xs:documentation>its Control Areas respect their obligations in respect to load frequency</xs:documentation>
+					<xs:documentation>control and time deviation.</xs:documentation>
+					<xs:documentation>3. The organisation of the settlement and/or compensation between</xs:documentation>
+					<xs:documentation>its Control Areas.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CoordinationCenterOperator">
+				<xs:annotation>
+					<xs:documentation>Responsible for :</xs:documentation>
+					<xs:documentation>1. The coordination of exchange programs between its related</xs:documentation>
+					<xs:documentation>Control Blocks and for the exchanges between its associated</xs:documentation>
+					<xs:documentation>Coordination Center Zones.</xs:documentation>
+					<xs:documentation>2. Ensuring that its Control Blocks respect their obligations in respect</xs:documentation>
+					<xs:documentation>to load frequency control.</xs:documentation>
+					<xs:documentation>3. Calculating the time deviation in cooperation with the associated</xs:documentation>
+					<xs:documentation>coordination centers.</xs:documentation>
+					<xs:documentation>4. Carrying out the settlement and/or compensation between its</xs:documentation>
+					<xs:documentation>Control Blocks and against the other Coordination Center Zones.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DesignatedDispatchEntity">
+				<xs:annotation>
+					<xs:documentation>Accepts demand response instructions and performs dispatch actions on demand reduction resources. The DDE acts as an intermediary between the demand response management system and the responsive resource.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="GridAccessProvider">
+				<xs:annotation>
+					<xs:documentation>A party responsible for providing access to the grid through an</xs:documentation>
+					<xs:documentation>Accounting Point and its use for energy consumption or production to</xs:documentation>
+					<xs:documentation>the Party Connected to the Grid.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="GridOperator">
+				<xs:annotation>
+					<xs:documentation>A party that operates one or more grids.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ImbalanceSettlementResponsible">
+				<xs:annotation>
+					<xs:documentation>A party that is responsible for settlement of the difference between</xs:documentation>
+					<xs:documentation>the contracted quantities and the realised quantities of energy</xs:documentation>
+					<xs:documentation>products for the Balance Responsible Parties in a Market Balance</xs:documentation>
+					<xs:documentation>Area.</xs:documentation>
+					<xs:documentation>Note:</xs:documentation>
+					<xs:documentation>The Imbalance Settlement Responsible has not the responsibility to</xs:documentation>
+					<xs:documentation>invoice. The Imbalance Settlement Responsible may delegate the</xs:documentation>
+					<xs:documentation>invoicing responsibility to a more generic role such as a Billing Agent.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="InterconnectionTradeResponsible">
+				<xs:annotation>
+					<xs:documentation>Is a Balance Responsible Party or depends on one. He is recognised</xs:documentation>
+					<xs:documentation>by the Nomination Validator for the nomination of already allocated</xs:documentation>
+					<xs:documentation>capacity.</xs:documentation>
+					<xs:documentation>&lt;b&gt;&lt;i&gt;Additional information:&lt;/i&gt;&lt;/b&gt;</xs:documentation>
+					<xs:documentation>This is a type of Balance Responsible Party.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MOLResponsible">
+				<xs:annotation>
+					<xs:documentation>Responsible for the management of the available tenders for all</xs:documentation>
+					<xs:documentation>Acquiring</xs:documentation>
+					<xs:documentation>System Operators to establish the order of the reserve capacity</xs:documentation>
+					<xs:documentation>that can</xs:documentation>
+					<xs:documentation>be activated.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MarketInformationAggregator">
+				<xs:annotation>
+					<xs:documentation>Market Information Aggregator, A party that provides market related</xs:documentation>
+					<xs:documentation>information that has been compiled from the figures supplied by</xs:documentation>
+					<xs:documentation>different actors in the market. This information may also be published</xs:documentation>
+					<xs:documentation>or distributed for general use.</xs:documentation>
+					<xs:documentation>&lt;b&gt;&lt;i&gt;Note:&lt;/i&gt;&lt;/b&gt;</xs:documentation>
+					<xs:documentation>The Market Information Aggregator may receive information from any</xs:documentation>
+					<xs:documentation>market participant that is relevant for publication or distribution.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MarketOperator">
+				<xs:annotation>
+					<xs:documentation>The unique power exchange of trades for the actual delivery of</xs:documentation>
+					<xs:documentation>energy that receives the bids from the Balance Responsible Parties</xs:documentation>
+					<xs:documentation>that have a contract to bid. The Market Operator determines the</xs:documentation>
+					<xs:documentation>market energy price for the Market Balance Area after applying</xs:documentation>
+					<xs:documentation>technical constraints from the System Operator. It may also establish</xs:documentation>
+					<xs:documentation>the price for the reconciliation within a Metering Grid Area.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MeterAdministrator">
+				<xs:annotation>
+					<xs:documentation>A party responsible for keeping a database of meters.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MeterOperator">
+				<xs:annotation>
+					<xs:documentation>A party responsible for installing, maintaining, testing, certifying and</xs:documentation>
+					<xs:documentation>decommissioning physical meters.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MeteredDataAggregator">
+				<xs:annotation>
+					<xs:documentation>A party responsible for the establishment and qualification of metered</xs:documentation>
+					<xs:documentation>data from the Metered Data Responsible. This data is aggregated</xs:documentation>
+					<xs:documentation>according to a defined set of market rules.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MeteredDataCollector">
+				<xs:annotation>
+					<xs:documentation>A party responsible for meter reading and quality control of the</xs:documentation>
+					<xs:documentation>reading.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MeteredDataResponsible">
+				<xs:annotation>
+					<xs:documentation>A party responsible for the establishment and validation of metered</xs:documentation>
+					<xs:documentation>data based on the collected data received from the Metered Data</xs:documentation>
+					<xs:documentation>Collector. The party is responsible for the history of metered data for</xs:documentation>
+					<xs:documentation>a Metering Point.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MeteringPointAdministrator">
+				<xs:annotation>
+					<xs:documentation>A party responsible for registering the parties linked to the metering</xs:documentation>
+					<xs:documentation>points in a Metering Grid Area. He is also responsible for maintaining</xs:documentation>
+					<xs:documentation>the Metering Point technical specifications. He is responsible for</xs:documentation>
+					<xs:documentation>creating and terminating metering points.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NominationValidator">
+				<xs:annotation>
+					<xs:documentation>Has the responsibility of ensuring that all capacity nominated is within</xs:documentation>
+					<xs:documentation>the allowed limits and confirming all valid nominations to all involved</xs:documentation>
+					<xs:documentation>parties. He informs the Interconnection Trade Responsible of the</xs:documentation>
+					<xs:documentation>maximum nominated capacity allowed. Depending on market rules</xs:documentation>
+					<xs:documentation>for a given interconnection the corresponding System Operators may</xs:documentation>
+					<xs:documentation>appoint one Nomination Validator.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PartyConnectedToTheGrid">
+				<xs:annotation>
+					<xs:documentation>A party that contracts for the right to consume or produce electricity at</xs:documentation>
+					<xs:documentation>an Accounting Point.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Producer">
+				<xs:annotation>
+					<xs:documentation>A party that produces electricity.</xs:documentation>
+					<xs:documentation>&lt;b&gt;&lt;i&gt;Additional information:&lt;/i&gt;&lt;/b&gt;</xs:documentation>
+					<xs:documentation>This is a type of Party Connected to the Grid.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ProductionResponsibleParty">
+				<xs:annotation>
+					<xs:documentation>A party who can be brought to rights, legally and financially, for any</xs:documentation>
+					<xs:documentation>imbalance between energy nominated and produced for all</xs:documentation>
+					<xs:documentation>associated Accounting Points.</xs:documentation>
+					<xs:documentation>&lt;b&gt;&lt;i&gt;Additional information:&lt;/i&gt;&lt;/b&gt;</xs:documentation>
+					<xs:documentation>This is a type of Balance Responsible Party.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ReconciliationAccountable">
+				<xs:annotation>
+					<xs:documentation>A party that is financially accountable for the reconciled volume of</xs:documentation>
+					<xs:documentation>energy products for a profiled Accounting Point.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ReconciliationResponsible">
+				<xs:annotation>
+					<xs:documentation>A party that is responsible for reconciling, within a Metering Grid</xs:documentation>
+					<xs:documentation>Area, the volumes used in the imbalance settlement process for</xs:documentation>
+					<xs:documentation>profiled Accounting Points and the actual metered quantities.</xs:documentation>
+					<xs:documentation>Note:</xs:documentation>
+					<xs:documentation>The Reconciliation Responsible may delegate the invoicing</xs:documentation>
+					<xs:documentation>responsibility to a more generic role such as a Billing Agent.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ReserveAllocator">
+				<xs:annotation>
+					<xs:documentation>Informs the market of reserve requirements, receives tenders against</xs:documentation>
+					<xs:documentation>the</xs:documentation>
+					<xs:documentation>requirements and in compliance with the prequalification criteria,</xs:documentation>
+					<xs:documentation>determines what tenders meet requirements and assigns tenders.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ResourceProvider">
+				<xs:annotation>
+					<xs:documentation>A role that manages a resource object and provides the schedules for</xs:documentation>
+					<xs:documentation>it</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SchedulingCoordinator">
+				<xs:annotation>
+					<xs:documentation>A party that is responsible for the schedule information and its</xs:documentation>
+					<xs:documentation>exchange on behalf of a Balance Responsible Party.</xs:documentation>
+					<xs:documentation>For example in the Polish market a Scheduling Coordinator is</xs:documentation>
+					<xs:documentation>responsible for information interchange for scheduling and</xs:documentation>
+					<xs:documentation>settlement.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SystemOperator">
+				<xs:annotation>
+					<xs:documentation>A party that is responsible for a stable power system operation</xs:documentation>
+					<xs:documentation>(including the organisation of physical balance) through a</xs:documentation>
+					<xs:documentation>transmission grid in a geographical area. The System Operator will</xs:documentation>
+					<xs:documentation>also determine and be responsible for cross border capacity and</xs:documentation>
+					<xs:documentation>exchanges. If necessary he may reduce allocated capacity to ensure</xs:documentation>
+					<xs:documentation>operational stability.</xs:documentation>
+					<xs:documentation>Transmission as mentioned above means "the transport of electricity</xs:documentation>
+					<xs:documentation>on the extra high or high voltage network with a view to its delivery to</xs:documentation>
+					<xs:documentation>final customers or to distributors. Operation of transmission includes</xs:documentation>
+					<xs:documentation>as well the tasks of system operation concerning its management of</xs:documentation>
+					<xs:documentation>energy flows, relibability of the system and availability of all</xs:documentation>
+					<xs:documentation>necessary system services." (definition taken from the ENTSO-E</xs:documentation>
+					<xs:documentation>RGCE Operation handbook Glossary).</xs:documentation>
+					<xs:documentation>&lt;b&gt;&lt;i&gt;Note: &lt;/i&gt;&lt;/b&gt;additional obligations may be imposed through local market</xs:documentation>
+					<xs:documentation>rules.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TradeResponsibleParty">
+				<xs:annotation>
+					<xs:documentation>A party who can be brought to rights, legally and financially, for any</xs:documentation>
+					<xs:documentation>imbalance between enegry nominated and consumed for all</xs:documentation>
+					<xs:documentation>associated Accounting Points.</xs:documentation>
+					<xs:documentation>&lt;b&gt;&lt;i&gt;Note:&lt;/i&gt;&lt;/b&gt;</xs:documentation>
+					<xs:documentation>A power exchange without any privileged responsibilities acts as a</xs:documentation>
+					<xs:documentation>Trade Responsible Party.</xs:documentation>
+					<xs:documentation>&lt;b&gt;&lt;i&gt;Additional information:&lt;/i&gt;&lt;/b&gt;</xs:documentation>
+					<xs:documentation>This is a type of Balance Responsible Party.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TransmissionCapacityAllocator">
+				<xs:annotation>
+					<xs:documentation>Manages the allocation of transmission capacity for an Allocated</xs:documentation>
+					<xs:documentation>Capacity Area.</xs:documentation>
+					<xs:documentation>&lt;b&gt;&lt;i&gt;For explicit auctions:&lt;/i&gt;&lt;/b&gt;</xs:documentation>
+					<xs:documentation>The Transmission Capacity Allocator manages, on behalf of the</xs:documentation>
+					<xs:documentation>System Operators, the allocation of available transmission capacity</xs:documentation>
+					<xs:documentation>for an Allocated capacity Area. He offers the available transmission</xs:documentation>
+					<xs:documentation>capacity to the market, allocates the available transmission capacity</xs:documentation>
+					<xs:documentation>to individual Capacity Traders and calculates the billing amount of</xs:documentation>
+					<xs:documentation>already allocated capacities to the Capacity Traders.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="balancingAuthority">
+				<xs:annotation>
+					<xs:documentation>Balancing authority.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="competitiveRetailer">
+				<xs:annotation>
+					<xs:documentation>Competitive retailer.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="complianceMonitor">
+				<xs:annotation>
+					<xs:documentation>Compliance monitor.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="distributionProvider">
+				<xs:annotation>
+					<xs:documentation>Distribution provider.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="energyServiceConsumer">
+				<xs:annotation>
+					<xs:documentation>Energy service consumer.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="generatorOperator">
+				<xs:annotation>
+					<xs:documentation>Generator merchant operator.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="generatorOwner">
+				<xs:annotation>
+					<xs:documentation>Generator merchant owner.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="interchangeAuthority">
+				<xs:annotation>
+					<xs:documentation>Interchange authority.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="loadServingEntity">
+				<xs:annotation>
+					<xs:documentation>Load serving entity.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="planningAuthority">
+				<xs:annotation>
+					<xs:documentation>Planning authority.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="purchasingSellingEntity">
+				<xs:annotation>
+					<xs:documentation>Purchasing selling entity.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="reliabilityAuthority">
+				<xs:annotation>
+					<xs:documentation>Reliability authority.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="resourcePlanner">
+				<xs:annotation>
+					<xs:documentation>Resource planner.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="standardsDeveloper">
+				<xs:annotation>
+					<xs:documentation>Standards developer.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="transmissionOperator">
+				<xs:annotation>
+					<xs:documentation>Transmission operator.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="transmissionOwner">
+				<xs:annotation>
+					<xs:documentation>Transmission owner.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="transmissionPlanner">
+				<xs:annotation>
+					<xs:documentation>Transmission planner.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="transmissionServiceProvider">
+				<xs:annotation>
+					<xs:documentation>Transmission service provider.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="mRID">
+		<xs:annotation>
+			<xs:documentation>This is intended to be a universally unique identifier (UUID) for an instance of an object.  It is intended that this identifier is compliant with the IETF RFC 4122 ("A Universally Unique IDentifier URN Namespace") definition of a UUID. Furthermore, the pattern used to restrict the xs:string should support any of the RFC 4122 UUID variants, including the Microsoft Globally Unique Identifier (GUID) variant of the UUID, without being restricted to supporting ONLY the Microsoft GUID definition.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Name" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#Name">
+		<xs:annotation>
+			<xs:documentation>The Name class provides the means to define any number of human readable  names for an object. A name is &lt;b&gt;not&lt;/b&gt; to be used for defining inter-object relationships. For inter-object relationships instead use the object identification 'mRID'.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#Name.name">
+				<xs:annotation>
+					<xs:documentation>Any free text that name the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NameType" type="m:NameType" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#Name.NameType">
+				<xs:annotation>
+					<xs:documentation>Type of this name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NameType" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameType">
+		<xs:annotation>
+			<xs:documentation>Type of name. Possible values for attribute 'name' are implementation dependent but standard profiles may specify types. An enterprise may have multiple IT systems each having its own local name for the same object, e.g. a planning system may have different names from an EMS. An object may also have different names within the same IT system, e.g. localName as defined in CIM version 14. The definition from CIM14 is:</xs:documentation>
+			<xs:documentation>The localName is a human readable name of the object. It is a free text name local to a node in a naming hierarchy similar to a file directory structure. A power system related naming hierarchy may be: Substation, VoltageLevel, Equipment etc. Children of the same parent in such a hierarchy have names that typically are unique among them.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="description" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameType.description">
+				<xs:annotation>
+					<xs:documentation>Description of the name type.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameType.name">
+				<xs:annotation>
+					<xs:documentation>Name of the name type.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NameTypeAuthority" type="m:NameTypeAuthority" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameType.NameTypeAuthority">
+				<xs:annotation>
+					<xs:documentation>Authority responsible for managing names of this type.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NameTypeAuthority" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameTypeAuthority">
+		<xs:annotation>
+			<xs:documentation>Authority responsible for creation and management of names of a given type; typically an organization or an enterprise system.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="description" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameTypeAuthority.description">
+				<xs:annotation>
+					<xs:documentation>Description of the name type authority.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameTypeAuthority.name">
+				<xs:annotation>
+					<xs:documentation>Name of the name type authority.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="PassIndicatorType" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#PassIndicatorType">
+		<xs:annotation>
+			<xs:documentation>Defines the individual passes that produce results per execution type/market type</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DA">
+				<xs:annotation>
+					<xs:documentation>Day Ahead</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HA-SCUC">
+				<xs:annotation>
+					<xs:documentation>Hour Ahead Security Constrained Unit Commitment</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MPM-1">
+				<xs:annotation>
+					<xs:documentation>Market Power Mitigation Pass 1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MPM-2">
+				<xs:annotation>
+					<xs:documentation>Market Power Mitigation Pass 2</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MPM-3">
+				<xs:annotation>
+					<xs:documentation>Market Power Mitigation Pass 3</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MPM-4">
+				<xs:annotation>
+					<xs:documentation>Market Power Mitigation Pass 4</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RTED">
+				<xs:annotation>
+					<xs:documentation>Real Time Economic Dispatch</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RTPD">
+				<xs:annotation>
+					<xs:documentation>Real Time Pre Dispatch</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RUC">
+				<xs:annotation>
+					<xs:documentation>Residual Unit Commitment</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="RegisteredResource" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#RegisteredResource">
+		<xs:annotation>
+			<xs:documentation>A resource that is registered through the RTO participant registration system. Examples include generating unit, customer meter, and a non-physical generator or load.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mRID" type="m:mRID" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.mRID">
+				<xs:annotation>
+					<xs:documentation>Master resource identifier issued by a model authority. The mRID is globally unique within an exchange context.</xs:documentation>
+					<xs:documentation>Global uniqeness is easily achived by using a UUID for the mRID. It is strongly recommended to do this.</xs:documentation>
+					<xs:documentation>For CIMXML data files in RDF syntax, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.name">
+				<xs:annotation>
+					<xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Names" type="m:Name" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.Names">
+				<xs:annotation>
+					<xs:documentation>All names of this identified object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceAwardClearing" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardClearing">
+		<xs:annotation>
+			<xs:documentation>Models details of bid and offer market clearing. Class indicates whether a contingency is active and whether the automatic dispatching system is active for this interval of the market solution</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mRID" type="m:mRID" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.mRID">
+				<xs:annotation>
+					<xs:documentation>Master resource identifier issued by a model authority. The mRID is globally unique within an exchange context.</xs:documentation>
+					<xs:documentation>Global uniqeness is easily achived by using a UUID for the mRID. It is strongly recommended to do this.</xs:documentation>
+					<xs:documentation>For CIMXML data files in RDF syntax, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="contingencyActive" type="m:YesNo" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardClearing.contingencyActive">
+				<xs:annotation>
+					<xs:documentation>Indication that the system is currently operating in a contingency mode.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dispatchMode" type="m:AutomaticDispatchMode" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardClearing.dispatchMode">
+				<xs:annotation/>
+			</xs:element>
+			<xs:element name="intervalEndTime" type="xs:dateTime" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketFactors.intervalEndTime">
+				<xs:annotation>
+					<xs:documentation>The end of the time interval for which requirement is defined.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="intervalStartTime" type="xs:dateTime" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketFactors.intervalStartTime">
+				<xs:annotation>
+					<xs:documentation>The start of the time interval for which requirement is defined.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.name">
+				<xs:annotation>
+					<xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="passIndicator" type="m:PassIndicatorType" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketFactors.passIndicator">
+				<xs:annotation>
+					<xs:documentation>The type of run for the market clearing. Possibilities include (but are not limited to):  RT, DA, HA</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Names" type="m:Name" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.Names">
+				<xs:annotation>
+					<xs:documentation>All names of this identified object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceAwardInstruction" type="m:ResourceAwardInstruction" maxOccurs="unbounded" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardClearing.ResourceAwardInstruction">
+				<xs:annotation/>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceAwardInstruction" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction">
+		<xs:annotation>
+			<xs:documentation>Model of market results, instruction for resource.  Contains details of award as attributes</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="awardMW" type="xs:float" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction.awardMW">
+				<xs:annotation>
+					<xs:documentation>For DA Energy: Not Applicable;</xs:documentation>
+					<xs:documentation>For DA AS: DA AS market award;</xs:documentation>
+					<xs:documentation>For RT Energy: Not Applicable;</xs:documentation>
+					<xs:documentation>For RT AS: RT AS market award (excluding DA AS market or self-proviison awards)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="clearedMW" type="xs:float" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction.clearedMW">
+				<xs:annotation>
+					<xs:documentation>For DA Energy: Total Schedule = DA market schedule + DA self-schedule award;</xs:documentation>
+					<xs:documentation>For DA AS: DA Ancillary Service Awards = DA AS market award + DA AS self-provision award;</xs:documentation>
+					<xs:documentation>For RT Energy: Total Schedule = RT market schedule + RT self-schedule award;</xs:documentation>
+					<xs:documentation>For RT AS: RT Ancillary Service Awards = RT AS self-provision award + RT AS market award + DA AS market award + DA AS self-provision award;</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="clearedPrice" type="xs:float" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction.clearedPrice">
+				<xs:annotation>
+					<xs:documentation>Marginal Price ($/MW) for the commodity (Regulation Up, Regulation Down, Spinning Reserve, or Non-spinning reserve) for pricing run.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="congestLMP" type="xs:float" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction.congestLMP">
+				<xs:annotation>
+					<xs:documentation>Congestion component of Location Marginal Price (LMP) in monetary units per MW.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="costLMP" type="xs:float" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction.costLMP">
+				<xs:annotation>
+					<xs:documentation>Cost component of Locational Marginal Pricing (LMP) in monetary units per MW.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dispatcherAddedMW" type="xs:float" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction.dispatcherAddedMW">
+				<xs:annotation>
+					<xs:documentation>The tier2 mw added by dispatcher action</xs:documentation>
+					<xs:documentation>Market results of the synchronized reserve market</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="economicMax" type="xs:float" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction.economicMax">
+				<xs:annotation>
+					<xs:documentation>Unit max output for dispatch; bid in economic maximum</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="economicMin" type="xs:float" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction.economicMin">
+				<xs:annotation>
+					<xs:documentation>Unit min output for dispatch; bid in economic minimum</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lmp" type="xs:float" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction.lmp">
+				<xs:annotation>
+					<xs:documentation>Locational marginal price value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lossLMP" type="xs:float" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction.lossLMP">
+				<xs:annotation>
+					<xs:documentation>Loss component of Location Marginal Price (LMP) in monetary units per MW.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="noLoadCost" type="xs:float" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction.noLoadCost">
+				<xs:annotation>
+					<xs:documentation>Unit no-load cost in case of energy commodity</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="selfSchedMW" type="xs:float" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction.selfSchedMW">
+				<xs:annotation>
+					<xs:documentation>For DA Energy: DA total self-schedule award;</xs:documentation>
+					<xs:documentation>For DA AS: DA AS self-provision award;</xs:documentation>
+					<xs:documentation>For RT Energy: RT total self-schedule award;</xs:documentation>
+					<xs:documentation>For RT AS: RT AS self-provision award (excluding DA AS market or self-provision awards)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="startUpCost" type="xs:float" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction.startUpCost">
+				<xs:annotation>
+					<xs:documentation>Unit start up cost in case of energy commodity</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="status" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction.status">
+				<xs:annotation>
+					<xs:documentation>In or out status of resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="updateTimeStamp" type="xs:dateTime" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction.updateTimeStamp">
+				<xs:annotation/>
+			</xs:element>
+			<xs:element name="MarketProduct" type="m:MarketProduct" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction.MarketProduct">
+				<xs:annotation/>
+			</xs:element>
+			<xs:element name="RegisteredResource" type="m:RegisteredResource" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceAwardInstruction.RegisteredResource">
+				<xs:annotation/>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="YesNo" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#YesNo">
+		<xs:annotation/>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NO">
+				<xs:annotation/>
+			</xs:enumeration>
+			<xs:enumeration value="YES">
+				<xs:annotation/>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:annotation/>
+</xs:schema>

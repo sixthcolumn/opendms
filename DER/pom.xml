@@ -113,6 +113,18 @@
 									</extraargs>
 								</wsdlOption>
 								<wsdlOption>
+									<wsdl>${basedir}/wsdl/ExecuteDemandResponseDeployment.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-client</extraarg>
+									</extraargs>
+								</wsdlOption>
+								<wsdlOption>
+									<wsdl>${basedir}/wsdl/ReceiveDemandResponseDeploymentResponse.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-client</extraarg>
+									</extraargs>
+								</wsdlOption>
+								<wsdlOption>
 									<wsdl>${basedir}/wsdl/GetDERGroupCapability.wsdl</wsdl>
 									<extraargs>
 										<extraarg>-client</extraarg>

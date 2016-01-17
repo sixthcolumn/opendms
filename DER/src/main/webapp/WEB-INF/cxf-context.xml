@@ -19,5 +19,7 @@
 	<import resource="spring/dataBeans.xml" />
 	<import resource="spring/cim-der.xml" />
 	<import resource="spring/cim-der-request.xml" />
+	<import resource="spring/pap.xml" />
+	<import resource="spring/pap2.xml" />
 
 </beans>

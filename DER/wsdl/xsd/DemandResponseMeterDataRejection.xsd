@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 rel. 4 sp1 (x64) (http://www.altova.com) by Gerald Gray (Electric Power Research Institute) -->
+<!-- Change log - Updated namespace to reflect EPRI changes 
+                       - Changed MarketParticipant/MarketRole to be consistent across XSDs
+                       - Changed mRID to enforce the use of GUID-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:a="http://langdale.com.au/2005/Message#" xmlns:sawsdl="http://www.w3.org/ns/sawsdl" xmlns="http://langdale.com.au/2005/Message#" xmlns:m="http://www.isorto.org/2012/SmartGrid/DemandResponse#" targetNamespace="http://www.isorto.org/2012/SmartGrid/DemandResponse#" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:documentation/>
+	</xs:annotation>
+	<xs:complexType name="CoordinateSystem" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#CoordinateSystem">
+		<xs:annotation>
+			<xs:documentation>Coordinate reference system.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="crsUrn" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#CoordinateSystem.crsUrn">
+				<xs:annotation>
+					<xs:documentation>A Uniform Resource Name (URN) for the coordinate reference system (crs) used to define 'Location.PositionPoints'.</xs:documentation>
+					<xs:documentation>An example would be the European Petroleum Survey Group (EPSG) code for a coordinate reference system, defined in URN under the Open Geospatial Consortium (OGC) namespace as: urn:ogc :def:uom:EPSG::XXXX, where XXXX is an EPSG code (a full list of codes can be found at the EPSG Registry website http://www.epsg-registry.org/). To define the coordinate system as being WGS84 (latitude, longitude) using an EPSG OGC, this attribute would be urn:ogc:def:uom:EPSG::4236.</xs:documentation>
+					<xs:documentation>A profile should limit this code to a set of allowed URNs agreed to by all sending and receiving parties.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="DemandResponseMeterDataRejection" type="m:DemandResponseMeterDataRejection"/>
+	<xs:complexType name="DemandResponseMeterDataRejection">
+		<xs:sequence>
+			<xs:element name="MarketParticipant" type="m:MarketParticipant"/>
+			<xs:element name="MeterReading" type="m:MeterReading" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MarketParticipant" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketParticipant">
+		<xs:annotation>
+			<xs:documentation>An identification of a party acting in a electricity market business process. This class is used to identify organizations that can participate in market management and/or market operations.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mRID" type="m:mRID" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.mRID">
+				<xs:annotation>
+					<xs:documentation>Master resource identifier issued by a model authority. The mRID is globally unique within an exchange context.</xs:documentation>
+					<xs:documentation>Global uniqeness is easily achived by using a UUID for the mRID. It is strongly recommended to do this.</xs:documentation>
+					<xs:documentation>For CIMXML data files in RDF syntax, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.name">
+				<xs:annotation>
+					<xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MarketRoles" type="m:MarketRole" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketParticipant.MarketRoles">
+				<xs:annotation/>
+			</xs:element>
+			<xs:element name="Names" type="m:Name" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.Names">
+				<xs:annotation>
+					<xs:documentation>All names of this identified object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MarketRole" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketRole">
+		<xs:annotation>
+			<xs:documentation>The external intended behaviour played by a party within the electricity market.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="roleType" type="m:MarketRoleKind" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketRole.roleType">
+				<xs:annotation>
+					<xs:documentation>Defined using an enumerated list of types of market roles for use when a finite list of types are desired.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketRole.type">
+				<xs:annotation>
+					<xs:documentation>The kind of market roles that can be played by parties for given domains within the electricity market. Types are flexible using dataType of string for free-entry of role types.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="MarketRoleKind" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketRoleKind">
+		<xs:annotation>
+			<xs:documentation>Kind of market role an organisation can have.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MeterOperator">
+				<xs:annotation>
+					<xs:documentation>A party responsible for installing, maintaining, testing, certifying and</xs:documentation>
+					<xs:documentation>decommissioning physical meters.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MeteredDataAggregator">
+				<xs:annotation>
+					<xs:documentation>A party responsible for the establishment and qualification of metered</xs:documentation>
+					<xs:documentation>data from the Metered Data Responsible. This data is aggregated</xs:documentation>
+					<xs:documentation>according to a defined set of market rules.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MeteredDataCollector">
+				<xs:annotation>
+					<xs:documentation>A party responsible for meter reading and quality control of the</xs:documentation>
+					<xs:documentation>reading.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MeteredDataResponsible">
+				<xs:annotation>
+					<xs:documentation>A party responsible for the establishment and validation of metered</xs:documentation>
+					<xs:documentation>data based on the collected data received from the Metered Data</xs:documentation>
+					<xs:documentation>Collector. The party is responsible for the history of metered data for</xs:documentation>
+					<xs:documentation>a Metering Point.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="complianceMonitor">
+				<xs:annotation>
+					<xs:documentation>Compliance monitor.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Meter" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#Meter">
+		<xs:annotation>
+			<xs:documentation>Physical asset that performs the metering role of the usage point. Used for measuring consumption and detection of events.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mRID" type="m:mRID" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.mRID">
+				<xs:annotation>
+					<xs:documentation>Master resource identifier issued by a model authority. The mRID is globally unique within an exchange context.</xs:documentation>
+					<xs:documentation>Global uniqeness is easily achived by using a UUID for the mRID. It is strongly recommended to do this.</xs:documentation>
+					<xs:documentation>For CIMXML data files in RDF syntax, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.name">
+				<xs:annotation>
+					<xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Names" type="m:Name" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.Names">
+				<xs:annotation>
+					<xs:documentation>All names of this identified object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UsagePoint" type="m:UsagePoint" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#EndDevice.UsagePoint">
+				<xs:annotation>
+					<xs:documentation>Usage point to which this end device belongs.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MeterReading" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MeterReading">
+		<xs:annotation>
+			<xs:documentation>Set of values obtained from the meter.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Meter" type="m:Meter" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MeterReading.Meter">
+				<xs:annotation>
+					<xs:documentation>Meter providing this reading.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Readings" type="m:Reading" maxOccurs="unbounded" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MeterReading.Readings">
+				<xs:annotation>
+					<xs:documentation>All reading values contained within this meter reading.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="mRID">
+		<xs:annotation>
+			<xs:documentation>This is intended to be a universally unique identifier (UUID) for an instance of an object.  It is intended that this identifier is compliant with the IETF RFC 4122 ("A Universally Unique IDentifier URN Namespace") definition of a UUID. Furthermore, the pattern used to restrict the xs:string should support any of the RFC 4122 UUID variants, including the Microsoft Globally Unique Identifier (GUID) variant of the UUID, without being restricted to supporting ONLY the Microsoft GUID definition.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Name" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#Name">
+		<xs:annotation>
+			<xs:documentation>The Name class provides the means to define any number of human readable  names for an object. A name is &lt;b&gt;not&lt;/b&gt; to be used for defining inter-object relationships. For inter-object relationships instead use the object identification 'mRID'.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#Name.name">
+				<xs:annotation>
+					<xs:documentation>Any free text that name the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NameType" type="m:NameType" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#Name.NameType">
+				<xs:annotation>
+					<xs:documentation>Type of this name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NameType" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameType">
+		<xs:annotation>
+			<xs:documentation>Type of name. Possible values for attribute 'name' are implementation dependent but standard profiles may specify types. An enterprise may have multiple IT systems each having its own local name for the same object, e.g. a planning system may have different names from an EMS. An object may also have different names within the same IT system, e.g. localName as defined in CIM version 14. The definition from CIM14 is:</xs:documentation>
+			<xs:documentation>The localName is a human readable name of the object. It is a free text name local to a node in a naming hierarchy similar to a file directory structure. A power system related naming hierarchy may be: Substation, VoltageLevel, Equipment etc. Children of the same parent in such a hierarchy have names that typically are unique among them.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="description" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameType.description">
+				<xs:annotation>
+					<xs:documentation>Description of the name type.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameType.name">
+				<xs:annotation>
+					<xs:documentation>Name of the name type.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NameTypeAuthority" type="m:NameTypeAuthority" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameType.NameTypeAuthority">
+				<xs:annotation>
+					<xs:documentation>Authority responsible for managing names of this type.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NameTypeAuthority" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameTypeAuthority">
+		<xs:annotation>
+			<xs:documentation>Authority responsible for creation and management of names of a given type; typically an organization or an enterprise system.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="description" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameTypeAuthority.description">
+				<xs:annotation>
+					<xs:documentation>Description of the name type authority.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameTypeAuthority.name">
+				<xs:annotation>
+					<xs:documentation>Name of the name type authority.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Reading" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#Reading">
+		<xs:annotation>
+			<xs:documentation>Specific value measured by a meter or other asset, or calculated by a system. Each Reading is associated with a specific ReadingType.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="reportedDateTime" type="xs:dateTime" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#BaseReading.reportedDateTime">
+				<xs:annotation>
+					<xs:documentation>(used only when there are detailed auditing requirements) Date and time at which the reading was first delivered to the metering system.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="source" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#BaseReading.source">
+				<xs:annotation>
+					<xs:documentation>System that originally supplied the reading (e.g., customer, AMI system, handheld reading system, another enterprise system, etc.).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="value" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#BaseReading.value">
+				<xs:annotation>
+					<xs:documentation>Value of this reading.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReadingQualities" type="m:ReadingQuality" maxOccurs="unbounded" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#BaseReading.ReadingQualities">
+				<xs:annotation>
+					<xs:documentation>All qualities of this reading.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReadingQuality" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ReadingQuality">
+		<xs:annotation>
+			<xs:documentation>Quality of a specific reading value or interval reading value. Note that more than one quality may be applicable to a given reading. Typically not used unless problems or unusual conditions occur (i.e., quality for each reading is assumed to be good unless stated otherwise in associated reading quality type). It can also be used with the corresponding reading quality type to indicate that the validation has been performed and succeeded.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="comment" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ReadingQuality.comment">
+				<xs:annotation>
+					<xs:documentation>Elaboration on the quality code.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="source" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ReadingQuality.source">
+				<xs:annotation>
+					<xs:documentation>System acting as the source of the quality code.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="timeStamp" type="xs:dateTime" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ReadingQuality.timeStamp">
+				<xs:annotation>
+					<xs:documentation>Date and time at which the quality code was assigned or ascertained.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReadingQualityType" type="m:ReadingQualityType" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ReadingQuality.ReadingQualityType">
+				<xs:annotation>
+					<xs:documentation>Type of this reading quality.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReadingQualityType" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ReadingQualityType">
+		<xs:annotation>
+			<xs:documentation>Detailed description for a quality of a reading value, produced by an end device or a system. Values in attributes allow for creation of recommended codes to be used for identifying reading value quality codes as follows: &amp;lt;systemId&amp;gt;.&amp;lt;category&amp;gt;.&amp;lt;subCategory&amp;gt;.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="category" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ReadingQualityType.category">
+				<xs:annotation>
+					<xs:documentation>High-level nature of the reading value quality.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="subCategory" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ReadingQualityType.subCategory">
+				<xs:annotation>
+					<xs:documentation>More specific nature of the reading value quality, as a further sub-categorisation of 'category'.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="systemId" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ReadingQualityType.systemId">
+				<xs:annotation>
+					<xs:documentation>Identification of the system which has declared the issue with the data or provided commentary on the data.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReadingType" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ReadingType">
+		<xs:annotation>
+			<xs:documentation>Detailed description for a type of a reading value. Values in attributes allow for creation of recommended codes to be used for identifying reading value types as follows: &amp;lt;macroPeriod&amp;gt;.&amp;lt;aggregate&amp;gt;.&amp;lt;measuringPeriod&amp;gt;.&amp;lt;accumulation&amp;gt;.&amp;lt;flowDirection&amp;gt;.&amp;lt;commodity&amp;gt;.&amp;lt;measurementKind&amp;gt;.&amp;lt;interharmonic.numerator&amp;gt;.&amp;lt;interharmonic.denominator&amp;gt;.&amp;lt;argument.numerator&amp;gt;.&amp;lt;argument.denominator&amp;gt;.&amp;lt;tou&amp;gt;.&amp;lt;cpp&amp;gt;.&amp;lt;consumptionTier&amp;gt;.&amp;lt;phases&amp;gt;.&amp;lt;multiplier&amp;gt;.&amp;lt;unit&amp;gt;.&amp;lt;currency&amp;gt;.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="commodity" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ReadingType.commodity">
+				<xs:annotation>
+					<xs:documentation>Commodity being measured.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="flowDirection" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ReadingType.flowDirection">
+				<xs:annotation>
+					<xs:documentation>Flow direction for a reading where the direction of flow of the commodity is important (for electricity measurements this includes current, energy, power, and demand).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="measurementKind" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ReadingType.measurementKind">
+				<xs:annotation>
+					<xs:documentation>Identifies "what" is being measured, as refinement of 'commodity'. When combined with 'unit', it provides detail to the unit of measure. For example, 'energy' with a unit of measure of 'kWh' indicates to the user that active energy is being measured, while with 'kVAh' or 'kVArh', it indicates apparent energy and reactive energy, respectively. 'power' can be combined in a similar way with various power units of measure: Distortion power ('distortionVoltAmperes') with 'kVA' is different from 'power' with 'kVA'.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="unit" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ReadingType.unit">
+				<xs:annotation>
+					<xs:documentation>Metering-specific unit.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UsagePoint" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#UsagePoint">
+		<xs:annotation>
+			<xs:documentation>Logical or physical point in the network to which readings or events may be attributed. Used at the place where a physical or virtual meter may be located; however, it is not required that a meter be present.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mRID" type="m:mRID" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.mRID">
+				<xs:annotation>
+					<xs:documentation>Master resource identifier issued by a model authority. The mRID is globally unique within an exchange context.</xs:documentation>
+					<xs:documentation>Global uniqeness is easily achived by using a UUID for the mRID. It is strongly recommended to do this.</xs:documentation>
+					<xs:documentation>For CIMXML data files in RDF syntax, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.name">
+				<xs:annotation>
+					<xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Names" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.Names">
+				<xs:annotation>
+					<xs:documentation>All names of this identified object.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType sawsdl:modelReference="">
+					<xs:attribute name="ref" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="UsagePointLocation" type="m:UsagePointLocation" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#UsagePoint.UsagePointLocation">
+				<xs:annotation>
+					<xs:documentation>Location of this usage point.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UsagePointLocation" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#UsagePointLocation">
+		<xs:annotation>
+			<xs:documentation>Location of an individual usage point.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mRID" type="m:mRID" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.mRID">
+				<xs:annotation>
+					<xs:documentation>Master resource identifier issued by a model authority. The mRID is globally unique within an exchange context.</xs:documentation>
+					<xs:documentation>Global uniqeness is easily achived by using a UUID for the mRID. It is strongly recommended to do this.</xs:documentation>
+					<xs:documentation>For CIMXML data files in RDF syntax, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="aliasName" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.aliasName">
+				<xs:annotation>
+					<xs:documentation>The aliasName is free text human readable name of the object alternative to IdentifiedObject.name. It may be non unique and may not correlate to a naming hierarchy.</xs:documentation>
+					<xs:documentation>The attribute aliasName is retained because of backwards compatibility between CIM relases. It is however recommended to replace aliasName with the Name class as aliasName is planned for retirement at a future time.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="geoInfoReference" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#Location.geoInfoReference">
+				<xs:annotation>
+					<xs:documentation>(if applicable) Reference to geographical information source, often external to the utility.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.name">
+				<xs:annotation>
+					<xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CoordinateSystem" type="m:CoordinateSystem" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#Location.CoordinateSystem">
+				<xs:annotation>
+					<xs:documentation>Coordinate system used to describe position points of this location.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

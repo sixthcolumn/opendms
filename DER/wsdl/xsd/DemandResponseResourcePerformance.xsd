@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 rel. 4 sp1 (x64) (http://www.altova.com) by Gerald Gray (Electric Power Research Institute) -->
+<!-- Change log - Updated namespace to reflect EPRI changes 
+                       - Changed MarketParticipant/MarketRole to be consistent across XSDs
+                       - Changed mRID to enforce the use of GUID-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:a="http://langdale.com.au/2005/Message#" xmlns:sawsdl="http://www.w3.org/ns/sawsdl" xmlns="http://langdale.com.au/2005/Message#" xmlns:m="http://www.epri.com/2016/DemandResponse#" targetNamespace="http://www.epri.com/2016/DemandResponse#" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:documentation/>
+	</xs:annotation>
+	<xs:complexType name="DemandResponseEvent" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#DemandResponseEvent">
+		<xs:annotation>
+			<xs:documentation>A demand response event is created when there is a need to call upon resources to respond to demand adjustment requests. These events are created by ISO/RTO system operations and managed  by a demand response management system (DRMS). The event will call for deployment number of registered resources, or for deployment of resources within a zone (an organizational area within the power system that contains a number of resources).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mRID" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.mRID">
+				<xs:annotation>
+					<xs:documentation>Master resource identifier issued by a model authority. The mRID is globally unique within an exchange context.</xs:documentation>
+					<xs:documentation>Global uniqeness is easily achived by using a UUID for the mRID. It is strongly recommended to do this.</xs:documentation>
+					<xs:documentation>For CIMXML data files in RDF syntax, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="eventComments" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#DemandResponseEvent.eventComments">
+				<xs:annotation>
+					<xs:documentation>free format comments for the event, for any purpose needed</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="eventEndTime" type="xs:dateTime" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#DemandResponseEvent.eventEndTime">
+				<xs:annotation>
+					<xs:documentation>The end of the event specified as an ISO 8601 date time value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="eventStartTime" type="xs:dateTime" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#DemandResponseEvent.eventStartTime">
+				<xs:annotation>
+					<xs:documentation>The start of the event specified as an ISO 8601 date time value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="eventType" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#DemandResponseEvent.eventType">
+				<xs:annotation>
+					<xs:documentation>Example xamples include: real, audit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.name">
+				<xs:annotation>
+					<xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="DemandResponseResourcePerformance" type="m:DemandResponseResourcePerformance"/>
+	<xs:complexType name="DemandResponseResourcePerformance">
+		<xs:sequence>
+			<xs:element name="MarketParticipant" type="m:MarketParticipant" maxOccurs="unbounded"/>
+			<xs:element name="RegisteredResourceDeployment" type="m:RegisteredResourceDeployment" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Market" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#Market">
+		<xs:annotation>
+			<xs:documentation>Market (e.g., Day Ahead Market, RealTime Market) with a description of the the Market operation control parameters.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Bids" maxOccurs="unbounded" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#Market.Bids">
+				<xs:annotation/>
+				<xs:complexType sawsdl:modelReference="">
+					<xs:attribute name="ref" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MarketParticipant" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketParticipant">
+		<xs:annotation>
+			<xs:documentation>An identification of a party acting in a electricity market business process. This class is used to identify organizations that can participate in market management and/or market operations.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mRID" type="m:mRID" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.mRID">
+				<xs:annotation>
+					<xs:documentation>Master resource identifier issued by a model authority. The mRID is globally unique within an exchange context.</xs:documentation>
+					<xs:documentation>Global uniqeness is easily achived by using a UUID for the mRID. It is strongly recommended to do this.</xs:documentation>
+					<xs:documentation>For CIMXML data files in RDF syntax, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.name">
+				<xs:annotation>
+					<xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MarketRoles" type="m:MarketRole" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketParticipant.MarketRoles">
+				<xs:annotation/>
+			</xs:element>
+			<xs:element name="Names" type="m:Name" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.Names">
+				<xs:annotation>
+					<xs:documentation>All names of this identified object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MarketProduct" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketProduct">
+		<xs:annotation>
+			<xs:documentation>A product traded by an RTO (e.g., energy, 10 minute spinning reserve).Ancillary service product examples include:Regulation UpRegulation DnSpinning ReserveNon-Spinning ReserveOperating Reserve</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mRID" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.mRID">
+				<xs:annotation>
+					<xs:documentation>Master resource identifier issued by a model authority. The mRID is globally unique within an exchange context.</xs:documentation>
+					<xs:documentation>Global uniqeness is easily achived by using a UUID for the mRID. It is strongly recommended to do this.</xs:documentation>
+					<xs:documentation>For CIMXML data files in RDF syntax, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="marketProductType" type="m:MarketProductType" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketProduct.marketProductType">
+				<xs:annotation>
+					<xs:documentation>Market product type examples:</xs:documentation>
+					<xs:documentation>EN (Energy)</xs:documentation>
+					<xs:documentation>RU (Regulation Up)</xs:documentation>
+					<xs:documentation>RD (Regulation Dn)</xs:documentation>
+					<xs:documentation>SR (Spinning Reserve)</xs:documentation>
+					<xs:documentation>NR (Non-Spinning Reserve)</xs:documentation>
+					<xs:documentation>RC (RUC)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.name">
+				<xs:annotation>
+					<xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="MarketProductType" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketProductType">
+		<xs:annotation>
+			<xs:documentation>For example:</xs:documentation>
+			<xs:documentation>Energy, Reg Up, Reg Down, Spin Reserve, Nonspin Reserve, RUC, Load Folloing Up, &amp;amp; Load Following Down.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="EN">
+				<xs:annotation>
+					<xs:documentation>energy type</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="LFD">
+				<xs:annotation>
+					<xs:documentation>Load following down</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="LFU">
+				<xs:annotation>
+					<xs:documentation>Load following up</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NR">
+				<xs:annotation>
+					<xs:documentation>non spinning reserve</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RC">
+				<xs:annotation>
+					<xs:documentation>Residual Unit Commitment</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RD">
+				<xs:annotation>
+					<xs:documentation>regulation down</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="REG">
+				<xs:annotation>
+					<xs:documentation>Regulation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RU">
+				<xs:annotation>
+					<xs:documentation>regulation up</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SR">
+				<xs:annotation>
+					<xs:documentation>spinning reserve</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="MarketRole" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketRole">
+		<xs:annotation>
+			<xs:documentation>The external intended behaviour played by a party within the electricity market.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="roleType" type="m:MarketRoleKind" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketRole.roleType">
+				<xs:annotation>
+					<xs:documentation>Defined using an enumerated list of types of market roles for use when a finite list of types are desired.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketRole.type">
+				<xs:annotation>
+					<xs:documentation>The kind of market roles that can be played by parties for given domains within the electricity market. Types are flexible using dataType of string for free-entry of role types.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="MarketRoleKind" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketRoleKind">
+		<xs:annotation>
+			<xs:documentation>Kind of market role an organisation can have.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MarketInformationAggregator">
+				<xs:annotation>
+					<xs:documentation>Market Information Aggregator, A party that provides market related</xs:documentation>
+					<xs:documentation>information that has been compiled from the figures supplied by</xs:documentation>
+					<xs:documentation>different actors in the market. This information may also be published</xs:documentation>
+					<xs:documentation>or distributed for general use.</xs:documentation>
+					<xs:documentation>&lt;b&gt;&lt;i&gt;Note:&lt;/i&gt;&lt;/b&gt;</xs:documentation>
+					<xs:documentation>The Market Information Aggregator may receive information from any</xs:documentation>
+					<xs:documentation>market participant that is relevant for publication or distribution.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MarketOperator">
+				<xs:annotation>
+					<xs:documentation>The unique power exchange of trades for the actual delivery of</xs:documentation>
+					<xs:documentation>energy that receives the bids from the Balance Responsible Parties</xs:documentation>
+					<xs:documentation>that have a contract to bid. The Market Operator determines the</xs:documentation>
+					<xs:documentation>market energy price for the Market Balance Area after applying</xs:documentation>
+					<xs:documentation>technical constraints from the System Operator. It may also establish</xs:documentation>
+					<xs:documentation>the price for the reconciliation within a Metering Grid Area.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ReconciliationAccountable">
+				<xs:annotation>
+					<xs:documentation>A party that is financially accountable for the reconciled volume of</xs:documentation>
+					<xs:documentation>energy products for a profiled Accounting Point.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ReconciliationResponsible">
+				<xs:annotation>
+					<xs:documentation>A party that is responsible for reconciling, within a Metering Grid</xs:documentation>
+					<xs:documentation>Area, the volumes used in the imbalance settlement process for</xs:documentation>
+					<xs:documentation>profiled Accounting Points and the actual metered quantities.</xs:documentation>
+					<xs:documentation>Note:</xs:documentation>
+					<xs:documentation>The Reconciliation Responsible may delegate the invoicing</xs:documentation>
+					<xs:documentation>responsibility to a more generic role such as a Billing Agent.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ResourceProvider">
+				<xs:annotation>
+					<xs:documentation>A role that manages a resource object and provides the schedules for</xs:documentation>
+					<xs:documentation>it</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TradeResponsibleParty">
+				<xs:annotation>
+					<xs:documentation>A party who can be brought to rights, legally and financially, for any</xs:documentation>
+					<xs:documentation>imbalance between enegry nominated and consumed for all</xs:documentation>
+					<xs:documentation>associated Accounting Points.</xs:documentation>
+					<xs:documentation>&lt;b&gt;&lt;i&gt;Note:&lt;/i&gt;&lt;/b&gt;</xs:documentation>
+					<xs:documentation>A power exchange without any privileged responsibilities acts as a</xs:documentation>
+					<xs:documentation>Trade Responsible Party.</xs:documentation>
+					<xs:documentation>&lt;b&gt;&lt;i&gt;Additional information:&lt;/i&gt;&lt;/b&gt;</xs:documentation>
+					<xs:documentation>This is a type of Balance Responsible Party.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="complianceMonitor">
+				<xs:annotation>
+					<xs:documentation>Compliance monitor.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MarketType" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#MarketType">
+		<xs:annotation>
+			<xs:documentation>maket type</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DAM">
+				<xs:annotation>
+					<xs:documentation>day ahead market</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HAM">
+				<xs:annotation>
+					<xs:documentation>Hour Ahead Market</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RTM">
+				<xs:annotation>
+					<xs:documentation>real time market</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RUC">
+				<xs:annotation>
+					<xs:documentation>Residual Unit Commitment</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="mRID">
+		<xs:annotation>
+			<xs:documentation>This is intended to be a universally unique identifier (UUID) for an instance of an object.  It is intended that this identifier is compliant with the IETF RFC 4122 ("A Universally Unique IDentifier URN Namespace") definition of a UUID. Furthermore, the pattern used to restrict the xs:string should support any of the RFC 4122 UUID variants, including the Microsoft Globally Unique Identifier (GUID) variant of the UUID, without being restricted to supporting ONLY the Microsoft GUID definition.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Name" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#Name">
+		<xs:annotation>
+			<xs:documentation>The Name class provides the means to define any number of human readable  names for an object. A name is &lt;b&gt;not&lt;/b&gt; to be used for defining inter-object relationships. For inter-object relationships instead use the object identification 'mRID'.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#Name.name">
+				<xs:annotation>
+					<xs:documentation>Any free text that name the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NameType" type="m:NameType" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#Name.NameType">
+				<xs:annotation>
+					<xs:documentation>Type of this name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NameType" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameType">
+		<xs:annotation>
+			<xs:documentation>Type of name. Possible values for attribute 'name' are implementation dependent but standard profiles may specify types. An enterprise may have multiple IT systems each having its own local name for the same object, e.g. a planning system may have different names from an EMS. An object may also have different names within the same IT system, e.g. localName as defined in CIM version 14. The definition from CIM14 is:</xs:documentation>
+			<xs:documentation>The localName is a human readable name of the object. It is a free text name local to a node in a naming hierarchy similar to a file directory structure. A power system related naming hierarchy may be: Substation, VoltageLevel, Equipment etc. Children of the same parent in such a hierarchy have names that typically are unique among them.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="description" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameType.description">
+				<xs:annotation>
+					<xs:documentation>Description of the name type.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameType.name">
+				<xs:annotation>
+					<xs:documentation>Name of the name type.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NameTypeAuthority" type="m:NameTypeAuthority" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameType.NameTypeAuthority">
+				<xs:annotation>
+					<xs:documentation>Authority responsible for managing names of this type.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NameTypeAuthority" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameTypeAuthority">
+		<xs:annotation>
+			<xs:documentation>Authority responsible for creation and management of names of a given type; typically an organization or an enterprise system.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="description" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameTypeAuthority.description">
+				<xs:annotation>
+					<xs:documentation>Description of the name type authority.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#NameTypeAuthority.name">
+				<xs:annotation>
+					<xs:documentation>Name of the name type authority.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PerformancePropertyValue" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#PerformancePropertyValue">
+		<xs:annotation>
+			<xs:documentation>property/value pairs of variables that model any variable data for performance evaluation</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="performanceVariableDescription" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#PerformancePropertyValue.performanceVariableDescription">
+				<xs:annotation>
+					<xs:documentation>the variable type of the data (e.g. "resource emergency maximum capability"). the description is used with the value to model the class as property/value pairs.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="performanceVariableValue" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#PerformancePropertyValue.performanceVariableValue">
+				<xs:annotation/>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RegisteredResource" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#RegisteredResource">
+		<xs:annotation>
+			<xs:documentation>A resource that is registered through the RTO participant registration system. Examples include generating unit, customer meter, and a non-physical generator or load.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mRID" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.mRID">
+				<xs:annotation>
+					<xs:documentation>Master resource identifier issued by a model authority. The mRID is globally unique within an exchange context.</xs:documentation>
+					<xs:documentation>Global uniqeness is easily achived by using a UUID for the mRID. It is strongly recommended to do this.</xs:documentation>
+					<xs:documentation>For CIMXML data files in RDF syntax, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.name">
+				<xs:annotation>
+					<xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Names" type="m:Name" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.Names">
+				<xs:annotation>
+					<xs:documentation>All names of this identified object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RegisteredResourceDeployment" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#RegisteredResourceDeployment">
+		<xs:annotation>
+			<xs:documentation>&lt;font color="#ff0000"&gt;Represents the deployment of a specific registered resource.&lt;/font&gt;</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mRID" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.mRID">
+				<xs:annotation>
+					<xs:documentation>Master resource identifier issued by a model authority. The mRID is globally unique within an exchange context.</xs:documentation>
+					<xs:documentation>Global uniqeness is easily achived by using a UUID for the mRID. It is strongly recommended to do this.</xs:documentation>
+					<xs:documentation>For CIMXML data files in RDF syntax, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.name">
+				<xs:annotation>
+					<xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RegisteredResource" type="m:RegisteredResource" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#RegisteredResourceDeployment.RegisteredResource">
+				<xs:annotation/>
+			</xs:element>
+			<xs:element name="ResourcePerformanceEvaluations" type="m:ResourcePerformanceEvaluation" maxOccurs="unbounded" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#RegisteredResourceDeployment.ResourcePerformanceEvaluations">
+				<xs:annotation/>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RegularTimePoint" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#RegularTimePoint">
+		<xs:annotation>
+			<xs:documentation>Time point for a schedule where the time between the consecutive points is constant.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="sequenceNumber" type="xs:integer" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#RegularTimePoint.sequenceNumber">
+				<xs:annotation>
+					<xs:documentation>The position of the regular time point in the sequence. Note that time points don't have to be sequential, i.e. time points may be omitted. The actual time for a RegularTimePoint is computed by multiplying the associated regular interval schedule's time step with the regular time point sequence number and adding the associated schedules start time.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="value1" type="xs:float" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#RegularTimePoint.value1">
+				<xs:annotation>
+					<xs:documentation>The first value at the time. The meaning of the value is defined by the derived type of the associated schedule.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="value2" type="xs:float" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#RegularTimePoint.value2">
+				<xs:annotation>
+					<xs:documentation>The second value at the time. The meaning of the value is defined by the derived type of the associated schedule.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PerformancePropertyValues" type="m:PerformancePropertyValue" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#PerformanceRegularTimePoint.PerformancePropertyValues">
+				<xs:annotation/>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourcePerformanceEvaluation" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourcePerformanceEvaluation">
+		<xs:annotation>
+			<xs:documentation>a scalar value for resource performance. this value is not a time series, but does have an effective start/end date</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mRID" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.mRID">
+				<xs:annotation>
+					<xs:documentation>Master resource identifier issued by a model authority. The mRID is globally unique within an exchange context.</xs:documentation>
+					<xs:documentation>Global uniqeness is easily achived by using a UUID for the mRID. It is strongly recommended to do this.</xs:documentation>
+					<xs:documentation>For CIMXML data files in RDF syntax, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="effectiveEndTime" type="xs:dateTime" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourcePerformanceEvaluation.effectiveEndTime">
+				<xs:annotation/>
+			</xs:element>
+			<xs:element name="effectiveStartTime" type="xs:dateTime" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourcePerformanceEvaluation.effectiveStartTime">
+				<xs:annotation/>
+			</xs:element>
+			<xs:element name="evaluationDescription" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourcePerformanceEvaluation.evaluationDescription">
+				<xs:annotation>
+					<xs:documentation>description of the performance evaluation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="evaluationValue" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourcePerformanceEvaluation.evaluationValue">
+				<xs:annotation>
+					<xs:documentation>the value of the performance. as a String, any rating scheme is supported (e.g. "1","2","3" or "low", "medium", "high") the rating scheme is described in the performanceValueDescription attribute</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.name">
+				<xs:annotation>
+					<xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourcePerformanceGlobalFactors" type="m:ResourcePerformanceGlobalFactors" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourcePerformanceEvaluation.ResourcePerformanceGlobalFactors">
+				<xs:annotation/>
+			</xs:element>
+			<xs:element name="ResourcePerformanceTimeSeriesFactors" type="m:ResourcePerformanceTimeSeriesFactors" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourcePerformanceEvaluation.ResourcePerformanceTimeSeriesFactors">
+				<xs:annotation/>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourcePerformanceGlobalFactors" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourcePerformanceGlobalFactors">
+		<xs:annotation>
+			<xs:documentation>factors are property/value pairs that are used to adjust resource performance baseline values. Example include scale factors (scale a baseline up or down), adders (positive or negative), etc.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mRID" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.mRID">
+				<xs:annotation>
+					<xs:documentation>Master resource identifier issued by a model authority. The mRID is globally unique within an exchange context.</xs:documentation>
+					<xs:documentation>Global uniqeness is easily achived by using a UUID for the mRID. It is strongly recommended to do this.</xs:documentation>
+					<xs:documentation>For CIMXML data files in RDF syntax, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="factorDescription" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourcePerformanceGlobalFactors.factorDescription">
+				<xs:annotation>
+					<xs:documentation>description (name) of the property (factor)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="factorValue" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourcePerformanceGlobalFactors.factorValue">
+				<xs:annotation>
+					<xs:documentation>the value of the property (factor)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#IdentifiedObject.name">
+				<xs:annotation>
+					<xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourcePerformanceTimeSeriesFactors" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourcePerformanceTimeSeriesFactors">
+		<xs:annotation>
+			<xs:documentation>represents a Demand Resource performance for a specified time period, baseline, and evaluation (performance determination) method</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="endTime" type="xs:dateTime" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#RegularIntervalSchedule.endTime">
+				<xs:annotation>
+					<xs:documentation>The time for the last time point.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="startTime" type="xs:dateTime" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#BasicIntervalSchedule.startTime">
+				<xs:annotation>
+					<xs:documentation>The time for the first time point.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="timeSeriesDataType" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourcePerformanceTimeSeriesFactors.timeSeriesDataType">
+				<xs:annotation>
+					<xs:documentation>Typef the time series data, e.g. baseline data, meter read data, computed performance data.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="timeSeriesDescription" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourcePerformanceTimeSeriesFactors.timeSeriesDescription">
+				<xs:annotation>
+					<xs:documentation>Optional description of the time series data, e.g. baseline data, meter read data, computed performance data.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="timeStep" type="m:Seconds" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#RegularIntervalSchedule.timeStep">
+				<xs:annotation>
+					<xs:documentation>The time between each pair of subsequent regular time points in sequence order.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TimePoints" type="m:RegularTimePoint" maxOccurs="unbounded" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#RegularIntervalSchedule.TimePoints">
+				<xs:annotation>
+					<xs:documentation>The regular interval time point data values that define this schedule.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Seconds" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#Seconds">
+		<xs:annotation>
+			<xs:documentation>Time, in seconds.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:float"/>
+	</xs:simpleType>
+</xs:schema>
