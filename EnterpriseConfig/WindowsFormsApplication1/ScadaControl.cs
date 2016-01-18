@@ -17,10 +17,14 @@ namespace WindowsFormsApplication1
     public partial class ScadaControl : UserControl
     {
 
+        private DERMSInterface.CIMData _cim;
 
         // todo : I don't know what the state column contains, purpose
 
+        // binds _cim.scada to scada forms
         private BindingSource ScadaBindingSource = new BindingSource();
+
+        // list of supported device types, self loading
         private List<CIMData.DeviceType> devices = new List<CIMData.DeviceType>();
 
         public ScadaControl()
@@ -29,22 +33,25 @@ namespace WindowsFormsApplication1
             scadaDeviceView.CellFormatting += scadaDeviceView_CellFormatting;
             scadaDeviceView.CellValueChanged += scadaDeviceView_CellValueChanged;
             scadaDeviceView.RowEnter += scadaDeviceView_RowEnter;
+
             // todo : Get real device type names from files
-
             string deviceDirectory = ConfigurationManager.AppSettings["deviceFilesDir"];
-            loadDeviceTypes(deviceDirectory);
-
-            scadaInfoControl1.setDeviceTypes(devices);
-
+            if (deviceDirectory != null)
+            {
+                loadDeviceTypes(deviceDirectory);
+                scadaInfoControl1.setDeviceTypes(devices);
+            } else
+                MessageBox.Show("deviceFilesDir not set in config file. Device types NOT loaded", "Device Types", MessageBoxButtons.OK);
         }
 
 
-
+        /// <summary>
+        /// loads device types used in scada control from multiple device type xml files
+        /// </summary>
+        /// <param name="path">fully qualified path to file</param>
         public void loadDeviceTypes(string path)
         {
             // todo : Put in place for code gen, fix
-            if( path == null )
-                path = "./";
             XmlSerializer serializer = new XmlSerializer(typeof(CIMData.DeviceType));
             var files = Directory.GetFiles(path, "*_device.xml");
             foreach (string f in files)
@@ -75,13 +82,6 @@ namespace WindowsFormsApplication1
             scadaInfoControl1.bindScadaRecord(row, scadaDeviceView);
             dnP3Control1.bindDataSource(row.Dnp);
         }
-/*
-        public void reset()
-        {
-            scadaInfoControl1.reset();
-            dnP3Control1.reset();
-        }
-        */
 
         /// <summary>
         /// Sets default values for the scada view table's columns. Currently
@@ -101,9 +101,10 @@ namespace WindowsFormsApplication1
         /// to this form.
         /// </summary>
         /// <param name="scada"></param>
-        public void BindDataSource(List<CIMData.SCADAInfo> scada)
+        public void BindDataSource(DERMSInterface.CIMData cim)
         {
-            ScadaBindingSource.DataSource = scada;
+            _cim = cim;
+            ScadaBindingSource.DataSource = _cim.Scada;
             scadaDeviceView.DataSource = ScadaBindingSource;
 
             // hide these columns

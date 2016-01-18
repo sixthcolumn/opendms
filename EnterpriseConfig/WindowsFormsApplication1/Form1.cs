@@ -24,7 +24,16 @@ namespace WindowsFormsApplication1
         public Form1()
         {
             InitializeComponent();
-            scadaControl.BindDataSource(_cim.Scada);
+            bindAllDataSources();
+        }
+
+        /// <summary>
+        /// Binds all forms, child forms etc... with the cimdata
+        /// object which is serialized to file
+        /// </summary>
+        private void bindAllDataSources()
+        {
+            scadaControl.BindDataSource(_cim);
             derGroupViewControl1.bindDataSource(_cim);
             derHeaderControl1.bindDataSource(_cim);
         }
@@ -58,14 +67,12 @@ namespace WindowsFormsApplication1
             _cim = DERMSInterface.CIMData.read(path);
 
             // load the header form based on which header type is set in combobox
-            derHeaderControl1.bindDataSource(_cim);
-            derGroupViewControl1.bindDataSource(_cim);
-            scadaControl.BindDataSource(_cim.Scada);
+            bindAllDataSources();
         }
 
 
         /// <summary>
-        /// event handler. displays create DER form to send SOAP messages
+        /// test => create DER : event handler. displays create DER form to send SOAP messages
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -82,14 +89,14 @@ namespace WindowsFormsApplication1
                 else
                     new CreateDERForm(_cim.clone(), _cim.Groups[row]).Show();
             }
-            else if ( _cim.Groups.Count == 0 )
+            else if (_cim.Groups.Count == 0)
                 MessageBox.Show("Please create and then select a DER Group", "Create DER", MessageBoxButtons.OK);
-            else        
+            else
                 MessageBox.Show("Please select a single DER Group ROW", "Create DER", MessageBoxButtons.OK);
         }
 
         /// <summary>
-        /// event handler. Displays the GET DER Status form
+        /// test => get DER status : event handler. Displays the GET DER Status form
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -106,15 +113,15 @@ namespace WindowsFormsApplication1
                 else
                     new GetDERStatusForm(_cim.clone(), _cim.Groups[row]).Show();
             }
-            else if ( _cim.Groups.Count == 0 )
-                       MessageBox.Show("Please create and then select a DER Group", "Create DER", MessageBoxButtons.OK);
-            else        
-                         MessageBox.Show("Please select a DER Group ROW", "Create DER", MessageBoxButtons.OK);
+            else if (_cim.Groups.Count == 0)
+                MessageBox.Show("Please create and then select a DER Group", "Create DER", MessageBoxButtons.OK);
+            else
+                MessageBox.Show("Please select a DER Group ROW", "Create DER", MessageBoxButtons.OK);
 
         }
 
         /// <summary>
-        /// event handler. Displays the Dispatch DER form
+        /// test => dispatch der : event handler. Displays the Dispatch DER form
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -133,7 +140,7 @@ namespace WindowsFormsApplication1
         }
 
         /// <summary>
-        /// event handler. Displays the get DER form
+        /// test => get der : event handler. Displays the get DER form
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -152,11 +159,8 @@ namespace WindowsFormsApplication1
             }
         }
 
-   
-
-
         /// <summary>
-        /// displays open file widget and opens new config file
+        /// open file : displays open file widget and opens new config file
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -174,7 +178,7 @@ namespace WindowsFormsApplication1
         }
 
         /// <summary>
-        /// saves config information to file. If file name not set, calls save as...
+        /// save : saves config information to file. If file name not set, calls save as...
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -189,7 +193,7 @@ namespace WindowsFormsApplication1
         }
 
         /// <summary>
-        /// displays file save as menu, and saves config to xml file
+        /// save as : displays file save as menu, and saves config to xml file
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -207,12 +211,15 @@ namespace WindowsFormsApplication1
             }
         }
 
+        /// <summary>
+        /// New Button pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _cim = new CIMData();
-            derHeaderControl1.bindDataSource(_cim);
-            derGroupViewControl1.bindDataSource(_cim);
-            scadaControl.BindDataSource(_cim.Scada);
+            bindAllDataSources();
             derGroupViewControl1.updateDERGroupViewReadOnlyCells();
         }
 

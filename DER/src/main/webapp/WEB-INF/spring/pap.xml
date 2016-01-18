@@ -22,36 +22,36 @@
 		address="/pap/createDemandResponseDeployment">
 		<jaxws:inInterceptors>
 			<bean class="com.sixthc.interceptor.LoggingInInterceptor">
-				<property name="vendorRoleType" value="AMI" />
-				<property name="packageName" value="Meter Tamper" />
-				<property name="interfaceName" value="MT_AMI-MDM_Create(EndDeviceEvents)" />
+				<property name="vendorRoleType" value="DRAS" />
+				<property name="packageName" value="Deploy" />
+				<property name="interfaceName" value="DemandResponseDeployment" />
 				<property name="resultCode" value="success" />
 				<property name="stage" value="serviceIn" />
 			</bean>
 		</jaxws:inInterceptors>
 		<jaxws:outInterceptors>
 			<bean class="com.sixthc.interceptor.LoggingOutInterceptor">
-				<property name="vendorRoleType" value="AMI" />
-				<property name="packageName" value="Meter Tamper" />
-				<property name="interfaceName" value="MT_AMI-MDM_Create(EndDeviceEvents)" />
+				<property name="vendorRoleType" value="DRAS" />
+				<property name="packageName" value="Deploy" />
+				<property name="interfaceName" value="DemandResponseDeployment" />
 				<property name="resultCode" value="success" />
 				<property name="stage" value="serviceOut" />
 			</bean>
 		</jaxws:outInterceptors>
 		<jaxws:outFaultInterceptors>
 			<bean class="com.sixthc.interceptor.LoggingOutInterceptor">
-				<property name="vendorRoleType" value="AMI" />
-				<property name="packageName" value="Meter Tamper" />
-				<property name="interfaceName" value="MT_AMI-MDM_Create(EndDeviceEvents)" />
+				<property name="vendorRoleType" value="DRAS" />
+				<property name="packageName" value="Deploy" />
+				<property name="interfaceName" value="DemandResponseDeployment" />
 				<property name="resultCode" value="fail" />
 				<property name="stage" value="serviceOutFault" />
 			</bean>
 		</jaxws:outFaultInterceptors>
 		<jaxws:inFaultInterceptors>
 			<bean class="com.sixthc.interceptor.LoggingInInterceptor">
-				<property name="vendorRoleType" value="AMI" />
-				<property name="packageName" value="Meter Tamper" />
-				<property name="interfaceName" value="MT_AMI-MDM_Create(EndDeviceEvents)" />
+				<property name="vendorRoleType" value="DRAS" />
+				<property name="packageName" value="Deploy" />
+				<property name="interfaceName" value="DemandResponseDeployment" />
 				<property name="resultCode" value="fail" />
 				<property name="stage" value="serviceInFault" />
 			</bean>
