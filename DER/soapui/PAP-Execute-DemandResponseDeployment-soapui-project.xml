@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project activeEnvironment="Default" name="PAP-Receive-DemandResponseDeployment" resourceRoot="${projectDir}" soapui-version="4.5.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="DemandResponseDeploymentResponse_Binding" type="wsdl" bindingName="{http://www.epri.com/2016/ReceiveDemandResponseDeploymentResponse}DemandResponseDeploymentResponse_Binding" soapVersion="1_1" anonymous="optional" definition="../wsdl/ReceiveDemandResponseDeploymentResponse.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/BenGoodwin/git/opendms/DER/wsdl/ReceiveDemandResponseDeploymentResponse.wsdl"><con:part><con:url>file:/Users/BenGoodwin/git/opendms/DER/wsdl/ReceiveDemandResponseDeploymentResponse.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ReceiveDemandResponseDeploymentResponse" targetNamespace="http://www.epri.com/2016/ReceiveDemandResponseDeploymentResponse" xmlns:tns="http://www.epri.com/2016/ReceiveDemandResponseDeploymentResponse" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:infoMessage="http://www.epri.com/2016/DemandResponseDeploymentResponseMessage">
+<con:soapui-project activeEnvironment="Default" name="PAP-Execute-DemandResponseDeployment" resourceRoot="${projectDir}" soapui-version="4.5.2" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="DemandResponseDeployment_Binding" type="wsdl" bindingName="{http://www.epri.com/2016/ExecuteDemandResponseDeployment}DemandResponseDeployment_Binding" soapVersion="1_1" anonymous="optional" definition="../wsdl/ExecuteDemandResponseDeployment.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/BenGoodwin/git/opendms/DER/wsdl/ExecuteDemandResponseDeployment.wsdl"><con:part><con:url>file:/Users/BenGoodwin/git/opendms/DER/wsdl/ExecuteDemandResponseDeployment.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ExecuteDemandResponseDeployment" targetNamespace="http://www.epri.com/2016/ExecuteDemandResponseDeployment" xmlns:tns="http://www.epri.com/2016/ExecuteDemandResponseDeployment" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:infoMessage="http://www.epri.com/2016/DemandResponseDeploymentMessage">
   <xs:annotation>
     <xs:documentation>// Copyright (c) 2016, Electric Power Research Institute
 // All rights reserved
@@ -10,50 +10,54 @@
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRENTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRENTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THISE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</xs:documentation>
   </xs:annotation>
   <wsdl:types>
-    <xs:schema targetNamespace="http://www.epri.com/2016/ReceiveDemandResponseDeploymentResponse" elementFormDefault="qualified">
-      <xs:import namespace="http://www.epri.com/2016/DemandResponseDeploymentResponseMessage" schemaLocation="xsd/DemandResponseDeploymentResponseMessage.xsd"/>
+    <xs:schema targetNamespace="http://www.epri.com/2016/ExecuteDemandResponseDeployment" elementFormDefault="qualified">
+      <xs:import namespace="http://www.epri.com/2016/DemandResponseDeploymentMessage" schemaLocation="xsd/DemandResponseDeploymentMessage.xsd"/>
     </xs:schema>
   </wsdl:types>
-  <wsdl:message name="CreatedDemandResponseDeploymentResponseEventMessage">
-    <wsdl:part name="CreatedDemandResponseDeploymentResponseEventMessage" element="infoMessage:CreatedDemandResponseDeploymentResponse"/>
+  <wsdl:message name="CreateDemandResponseDeploymentRequestMessage">
+    <wsdl:part name="CreateDemandResponseDeploymentRequestMessage" element="infoMessage:CreateDemandResponseDeployment"/>
   </wsdl:message>
   <wsdl:message name="ResponseMessage">
-    <wsdl:part name="ResponseMessage" element="infoMessage:DemandResponseDeploymentResponseResponseMessage"/>
+    <wsdl:part name="ResponseMessage" element="infoMessage:DemandResponseDeploymentResponseMessage"/>
   </wsdl:message>
   <wsdl:message name="FaultMessage">
-    <wsdl:part name="FaultMessage" element="infoMessage:DemandResponseDeploymentResponseFaultMessage"/>
+    <wsdl:part name="FaultMessage" element="infoMessage:DemandResponseDeploymentFaultMessage"/>
   </wsdl:message>
-  <wsdl:portType name="DemandResponseDeploymentResponse_Port">
-    <wsdl:operation name="CreatedDemandResponseDeploymentResponse">
-      <wsdl:input name="CreatedDemandResponseDeploymentResponseEvent" message="tns:CreatedDemandResponseDeploymentResponseEventMessage"/>
-      <wsdl:output name="CreatedDemandResponseDeploymentResponseResponse" message="tns:ResponseMessage"/>
-      <wsdl:fault name="CreatedDemandResponseDeploymentResponseFault" message="tns:FaultMessage"/>
+  <wsdl:portType name="DemandResponseDeployment_Port">
+    <wsdl:operation name="CreateDemandResponseDeployment">
+      <wsdl:input name="CreateDemandResponseDeploymentRequest" message="tns:CreateDemandResponseDeploymentRequestMessage"/>
+      <wsdl:output name="CreateDemandResponseDeploymentResponse" message="tns:ResponseMessage"/>
+      <wsdl:fault name="CreateDemandResponseDeploymentFault" message="tns:FaultMessage"/>
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="DemandResponseDeploymentResponse_Binding" type="tns:DemandResponseDeploymentResponse_Port">
+  <wsdl:binding name="DemandResponseDeployment_Binding" type="tns:DemandResponseDeployment_Port">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="CreatedDemandResponseDeploymentResponse">
-      <soap:operation soapAction="http://www.epri.com/2016/DemandResponseDeploymentResponse/CreatedDemandResponseDeploymentResponse" style="document"/>
-      <wsdl:input name="CreatedDemandResponseDeploymentResponseEvent">
+    <wsdl:operation name="CreateDemandResponseDeployment">
+      <soap:operation soapAction="http://www.epri.com/2016/DemandResponseDeployment/CreateDemandResponseDeployment" style="document"/>
+      <wsdl:input name="CreateDemandResponseDeploymentRequest">
         <soap:body use="literal"/>
       </wsdl:input>
-      <wsdl:output name="CreatedDemandResponseDeploymentResponseResponse">
+      <wsdl:output name="CreateDemandResponseDeploymentResponse">
         <soap:body use="literal"/>
       </wsdl:output>
-      <wsdl:fault name="CreatedDemandResponseDeploymentResponseFault">
-        <soap:fault name="CreatedDemandResponseDeploymentResponseFault" use="literal"/>
+      <wsdl:fault name="CreateDemandResponseDeploymentFault">
+        <soap:fault name="CreateDemandResponseDeploymentFault" use="literal"/>
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="ReceiveDemandResponseDeploymentResponse">
-    <wsdl:port name="DemandResponseDeploymentResponse_Port" binding="tns:DemandResponseDeploymentResponse_Binding">
-      <soap:address location="http://www.epri.com/2016/ReceiveDemandResponseDeploymentResponse"/>
+  <wsdl:service name="ExecuteDemandResponseDeployment">
+    <wsdl:port name="DemandResponseDeployment_Port" binding="tns:DemandResponseDeployment_Binding">
+      <soap:address location="http://www.epri.com/2016/ExecuteDemandResponseDeployment"/>
     </wsdl:port>
   </wsdl:service>
+  <xs:schema targetNamespace="http://www.epri.com/2016/ExecuteDemandResponseDeploymentMessage" elementFormDefault="qualified">
+    <xs:import namespace="http://www.epri.com/2016/DemandResponseDeploymentMessage" schemaLocation="xsd/DemandResponseDeploymentMessage.xsd"/>
+    <!--<xs:include schemaLocation="xsd/MaintenanceOrdersMessage.xsd"/>-->
+  </xs:schema>
   <!--Message Definitions-->
   <!--Port Definitions-->
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:/Users/BenGoodwin/git/opendms/DER/wsdl/xsd/DemandResponseDeploymentResponseMessage.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2015 rel. 4 sp1 (x64) (http://www.altova.com) by Gerald Gray (Electric Power Research Institute)-->
-<xs:schema targetNamespace="http://www.epri.com/2016/DemandResponseDeploymentResponseMessage" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0.0" xmlns:tns="http://www.epri.com/2016/DemandResponseDeploymentResponseMessage" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msg="http://www.iec.ch/TC57/2011/schema/message" xmlns:obj="http://www.epri.com/2016/DemandResponseDeploymentResponse#">
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:/Users/BenGoodwin/git/opendms/DER/wsdl/xsd/DemandResponseDeploymentMessage.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2015 rel. 4 sp1 (x64) (http://www.altova.com) by Gerald Gray (Electric Power Research Institute)-->
+<xs:schema targetNamespace="http://www.epri.com/2016/DemandResponseDeploymentMessage" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0.0" xmlns:tns="http://www.epri.com/2016/DemandResponseDeploymentMessage" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msg="http://www.iec.ch/TC57/2011/schema/message" xmlns:obj="http://www.epri.com/2016/DemandResponse#">
   <xs:annotation>
     <xs:documentation>// Copyright (c) 2015, Electric Power Research Institute
 // All rights reserved
@@ -66,11 +70,11 @@
   <!--Base Message Definitions-->
   <xs:import namespace="http://www.iec.ch/TC57/2011/schema/message" schemaLocation="Message.xsd"/>
   <!--PAP19 Information Object Definition-->
-  <xs:import namespace="http://www.epri.com/2016/DemandResponseDeploymentResponse#" schemaLocation="DemandResponseDeploymentResponse.xsd"/>
+  <xs:import namespace="http://www.epri.com/2016/DemandResponse#" schemaLocation="DemandResponseDeployment.xsd"/>
   <!--PayloadType Definition-->
-  <xs:complexType name="DemandResponseDeploymentResponsePayloadType">
+  <xs:complexType name="DemandResponseDeploymentPayloadType">
     <xs:sequence>
-      <xs:element ref="obj:DemandResponseDeploymentResponse"/>
+      <xs:element ref="obj:DemandResponseDeployments"/>
       <xs:element name="OperationSet" type="msg:OperationSet" minOccurs="0"/>
       <xs:element name="Compressed" type="xs:string" minOccurs="0">
         <xs:annotation>
@@ -86,46 +90,46 @@
   </xs:complexType>
   <!--Message Types-->
   <!--RequestMessageType-->
-  <xs:complexType name="DemandResponseDeploymentResponseRequestMessageType">
+  <xs:complexType name="DemandResponseDeploymentRequestMessageType">
     <xs:sequence>
       <xs:element name="Header" type="msg:HeaderType"/>
       <xs:element name="Request" type="msg:RequestType" minOccurs="0"/>
-      <xs:element name="Payload" type="tns:DemandResponseDeploymentResponsePayloadType" minOccurs="0"/>
+      <xs:element name="Payload" type="tns:DemandResponseDeploymentPayloadType" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <!--ResponseMessageType-->
-  <xs:complexType name="DemandResponseDeploymentResponseResponseMessageType">
+  <xs:complexType name="DemandResponseDeploymentResponseMessageType">
     <xs:sequence>
       <xs:element name="Header" type="msg:HeaderType"/>
       <xs:element name="Reply" type="msg:ReplyType"/>
-      <xs:element name="Payload" type="tns:DemandResponseDeploymentResponsePayloadType" minOccurs="0"/>
+      <xs:element name="Payload" type="tns:DemandResponseDeploymentPayloadType" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <!--EventMessageType-->
-  <xs:complexType name="DemandResponseDeploymentResponseEventMessageType">
+  <xs:complexType name="DemandResponseDeploymentEventMessageType">
     <xs:sequence>
       <xs:element name="Header" type="msg:HeaderType"/>
-      <xs:element name="Payload" type="tns:DemandResponseDeploymentResponsePayloadType" minOccurs="0"/>
+      <xs:element name="Payload" type="tns:DemandResponseDeploymentPayloadType" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <!--FaultMessageType-->
-  <xs:complexType name="DemandResponseDeploymentResponseFaultMessageType">
+  <xs:complexType name="DemandResponseDeploymentFaultMessageType">
     <xs:sequence>
       <xs:element name="Reply" type="msg:ReplyType"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="CreateDemandResponseDeploymentResponse" type="tns:DemandResponseDeploymentResponseRequestMessageType"/>
-  <xs:element name="ChangeDemandResponseDeploymentResponse" type="tns:DemandResponseDeploymentResponseRequestMessageType"/>
-  <xs:element name="CancelDemandResponseDeploymentResponse" type="tns:DemandResponseDeploymentResponseRequestMessageType"/>
-  <xs:element name="CloseDemandResponseDeploymentResponse" type="tns:DemandResponseDeploymentResponseRequestMessageType"/>
-  <xs:element name="DeleteDemandResponseDeploymentResponse" type="tns:DemandResponseDeploymentResponseRequestMessageType"/>
-  <xs:element name="CreatedDemandResponseDeploymentResponse" type="tns:DemandResponseDeploymentResponseEventMessageType"/>
-  <xs:element name="ChangedDemandResponseDeploymentResponse" type="tns:DemandResponseDeploymentResponseEventMessageType"/>
-  <xs:element name="CanceledDemandResponseDeploymentResponse" type="tns:DemandResponseDeploymentResponseEventMessageType"/>
-  <xs:element name="ClosedDemandResponseDeploymentResponse" type="tns:DemandResponseDeploymentResponseEventMessageType"/>
-  <xs:element name="DeletedDemandResponseDeploymentResponse" type="tns:DemandResponseDeploymentResponseEventMessageType"/>
-  <xs:element name="DemandResponseDeploymentResponseResponseMessage" type="tns:DemandResponseDeploymentResponseResponseMessageType"/>
-  <xs:element name="DemandResponseDeploymentResponseFaultMessage" type="tns:DemandResponseDeploymentResponseFaultMessageType"/>
+  <xs:element name="CreateDemandResponseDeployment" type="tns:DemandResponseDeploymentRequestMessageType"/>
+  <xs:element name="ChangeDemandResponseDeployment" type="tns:DemandResponseDeploymentRequestMessageType"/>
+  <xs:element name="CancelDemandResponseDeployment" type="tns:DemandResponseDeploymentRequestMessageType"/>
+  <xs:element name="CloseDemandResponseDeployment" type="tns:DemandResponseDeploymentRequestMessageType"/>
+  <xs:element name="DeleteDemandResponseDeployment" type="tns:DemandResponseDeploymentRequestMessageType"/>
+  <xs:element name="CreatedDemandResponseDeployment" type="tns:DemandResponseDeploymentEventMessageType"/>
+  <xs:element name="ChangedDemandResponseDeployment" type="tns:DemandResponseDeploymentEventMessageType"/>
+  <xs:element name="CanceledDemandResponseDeployment" type="tns:DemandResponseDeploymentEventMessageType"/>
+  <xs:element name="ClosedDemandResponseDeployment" type="tns:DemandResponseDeploymentEventMessageType"/>
+  <xs:element name="DeletedDemandResponseDeployment" type="tns:DemandResponseDeploymentEventMessageType"/>
+  <xs:element name="DemandResponseDeploymentResponseMessage" type="tns:DemandResponseDeploymentResponseMessageType"/>
+  <xs:element name="DemandResponseDeploymentFaultMessage" type="tns:DemandResponseDeploymentFaultMessageType"/>
 </xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/Users/BenGoodwin/git/opendms/DER/wsdl/xsd/Message.xsd</con:url><con:content><![CDATA[<!--Common Message Specification for IEC 61968-->
 <!--Change Log-->
 <!--2010/12/15 Added OperationSet to Payload-->
@@ -736,16 +740,18 @@
     <xs:attribute name="kind" type="IDKindType"/>
     <xs:attribute name="objectType" type="xs:string"/>
   </xs:attributeGroup>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/Users/BenGoodwin/git/opendms/DER/wsdl/xsd/DemandResponseDeploymentResponse.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2015 rel. 4 sp1 (x64) (http://www.altova.com) by Gerald Gray (Electric Power Research Institute)-->
-<!--Change log - Update namespace to reflect EPRI changes 
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/Users/BenGoodwin/git/opendms/DER/wsdl/xsd/DemandResponseDeployment.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2015 rel. 4 sp1 (x64) (http://www.altova.com) by Gerald Gray (Electric Power Research Institute)-->
+<!--Change log - Updated namespace to reflect EPRI changes 
                        - Changed MarketParticipant/MarketRole to be consistent across XSDs
                        - Changed mRID to enforce the use of GUID-->
-<xs:schema targetNamespace="http://www.epri.com/2016/DemandResponseDeploymentResponse#" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:a="http://langdale.com.au/2005/Message#" xmlns:sawsdl="http://www.w3.org/ns/sawsdl" xmlns="http://langdale.com.au/2005/Message#" xmlns:m="http://www.epri.com/2016/DemandResponseDeploymentResponse#">
-  <xs:element name="DemandResponseDeploymentResponse" type="m:DemandResponseDeploymentResponse"/>
-  <xs:complexType name="DemandResponseDeploymentResponse">
+<xs:schema targetNamespace="http://www.epri.com/2016/DemandResponse#" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:a="http://langdale.com.au/2005/Message#" xmlns:sawsdl="http://www.w3.org/ns/sawsdl" xmlns="http://langdale.com.au/2005/Message#" xmlns:m="http://www.epri.com/2016/DemandResponse#" xmlns:ns1="http://www.epri.com/2016/DemandResponse#">
+  <xs:annotation>
+    <xs:documentation>Supports one or more deployments, each including any number of zone and / or registered resource deployments. Zones must be deployed for an event. Registered resources can be deployed without an event being specified.</xs:documentation>
+  </xs:annotation>
+  <xs:element name="DemandResponseDeployments" type="m:DemandResponseDeployments"/>
+  <xs:complexType name="DemandResponseDeployments">
     <xs:sequence>
       <xs:element name="DemandResponseEvent" type="m:DemandResponseEvent" minOccurs="0"/>
-      <xs:element name="MarketParticipant" type="m:MarketParticipant"/>
       <xs:element name="RegisteredResourceDeployment" type="m:RegisteredResourceDeployment" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
@@ -771,17 +777,17 @@
           <xs:documentation>The end of the event specified as an ISO 8601 date time value.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="eventStartTime" type="xs:dateTime" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#DemandResponseEvent.eventStartTime">
+      <xs:element name="eventStartTime" type="xs:dateTime" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#DemandResponseEvent.eventStartTime">
         <xs:annotation>
           <xs:documentation>The start of the event specified as an ISO 8601 date time value.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="eventStatus" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#DemandResponseEvent.eventStatus">
+      <xs:element name="eventStatus" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#DemandResponseEvent.eventStatus">
         <xs:annotation>
           <xs:documentation>event status, e.g. active, canceled, expired, etc.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="eventType" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#DemandResponseEvent.eventType">
+      <xs:element name="eventType" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#DemandResponseEvent.eventType">
         <xs:annotation>
           <xs:documentation>Example xamples include: real, audit</xs:documentation>
         </xs:annotation>
@@ -791,7 +797,7 @@
           <xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="totalMWRequested" type="xs:float" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#DemandResponseEvent.totalMWRequested">
+      <xs:element name="totalMWRequested" type="xs:float" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#DemandResponseEvent.totalMWRequested">
         <xs:annotation>
           <xs:documentation>total active power adjustment (e.g. load reduction) requested for this demand response event</xs:documentation>
         </xs:annotation>
@@ -1354,6 +1360,9 @@
           <xs:documentation>The name is any free human readable and possibly non unique text naming the object.</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="MarketParticpants" type="m:MarketParticipant" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#RegisteredResource.MarketParticpants">
+        <xs:annotation/>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="RegisteredResourceDeployment" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#RegisteredResourceDeployment">
@@ -1368,17 +1377,7 @@
           <xs:documentation>For CIMXML data files in RDF syntax, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="acceptComments" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.acceptComments">
-        <xs:annotation>
-          <xs:documentation>Commenst to explain why the acceptance status. For example, to explain why a request is accepted only partially, instead of fully.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="acceptStatus" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.acceptStatus">
-        <xs:annotation>
-          <xs:documentation>Status of the resource for this deployment. Values include (full compliance, partial compliance, opt-out, etc.)</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="deploymentTime" type="xs:dateTime" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.deploymentTime">
+      <xs:element name="deploymentTime" type="xs:dateTime" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.deploymentTime">
         <xs:annotation>
           <xs:documentation>demand response resource deployment start time ISO 8160 format</xs:documentation>
         </xs:annotation>
@@ -1399,17 +1398,12 @@
           <xs:documentation>demand response resource deployment end time in ISO 8160 format</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="resourceQualificationServiceType" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.resourceQualificationServiceType">
+      <xs:element name="resourceQualificationServiceType" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.resourceQualificationServiceType">
         <xs:annotation/>
       </xs:element>
-      <xs:element name="resourceRequestedMW" type="xs:float" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.resourceRequestedMW">
+      <xs:element name="resourceRequestedMW" type="xs:float" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.resourceRequestedMW">
         <xs:annotation>
           <xs:documentation>The amount of MW requested from this resource for this deployment.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="resourceResponseMW" type="xs:float" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.resourceResponseMW">
-        <xs:annotation>
-          <xs:documentation>The MW amount the resource can contribute for this deployment.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="RegisteredResource" type="m:RegisteredResource" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#RegisteredResourceDeployment.RegisteredResource">
@@ -1427,17 +1421,7 @@
           <xs:documentation>For CIMXML data files in RDF syntax, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="acceptComments" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.acceptComments">
-        <xs:annotation>
-          <xs:documentation>Commenst to explain why the acceptance status. For example, to explain why a request is accepted only partially, instead of fully.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="acceptStatus" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.acceptStatus">
-        <xs:annotation>
-          <xs:documentation>Status of the resource for this deployment. Values include (full compliance, partial compliance, opt-out, etc.)</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="deploymentTime" type="xs:dateTime" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.deploymentTime">
+      <xs:element name="deploymentTime" type="xs:dateTime" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.deploymentTime">
         <xs:annotation>
           <xs:documentation>demand response resource deployment start time ISO 8160 format</xs:documentation>
         </xs:annotation>
@@ -1458,28 +1442,20 @@
           <xs:documentation>demand response resource deployment end time in ISO 8160 format</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="resourceQualificationServiceType" type="xs:string" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.resourceQualificationServiceType">
+      <xs:element name="resourceQualificationServiceType" type="xs:string" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.resourceQualificationServiceType">
         <xs:annotation/>
       </xs:element>
-      <xs:element name="resourceRequestedMW" type="xs:float" minOccurs="0" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.resourceRequestedMW">
+      <xs:element name="resourceRequestedMW" type="xs:float" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.resourceRequestedMW">
         <xs:annotation>
           <xs:documentation>The amount of MW requested from this resource for this deployment.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="resourceResponseMW" type="xs:float" sawsdl:modelReference="http://iec.ch/TC57/CIM-iec61970cim16v04_iec61968cim12v01_iec62325cim01v07#ResourceDeployment.resourceResponseMW">
-        <xs:annotation>
-          <xs:documentation>The MW amount the resource can contribute for this deployment.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:annotation>
-    <xs:documentation>Supports the reposne for one or more deployments, each including any number of zone and / or registered resource deployments.</xs:documentation>
-  </xs:annotation>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.epri.com/2016/ReceiveDemandResponseDeploymentResponse</con:endpoint><con:endpoint>http://localhost:8080/DERConnect/pap/createDemandResponseDeploymentResponse</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://www.epri.com/2016/DemandResponseDeploymentResponse/CreatedDemandResponseDeploymentResponse" name="CreatedDemandResponseDeploymentResponse" bindingOperationName="CreatedDemandResponseDeploymentResponse" type="Request-Response" outputName="CreatedDemandResponseDeploymentResponseResponse" inputName="CreatedDemandResponseDeploymentResponseEvent" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.epri.com/2016/ReceiveDemandResponseDeploymentResponse</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dem="http://www.epri.com/2016/DemandResponseDeploymentResponseMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:dem1="http://www.epri.com/2016/DemandResponseDeploymentResponse#">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.epri.com/2016/ExecuteDemandResponseDeployment</con:endpoint><con:endpoint>http://localhost:8080/DERConnect/pap/createDemandResponseDeployment</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://www.epri.com/2016/DemandResponseDeployment/CreateDemandResponseDeployment" name="CreateDemandResponseDeployment" bindingOperationName="CreateDemandResponseDeployment" type="Request-Response" outputName="CreateDemandResponseDeploymentResponse" inputName="CreateDemandResponseDeploymentRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.epri.com/2016/ExecuteDemandResponseDeployment</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dem="http://www.epri.com/2016/DemandResponseDeploymentMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:dem1="http://www.epri.com/2016/DemandResponse#">
    <soapenv:Header/>
    <soapenv:Body>
-      <dem:CreatedDemandResponseDeploymentResponse>
+      <dem:CreateDemandResponseDeployment>
          <dem:Header>
             <mes:Verb>?</mes:Verb>
             <mes:Noun>?</mes:Noun>
@@ -1523,8 +1499,24 @@
             <!--You may enter ANY elements at this point-->
          </dem:Header>
          <!--Optional:-->
+         <dem:Request>
+            <!--Optional:-->
+            <mes:StartTime>?</mes:StartTime>
+            <!--Optional:-->
+            <mes:EndTime>?</mes:EndTime>
+            <!--Zero or more repetitions:-->
+            <mes:Option>
+               <mes:name>?</mes:name>
+               <!--Optional:-->
+               <mes:value>?</mes:value>
+            </mes:Option>
+            <!--Zero or more repetitions:-->
+            <mes:ID idType="?" idAuthority="?" kind="?" objectType="?">?</mes:ID>
+            <!--You may enter ANY elements at this point-->
+         </dem:Request>
+         <!--Optional:-->
          <dem:Payload>
-            <dem1:DemandResponseDeploymentResponse>
+            <dem1:DemandResponseDeployments>
                <!--Optional:-->
                <dem1:DemandResponseEvent>
                   <dem1:mRID>?</dem1:mRID>
@@ -1532,23 +1524,15 @@
                   <dem1:eventComments>?</dem1:eventComments>
                   <!--Optional:-->
                   <dem1:eventEndTime>?</dem1:eventEndTime>
-                  <!--Optional:-->
                   <dem1:eventStartTime>?</dem1:eventStartTime>
-                  <!--Optional:-->
                   <dem1:eventStatus>?</dem1:eventStatus>
-                  <!--Optional:-->
                   <dem1:eventType>?</dem1:eventType>
                   <!--Optional:-->
                   <dem1:name>?</dem1:name>
-                  <!--Optional:-->
                   <dem1:totalMWRequested>?</dem1:totalMWRequested>
                   <!--Zero or more repetitions:-->
                   <dem1:ZoneDeployments>
                      <dem1:mRID>?</dem1:mRID>
-                     <!--Optional:-->
-                     <dem1:acceptComments>?</dem1:acceptComments>
-                     <dem1:acceptStatus>?</dem1:acceptStatus>
-                     <!--Optional:-->
                      <dem1:deploymentTime>?</dem1:deploymentTime>
                      <!--Optional:-->
                      <dem1:name>?</dem1:name>
@@ -1558,46 +1542,13 @@
                      <dem1:reductionDeadline>?</dem1:reductionDeadline>
                      <!--Optional:-->
                      <dem1:releaseTime>?</dem1:releaseTime>
-                     <!--Optional:-->
                      <dem1:resourceQualificationServiceType>?</dem1:resourceQualificationServiceType>
-                     <!--Optional:-->
                      <dem1:resourceRequestedMW>?</dem1:resourceRequestedMW>
-                     <dem1:resourceResponseMW>?</dem1:resourceResponseMW>
                   </dem1:ZoneDeployments>
                </dem1:DemandResponseEvent>
-               <dem1:MarketParticipant>
-                  <dem1:mRID>?</dem1:mRID>
-                  <!--Optional:-->
-                  <dem1:name>?</dem1:name>
-                  <dem1:MarketRoles>
-                     <dem1:roleType>?</dem1:roleType>
-                     <!--Optional:-->
-                     <dem1:type>?</dem1:type>
-                  </dem1:MarketRoles>
-                  <!--Zero or more repetitions:-->
-                  <dem1:Names>
-                     <dem1:name>?</dem1:name>
-                     <!--Optional:-->
-                     <dem1:NameType>
-                        <!--Optional:-->
-                        <dem1:description>?</dem1:description>
-                        <dem1:name>?</dem1:name>
-                        <!--Optional:-->
-                        <dem1:NameTypeAuthority>
-                           <!--Optional:-->
-                           <dem1:description>?</dem1:description>
-                           <dem1:name>?</dem1:name>
-                        </dem1:NameTypeAuthority>
-                     </dem1:NameType>
-                  </dem1:Names>
-               </dem1:MarketParticipant>
                <!--Zero or more repetitions:-->
                <dem1:RegisteredResourceDeployment>
                   <dem1:mRID>?</dem1:mRID>
-                  <!--Optional:-->
-                  <dem1:acceptComments>?</dem1:acceptComments>
-                  <dem1:acceptStatus>?</dem1:acceptStatus>
-                  <!--Optional:-->
                   <dem1:deploymentTime>?</dem1:deploymentTime>
                   <!--Optional:-->
                   <dem1:name>?</dem1:name>
@@ -1607,18 +1558,41 @@
                   <dem1:reductionDeadline>?</dem1:reductionDeadline>
                   <!--Optional:-->
                   <dem1:releaseTime>?</dem1:releaseTime>
-                  <!--Optional:-->
                   <dem1:resourceQualificationServiceType>?</dem1:resourceQualificationServiceType>
-                  <!--Optional:-->
                   <dem1:resourceRequestedMW>?</dem1:resourceRequestedMW>
-                  <dem1:resourceResponseMW>?</dem1:resourceResponseMW>
                   <dem1:RegisteredResource>
                      <dem1:mRID>?</dem1:mRID>
                      <!--Optional:-->
                      <dem1:name>?</dem1:name>
+                     <dem1:MarketParticpants>
+                        <dem1:mRID>?</dem1:mRID>
+                        <!--Optional:-->
+                        <dem1:name>?</dem1:name>
+                        <dem1:MarketRoles>
+                           <dem1:roleType>?</dem1:roleType>
+                           <!--Optional:-->
+                           <dem1:type>?</dem1:type>
+                        </dem1:MarketRoles>
+                        <!--Zero or more repetitions:-->
+                        <dem1:Names>
+                           <dem1:name>?</dem1:name>
+                           <!--Optional:-->
+                           <dem1:NameType>
+                              <!--Optional:-->
+                              <dem1:description>?</dem1:description>
+                              <dem1:name>?</dem1:name>
+                              <!--Optional:-->
+                              <dem1:NameTypeAuthority>
+                                 <!--Optional:-->
+                                 <dem1:description>?</dem1:description>
+                                 <dem1:name>?</dem1:name>
+                              </dem1:NameTypeAuthority>
+                           </dem1:NameType>
+                        </dem1:Names>
+                     </dem1:MarketParticpants>
                   </dem1:RegisteredResource>
                </dem1:RegisteredResourceDeployment>
-            </dem1:DemandResponseDeploymentResponse>
+            </dem1:DemandResponseDeployments>
             <!--Optional:-->
             <dem:OperationSet>
                <!--Optional:-->
@@ -1642,13 +1616,13 @@
             <!--Optional:-->
             <dem:Format>?</dem:Format>
          </dem:Payload>
-      </dem:CreatedDemandResponseDeploymentResponse>
+      </dem:CreateDemandResponseDeployment>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.epri.com/2016/DemandResponseDeploymentResponse/CreatedDemandResponseDeploymentResponse"/></con:call></con:operation></con:interface><con:testSuite name="DemandResponseDeploymentResponse_Binding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreatedDemandResponseDeploymentResponse TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="CreatedDemandResponseDeploymentResponse"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DemandResponseDeploymentResponse_Binding</con:interface><con:operation>CreatedDemandResponseDeploymentResponse</con:operation><con:request name="CreatedDemandResponseDeploymentResponse"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/DERConnect/pap/createDemandResponseDeploymentResponse</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dem="http://www.epri.com/2016/DemandResponseDeploymentResponseMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:dem1="http://www.epri.com/2016/DemandResponseDeploymentResponse#">
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.epri.com/2016/DemandResponseDeployment/CreateDemandResponseDeployment"/></con:call></con:operation></con:interface><con:testSuite name="DemandResponseDeployment_Binding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateDemandResponseDeployment TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="CreateDemandResponseDeployment"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DemandResponseDeployment_Binding</con:interface><con:operation>CreateDemandResponseDeployment</con:operation><con:request name="CreateDemandResponseDeployment"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/DERConnect/pap/createDemandResponseDeployment</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dem="http://www.epri.com/2016/DemandResponseDeploymentMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:dem1="http://www.epri.com/2016/DemandResponse#">
    <soapenv:Header/>
    <soapenv:Body>
-      <dem:CreatedDemandResponseDeploymentResponse>
-         <dem:Header>
+      <dem:CreateDemandResponseDeployment>
+        <dem:Header>
             <mes:Verb>Create</mes:Verb>
                 <mes:Noun>Workorder</mes:Noun>
                 <!--Optional:-->
@@ -1690,198 +1664,23 @@
             <!--You may enter ANY elements at this point-->
          </dem:Header>
          <!--Optional:-->
-         <dem:Payload>
-            <dem1:DemandResponseDeploymentResponse>
-               <!--Optional:-->
-               <dem1:DemandResponseEvent>
-                  <dem1:mRID>1234</dem1:mRID>
-                  <!--Zero or more repetitions:-->
-                  <dem1:ZoneDeployments>
-                     <dem1:mRID>8844</dem1:mRID>
-                     <dem1:acceptStatus>Active</dem1:acceptStatus>
-                     <!--Optional:-->
-                     <dem1:deploymentTime>2015-06-12T12:00:00.00-05:00</dem1:deploymentTime>
-                     <dem1:resourceResponseMW>100.1</dem1:resourceResponseMW>
-                  </dem1:ZoneDeployments>
-               </dem1:DemandResponseEvent>
-               <dem1:MarketParticipant>
-                  <dem1:mRID>9900</dem1:mRID>
-                  <!--Optional:-->
-                  <dem1:name>mp</dem1:name>
-                  <dem1:MarketRoles>
-                     <dem1:roleType>BillingAgent</dem1:roleType>
-                  </dem1:MarketRoles>
-               </dem1:MarketParticipant>
-            </dem1:DemandResponseDeploymentResponse>
-         </dem:Payload>
-      </dem:CreatedDemandResponseDeploymentResponse>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.epri.com/2016/DemandResponseDeploymentResponse/CreatedDemandResponseDeploymentResponse" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Default"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DemandResponseDeploymentResponse_Binding</con:interface><con:operation>CreatedDemandResponseDeploymentResponse</con:operation><con:request name="Default"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.epri.com/2016/ReceiveDemandResponseDeploymentResponse</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dem="http://www.epri.com/2016/DemandResponseDeploymentResponseMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:dem1="http://www.epri.com/2016/DemandResponseDeploymentResponse#">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <dem:CreatedDemandResponseDeploymentResponse>
-         <dem:Header>
-            <mes:Verb>?</mes:Verb>
-            <mes:Noun>?</mes:Noun>
+         <dem:Request>
             <!--Optional:-->
-            <mes:Revision>?</mes:Revision>
-            <!--Optional:-->
-            <mes:ReplayDetection>
-               <mes:Nonce>?</mes:Nonce>
-               <mes:Created>?</mes:Created>
-            </mes:ReplayDetection>
-            <!--Optional:-->
-            <mes:Context>?</mes:Context>
-            <!--Optional:-->
-            <mes:Timestamp>?</mes:Timestamp>
-            <!--Optional:-->
-            <mes:Source>?</mes:Source>
-            <!--Optional:-->
-            <mes:AsyncReplyFlag>?</mes:AsyncReplyFlag>
-            <!--Optional:-->
-            <mes:ReplyAddress>?</mes:ReplyAddress>
-            <!--Optional:-->
-            <mes:AckRequired>?</mes:AckRequired>
-            <!--Optional:-->
-            <mes:User>
-               <mes:UserID>?</mes:UserID>
-               <!--Optional:-->
-               <mes:Organization>?</mes:Organization>
-            </mes:User>
-            <!--Optional:-->
-            <mes:MessageID>?</mes:MessageID>
-            <!--Optional:-->
-            <mes:CorrelationID>?</mes:CorrelationID>
-            <!--Optional:-->
-            <mes:Comment>?</mes:Comment>
-            <!--Zero or more repetitions:-->
-            <mes:Property>
-               <mes:Name>?</mes:Name>
-               <!--Optional:-->
-               <mes:Value>?</mes:Value>
-            </mes:Property>
-            <!--You may enter ANY elements at this point-->
-         </dem:Header>
+            <mes:StartTime>2015-06-12T12:00:00.00-05:00</mes:StartTime>
+         </dem:Request>
          <!--Optional:-->
          <dem:Payload>
-            <dem1:DemandResponseDeploymentResponse>
+            <dem1:DemandResponseDeployments>
                <!--Optional:-->
                <dem1:DemandResponseEvent>
-                  <dem1:mRID>?</dem1:mRID>
-                  <!--Optional:-->
-                  <dem1:eventComments>?</dem1:eventComments>
-                  <!--Optional:-->
-                  <dem1:eventEndTime>?</dem1:eventEndTime>
-                  <!--Optional:-->
-                  <dem1:eventStartTime>?</dem1:eventStartTime>
-                  <!--Optional:-->
-                  <dem1:eventStatus>?</dem1:eventStatus>
-                  <!--Optional:-->
-                  <dem1:eventType>?</dem1:eventType>
-                  <!--Optional:-->
-                  <dem1:name>?</dem1:name>
-                  <!--Optional:-->
-                  <dem1:totalMWRequested>?</dem1:totalMWRequested>
-                  <!--Zero or more repetitions:-->
-                  <dem1:ZoneDeployments>
-                     <dem1:mRID>?</dem1:mRID>
-                     <!--Optional:-->
-                     <dem1:acceptComments>?</dem1:acceptComments>
-                     <dem1:acceptStatus>?</dem1:acceptStatus>
-                     <!--Optional:-->
-                     <dem1:deploymentTime>?</dem1:deploymentTime>
-                     <!--Optional:-->
-                     <dem1:name>?</dem1:name>
-                     <!--Optional:-->
-                     <dem1:normalOperationsTime>?</dem1:normalOperationsTime>
-                     <!--Optional:-->
-                     <dem1:reductionDeadline>?</dem1:reductionDeadline>
-                     <!--Optional:-->
-                     <dem1:releaseTime>?</dem1:releaseTime>
-                     <!--Optional:-->
-                     <dem1:resourceQualificationServiceType>?</dem1:resourceQualificationServiceType>
-                     <!--Optional:-->
-                     <dem1:resourceRequestedMW>?</dem1:resourceRequestedMW>
-                     <dem1:resourceResponseMW>?</dem1:resourceResponseMW>
-                  </dem1:ZoneDeployments>
-               </dem1:DemandResponseEvent>
-               <dem1:MarketParticipant>
-                  <dem1:mRID>?</dem1:mRID>
-                  <!--Optional:-->
-                  <dem1:name>?</dem1:name>
-                  <dem1:MarketRoles>
-                     <dem1:roleType>?</dem1:roleType>
-                     <!--Optional:-->
-                     <dem1:type>?</dem1:type>
-                  </dem1:MarketRoles>
-                  <!--Zero or more repetitions:-->
-                  <dem1:Names>
-                     <dem1:name>?</dem1:name>
-                     <!--Optional:-->
-                     <dem1:NameType>
-                        <!--Optional:-->
-                        <dem1:description>?</dem1:description>
-                        <dem1:name>?</dem1:name>
-                        <!--Optional:-->
-                        <dem1:NameTypeAuthority>
-                           <!--Optional:-->
-                           <dem1:description>?</dem1:description>
-                           <dem1:name>?</dem1:name>
-                        </dem1:NameTypeAuthority>
-                     </dem1:NameType>
-                  </dem1:Names>
-               </dem1:MarketParticipant>
-               <!--Zero or more repetitions:-->
-               <dem1:RegisteredResourceDeployment>
-                  <dem1:mRID>?</dem1:mRID>
-                  <!--Optional:-->
-                  <dem1:acceptComments>?</dem1:acceptComments>
-                  <dem1:acceptStatus>?</dem1:acceptStatus>
-                  <!--Optional:-->
-                  <dem1:deploymentTime>?</dem1:deploymentTime>
-                  <!--Optional:-->
-                  <dem1:name>?</dem1:name>
-                  <!--Optional:-->
-                  <dem1:normalOperationsTime>?</dem1:normalOperationsTime>
-                  <!--Optional:-->
-                  <dem1:reductionDeadline>?</dem1:reductionDeadline>
-                  <!--Optional:-->
-                  <dem1:releaseTime>?</dem1:releaseTime>
-                  <!--Optional:-->
-                  <dem1:resourceQualificationServiceType>?</dem1:resourceQualificationServiceType>
-                  <!--Optional:-->
-                  <dem1:resourceRequestedMW>?</dem1:resourceRequestedMW>
-                  <dem1:resourceResponseMW>?</dem1:resourceResponseMW>
-                  <dem1:RegisteredResource>
-                     <dem1:mRID>?</dem1:mRID>
-                     <!--Optional:-->
-                     <dem1:name>?</dem1:name>
-                  </dem1:RegisteredResource>
-               </dem1:RegisteredResourceDeployment>
-            </dem1:DemandResponseDeploymentResponse>
-            <!--Optional:-->
-            <dem:OperationSet>
-               <!--Optional:-->
-               <mes:enforceMsgSequence>?</mes:enforceMsgSequence>
-               <!--Optional:-->
-               <mes:enforceTransactionalIntegrity>?</mes:enforceTransactionalIntegrity>
-               <!--Zero or more repetitions:-->
-               <mes:Operation>
-                  <mes:operationId>?</mes:operationId>
-                  <!--Optional:-->
-                  <mes:noun>?</mes:noun>
-                  <!--Optional:-->
-                  <mes:verb>?</mes:verb>
-                  <!--Optional:-->
-                  <mes:elementOperation>false</mes:elementOperation>
-                  <!--You may enter ANY elements at this point-->
-               </mes:Operation>
-            </dem:OperationSet>
-            <!--Optional:-->
-            <dem:Compressed>?</dem:Compressed>
-            <!--Optional:-->
-            <dem:Format>?</dem:Format>
+                  <dem1:mRID>12234</dem1:mRID>  
+                  <dem1:eventStartTime>2015-06-12T12:00:00.00-05:00</dem1:eventStartTime>
+                  <dem1:eventStatus>active</dem1:eventStatus>
+                  <dem1:eventType>real</dem1:eventType>
+                  <dem1:totalMWRequested>12.4</dem1:totalMWRequested>
+               </dem1:DemandResponseEvent>             
+            </dem1:DemandResponseDeployments>            
          </dem:Payload>
-      </dem:CreatedDemandResponseDeploymentResponse>
+      </dem:CreateDemandResponseDeployment>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.epri.com/2016/DemandResponseDeployment/CreateDemandResponseDeployment" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/></con:soapui-project>
