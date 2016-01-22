@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:ns1="http://iec.ch/TC57/2011/GetDERGroupMessage" xmlns:ns2="http://www.epri.com/2013/DERGroupForecast#"
-	xmlns:ns3="http://www.epri.com/2013/DERStatus#" xmlns:ns4="http://iec.ch/TC57/2011/DERGroupMessage"
+	xmlns:ns4="http://iec.ch/TC57/2011/DERGroupMessage"
 	xmlns:ns5="http://iec.ch/TC57/2011/GetDERGroupCapabilityMessage"
 	xmlns:ns6="http://www.epri.com/2016/GetDERGroupStatusesMessage" xmlns:ns7="http://www.epri.com/2016/DERGroupDispatchesMessage"
 	xmlns:ns8="http://iec.ch/TC57/2011/DERGroupForecastMessage" xmlns:ns9="http://iec.ch/TC57/2011/GetDERGroupForecastMessage"
@@ -11,8 +11,6 @@
 		schemaLocation="xsd/GetDerGroupMessage.xsd" />
 	<xs:import namespace="http://www.epri.com/2013/DERGroupForecast#"
 		schemaLocation="xsd/DERGroupForecast.xsd" />
-	<xs:import namespace="http://www.epri.com/2013/DERStatus#"
-		schemaLocation="xsd/DERGroupStatus.xsd" />
 	<xs:import namespace="http://iec.ch/TC57/2011/DERGroupMessage"
 		schemaLocation="xsd/RequestDERGroupMessage.xsd" />
 	<xs:import namespace="http://iec.ch/TC57/2011/GetDERGroupCapabilityMessage"
@@ -63,7 +61,7 @@
 	</xs:complexType>
 
 
-	<!-- get der group status -->
+	<!-- get der group statuses -->
 	<xs:element name="GetDERGroupStatusesPayload" type="ns:getDERGroupStatusesRequest" />
 	<xs:element name="GetDERGroupStatusesResponse" type="ns6:GetDERGroupStatusesResponseMessageType" />
 	<xs:complexType name="getDERGroupStatusesRequest">

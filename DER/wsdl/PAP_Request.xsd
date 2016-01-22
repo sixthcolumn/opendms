@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ns10="http://www.epri.com/2016/DemandResponseDeploymentMessage"
+	xmlns:ns11="http://www.epri.com/2016/DemandResponseDeploymentResponseMessage"
+	xmlns:ns="http://sixthc.com/PAP/Request" targetNamespace="http://sixthc.com/PAP/Request">
+
+	<xs:import namespace="http://www.epri.com/2016/DemandResponseDeploymentMessage"
+		schemaLocation="xsd/DemandResponseDeploymentMessage.xsd" />
+	<xs:import
+		namespace="http://www.epri.com/2016/DemandResponseDeploymentResponseMessage"
+		schemaLocation="xsd/DemandResponseDeploymentResponseMessage.xsd" />
+
+
+	<!-- PAP CreateDemandResponseDeploymentRequest -->
+	<xs:element name="CreateDemandResponseDeploymentRequestPayload"
+		type="ns:CreateDemandResponseDeploymentRequest" />
+	<xs:element name="DemandResponseDeploymentResponse"
+		type="ns10:DemandResponseDeploymentResponseMessageType" />
+	<xs:complexType name="CreateDemandResponseDeploymentRequest">
+		<xs:sequence>
+			<xs:element name="requestURL" type="xs:string" />
+			<xs:element name="payload"
+				type="ns10:DemandResponseDeploymentRequestMessageType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="DemandResponseDeploymentResponseRequestPayloadType"
+		type="ns:CreateDemandResponseDeploymentResponseRequest" />
+	<xs:element name="DemandResponseDeploymentResponseResponse"
+		type="ns11:DemandResponseDeploymentResponseResponseMessageType" />
+	<xs:complexType name="CreateDemandResponseDeploymentResponseRequest">
+		<xs:sequence>
+			<xs:element name="requestURL" type="xs:string" />
+			<xs:element name="payload"
+				type="ns11:DemandResponseDeploymentResponseRequestMessageType" />
+		</xs:sequence>
+	</xs:complexType>	
+</xs:schema>

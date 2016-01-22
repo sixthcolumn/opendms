@@ -14,14 +14,11 @@ import org.springframework.context.ApplicationContextAware;
 
 import ch.iec.tc57._2011.dergroupforecastmessage.DERGroupForecastPayloadType;
 import ch.iec.tc57._2011.requestdergroupforecast.DERGroupForecastPort;
-import ch.iec.tc57._2011.requestdergroupforecast.FaultMessage;
 import ch.iec.tc57._2011.schema.message.HeaderType;
 import ch.iec.tc57._2011.schema.message.ReplyType;
 import ch.iec.tc57._2011.schema.message.RequestType;
 
 import com.epri._2013.dergroupforecast.DERGroupForecast;
-
-
 
 public class ChangeDERGroupForecastsImpl implements DERGroupForecastPort, ApplicationContextAware {
 
@@ -36,45 +33,23 @@ public class ChangeDERGroupForecastsImpl implements DERGroupForecastPort, Applic
 			throws BeansException {
 		appContext = arg0;
 	}
-
+	
 	@Override
 	public void cancelDERGroupForecast(Holder<HeaderType> header,
 			RequestType request, Holder<DERGroupForecastPayloadType> payload,
-			Holder<ReplyType> reply) throws FaultMessage {
+			Holder<ReplyType> reply)
+			throws ch.iec.tc57._2011.requestdergroupforecast.FaultMessage {
 		log.error("***** OPERATION : cancelDERGroupForecast");
-		throw new FaultMessage("Operation not supported");
+		throw new ch.iec.tc57._2011.requestdergroupforecast.FaultMessage("Operation not supported");
 	}
 
-	@Override
-	public void closeDERGroupForecast(Holder<HeaderType> header,
-			RequestType request, Holder<DERGroupForecastPayloadType> payload,
-			Holder<ReplyType> reply) throws FaultMessage {
-		log.error("***** OPERATION : closeDERGroupForecast");
-		throw new FaultMessage("Operation not supported");
-	}
-
-	@Override
-	public void changeDERGroupForecast(Holder<HeaderType> header,
-			RequestType request, Holder<DERGroupForecastPayloadType> payload,
-			Holder<ReplyType> reply) throws FaultMessage {
-		log.error("***** OPERATION : changeDERGroupForecast");
-		throw new FaultMessage("Operation not supported");
-	}
-
-	@Override
-	public void deleteDERGroupForecast(Holder<HeaderType> header,
-			RequestType request, Holder<DERGroupForecastPayloadType> payload,
-			Holder<ReplyType> reply) throws FaultMessage {
-		log.error("***** OPERATION : deleteDERGroupForecast");
-		throw new FaultMessage("Operation not supported");
-
-		
-	}
 
 	@Override
 	public void createDERGroupForecast(Holder<HeaderType> header,
 			RequestType request, Holder<DERGroupForecastPayloadType> payload,
-			Holder<ReplyType> reply) throws FaultMessage {
+			Holder<ReplyType> reply)
+			throws ch.iec.tc57._2011.requestdergroupforecast.FaultMessage {
+
 		log.debug("***** OPERATION : createDERGroupForecast");
 		
 		DERGroupForecast d = appContext.getBean(
@@ -101,4 +76,40 @@ public class ChangeDERGroupForecastsImpl implements DERGroupForecastPort, Applic
 		ReplyType r = appContext.getBean(("ReplyTypeBean"), ReplyType.class);
 		reply.value = r;
 	}
+
+
+
+	@Override
+	public void closeDERGroupForecast(Holder<HeaderType> header,
+			RequestType request, Holder<DERGroupForecastPayloadType> payload,
+			Holder<ReplyType> reply)
+			throws ch.iec.tc57._2011.requestdergroupforecast.FaultMessage {
+		
+		log.error("***** OPERATION : closeDERGroupForecast");
+
+		throw new ch.iec.tc57._2011.requestdergroupforecast.FaultMessage("Operation not supported");
+		
+	}
+
+	@Override
+	public void changeDERGroupForecast(Holder<HeaderType> header,
+			RequestType request, Holder<DERGroupForecastPayloadType> payload,
+			Holder<ReplyType> reply)
+			throws ch.iec.tc57._2011.requestdergroupforecast.FaultMessage {
+		log.error("***** OPERATION : changeDERGroupForecast");
+
+		throw new ch.iec.tc57._2011.requestdergroupforecast.FaultMessage("Operation not supported");
+	}
+
+	@Override
+	public void deleteDERGroupForecast(Holder<HeaderType> header,
+			RequestType request, Holder<DERGroupForecastPayloadType> payload,
+			Holder<ReplyType> reply)
+			throws ch.iec.tc57._2011.requestdergroupforecast.FaultMessage {
+		log.error("***** OPERATION : deleteDERGroupForecast");
+
+		throw new ch.iec.tc57._2011.requestdergroupforecast.FaultMessage("Operation not supported");
+	}
+
+
 }

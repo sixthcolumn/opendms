@@ -321,7 +321,7 @@ public class CIMRequestClient extends RequestClient {
 
 	public GetDERGroupStatusesResponseMessageType getDERGroupStatuses(
 			GetDERGroupStatusesRequest message) {
-		log.debug("client request :  changedDERGroupStatuses");
+		log.debug("client request :  getDERGroupStatuses");
 		URL wsdlURL = DERGroupsClient.class
 				.getResource("/resources/wsdl/GetDERGroupStatuses.wsdl");
 
@@ -346,6 +346,7 @@ public class CIMRequestClient extends RequestClient {
 			GetDERGroupStatusesRequestMessageType newMessage = new GetDERGroupStatusesRequestMessageType();
 			newMessage.setHeader(message.getPayload().getHeader());
 			newMessage.setRequest(message.getPayload().getRequest());
+
 
 			GetDERGroupStatusesResponseMessageType reply = port.getDERGroupStatuses(newMessage);
 			return reply;

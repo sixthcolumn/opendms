@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="{Request | Execute}DERGroupForecast"
+<wsdl:definitions name="RequestDERGroupForecast"
 	targetNamespace="http://iec.ch/TC57/2011/RequestDERGroupForecast"
 	xmlns:tns="http://iec.ch/TC57/2011/RequestDERGroupForecast"
 	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"

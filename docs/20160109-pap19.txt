@@ -1,0 +1,32 @@
+quick instructions for testing the pap19 methods
+
+1. build as part of DER. mvn clean package
+2. src files :
+
+git/opendms/Der :
+  src/main/java/com/sixthc/server/ws/CreateDemandresponseDeploymentImpl.java
+  src/main/java/com/sixthc/server/ws/CreateDemandresponseDeploymentResponseImpl.java
+  src/main/webapp/WEB-INF/spring/pap.xml (deployment CreateDemandresponseDeploymentImpl.java)
+  src/main/webapp/WEB-INF/spring/pap2.xml (deployment CreateDemandresponseDeploymentResponseImpl.java)
+  src/main/webapp/WEB-INF/cxf/context.xml (modified, added pap.xml and pap2.xml)
+
+3. soap ui files :
+
+git/opendms/Der/soapui/PAP-Receive-DemandResponseDeployment-soapui-project.xml
+git/opendms/Der/soapui/PAP-Execute-DemandResponseDeployment-soapui-project.xml
+
+
+4. execute sql script
+
+git/opendms/scripts/sql/add_PAP.sql (for user epri, not wms, EPRI!)
+
+4. TESTING :
+
+a. open soap ui projects
+b. set endpoints (should already be set)
+   http://localhost:8080/DERConnect/pap/createDemandResponseDeploymentResponse (PAP-Receive)
+   http://localhost:8080/DERConnect/pap/createDemandResponseDeployment (PAP-Execute)
+
+Run the soapui messages. Should log to epri correctly.
+
+Note: I did not do request for these messages. Let me know if you want that.

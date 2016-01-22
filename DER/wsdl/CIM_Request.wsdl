@@ -139,6 +139,7 @@
 		</wsdl:operation>
 
 	</wsdl:portType>
+	
 	<wsdl:binding name="cimDERGroupRequest_ServerSoap" type="ns:cimDERGroupRequest_ServerSoap">
 		<soap:binding style="document"
 			transport="http://schemas.xmlsoap.org/soap/http" />

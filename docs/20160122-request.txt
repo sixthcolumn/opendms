@@ -1,0 +1,41 @@
+Notes on implementing request process for DER dispatch/statuses utilizing DERMSMaster station as endpoint
+
+1. I modified dispatch and statuses with newest wsdls.
+2. cd git/opendms/DER
+3. mvn clean generate-sources package
+4. copy target/DERConnect.war $TOMCAT/webapps
+5. start tomcat (derp)
+
+I had an issue with mysql. Since this was to run on windows, had to create an 'epri'@'10.3.253.1'.... perms for mysql
+
+6. open soapui file : git/opendms/DER/soapui/DER-Request-soapui-project.xml
+
+Note: the DERMSMaster only accepts connections from soapui running on the same machine, ie: only localhost works
+
+7. DER-Request / cimDERGroupRequest_ServerSoap TestSuite / createDERGroupDispatch TestCase / createDERGroupDispatch Win
+
+Note : quick explanation on the flow of the request :
+
+  1. the url for 'createDERGroupDispatch Win' points to OUR DER server request service
+  2. <requestURL> points to the DERMSMaster 'dispatch' service
+  3. DERMSmaster replies to our service
+  4. our service sends the message back to soapUI
+
+Note : currently DERMSmaster is not setting header/noun, which is causing our service to break,
+       as noun is required in header.
+
+8. DER-Request / cimDERGroupRequest_ServerSoap TestSuite / getDERGroupStatuses TestCase / getDERGroupStaatuses Win
+
+ADDENDUM : Round trip testing without DERMSmaster (using only our services)
+
+1. DER-Request / cimDERGroupRequest_ServerSoap TestSuite / createDERGroupDispatch TestCase / createDERGroupDispatch
+
+Note : the <requestURL> points to our server. The flow is thus this :
+  1. the url points to OUR Der server request service
+  2. <requestURL> points to our version of createDERGroupDispatch
+  3. createDERGroupDispatch replies to our request service
+  4. our request service sends (3) back to soap ui
+
+8. DER-Request / cimDERGroupRequest_ServerSoap TestSuite / getDERGroupStatuses TestCase / getDERGroupStaatuses
+
+Note : works the same as (1) above

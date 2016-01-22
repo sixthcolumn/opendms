@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://www.epri.com/2016/GetDERGroupStatusesMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:get1="http://www.epri.com/2016/GetDERGroupStatuses#">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <get:GetDERGroupStatusesRequestMessage>
+         <get:Header>
+            <mes:Verb>get</mes:Verb>
+            <mes:Noun>status</mes:Noun>
+            <mes:Revision>1.0</mes:Revision>
+            <mes:Timestamp>2016-01-21T12:00:00.00-05:00</mes:Timestamp>
+            <mes:Source>sixthc</mes:Source>
+            <mes:Comment>sixthc testing</mes:Comment>
+         </get:Header>
+         <get:Request>
+            <get:StartTime>2016-01-21T12:00:00.00-05:00</get:StartTime>
+            <get:ID>1234</get:ID>
+            <get1:GetDERGroupStatuses>
+               <get1:DERGroupStatus>
+                  <get1:mRID>1234</get1:mRID>
+                  <get1:name>dg1</get1:name>
+                  <get1:EndDeviceGroup>
+                     <get1:mRID>1234</get1:mRID>
+                  </get1:EndDeviceGroup>
+               </get1:DERGroupStatus>
+            </get1:GetDERGroupStatuses>
+         </get:Request>
+      </get:GetDERGroupStatusesRequestMessage>
+   </soapenv:Body>
+</soapenv:Envelope>
