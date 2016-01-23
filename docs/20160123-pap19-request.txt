@@ -1,0 +1,23 @@
+0. Do a pull, mvn package, copy to tomcat/webapps, etc...
+   run git/opendms/scripts/sql/add_PAP.sql for new eprilog interfaces
+
+1. There is a new end point for pap request
+	Endpoint address: http://localhost:8080/DERConnect/requestPAP
+2. new soap ui file
+	PAP-Request-soapui-project.xml
+
+3. soap-ui PAP-Request / papRequest_ServerSoap TestSuite / ... / createdDemandResponseDeploymentResponse
+	The end points should be set, but just in case
+	o - request endpoint : http://localhost:8080/DERConnect/requestPAP
+	o - <requestURL>http://localhost:8080/DERConnect/pap/createDemandResponseDeploymentResponse</requestURL>
+
+4. soap-ui PAP-Request / papRequest_ServerSoap TestSuite / ... / createDemandResponseDeployment
+	end points
+	o - http://localhost:8080/DERConnect/requestPAP
+	o - <requestURL>http://localhost:8080/DERConnect/pap/createDemandResponseDeployment</requestURL>
+
+Notes :
+
+this file is found as/in : git/opendms/docs/20160123-pap19-request.txt
+
+
