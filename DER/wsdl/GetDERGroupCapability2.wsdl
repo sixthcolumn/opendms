@@ -17,7 +17,7 @@
 				schemaLocation="xsd/Message.xsd" />
 			<!-- CIM Information Object Definition -->
 			<xs:import namespace="http://www.epri.com/2013/DERStatus#"
-				schemaLocation="xsd/DERGroupStatus.xsd" />
+				schemaLocation="xsd/DERGroupStatuses.xsd" />
 			<xs:complexType name="GetDERGroupCapabilityRequestType">
 				<xs:sequence>
 					<xs:element name="StartTime" type="xs:dateTime"

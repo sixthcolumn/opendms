@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="36691be8-b7d3-4639-b22e-204e6f48e2a9" activeEnvironment="Default" name="CIM-ExecuteDispatch-20160121" resourceRoot="${projectDir}" soapui-version="5.2.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="c4d7f20a-cc81-41fa-9cea-cfbc4db9ecd2" wsaVersion="NONE" name="DERGroupDispatches_Binding" type="wsdl" bindingName="{http://www.epri.com/2016/ExecuteDERGroupDispatches}DERGroupDispatches_Binding" soapVersion="1_1" anonymous="optional" definition="../wsdl/ExecuteDERGroupDispatches.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\Z:\git\opendms\DER\wsdl\ExecuteDERGroupDispatches.wsdl"><con:part><con:url>file:\Z:\git\opendms\DER\wsdl\ExecuteDERGroupDispatches.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ExecuteDERGroupDispatches" targetNamespace="http://www.epri.com/2016/ExecuteDERGroupDispatches" xmlns:tns="http://www.epri.com/2016/ExecuteDERGroupDispatches" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:infoMessage="http://www.epri.com/2016/DERGroupDispatchesMessage">
+<con:soapui-project id="36691be8-b7d3-4639-b22e-204e6f48e2a9" activeEnvironment="Default" name="CIM-ExecuteDispatch-20160121" resourceRoot="${projectDir}" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="c4d7f20a-cc81-41fa-9cea-cfbc4db9ecd2" wsaVersion="NONE" name="DERGroupDispatches_Binding" type="wsdl" bindingName="{http://www.epri.com/2016/ExecuteDERGroupDispatches}DERGroupDispatches_Binding" soapVersion="1_1" anonymous="optional" definition="../wsdl/ExecuteDERGroupDispatches.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\Z:\git\opendms\DER\wsdl\ExecuteDERGroupDispatches.wsdl"><con:part><con:url>file:\Z:\git\opendms\DER\wsdl\ExecuteDERGroupDispatches.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ExecuteDERGroupDispatches" targetNamespace="http://www.epri.com/2016/ExecuteDERGroupDispatches" xmlns:tns="http://www.epri.com/2016/ExecuteDERGroupDispatches" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:infoMessage="http://www.epri.com/2016/DERGroupDispatchesMessage">
   <xs:annotation>
     <xs:documentation>// Copyright (c) 2016, Electric Power Research Institute
 // All rights reserved
@@ -1177,9 +1177,9 @@
                <!--1 or more repetitions:-->\r
                <der1:DERGroupDispatch>\r
                   <der1:DERGroup>\r
-                     <der1:name>dg1</der1:name>\r
+                     <der1:name>station1</der1:name>\r
                      <!--Optional:-->\r
-                     <der1:mRID>1234</der1:mRID>\r
+                     <der1:mRID>bcd62d0d-14c5-4948-8cca-14d1017165dc</der1:mRID>\r
                   </der1:DERGroup>\r
                   <der1:RequestedCapability>\r
                      <der1:capabilityType>RealPower</der1:capabilityType>\r
@@ -1192,4 +1192,366 @@
          </der:Payload>\r
       </der:CreateDERGroupDispatches>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.epri.com/2016/DERGroupDispatches/CreateDERGroupDispatches" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.epri.com/2016/DERGroupDispatches/CreateDERGroupDispatches" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="SOAP Request" id="8d4bcd76-6642-46c3-a9f1-d60b0d42baac"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DERGroupDispatches_Binding</con:interface><con:operation>CreateDERGroupDispatches</con:operation><con:request name="SOAP Request" id="56c75b1d-4c2b-4d23-8079-b1f2dc45463d"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8181/dispatch</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:der="http://www.epri.com/2016/DERGroupDispatchesMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:der1="http://www.epri.com/2013/DERGroupDispatches#">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <der:CreateDERGroupDispatches>\r
+         <der:Header>\r
+            <mes:Verb>?</mes:Verb>\r
+            <mes:Noun>?</mes:Noun>\r
+            <!--Optional:-->\r
+            <mes:Revision>?</mes:Revision>\r
+            <!--Optional:-->\r
+            <mes:ReplayDetection>\r
+               <mes:Nonce>?</mes:Nonce>\r
+               <mes:Created>?</mes:Created>\r
+            </mes:ReplayDetection>\r
+            <!--Optional:-->\r
+            <mes:Context>?</mes:Context>\r
+            <!--Optional:-->\r
+            <mes:Timestamp>?</mes:Timestamp>\r
+            <!--Optional:-->\r
+            <mes:Source>?</mes:Source>\r
+            <!--Optional:-->\r
+            <mes:AsyncReplyFlag>?</mes:AsyncReplyFlag>\r
+            <!--Optional:-->\r
+            <mes:ReplyAddress>?</mes:ReplyAddress>\r
+            <!--Optional:-->\r
+            <mes:AckRequired>?</mes:AckRequired>\r
+            <!--Optional:-->\r
+            <mes:User>\r
+               <mes:UserID>?</mes:UserID>\r
+               <!--Optional:-->\r
+               <mes:Organization>?</mes:Organization>\r
+            </mes:User>\r
+            <!--Optional:-->\r
+            <mes:MessageID>?</mes:MessageID>\r
+            <!--Optional:-->\r
+            <mes:CorrelationID>?</mes:CorrelationID>\r
+            <!--Optional:-->\r
+            <mes:Comment>?</mes:Comment>\r
+            <!--Zero or more repetitions:-->\r
+            <mes:Property>\r
+               <mes:Name>?</mes:Name>\r
+               <!--Optional:-->\r
+               <mes:Value>?</mes:Value>\r
+            </mes:Property>\r
+            <!--You may enter ANY elements at this point-->\r
+         </der:Header>\r
+         <!--Optional:-->\r
+         <der:Request>\r
+            <!--Optional:-->\r
+            <mes:StartTime>?</mes:StartTime>\r
+            <!--Optional:-->\r
+            <mes:EndTime>?</mes:EndTime>\r
+            <!--Zero or more repetitions:-->\r
+            <mes:Option>\r
+               <mes:name>?</mes:name>\r
+               <!--Optional:-->\r
+               <mes:value>?</mes:value>\r
+            </mes:Option>\r
+            <!--Zero or more repetitions:-->\r
+            <mes:ID idType="?" idAuthority="?" kind="?" objectType="?">?</mes:ID>\r
+            <!--You may enter ANY elements at this point-->\r
+         </der:Request>\r
+         <!--Optional:-->\r
+         <der:Payload>\r
+            <der1:DERGroupDispatches>\r
+               <!--1 or more repetitions:-->\r
+               <der1:DERGroupDispatch>\r
+                  <der1:DERGroup>\r
+                     <der1:name>?</der1:name>\r
+                     <!--Optional:-->\r
+                     <der1:mRID>?</der1:mRID>\r
+                     <!--Zero or more repetitions:-->\r
+                     <der1:Names>\r
+                        <der1:name>?</der1:name>\r
+                        <!--Optional:-->\r
+                        <der1:NameType>\r
+                           <!--Optional:-->\r
+                           <der1:description>?</der1:description>\r
+                           <der1:name>?</der1:name>\r
+                           <!--Optional:-->\r
+                           <der1:NameTypeAuthority>\r
+                              <!--Optional:-->\r
+                              <der1:description>?</der1:description>\r
+                              <der1:name>?</der1:name>\r
+                           </der1:NameTypeAuthority>\r
+                        </der1:NameType>\r
+                     </der1:Names>\r
+                  </der1:DERGroup>\r
+                  <der1:RequestedCapability>\r
+                     <der1:capabilityType>?</der1:capabilityType>\r
+                     <der1:value>?</der1:value>\r
+                     <der1:capabilityUnits>?</der1:capabilityUnits>\r
+                     <der1:capabilityMultiplier>?</der1:capabilityMultiplier>\r
+                  </der1:RequestedCapability>\r
+                  <!--Optional:-->\r
+                  <der1:extensionsList>\r
+                     <!--1 or more repetitions:-->\r
+                     <der1:extensionsItem>\r
+                        <der1:extName>?</der1:extName>\r
+                        <der1:extValue>?</der1:extValue>\r
+                        <!--Optional:-->\r
+                        <der1:extType>?</der1:extType>\r
+                     </der1:extensionsItem>\r
+                  </der1:extensionsList>\r
+                  <!--Zero or more repetitions:-->\r
+                  <der1:Names>\r
+                     <der1:name>?</der1:name>\r
+                     <!--Optional:-->\r
+                     <der1:NameType>\r
+                        <!--Optional:-->\r
+                        <der1:description>?</der1:description>\r
+                        <der1:name>?</der1:name>\r
+                        <!--Optional:-->\r
+                        <der1:NameTypeAuthority>\r
+                           <!--Optional:-->\r
+                           <der1:description>?</der1:description>\r
+                           <der1:name>?</der1:name>\r
+                        </der1:NameTypeAuthority>\r
+                     </der1:NameType>\r
+                  </der1:Names>\r
+                  <!--Optional:-->\r
+                  <der1:mRID>?</der1:mRID>\r
+                  <!--Optional:-->\r
+                  <der1:otherCapability>\r
+                     <der1:otherCapabilityType>?</der1:otherCapabilityType>\r
+                     <!--Optional:-->\r
+                     <der1:otherCapabilitySubType>?</der1:otherCapabilitySubType>\r
+                     <!--Optional:-->\r
+                     <der1:otherCapabilityValue>?</der1:otherCapabilityValue>\r
+                     <!--Optional:-->\r
+                     <der1:otherCapabilityUnits>?</der1:otherCapabilityUnits>\r
+                  </der1:otherCapability>\r
+               </der1:DERGroupDispatch>\r
+            </der1:DERGroupDispatches>\r
+            <!--Optional:-->\r
+            <der:OperationSet>\r
+               <!--Optional:-->\r
+               <mes:enforceMsgSequence>?</mes:enforceMsgSequence>\r
+               <!--Optional:-->\r
+               <mes:enforceTransactionalIntegrity>?</mes:enforceTransactionalIntegrity>\r
+               <!--Zero or more repetitions:-->\r
+               <mes:Operation>\r
+                  <mes:operationId>?</mes:operationId>\r
+                  <!--Optional:-->\r
+                  <mes:noun>?</mes:noun>\r
+                  <!--Optional:-->\r
+                  <mes:verb>?</mes:verb>\r
+                  <!--Optional:-->\r
+                  <mes:elementOperation>false</mes:elementOperation>\r
+                  <!--You may enter ANY elements at this point-->\r
+               </mes:Operation>\r
+            </der:OperationSet>\r
+            <!--Optional:-->\r
+            <der:Compressed>?</der:Compressed>\r
+            <!--Optional:-->\r
+            <der:Format>?</der:Format>\r
+         </der:Payload>\r
+      </der:CreateDERGroupDispatches>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="f7dc6e35-0dee-4db1-8534-28987274fb03"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService id="730f1876-23de-411e-a30b-301e166252c6" port="8080" path="/" host="BGOODWIN93C6" name="MockService 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="CreateDERGroupDispatches" id="ab07785e-2e7e-4efd-98be-46a7c89d20e0" interface="DERGroupDispatches_Binding" operation="CreateDERGroupDispatches"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="754d95ce-5305-4377-85f6-8014598421e8" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:der="http://www.epri.com/2016/DERGroupDispatchesMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:der1="http://www.epri.com/2013/DERGroupDispatches#">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <der:DERGroupDispatchesResponseMessage>
+         <der:Header>
+            <mes:Verb>?</mes:Verb>
+            <mes:Noun>?</mes:Noun>
+            <!--Optional:-->
+            <mes:Revision>?</mes:Revision>
+            <!--Optional:-->
+            <mes:ReplayDetection>
+               <mes:Nonce>?</mes:Nonce>
+               <mes:Created>?</mes:Created>
+            </mes:ReplayDetection>
+            <!--Optional:-->
+            <mes:Context>?</mes:Context>
+            <!--Optional:-->
+            <mes:Timestamp>?</mes:Timestamp>
+            <!--Optional:-->
+            <mes:Source>?</mes:Source>
+            <!--Optional:-->
+            <mes:AsyncReplyFlag>?</mes:AsyncReplyFlag>
+            <!--Optional:-->
+            <mes:ReplyAddress>?</mes:ReplyAddress>
+            <!--Optional:-->
+            <mes:AckRequired>?</mes:AckRequired>
+            <!--Optional:-->
+            <mes:User>
+               <mes:UserID>?</mes:UserID>
+               <!--Optional:-->
+               <mes:Organization>?</mes:Organization>
+            </mes:User>
+            <!--Optional:-->
+            <mes:MessageID>?</mes:MessageID>
+            <!--Optional:-->
+            <mes:CorrelationID>?</mes:CorrelationID>
+            <!--Optional:-->
+            <mes:Comment>?</mes:Comment>
+            <!--Zero or more repetitions:-->
+            <mes:Property>
+               <mes:Name>?</mes:Name>
+               <!--Optional:-->
+               <mes:Value>?</mes:Value>
+            </mes:Property>
+            <!--You may enter ANY elements at this point-->
+         </der:Header>
+         <der:Reply>
+            <mes:Result>?</mes:Result>
+            <!--Zero or more repetitions:-->
+            <mes:Error>
+               <mes:code>?</mes:code>
+               <!--Optional:-->
+               <mes:level>?</mes:level>
+               <!--Optional:-->
+               <mes:reason>?</mes:reason>
+               <!--Optional:-->
+               <mes:details>?</mes:details>
+               <!--Optional:-->
+               <mes:xpath>?</mes:xpath>
+               <!--Optional:-->
+               <mes:stackTrace>?</mes:stackTrace>
+               <!--Optional:-->
+               <mes:Location>
+                  <!--Optional:-->
+                  <mes:node>?</mes:node>
+                  <!--Optional:-->
+                  <mes:pipeline>?</mes:pipeline>
+                  <!--Optional:-->
+                  <mes:stage>?</mes:stage>
+               </mes:Location>
+               <!--Optional:-->
+               <mes:ID idType="?" idAuthority="?" kind="?" objectType="?">?</mes:ID>
+               <!--Optional:-->
+               <mes:relatedID idType="?" idAuthority="?" kind="?" objectType="?">?</mes:relatedID>
+               <!--Optional:-->
+               <mes:object>
+                  <!--Optional:-->
+                  <mes:mRID>?</mes:mRID>
+                  <!--Zero or more repetitions:-->
+                  <mes:Name>
+                     <mes:name>?</mes:name>
+                     <!--Optional:-->
+                     <mes:NameType>
+                        <mes:name>?</mes:name>
+                        <!--Optional:-->
+                        <mes:description>?</mes:description>
+                        <!--Optional:-->
+                        <mes:NameTypeAuthority>
+                           <mes:name>?</mes:name>
+                           <!--Optional:-->
+                           <mes:description>?</mes:description>
+                        </mes:NameTypeAuthority>
+                     </mes:NameType>
+                  </mes:Name>
+                  <!--Optional:-->
+                  <mes:objectType>?</mes:objectType>
+               </mes:object>
+               <!--Optional:-->
+               <mes:operationId>?</mes:operationId>
+            </mes:Error>
+            <!--Zero or more repetitions:-->
+            <mes:ID idType="?" idAuthority="?" kind="?" objectType="?">?</mes:ID>
+            <!--You may enter ANY elements at this point-->
+            <!--Optional:-->
+            <mes:operationId>?</mes:operationId>
+         </der:Reply>
+         <!--Optional:-->
+         <der:Payload>
+            <der1:DERGroupDispatches>
+               <!--1 or more repetitions:-->
+               <der1:DERGroupDispatch>
+                  <der1:DERGroup>
+                     <der1:name>?</der1:name>
+                     <!--Optional:-->
+                     <der1:mRID>?</der1:mRID>
+                     <!--Zero or more repetitions:-->
+                     <der1:Names>
+                        <der1:name>?</der1:name>
+                        <!--Optional:-->
+                        <der1:NameType>
+                           <!--Optional:-->
+                           <der1:description>?</der1:description>
+                           <der1:name>?</der1:name>
+                           <!--Optional:-->
+                           <der1:NameTypeAuthority>
+                              <!--Optional:-->
+                              <der1:description>?</der1:description>
+                              <der1:name>?</der1:name>
+                           </der1:NameTypeAuthority>
+                        </der1:NameType>
+                     </der1:Names>
+                  </der1:DERGroup>
+                  <der1:RequestedCapability>
+                     <der1:capabilityType>?</der1:capabilityType>
+                     <der1:value>?</der1:value>
+                     <der1:capabilityUnits>?</der1:capabilityUnits>
+                     <der1:capabilityMultiplier>?</der1:capabilityMultiplier>
+                  </der1:RequestedCapability>
+                  <!--Optional:-->
+                  <der1:extensionsList>
+                     <!--1 or more repetitions:-->
+                     <der1:extensionsItem>
+                        <der1:extName>?</der1:extName>
+                        <der1:extValue>?</der1:extValue>
+                        <!--Optional:-->
+                        <der1:extType>?</der1:extType>
+                     </der1:extensionsItem>
+                  </der1:extensionsList>
+                  <!--Zero or more repetitions:-->
+                  <der1:Names>
+                     <der1:name>?</der1:name>
+                     <!--Optional:-->
+                     <der1:NameType>
+                        <!--Optional:-->
+                        <der1:description>?</der1:description>
+                        <der1:name>?</der1:name>
+                        <!--Optional:-->
+                        <der1:NameTypeAuthority>
+                           <!--Optional:-->
+                           <der1:description>?</der1:description>
+                           <der1:name>?</der1:name>
+                        </der1:NameTypeAuthority>
+                     </der1:NameType>
+                  </der1:Names>
+                  <!--Optional:-->
+                  <der1:mRID>?</der1:mRID>
+                  <!--Optional:-->
+                  <der1:otherCapability>
+                     <der1:otherCapabilityType>?</der1:otherCapabilityType>
+                     <!--Optional:-->
+                     <der1:otherCapabilitySubType>?</der1:otherCapabilitySubType>
+                     <!--Optional:-->
+                     <der1:otherCapabilityValue>?</der1:otherCapabilityValue>
+                     <!--Optional:-->
+                     <der1:otherCapabilityUnits>?</der1:otherCapabilityUnits>
+                  </der1:otherCapability>
+               </der1:DERGroupDispatch>
+            </der1:DERGroupDispatches>
+            <!--Optional:-->
+            <der:OperationSet>
+               <!--Optional:-->
+               <mes:enforceMsgSequence>?</mes:enforceMsgSequence>
+               <!--Optional:-->
+               <mes:enforceTransactionalIntegrity>?</mes:enforceTransactionalIntegrity>
+               <!--Zero or more repetitions:-->
+               <mes:Operation>
+                  <mes:operationId>?</mes:operationId>
+                  <!--Optional:-->
+                  <mes:noun>?</mes:noun>
+                  <!--Optional:-->
+                  <mes:verb>?</mes:verb>
+                  <!--Optional:-->
+                  <mes:elementOperation>false</mes:elementOperation>
+                  <!--You may enter ANY elements at this point-->
+               </mes:Operation>
+            </der:OperationSet>
+            <!--Optional:-->
+            <der:Compressed>?</der:Compressed>
+            <!--Optional:-->
+            <der:Format>?</der:Format>
+         </der:Payload>
+      </der:DERGroupDispatchesResponseMessage>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.epri.com/2016/DERGroupDispatches/CreateDERGroupDispatches"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="5b17e1ac-19c5-41ed-aea0-5b5cacad2092" activeEnvironment="Default" name="CIM-GetStatuses-20160121" resourceRoot="${projectDir}" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="d4b0a849-c70a-4a08-a337-726e7a3d70cb" wsaVersion="NONE" name="GetDERGroupStatuses_Binding" type="wsdl" bindingName="{http://www.epri.com/2016/GetDERGroupStatuses}GetDERGroupStatuses_Binding" soapVersion="1_1" anonymous="optional" definition="../wsdl/GetDERGroupStatuses.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\Z:\git\opendms\DER\wsdl\GetDERGroupStatuses.wsdl"><con:part><con:url>file:\Z:\git\opendms\DER\wsdl\GetDERGroupStatuses.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="GetDERGroupStatuses" targetNamespace="http://www.epri.com/2016/GetDERGroupStatuses" xmlns:tns="http://www.epri.com/2016/GetDERGroupStatuses" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:infoMessage="http://www.epri.com/2016/GetDERGroupStatusesMessage" xmlns:ns="http://www.iec.ch/TC57/2011/schema/message" xmlns:ns1="http://www.epri.com/2016/GetDERGroupStatuses#" xmlns:ns2="http://www.epri.com/2016/DERGroupStatuses#">
+<con:soapui-project activeEnvironment="Default" name="delete-me" resourceRoot="${projectDir}" soapui-version="4.5.2" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="GetDERGroupStatuses_Binding" type="wsdl" bindingName="{http://www.epri.com/2016/GetDERGroupStatuses}GetDERGroupStatuses_Binding" soapVersion="1_1" anonymous="optional" definition="../wsdl/GetDERGroupStatuses.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/BenGoodwin/git/opendms/DER/wsdl/GetDERGroupStatuses.wsdl"><con:part><con:url>file:/Users/BenGoodwin/git/opendms/DER/wsdl/GetDERGroupStatuses.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="GetDERGroupStatuses" targetNamespace="http://www.epri.com/2016/GetDERGroupStatuses" xmlns:tns="http://www.epri.com/2016/GetDERGroupStatuses" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:infoMessage="http://www.epri.com/2016/GetDERGroupStatusesMessage" xmlns:ns="http://www.iec.ch/TC57/2011/schema/message" xmlns:ns1="http://www.epri.com/2016/GetDERGroupStatuses#" xmlns:ns2="http://www.epri.com/2016/DERGroupStatuses#">
   // Copyright (c) 2016, Electric Power Research Institute
 // All rights reserved
 // Redistribution and use in source and bunary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -54,7 +54,7 @@
   </xs:schema>
   <!--Message Definitions-->
   <!--Port Definitions-->
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:\Z:\git\opendms\DER\wsdl\xsd\GetDERGroupStatusesMessage.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2015 rel. 4 (x64) (http://www.altova.com) by Gerald R. Gray (EPRI)-->
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:/Users/BenGoodwin/git/opendms/DER/wsdl/xsd/GetDERGroupStatusesMessage.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2015 rel. 4 (x64) (http://www.altova.com) by Gerald R. Gray (EPRI)-->
 <xs:schema targetNamespace="http://www.epri.com/2016/GetDERGroupStatusesMessage" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0.0" xmlns:tns="http://www.epri.com/2016/GetDERGroupStatusesMessage" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msg="http://www.iec.ch/TC57/2011/schema/message" xmlns:obj1="http://www.epri.com/2013/DERGroupStatuses#" xmlns:obj2="http://www.epri.com/2016/GetDERGroupStatuses#">
   <xs:annotation>
     <xs:documentation>// Copyright (c) 2016, Electric Power Research Institute
@@ -148,7 +148,7 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:\Z:\git\opendms\DER\wsdl\xsd\Message.xsd</con:url><con:content><![CDATA[<!--Common Message Specification for IEC 61968-->
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/Users/BenGoodwin/git/opendms/DER/wsdl/xsd/Message.xsd</con:url><con:content><![CDATA[<!--Common Message Specification for IEC 61968-->
 <!--Change Log-->
 <!--2010/12/15 Added OperationSet to Payload-->
 <!--2011/03/09 Corrected FaultMessageType-->
@@ -758,7 +758,7 @@
     <xs:attribute name="kind" type="IDKindType"/>
     <xs:attribute name="objectType" type="xs:string"/>
   </xs:attributeGroup>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:\Z:\git\opendms\DER\wsdl\xsd\DERGroupStatuses.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2015 rel. 4 sp1 (x64) (http://www.altova.com) by Gerald Gray (Electric Power Research Institute)-->
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/Users/BenGoodwin/git/opendms/DER/wsdl/xsd/DERGroupStatuses.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2015 rel. 4 sp1 (x64) (http://www.altova.com) by Gerald Gray (Electric Power Research Institute)-->
 <xs:schema targetNamespace="http://www.epri.com/2013/DERGroupStatuses#" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:a="http://langdale.com.au/2005/Message#" xmlns:sawsdl="http://www.w3.org/ns/sawsdl" xmlns="http://langdale.com.au/2005/Message#" xmlns:m="http://www.epri.com/2013/DERGroupStatuses#">
   <xs:annotation>
     <xs:documentation>Draft of DERGroupStatus - This is what is returned on a request for status, assumed to be asked by DERGroup. The group
@@ -994,7 +994,7 @@ Names.name class. The status will return "what can you give me" in terms of powe
       <xs:pattern value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"/>
     </xs:restriction>
   </xs:simpleType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:\Z:\git\opendms\DER\wsdl\xsd\GetDERGroupStatuses.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2015 rel. 4 sp1 (x64) (http://www.altova.com) by Gerald Gray (Electric Power Research Institute)-->
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/Users/BenGoodwin/git/opendms/DER/wsdl/xsd/GetDERGroupStatuses.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2015 rel. 4 sp1 (x64) (http://www.altova.com) by Gerald Gray (Electric Power Research Institute)-->
 <xs:schema targetNamespace="http://www.epri.com/2016/GetDERGroupStatuses#" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:a="http://langdale.com.au/2005/Message#" xmlns:sawsdl="http://www.w3.org/ns/sawsdl" xmlns="http://langdale.com.au/2005/Message#" xmlns:m="http://www.epri.com/2016/GetDERGroupStatuses#">
   <xs:annotation>
     <xs:documentation>Draft of DERGroupStatus - This is what is returned on a request for status, assumed to be asked by DERGroup. The group
@@ -1199,254 +1199,126 @@ Names.name class. The status will return "what can you give me" in terms of powe
       <xs:pattern value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"/>
     </xs:restriction>
   </xs:simpleType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8181/status</con:endpoint><con:endpoint>http://www.epri.com/2016/GetDERGroupStatuses</con:endpoint></con:endpoints><con:operation id="be2e8fdf-d747-41ea-aa25-8af07a8003b0" isOneWay="false" action="http://www.epri.com/2016/GetDERGroupStatuses" name="GetDERGroupStatuses" bindingOperationName="GetDERGroupStatuses" type="Request-Response" outputName="GetDERGroupStatusesResponse" inputName="GetDERGroupStatusesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cec18793-ac64-4501-9053-8741cc5fb64b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.epri.com/2016/GetDERGroupStatuses</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://www.epri.com/2016/GetDERGroupStatusesMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:get1="http://www.epri.com/2016/GetDERGroupStatuses#">\r
-   <soapenv:Header/>\r
-   <soapenv:Body>\r
-      <get:GetDERGroupStatusesRequestMessage>\r
-         <get:Header>\r
-            <mes:Verb>?</mes:Verb>\r
-            <mes:Noun>?</mes:Noun>\r
-            <!--Optional:-->\r
-            <mes:Revision>?</mes:Revision>\r
-            <!--Optional:-->\r
-            <mes:ReplayDetection>\r
-               <mes:Nonce>?</mes:Nonce>\r
-               <mes:Created>?</mes:Created>\r
-            </mes:ReplayDetection>\r
-            <!--Optional:-->\r
-            <mes:Context>?</mes:Context>\r
-            <!--Optional:-->\r
-            <mes:Timestamp>?</mes:Timestamp>\r
-            <!--Optional:-->\r
-            <mes:Source>?</mes:Source>\r
-            <!--Optional:-->\r
-            <mes:AsyncReplyFlag>?</mes:AsyncReplyFlag>\r
-            <!--Optional:-->\r
-            <mes:ReplyAddress>?</mes:ReplyAddress>\r
-            <!--Optional:-->\r
-            <mes:AckRequired>?</mes:AckRequired>\r
-            <!--Optional:-->\r
-            <mes:User>\r
-               <mes:UserID>?</mes:UserID>\r
-               <!--Optional:-->\r
-               <mes:Organization>?</mes:Organization>\r
-            </mes:User>\r
-            <!--Optional:-->\r
-            <mes:MessageID>?</mes:MessageID>\r
-            <!--Optional:-->\r
-            <mes:CorrelationID>?</mes:CorrelationID>\r
-            <!--Optional:-->\r
-            <mes:Comment>?</mes:Comment>\r
-            <!--Zero or more repetitions:-->\r
-            <mes:Property>\r
-               <mes:Name>?</mes:Name>\r
-               <!--Optional:-->\r
-               <mes:Value>?</mes:Value>\r
-            </mes:Property>\r
-            <!--You may enter ANY elements at this point-->\r
-         </get:Header>\r
-         <!--Optional:-->\r
-         <get:Request>\r
-            <!--Optional:-->\r
-            <get:StartTime>?</get:StartTime>\r
-            <!--Optional:-->\r
-            <get:EndTime>?</get:EndTime>\r
-            <!--Zero or more repetitions:-->\r
-            <get:Option>\r
-               <mes:name>?</mes:name>\r
-               <!--Optional:-->\r
-               <mes:value>?</mes:value>\r
-            </get:Option>\r
-            <!--Zero or more repetitions:-->\r
-            <get:ID>?</get:ID>\r
-            <get1:GetDERGroupStatuses>\r
-               <!--1 or more repetitions:-->\r
-               <get1:DERGroupStatus>\r
-                  <!--Optional:-->\r
-                  <get1:mRID>?</get1:mRID>\r
-                  <!--Optional:-->\r
-                  <get1:name>?</get1:name>\r
-                  <!--Zero or more repetitions:-->\r
-                  <get1:Names>\r
-                     <get1:name>?</get1:name>\r
-                     <!--Optional:-->\r
-                     <get1:NameType>\r
-                        <!--Optional:-->\r
-                        <get1:description>?</get1:description>\r
-                        <get1:name>?</get1:name>\r
-                        <!--Optional:-->\r
-                        <get1:NameTypeAuthority>\r
-                           <!--Optional:-->\r
-                           <get1:description>?</get1:description>\r
-                           <get1:name>?</get1:name>\r
-                        </get1:NameTypeAuthority>\r
-                     </get1:NameType>\r
-                  </get1:Names>\r
-                  <!--Optional:-->\r
-                  <get1:extensionsList>\r
-                     <!--1 or more repetitions:-->\r
-                     <get1:extensionsItem>\r
-                        <get1:extName>?</get1:extName>\r
-                        <get1:extValue>?</get1:extValue>\r
-                        <!--Optional:-->\r
-                        <get1:extType>?</get1:extType>\r
-                     </get1:extensionsItem>\r
-                  </get1:extensionsList>\r
-                  <get1:EndDeviceGroup>\r
-                     <!--Optional:-->\r
-                     <get1:mRID>?</get1:mRID>\r
-                     <!--Zero or more repetitions:-->\r
-                     <get1:Names>\r
-                        <get1:name>?</get1:name>\r
-                        <!--Optional:-->\r
-                        <get1:NameType>\r
-                           <!--Optional:-->\r
-                           <get1:description>?</get1:description>\r
-                           <get1:name>?</get1:name>\r
-                           <!--Optional:-->\r
-                           <get1:NameTypeAuthority>\r
-                              <!--Optional:-->\r
-                              <get1:description>?</get1:description>\r
-                              <get1:name>?</get1:name>\r
-                           </get1:NameTypeAuthority>\r
-                        </get1:NameType>\r
-                     </get1:Names>\r
-                  </get1:EndDeviceGroup>\r
-               </get1:DERGroupStatus>\r
-            </get1:GetDERGroupStatuses>\r
-            <!--You may enter ANY elements at this point-->\r
-         </get:Request>\r
-      </get:GetDERGroupStatusesRequestMessage>\r
-   </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.epri.com/2016/GetDERGroupStatuses"/></con:call></con:operation></con:interface><con:testSuite id="a00ea694-f235-4b98-a98f-a4a2202c6112" name="GetDERGroupStatuses_Binding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="330471cd-886e-41ec-9f9f-28dac96a368f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetDERGroupStatuses TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="f0014ea7-194a-456d-aafe-f908513991e7" name="GetDERGroupStatuses"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>GetDERGroupStatuses_Binding</con:interface><con:operation>GetDERGroupStatuses</con:operation><con:request name="GetDERGroupStatuses" id="a53a6663-80b1-4ace-b604-edbc487ac3a2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8181/status</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://www.epri.com/2016/GetDERGroupStatusesMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:get1="http://www.epri.com/2016/GetDERGroupStatuses#">\r
-   <soapenv:Header/>\r
-   <soapenv:Body>\r
-      <get:GetDERGroupStatusesRequestMessage>\r
-         <get:Header>\r
-            <mes:Verb>get</mes:Verb>\r
-            <mes:Noun>status</mes:Noun>\r
-            <mes:Revision>1.0</mes:Revision>\r
-            <mes:Timestamp>2016-01-21T12:00:00.00-05:00</mes:Timestamp>\r
-            <mes:Source>sixthc</mes:Source>\r
-            <mes:Comment>sixthc testing</mes:Comment>\r
-         </get:Header>\r
-         <get:Request>\r
-            <get:StartTime>2016-01-21T12:00:00.00-05:00</get:StartTime>\r
-            <get1:GetDERGroupStatuses>\r
-               <get1:DERGroupStatus>\r          
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.epri.com/2016/GetDERGroupStatuses</con:endpoint><con:endpoint>http://benjamins-Mac-mini.local:8088/mockGetDERGroupStatuses_Binding</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://www.epri.com/2016/GetDERGroupStatuses" name="GetDERGroupStatuses" bindingOperationName="GetDERGroupStatuses" type="Request-Response" outputName="GetDERGroupStatusesResponse" inputName="GetDERGroupStatusesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.epri.com/2016/GetDERGroupStatuses</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://www.epri.com/2016/GetDERGroupStatusesMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:get1="http://www.epri.com/2016/GetDERGroupStatuses#">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <get:GetDERGroupStatusesRequestMessage>
+         <get:Header>
+            <mes:Verb>?</mes:Verb>
+            <mes:Noun>?</mes:Noun>
+            <!--Optional:-->
+            <mes:Revision>?</mes:Revision>
+            <!--Optional:-->
+            <mes:ReplayDetection>
+               <mes:Nonce>?</mes:Nonce>
+               <mes:Created>?</mes:Created>
+            </mes:ReplayDetection>
+            <!--Optional:-->
+            <mes:Context>?</mes:Context>
+            <!--Optional:-->
+            <mes:Timestamp>?</mes:Timestamp>
+            <!--Optional:-->
+            <mes:Source>?</mes:Source>
+            <!--Optional:-->
+            <mes:AsyncReplyFlag>?</mes:AsyncReplyFlag>
+            <!--Optional:-->
+            <mes:ReplyAddress>?</mes:ReplyAddress>
+            <!--Optional:-->
+            <mes:AckRequired>?</mes:AckRequired>
+            <!--Optional:-->
+            <mes:User>
+               <mes:UserID>?</mes:UserID>
+               <!--Optional:-->
+               <mes:Organization>?</mes:Organization>
+            </mes:User>
+            <!--Optional:-->
+            <mes:MessageID>?</mes:MessageID>
+            <!--Optional:-->
+            <mes:CorrelationID>?</mes:CorrelationID>
+            <!--Optional:-->
+            <mes:Comment>?</mes:Comment>
+            <!--Zero or more repetitions:-->
+            <mes:Property>
+               <mes:Name>?</mes:Name>
+               <!--Optional:-->
+               <mes:Value>?</mes:Value>
+            </mes:Property>
+            <!--You may enter ANY elements at this point-->
+         </get:Header>
+         <!--Optional:-->
+         <get:Request>
+            <!--Optional:-->
+            <get:StartTime>?</get:StartTime>
+            <!--Optional:-->
+            <get:EndTime>?</get:EndTime>
+            <!--Zero or more repetitions:-->
+            <get:Option>
+               <mes:name>?</mes:name>
+               <!--Optional:-->
+               <mes:value>?</mes:value>
+            </get:Option>
+            <!--Zero or more repetitions:-->
+            <get:ID>?</get:ID>
+            <get1:GetDERGroupStatuses>
+               <!--1 or more repetitions:-->
+               <get1:DERGroupStatus>
+                  <!--Optional:-->
+                  <get1:mRID>?</get1:mRID>
+                  <!--Optional:-->
+                  <get1:name>?</get1:name>
+                  <!--Zero or more repetitions:-->
+                  <get1:Names>
+                     <get1:name>?</get1:name>
+                     <!--Optional:-->
+                     <get1:NameType>
+                        <!--Optional:-->
+                        <get1:description>?</get1:description>
+                        <get1:name>?</get1:name>
+                        <!--Optional:-->
+                        <get1:NameTypeAuthority>
+                           <!--Optional:-->
+                           <get1:description>?</get1:description>
+                           <get1:name>?</get1:name>
+                        </get1:NameTypeAuthority>
+                     </get1:NameType>
+                  </get1:Names>
+                  <!--Optional:-->
+                  <get1:extensionsList>
+                     <!--1 or more repetitions:-->
+                     <get1:extensionsItem>
+                        <get1:extName>?</get1:extName>
+                        <get1:extValue>?</get1:extValue>
+                        <!--Optional:-->
+                        <get1:extType>?</get1:extType>
+                     </get1:extensionsItem>
+                  </get1:extensionsList>
                   <get1:EndDeviceGroup>
-                     <get1:mRID>5b950a32-5297-4068-a11a-7fd79807bad1</get1:mRID>
+                     <!--Optional:-->
+                     <get1:mRID>?</get1:mRID>
+                     <!--Zero or more repetitions:-->
+                     <get1:Names>
+                        <get1:name>?</get1:name>
+                        <!--Optional:-->
+                        <get1:NameType>
+                           <!--Optional:-->
+                           <get1:description>?</get1:description>
+                           <get1:name>?</get1:name>
+                           <!--Optional:-->
+                           <get1:NameTypeAuthority>
+                              <!--Optional:-->
+                              <get1:description>?</get1:description>
+                              <get1:name>?</get1:name>
+                           </get1:NameTypeAuthority>
+                        </get1:NameType>
+                     </get1:Names>
                   </get1:EndDeviceGroup>
-               </get1:DERGroupStatus>\r
-            </get1:GetDERGroupStatuses>\r
-         </get:Request>\r
-      </get:GetDERGroupStatusesRequestMessage>\r
-   </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.epri.com/2016/GetDERGroupStatuses" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="SOAP Request" id="704fba90-3513-4ac8-be35-7299f74f297a"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>GetDERGroupStatuses_Binding</con:interface><con:operation>GetDERGroupStatuses</con:operation><con:request name="SOAP Request" id="d9722ea7-3db0-4ca1-8262-f9a7cfe59c1d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8181/status</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://www.epri.com/2016/GetDERGroupStatusesMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:get1="http://www.epri.com/2016/GetDERGroupStatuses#">\r
-   <soapenv:Header/>\r
-   <soapenv:Body>\r
-      <get:GetDERGroupStatusesRequestMessage>\r
-         <get:Header>\r
-            <mes:Verb>?</mes:Verb>\r
-            <mes:Noun>?</mes:Noun>\r
-            <!--Optional:-->\r
-            <mes:Revision>?</mes:Revision>\r
-            <!--Optional:-->\r
-            <mes:ReplayDetection>\r
-               <mes:Nonce>?</mes:Nonce>\r
-               <mes:Created>?</mes:Created>\r
-            </mes:ReplayDetection>\r
-            <!--Optional:-->\r
-            <mes:Context>?</mes:Context>\r
-            <!--Optional:-->\r
-            <mes:Timestamp>?</mes:Timestamp>\r
-            <!--Optional:-->\r
-            <mes:Source>?</mes:Source>\r
-            <!--Optional:-->\r
-            <mes:AsyncReplyFlag>?</mes:AsyncReplyFlag>\r
-            <!--Optional:-->\r
-            <mes:ReplyAddress>?</mes:ReplyAddress>\r
-            <!--Optional:-->\r
-            <mes:AckRequired>?</mes:AckRequired>\r
-            <!--Optional:-->\r
-            <mes:User>\r
-               <mes:UserID>?</mes:UserID>\r
-               <!--Optional:-->\r
-               <mes:Organization>?</mes:Organization>\r
-            </mes:User>\r
-            <!--Optional:-->\r
-            <mes:MessageID>?</mes:MessageID>\r
-            <!--Optional:-->\r
-            <mes:CorrelationID>?</mes:CorrelationID>\r
-            <!--Optional:-->\r
-            <mes:Comment>?</mes:Comment>\r
-            <!--Zero or more repetitions:-->\r
-            <mes:Property>\r
-               <mes:Name>?</mes:Name>\r
-               <!--Optional:-->\r
-               <mes:Value>?</mes:Value>\r
-            </mes:Property>\r
-            <!--You may enter ANY elements at this point-->\r
-         </get:Header>\r
-         <!--Optional:-->\r
-         <get:Request>\r
-            <!--Optional:-->\r
-            <get:StartTime>?</get:StartTime>\r
-            <!--Optional:-->\r
-            <get:EndTime>?</get:EndTime>\r
-            <!--Zero or more repetitions:-->\r
-            <get:Option>\r
-               <mes:name>?</mes:name>\r
-               <!--Optional:-->\r
-               <mes:value>?</mes:value>\r
-            </get:Option>\r
-            <!--Zero or more repetitions:-->\r
-            <get:ID>?</get:ID>\r
-            <get1:GetDERGroupStatuses>\r
-               <!--1 or more repetitions:-->\r
-               <get1:DERGroupStatus>\r
-                  <!--Optional:-->\r
-                  <get1:mRID>?</get1:mRID>\r
-                  <!--Optional:-->\r
-                  <get1:name>?</get1:name>\r
-                  <!--Zero or more repetitions:-->\r
-                  <get1:Names>\r
-                     <get1:name>?</get1:name>\r
-                     <!--Optional:-->\r
-                     <get1:NameType>\r
-                        <!--Optional:-->\r
-                        <get1:description>?</get1:description>\r
-                        <get1:name>?</get1:name>\r
-                        <!--Optional:-->\r
-                        <get1:NameTypeAuthority>\r
-                           <!--Optional:-->\r
-                           <get1:description>?</get1:description>\r
-                           <get1:name>?</get1:name>\r
-                        </get1:NameTypeAuthority>\r
-                     </get1:NameType>\r
-                  </get1:Names>\r
-                  <!--Optional:-->\r
-                  <get1:extensionsList>\r
-                     <!--1 or more repetitions:-->\r
-                     <get1:extensionsItem>\r
-                        <get1:extName>?</get1:extName>\r
-                        <get1:extValue>?</get1:extValue>\r
-                        <!--Optional:-->\r
-                        <get1:extType>?</get1:extType>\r
-                     </get1:extensionsItem>\r
-                  </get1:extensionsList>\r
-                  <get1:EndDeviceGroup>\r
-                     <!--Optional:-->\r
-                     <get1:mRID>?</get1:mRID>\r
-                     <!--Zero or more repetitions:-->\r
-                  </get1:EndDeviceGroup>\r
-               </get1:DERGroupStatus>\r
-            </get1:GetDERGroupStatuses>\r
-            <!--You may enter ANY elements at this point-->\r
-         </get:Request>\r
-      </get:GetDERGroupStatusesRequestMessage>\r
-   </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="e2647cfd-4225-4f0c-b594-06f77e824907"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService id="e73c633b-1c94-4717-a6e6-2fd4b2b2abd6" port="8080" path="/" host="BGOODWIN93C6" name="MockService 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="GetDERGroupStatuses" id="e41b28fd-dadc-415d-beca-d8670861f7cb" interface="GetDERGroupStatuses_Binding" operation="GetDERGroupStatuses"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="3e1498af-be11-4203-8c32-2a1a1f9dad05" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://www.epri.com/2016/GetDERGroupStatusesMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:der="http://www.epri.com/2013/DERGroupStatuses#">
+               </get1:DERGroupStatus>
+            </get1:GetDERGroupStatuses>
+            <!--You may enter ANY elements at this point-->
+         </get:Request>
+      </get:GetDERGroupStatusesRequestMessage>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.epri.com/2016/GetDERGroupStatuses"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService port="8088" path="/mockGetDERGroupStatuses_Binding" host="benjamins-Mac-mini.local" name="GetDERGroupStatuses_Binding MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:mockOperation name="GetDERGroupStatuses" interface="GetDERGroupStatuses_Binding" operation="GetDERGroupStatuses"><con:settings/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:defaultResponse>Response 1</con:defaultResponse><con:response name="Response 1" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://www.epri.com/2016/GetDERGroupStatusesMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:der="http://www.epri.com/2013/DERGroupStatuses#">
    <soapenv:Header/>
    <soapenv:Body>
       <get:GetDERGroupStatusesResponseMessage>
@@ -1710,4 +1582,4 @@ Names.name class. The status will return "what can you give me" in terms of powe
          </get:Payload>
       </get:GetDERGroupStatusesResponseMessage>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.epri.com/2016/GetDERGroupStatuses"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.epri.com/2016/GetDERGroupStatuses"/></con:response><con:dispatchConfig/></con:mockOperation><con:properties/></con:mockService><con:properties/><con:wssContainer/></con:soapui-project>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="36691be8-b7d3-4639-b22e-204e6f48e2a9" activeEnvironment="Default" name="CIM-ExecuteDispatch-20160121" resourceRoot="${projectDir}" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="c4d7f20a-cc81-41fa-9cea-cfbc4db9ecd2" wsaVersion="NONE" name="DERGroupDispatches_Binding" type="wsdl" bindingName="{http://www.epri.com/2016/ExecuteDERGroupDispatches}DERGroupDispatches_Binding" soapVersion="1_1" anonymous="optional" definition="../wsdl/ExecuteDERGroupDispatches.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\Z:\git\opendms\DER\wsdl\ExecuteDERGroupDispatches.wsdl"><con:part><con:url>file:\Z:\git\opendms\DER\wsdl\ExecuteDERGroupDispatches.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ExecuteDERGroupDispatches" targetNamespace="http://www.epri.com/2016/ExecuteDERGroupDispatches" xmlns:tns="http://www.epri.com/2016/ExecuteDERGroupDispatches" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:infoMessage="http://www.epri.com/2016/DERGroupDispatchesMessage">
+<con:soapui-project id="f7706285-6d67-4b7c-a83f-b7dee7d43564" activeEnvironment="Default" name="delete-me3" resourceRoot="${projectDir}" soapui-version="5.2.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="4263f590-47b0-45ce-84b4-ea9e19ca5c77" wsaVersion="NONE" name="DERGroupDispatches_Binding" type="wsdl" bindingName="{http://www.epri.com/2016/ExecuteDERGroupDispatches}DERGroupDispatches_Binding" soapVersion="1_1" anonymous="optional" definition="ExecuteDERGroupDispatches.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\Z:\git\opendms\DER\wsdl\ExecuteDERGroupDispatches.wsdl"><con:part><con:url>file:\Z:\git\opendms\DER\wsdl\ExecuteDERGroupDispatches.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ExecuteDERGroupDispatches" targetNamespace="http://www.epri.com/2016/ExecuteDERGroupDispatches" xmlns:tns="http://www.epri.com/2016/ExecuteDERGroupDispatches" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:infoMessage="http://www.epri.com/2016/DERGroupDispatchesMessage">
   <xs:annotation>
     <xs:documentation>// Copyright (c) 2016, Electric Power Research Institute
 // All rights reserved
@@ -990,7 +990,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://127.0.0.1:8181/dispatch</con:endpoint><con:endpoint>http://www.epri.com/2016/ExecuteDERGroupDispatches</con:endpoint></con:endpoints><con:operation id="c7719952-d29c-4651-9a16-554b7c66849c" isOneWay="false" action="http://www.epri.com/2016/DERGroupDispatches/CreateDERGroupDispatches" name="CreateDERGroupDispatches" bindingOperationName="CreateDERGroupDispatches" type="Request-Response" outputName="CreateDERGroupDispatchesResponse" inputName="CreateDERGroupDispatchesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8fc37978-d239-41b7-9477-cf70d67d9f8c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.epri.com/2016/ExecuteDERGroupDispatches</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:der="http://www.epri.com/2016/DERGroupDispatchesMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:der1="http://www.epri.com/2013/DERGroupDispatches#">\r
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.epri.com/2016/ExecuteDERGroupDispatches</con:endpoint></con:endpoints><con:operation id="46ba9182-be3e-495a-94b7-0695b1d8d44d" isOneWay="false" action="http://www.epri.com/2016/DERGroupDispatches/CreateDERGroupDispatches" name="CreateDERGroupDispatches" bindingOperationName="CreateDERGroupDispatches" type="Request-Response" outputName="CreateDERGroupDispatchesResponse" inputName="CreateDERGroupDispatchesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="37b24f37-05bc-4af9-ac19-78c706876ba4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.epri.com/2016/ExecuteDERGroupDispatches</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:der="http://www.epri.com/2016/DERGroupDispatchesMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:der1="http://www.epri.com/2013/DERGroupDispatches#">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <der:CreateDERGroupDispatches>\r
@@ -1149,50 +1149,7 @@
          </der:Payload>\r
       </der:CreateDERGroupDispatches>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.epri.com/2016/DERGroupDispatches/CreateDERGroupDispatches"/></con:call></con:operation></con:interface><con:testSuite id="b882fed7-e622-4570-8004-b3bd4531735a" name="DERGroupDispatches_Binding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="4cb5f355-570c-426c-b29f-bcb76cb999ba" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateDERGroupDispatches TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="8d01b546-cab0-43d0-9903-b422bd707fc6" name="CreateDERGroupDispatches"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DERGroupDispatches_Binding</con:interface><con:operation>CreateDERGroupDispatches</con:operation><con:request name="CreateDERGroupDispatches" id="2bfabddf-0053-414d-a055-de585d6f765a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8181/dispatch</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:der="http://www.epri.com/2016/DERGroupDispatchesMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:der1="http://www.epri.com/2013/DERGroupDispatches#">\r
-   <soapenv:Header/>\r
-   <soapenv:Body>\r
-      <der:CreateDERGroupDispatches>\r
-         <der:Header>\r
-            <mes:Verb>create</mes:Verb>\r
-            <mes:Noun>Dispatch</mes:Noun>\r
-            <mes:Revision>1.0</mes:Revision>\r
-            <mes:Context>?</mes:Context>\r
-            <mes:Timestamp>2016-01-21T12:00:00.00-05:00</mes:Timestamp>\r
-            <mes:Source>sixthc</mes:Source>\r
-            <mes:User>\r
-               <mes:UserID>epritest</mes:UserID>\r
-               <mes:Organization>sixthc</mes:Organization>\r
-            </mes:User>\r
-            <mes:Comment>test message</mes:Comment>\r
-         </der:Header>\r
-         <!--Optional:-->\r
-         <der:Request>\r
-            <mes:StartTime>2016-01-21T12:00:00.00-05:00</mes:StartTime>\r
-            <mes:EndTime>2016-01-21T17:00:00.00-05:00</mes:EndTime>\r
-         </der:Request>\r
-         <!--Optional:-->\r
-         <der:Payload>\r
-            <der1:DERGroupDispatches>\r
-               <!--1 or more repetitions:-->\r
-               <der1:DERGroupDispatch>\r
-                  <der1:DERGroup>\r
-                     <der1:name>station1</der1:name>\r
-                     <!--Optional:-->\r
-                     <der1:mRID>bcd62d0d-14c5-4948-8cca-14d1017165dc</der1:mRID>\r
-                  </der1:DERGroup>\r
-                  <der1:RequestedCapability>\r
-                     <der1:capabilityType>RealPower</der1:capabilityType>\r
-                     <der1:value>100</der1:value>\r
-                     <der1:capabilityUnits>VA</der1:capabilityUnits>\r
-                     <der1:capabilityMultiplier>k</der1:capabilityMultiplier>\r
-                  </der1:RequestedCapability>\r
-               </der1:DERGroupDispatch>\r
-            </der1:DERGroupDispatches>\r
-         </der:Payload>\r
-      </der:CreateDERGroupDispatches>\r
-   </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.epri.com/2016/DERGroupDispatches/CreateDERGroupDispatches" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="SOAP Request" id="8d4bcd76-6642-46c3-a9f1-d60b0d42baac"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DERGroupDispatches_Binding</con:interface><con:operation>CreateDERGroupDispatches</con:operation><con:request name="SOAP Request" id="56c75b1d-4c2b-4d23-8079-b1f2dc45463d"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8181/dispatch</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:der="http://www.epri.com/2016/DERGroupDispatchesMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:der1="http://www.epri.com/2013/DERGroupDispatches#">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.epri.com/2016/DERGroupDispatches/CreateDERGroupDispatches"/></con:call></con:operation></con:interface><con:testSuite id="7391cda1-5f5a-4a79-8ba0-ce51e2f1e95c" name="DERGroupDispatches_Binding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="388863df-4fd6-4fe0-a71e-f75ede924ece" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateDERGroupDispatches TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="7f2135e4-4ac1-4787-a192-a65c9c60fdd4" name="CreateDERGroupDispatches"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DERGroupDispatches_Binding</con:interface><con:operation>CreateDERGroupDispatches</con:operation><con:request name="CreateDERGroupDispatches" id="fdbb647d-7f10-499c-9f46-14bab7466aa4"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.epri.com/2016/ExecuteDERGroupDispatches</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:der="http://www.epri.com/2016/DERGroupDispatchesMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:der1="http://www.epri.com/2013/DERGroupDispatches#">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <der:CreateDERGroupDispatches>\r
@@ -1351,7 +1308,7 @@
          </der:Payload>\r
       </der:CreateDERGroupDispatches>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="f7dc6e35-0dee-4db1-8534-28987274fb03"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService id="730f1876-23de-411e-a30b-301e166252c6" port="8080" path="/" host="BGOODWIN93C6" name="MockService 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="CreateDERGroupDispatches" id="ab07785e-2e7e-4efd-98be-46a7c89d20e0" interface="DERGroupDispatches_Binding" operation="CreateDERGroupDispatches"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="754d95ce-5305-4377-85f6-8014598421e8" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:der="http://www.epri.com/2016/DERGroupDispatchesMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:der1="http://www.epri.com/2013/DERGroupDispatches#">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.epri.com/2016/DERGroupDispatches/CreateDERGroupDispatches"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService id="323da7db-67e5-4b45-9182-cdb41c488797" port="8080" path="/" host="BGOODWIN93C6" name="MockService 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="CreateDERGroupDispatches" id="b7053f34-8dde-47f9-be09-8de5a54210a6" interface="DERGroupDispatches_Binding" operation="CreateDERGroupDispatches"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="e2765b24-b3db-472f-957a-db9c047d5a6f" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:der="http://www.epri.com/2016/DERGroupDispatchesMessage" xmlns:mes="http://www.iec.ch/TC57/2011/schema/message" xmlns:der1="http://www.epri.com/2013/DERGroupDispatches#">
    <soapenv:Header/>
    <soapenv:Body>
       <der:DERGroupDispatchesResponseMessage>
