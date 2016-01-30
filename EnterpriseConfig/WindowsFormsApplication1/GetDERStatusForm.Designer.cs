@@ -71,6 +71,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.getButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.logControl1 = new WindowsFormsApplication1.LogControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -78,6 +80,7 @@
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -85,13 +88,15 @@
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 518F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.groupBox3, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox5, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -100,7 +105,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(524, 442);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(738, 442);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // panel2
@@ -112,7 +117,7 @@
             this.panel2.Controls.Add(this.endPointText);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(518, 24);
+            this.panel2.Size = new System.Drawing.Size(512, 24);
             this.panel2.TabIndex = 0;
             // 
             // label7
@@ -152,7 +157,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(3, 33);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(514, 159);
+            this.groupBox1.Size = new System.Drawing.Size(512, 159);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CIM Header";
@@ -305,7 +310,7 @@
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Location = new System.Drawing.Point(3, 203);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(514, 94);
+            this.groupBox2.Size = new System.Drawing.Size(512, 94);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "DER Group";
@@ -393,7 +398,7 @@
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Location = new System.Drawing.Point(3, 303);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(514, 99);
+            this.groupBox3.Size = new System.Drawing.Size(512, 99);
             this.groupBox3.TabIndex = 32;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Results";
@@ -489,7 +494,7 @@
             this.panel3.Controls.Add(this.cancelButton);
             this.panel3.Location = new System.Drawing.Point(3, 408);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(518, 29);
+            this.panel3.Size = new System.Drawing.Size(512, 29);
             this.panel3.TabIndex = 33;
             // 
             // getButton
@@ -512,11 +517,35 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox5.Controls.Add(this.logControl1);
+            this.groupBox5.Location = new System.Drawing.Point(521, 3);
+            this.groupBox5.Name = "groupBox5";
+            this.tableLayoutPanel1.SetRowSpan(this.groupBox5, 5);
+            this.groupBox5.Size = new System.Drawing.Size(214, 436);
+            this.groupBox5.TabIndex = 34;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Message Log";
+            // 
+            // logControl1
+            // 
+            this.logControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.logControl1.Location = new System.Drawing.Point(6, 19);
+            this.logControl1.Name = "logControl1";
+            this.logControl1.Size = new System.Drawing.Size(204, 412);
+            this.logControl1.TabIndex = 0;
+            // 
             // GetDERStatusForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 446);
+            this.ClientSize = new System.Drawing.Size(746, 446);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "GetDERStatusForm";
             this.Text = "GetDERStatus";
@@ -533,6 +562,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -582,5 +612,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox MRIDReturnText;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private LogControl logControl1;
     }
 }

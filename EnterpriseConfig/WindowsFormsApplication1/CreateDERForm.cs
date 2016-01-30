@@ -15,7 +15,6 @@ namespace WindowsFormsApplication1
         DERMSInterface.CIMData _cim = null;
         DERMSInterface.CIMData.DERGroup _group = null;
         BindingSource bs = new BindingSource();
-        XMLForm _log = null;
         string _key = DERMSInterface.CIMData.operations.createDER.ToString();
 
         /// <summary>
@@ -39,27 +38,20 @@ namespace WindowsFormsApplication1
         {
             DERMSInterface.CIM cs = new DERMSInterface.CIM(_cim);
             int rc = 1;
+            DateTime now = DateTime.Now;
             try
             {
-                _log = new XMLForm();
                 // call the create DER SOAP method
                 rc = cs.createDERGroup(_group.GroupName, null);
-                _log.addBoldText("Return Code : " + rc.ToString() + Environment.NewLine + Environment.NewLine);
+                logControl1.addEntry(now, LogControl.entryType.OK, "Message Sent...", cs.LastMessageSent);
+                logControl1.addEntry(LogControl.entryType.OK, "Message Received...", cs.LastMessageReceived);
             }
             catch (Exception ex)
             {
-                _log.addBoldText("Exception...");
-                _log.addText(ex.ToString());
+                if (cs.LastMessageSent.Length > 0)
+                    logControl1.addEntry(now, LogControl.entryType.OK, "Message Sent...", cs.LastMessageSent);
+                logControl1.addEntry(LogControl.entryType.FAIL, "Exception...", ex.ToString());
             }
-            finally
-            {
-                _log.addBoldText("Message Sent..." + Environment.NewLine + Environment.NewLine);
-                _log.addText(cs.LastMessageSent + Environment.NewLine + Environment.NewLine);
-                _log.addBoldText("Message Received..." + Environment.NewLine + Environment.NewLine);
-                _log.addText(cs.LastMessageReceived + Environment.NewLine + Environment.NewLine);
-            }
-            _log.Show();
-            MessageBox.Show("Return code : " + rc.ToString(), "Create DER", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
@@ -143,8 +135,8 @@ namespace WindowsFormsApplication1
             DERGroupReactiveText.Text = group.getVarCapacity().ToString();
             DERGroupRealText.Text = group.getWattCapacity().ToString();
 
-           // if (_editDER == true)
-           //     DERView.CellValueChanged += new DataGridViewCellEventHandler(CellValue_Changed);
+            // if (_editDER == true)
+            //     DERView.CellValueChanged += new DataGridViewCellEventHandler(CellValue_Changed);
 
 
         }

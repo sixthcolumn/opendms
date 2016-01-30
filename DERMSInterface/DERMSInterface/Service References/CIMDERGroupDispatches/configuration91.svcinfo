@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="icdjJTFu1ARCNe+1IJQ6sDxiUzo=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="yRRfzPPBet03NMHzMvtO+cUpV+Y=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="DERGroupDispatch_Binding">
+    <bindingConfiguration bindingType="basicHttpBinding" name="DERGroupDispatches_Binding">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>DERGroupDispatch_Binding</serializedValue>
+          <serializedValue>DERGroupDispatches_Binding</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="DERGroupDispatch_Port" contract="CIMDERGroupDispatch.DERGroupDispatch_Port" bindingType="basicHttpBinding" address="http://iec.ch/TC57/2011/RequestDERGroupDispatch" bindingConfiguration="DERGroupDispatch_Binding">
+    <endpoint name="DERGroupDispatches_Port" contract="CIMDERGroupDispatches.DERGroupDispatches_Port" bindingType="basicHttpBinding" address="http://www.epri.com/2016/ExecuteDERGroupDispatches" bindingConfiguration="DERGroupDispatches_Binding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://iec.ch/TC57/2011/RequestDERGroupDispatch</serializedValue>
+          <serializedValue>http://www.epri.com/2016/ExecuteDERGroupDispatches</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -124,10 +124,10 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>DERGroupDispatch_Binding</serializedValue>
+          <serializedValue>DERGroupDispatches_Binding</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>CIMDERGroupDispatch.DERGroupDispatch_Port</serializedValue>
+          <serializedValue>CIMDERGroupDispatches.DERGroupDispatches_Port</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -187,7 +187,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>DERGroupDispatch_Port</serializedValue>
+          <serializedValue>DERGroupDispatches_Port</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

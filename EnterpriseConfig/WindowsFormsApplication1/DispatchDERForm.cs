@@ -75,26 +75,17 @@ namespace WindowsFormsApplication1
 
             try
             {
-                _log = new XMLForm();
                 // because we allow user to edit real/reactive values, we always force send it
                 rc = cs.DispatchDERGroup(_group.Mrid, _q, true, dispatchValue);
-                _log.addBoldText("Return Code : " + rc.ToString() + Environment.NewLine + Environment.NewLine);
+                logControl1.addEntry(LogControl.entryType.OK, "Message Sent...", cs.LastMessageSent);
+                logControl1.addEntry(LogControl.entryType.OK, "Message Received...", cs.LastMessageReceived);
             }
             catch (Exception ex)
             {
-                _log.addBoldText("Exception...");
-                _log.addText(ex.ToString());
+                if (cs.LastMessageSent.Length > 0)
+                    logControl1.addEntry(LogControl.entryType.OK, "Message Sent...", cs.LastMessageSent);
+                logControl1.addEntry(LogControl.entryType.FAIL, "Exception...", ex.ToString());
             }
-            finally
-            {
-                _log.addBoldText("Message Sent..." + Environment.NewLine + Environment.NewLine);
-                _log.addText(cs.LastMessageSent + Environment.NewLine + Environment.NewLine);
-                _log.addBoldText("Message Received..." + Environment.NewLine + Environment.NewLine);
-                _log.addText(cs.LastMessageReceived + Environment.NewLine + Environment.NewLine);
-            }
-            _log.Show();
-            MessageBox.Show("Return code : " + rc.ToString(), "Dispatch DER", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
         /// <summary>

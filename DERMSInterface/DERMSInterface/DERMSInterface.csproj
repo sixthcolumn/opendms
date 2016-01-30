@@ -98,12 +98,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\CIMDERGroupDispatch\Reference.cs">
+    <Compile Include="Service References\CIMDERGroupDispatches\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\CIMDERRequest\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CIMGetDERGroupStatuses\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -153,19 +158,22 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\CIMChangeDERGroup\{Request  Execute}DERGroup1.wsdl" />
-    <None Include="Service References\CIMDERGroupDispatch\DERGroupDispatch.xsd">
+    <None Include="Service References\CIMDERGroupDispatches\DERGroupDispatches.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CIMDERGroupDispatch\DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\CIMDERGroupDispatch\DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchResponseMessageType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\CIMDERGroupDispatch\Message.xsd">
+    <None Include="Service References\CIMDERGroupDispatches\DERGroupDispatchesMessage.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CIMDERGroupDispatch\RequestDERGroupDispatch.wsdl" />
+    <None Include="Service References\CIMDERGroupDispatches\DERMSInterface.CIMDERGroupDispatches.CreateDERGroupDispatchesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERGroupDispatches\DERMSInterface.CIMDERGroupDispatches.DERGroupDispatchesResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMDERGroupDispatches\ExecuteDERGroupDispatches.wsdl" />
+    <None Include="Service References\CIMDERGroupDispatches\Message.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\CIMDERRequest\CIM_Request.wsdl" />
     <None Include="Service References\CIMDERRequest\CIM_Request.xsd">
       <SubType>Designer</SubType>
@@ -254,17 +262,39 @@
     <None Include="Service References\CIMDERRequest\RequestDERGroupMessage.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CIMGetDERGroupStatus\DERGroupStatus1.xsd">
+    <None Include="Service References\CIMGetDERGroupStatuses\DERGroupStatuses.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CIMGetDERGroupStatus\DERMSInterface.CIMGetDERGroupStatus.DERGroupStatusResponseMessageType.datasource">
+    <None Include="Service References\CIMGetDERGroupStatuses\DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\CIMGetDERGroupStatus\DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusResponse.datasource">
+    <None Include="Service References\CIMGetDERGroupStatuses\DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesResponseMessageType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\CIMGetDERGroupStatus\GetDERGroupStatus1.wsdl" />
-    <None Include="Service References\CIMGetDERGroupStatus\GetDERGroupStatusMessage1.xsd">
+    <None Include="Service References\CIMGetDERGroupStatuses\GetDERGroupStatuses.wsdl" />
+    <None Include="Service References\CIMGetDERGroupStatuses\GetDERGroupStatuses.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMGetDERGroupStatuses\GetDERGroupStatusesMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMGetDERGroupStatuses\Message.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMGetDERGroupStatus\DERGroupStatuses.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMGetDERGroupStatus\DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMGetDERGroupStatus\DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesResponseMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CIMGetDERGroupStatus\GetDERGroupStatuses.wsdl" />
+    <None Include="Service References\CIMGetDERGroupStatus\GetDERGroupStatuses.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CIMGetDERGroupStatus\GetDERGroupStatusesMessage.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\CIMGetDERGroupStatus\Message1.xsd">
@@ -405,8 +435,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\CIMChangeDERGroup\" />
-    <WCFMetadataStorage Include="Service References\CIMDERGroupDispatch\" />
+    <WCFMetadataStorage Include="Service References\CIMDERGroupDispatches\" />
     <WCFMetadataStorage Include="Service References\CIMDERRequest\" />
+    <WCFMetadataStorage Include="Service References\CIMGetDERGroupStatuses\" />
     <WCFMetadataStorage Include="Service References\CIMGetDERGroupStatus\" />
     <WCFMetadataStorage Include="Service References\CIMGetDERGroup\" />
     <WCFMetadataStorage Include="Service References\MSDER\" />
@@ -487,13 +518,25 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CIMDERGroupDispatch\configuration91.svcinfo" />
+    <None Include="Service References\CIMGetDERGroupStatuses\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CIMDERGroupDispatch\configuration.svcinfo" />
+    <None Include="Service References\CIMGetDERGroupStatuses\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CIMDERGroupDispatch\Reference.svcmap">
+    <None Include="Service References\CIMGetDERGroupStatuses\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMDERGroupDispatches\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMDERGroupDispatches\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CIMDERGroupDispatches\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

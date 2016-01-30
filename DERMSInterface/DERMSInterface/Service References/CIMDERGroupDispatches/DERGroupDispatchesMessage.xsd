@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:msg="http://www.iec.ch/TC57/2011/schema/message" xmlns:tns="http://www.epri.com/2016/DERGroupDispatchesMessage" xmlns:obj="http://www.epri.com/2013/DERGroupDispatches#" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.epri.com/2016/DERGroupDispatchesMessage" version="1.0.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="Message.xsd" namespace="http://www.iec.ch/TC57/2011/schema/message" />
+  <xs:import schemaLocation="DERGroupDispatches.xsd" namespace="http://www.epri.com/2013/DERGroupDispatches#" />
+  <xs:annotation>
+    <xs:documentation>
+	// Copyright (c) 2016, Electric Power Research Institute
+// All rights reserved
+// Redistribution and use in source and bunary forms, with or without modification, are permitted provided that the following conditions are met:
+// 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+// 2. Redistributions in binary form must reproduce the aboev copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+// 3. Neither the name of the copyright holder nor the name of its contributors may be used to endorse or promote products derived from this software without specific prior written permission
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRENTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRENTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THISE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+	</xs:documentation>
+  </xs:annotation>
+  <xs:complexType name="DERGroupDispatchesPayloadType">
+    <xs:sequence>
+      <xs:element ref="obj:DERGroupDispatches" />
+      <xs:element minOccurs="0" name="OperationSet" type="msg:OperationSet" />
+      <xs:element minOccurs="0" name="Compressed" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>For compressed and/or binary, uuencoded payloads</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Format" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Hint as to format of payload, e.g. XML, RDF, SVF, BINARY, PDF, ...</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DERGroupDispatchesRequestMessageType">
+    <xs:sequence>
+      <xs:element name="Header" type="msg:HeaderType" />
+      <xs:element minOccurs="0" name="Request" type="msg:RequestType" />
+      <xs:element minOccurs="0" name="Payload" type="tns:DERGroupDispatchesPayloadType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DERGroupDispatchesResponseMessageType">
+    <xs:sequence>
+      <xs:element name="Header" type="msg:HeaderType" />
+      <xs:element name="Reply" type="msg:ReplyType" />
+      <xs:element minOccurs="0" name="Payload" type="tns:DERGroupDispatchesPayloadType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DERGroupDispatchesEventMessageType">
+    <xs:sequence>
+      <xs:element name="Header" type="msg:HeaderType" />
+      <xs:element minOccurs="0" name="Payload" type="tns:DERGroupDispatchesPayloadType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DERGroupDispatchesFaultMessageType">
+    <xs:sequence>
+      <xs:element name="Reply" type="msg:ReplyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateDERGroupDispatches" type="tns:DERGroupDispatchesRequestMessageType" />
+  <xs:element name="ChangeDERGroupDispatches" type="tns:DERGroupDispatchesRequestMessageType" />
+  <xs:element name="CancelDERGroupDispatches" type="tns:DERGroupDispatchesRequestMessageType" />
+  <xs:element name="CloseDERGroupDispatches" type="tns:DERGroupDispatchesRequestMessageType" />
+  <xs:element name="DeleteDERGroupDispatches" type="tns:DERGroupDispatchesRequestMessageType" />
+  <xs:element name="CreatedDERGroupDispatches" type="tns:DERGroupDispatchesEventMessageType" />
+  <xs:element name="ChangedDERGroupDispatches" type="tns:DERGroupDispatchesEventMessageType" />
+  <xs:element name="CanceledDERGroupDispatches" type="tns:DERGroupDispatchesEventMessageType" />
+  <xs:element name="ClosedDERGroupDispatches" type="tns:DERGroupDispatchesEventMessageType" />
+  <xs:element name="DeletedDERGroupDispatches" type="tns:DERGroupDispatchesEventMessageType" />
+  <xs:element name="DERGroupDispatchesResponseMessage" type="tns:DERGroupDispatchesResponseMessageType" />
+  <xs:element name="DERGroupDispatchesFaultMessage" type="tns:DERGroupDispatchesFaultMessageType" />
+</xs:schema>

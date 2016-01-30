@@ -15,7 +15,6 @@ namespace WindowsFormsApplication1
     {
         DERMSInterface.CIMData _cim = null;
         DERMSInterface.CIMData.DERGroup _group = null;
-        XMLForm _log = null;
         DERMSInterface.quantity _q;
         string _key = DERMSInterface.CIMData.operations.getDERStatus.ToString();
 
@@ -74,12 +73,8 @@ namespace WindowsFormsApplication1
         private void getButton_Click(object sender, EventArgs e)
         {
             DERMSInterface.CIM cs = new DERMSInterface.CIM(_cim);
-            int rc = 1;
-
             try
             {
-                _log = new XMLForm();
-
                 // call SOAP function
                 DERMSInterface.CIMData.DERStatus reply = cs.getDERGroupStatus(_group.Mrid, _q);
 
@@ -89,22 +84,15 @@ namespace WindowsFormsApplication1
                 this.maxValueText.Text = reply.PresentMaxCapability.ToString();
                 this.MRIDReturnText.Text = reply.Mrid;
                 this.quantityText.Text = _q.ToString();
-                _log.addBoldText("Return Code : " + rc.ToString() + Environment.NewLine + Environment.NewLine);
-
+                logControl1.addEntry(LogControl.entryType.OK, "Message Sent...", cs.LastMessageSent);
+                logControl1.addEntry(LogControl.entryType.OK, "Message Received...", cs.LastMessageReceived);
             }
             catch (Exception ex)
             {
-                _log.addBoldText("Exception...");
-                _log.addText(ex.ToString());
+                if (cs.LastMessageSent.Length > 0)
+                    logControl1.addEntry(LogControl.entryType.OK, "Message Sent...", cs.LastMessageSent);
+                logControl1.addEntry(LogControl.entryType.FAIL, "Exception...", ex.ToString());
             }
-            finally
-            {
-                _log.addBoldText("Message Sent..." + Environment.NewLine + Environment.NewLine);
-                _log.addText(cs.LastMessageSent + Environment.NewLine + Environment.NewLine);
-                _log.addBoldText("Message Received..." + Environment.NewLine + Environment.NewLine);
-                _log.addText(cs.LastMessageReceived + Environment.NewLine + Environment.NewLine);
-            }
-            _log.Show();
 
         }
 

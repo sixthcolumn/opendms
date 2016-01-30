@@ -8,16 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DERMSInterface.CIMDERGroupDispatch {
+namespace DERMSInterface.CIMDERGroupDispatches {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/DERGroupDispatchMessage")]
-    public partial class DERGroupDispatchFaultMessageType : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2016/DERGroupDispatchesMessage")]
+    public partial class DERGroupDispatchesFaultMessageType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private ReplyType replyField;
         
@@ -44,11 +44,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class ReplyType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private ReplyTypeResult resultField;
@@ -132,9 +132,9 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public enum ReplyTypeResult {
         
         /// <remarks/>
@@ -148,11 +148,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class ErrorType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string codeField;
@@ -334,9 +334,9 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public enum ErrorTypeLevel {
         
         /// <remarks/>
@@ -353,11 +353,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class LocationType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string nodeField;
@@ -413,11 +413,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="NameTypeAuthority", Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="NameTypeAuthority", Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class NameTypeAuthority1 : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string nameField;
@@ -459,11 +459,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="NameType", Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="NameType", Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class NameType1 : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string nameField;
@@ -519,11 +519,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="Name", Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="Name", Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class Name1 : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string nameField;
@@ -565,11 +565,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class ObjectType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string mRIDField;
@@ -625,18 +625,18 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/DERGroupDispatchMessage")]
-    public partial class DERGroupDispatchResponseMessageType : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2016/DERGroupDispatchesMessage")]
+    public partial class DERGroupDispatchesResponseMessageType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private HeaderType headerField;
         
         private ReplyType replyField;
         
-        private DERGroupDispatchPayloadType payloadField;
+        private DERGroupDispatchesPayloadType payloadField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
@@ -664,7 +664,7 @@ namespace DERMSInterface.CIMDERGroupDispatch {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public DERGroupDispatchPayloadType Payload {
+        public DERGroupDispatchesPayloadType Payload {
             get {
                 return this.payloadField;
             }
@@ -685,11 +685,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class HeaderType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private HeaderTypeVerb verbField;
@@ -969,9 +969,9 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public enum HeaderTypeVerb {
         
         /// <remarks/>
@@ -1018,11 +1018,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class ReplayDetectionType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string nonceField;
@@ -1064,11 +1064,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class UserType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string userIDField;
@@ -1110,11 +1110,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class MessageProperty : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string nameField;
@@ -1156,12 +1156,12 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/DERGroupDispatchMessage")]
-    public partial class DERGroupDispatchPayloadType : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2016/DERGroupDispatchesMessage")]
+    public partial class DERGroupDispatchesPayloadType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private DERGroupDispatch[] dERGroupDispatchesField;
         
@@ -1172,7 +1172,7 @@ namespace DERMSInterface.CIMDERGroupDispatch {
         private string formatField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatch#", Order=0)]
+        [System.Xml.Serialization.XmlArrayAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatches#", Order=0)]
         [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
         public DERGroupDispatch[] DERGroupDispatches {
             get {
@@ -1231,11 +1231,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatch#")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatches#")]
     public partial class DERGroupDispatch : object, System.ComponentModel.INotifyPropertyChanged {
         
         private DERGroup dERGroupField;
@@ -1334,11 +1334,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatch#")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatches#")]
     public partial class DERGroup : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string nameField;
@@ -1394,11 +1394,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatch#")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatches#")]
     public partial class Name : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string nameField;
@@ -1440,11 +1440,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatch#")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatches#")]
     public partial class NameType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string descriptionField;
@@ -1500,11 +1500,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatch#")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatches#")]
     public partial class NameTypeAuthority : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string descriptionField;
@@ -1546,11 +1546,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatch#")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatches#")]
     public partial class RequestedCapability : object, System.ComponentModel.INotifyPropertyChanged {
         
         private capabilityType capabilityTypeField;
@@ -1560,10 +1560,6 @@ namespace DERMSInterface.CIMDERGroupDispatch {
         private string capabilityUnitsField;
         
         private UnitMultiplier capabilityMultiplierField;
-        
-        public RequestedCapability() {
-            this.capabilityUnitsField = "VA";
-        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
@@ -1624,9 +1620,9 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatch#")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatches#")]
     public enum capabilityType {
         
         /// <remarks/>
@@ -1634,12 +1630,15 @@ namespace DERMSInterface.CIMDERGroupDispatch {
         
         /// <remarks/>
         ApparentPower,
+        
+        /// <remarks/>
+        ReactivePower,
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatch#")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatches#")]
     public enum UnitMultiplier {
         
         /// <remarks/>
@@ -1677,11 +1676,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatch#")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatches#")]
     public partial class extensionsItem : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string extNameField;
@@ -1737,11 +1736,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatch#")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroupDispatches#")]
     public partial class otherCapability : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string otherCapabilityTypeField;
@@ -1825,11 +1824,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class OperationSet : object, System.ComponentModel.INotifyPropertyChanged {
         
         private bool enforceMsgSequenceField;
@@ -1913,11 +1912,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class OperationType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string operationIdField;
@@ -2006,11 +2005,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class OptionType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string nameField;
@@ -2052,11 +2051,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class RequestType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private System.DateTime startTimeField;
@@ -2168,11 +2167,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class RequestTypeID : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string idTypeField;
@@ -2270,9 +2269,9 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public enum IDKindType {
         
         /// <remarks/>
@@ -2289,18 +2288,18 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/DERGroupDispatchMessage")]
-    public partial class DERGroupDispatchRequestMessageType : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2016/DERGroupDispatchesMessage")]
+    public partial class DERGroupDispatchesRequestMessageType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private HeaderType headerField;
         
         private RequestType requestField;
         
-        private DERGroupDispatchPayloadType payloadField;
+        private DERGroupDispatchesPayloadType payloadField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
@@ -2328,7 +2327,7 @@ namespace DERMSInterface.CIMDERGroupDispatch {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public DERGroupDispatchPayloadType Payload {
+        public DERGroupDispatchesPayloadType Payload {
             get {
                 return this.payloadField;
             }
@@ -2349,11 +2348,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class ErrorTypeID : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string idTypeField;
@@ -2451,11 +2450,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class ErrorTypeRelatedID : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string idTypeField;
@@ -2553,11 +2552,11 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class ReplyTypeID : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string idTypeField;
@@ -2655,69 +2654,33 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://iec.ch/TC57/2011/RequestDERGroupDispatch", ConfigurationName="CIMDERGroupDispatch.DERGroupDispatch_Port")]
-    public interface DERGroupDispatch_Port {
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.epri.com/2016/ExecuteDERGroupDispatches", ConfigurationName="CIMDERGroupDispatches.DERGroupDispatches_Port")]
+    public interface DERGroupDispatches_Port {
         
-        // CODEGEN: Generating message contract since the operation CreateDERGroupDispatch is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(Action="http://iec.ch/TC57/2011/DERGroupDispatch/CreateDERGroupDispatch", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchFaultMessageType), Action="http://iec.ch/TC57/2011/DERGroupDispatch/CreateDERGroupDispatch", Name="DERGroupDispatchFaultMessage", Namespace="http://iec.ch/TC57/2011/DERGroupDispatchMessage")]
+        // CODEGEN: Generating message contract since the operation CreateDERGroupDispatches is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.epri.com/2016/DERGroupDispatches/CreateDERGroupDispatches", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(DERMSInterface.CIMDERGroupDispatches.DERGroupDispatchesFaultMessageType), Action="http://www.epri.com/2016/DERGroupDispatches/CreateDERGroupDispatches", Name="DERGroupDispatchesFaultMessage", Namespace="http://www.epri.com/2016/DERGroupDispatchesMessage")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse CreateDERGroupDispatch(DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchRequest request);
+        DERMSInterface.CIMDERGroupDispatches.CreateDERGroupDispatchesResponse CreateDERGroupDispatches(DERMSInterface.CIMDERGroupDispatches.CreateDERGroupDispatchesRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://iec.ch/TC57/2011/DERGroupDispatch/CreateDERGroupDispatch", ReplyAction="*")]
-        System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse> CreateDERGroupDispatchAsync(DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchRequest request);
-        
-        // CODEGEN: Generating message contract since the operation ChangeDERGroupDispatch is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(Action="http://iec.ch/TC57/2011/DERGroupDispatch/ChangeDERGroupDispatch", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchFaultMessageType), Action="http://iec.ch/TC57/2011/DERGroupDispatch/ChangeDERGroupDispatch", Name="DERGroupDispatchFaultMessage", Namespace="http://iec.ch/TC57/2011/DERGroupDispatchMessage")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse ChangeDERGroupDispatch(DERMSInterface.CIMDERGroupDispatch.ChangeDERGroupDispatchRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://iec.ch/TC57/2011/DERGroupDispatch/ChangeDERGroupDispatch", ReplyAction="*")]
-        System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse> ChangeDERGroupDispatchAsync(DERMSInterface.CIMDERGroupDispatch.ChangeDERGroupDispatchRequest request);
-        
-        // CODEGEN: Generating message contract since the operation CancelDERGroupDispatch is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(Action="http://iec.ch/TC57/2011/DERGroupDispatch/CancelDERGroupDispatch", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchFaultMessageType), Action="http://iec.ch/TC57/2011/DERGroupDispatch/CancelDERGroupDispatch", Name="DERGroupDispatchFaultMessage", Namespace="http://iec.ch/TC57/2011/DERGroupDispatchMessage")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse CancelDERGroupDispatch(DERMSInterface.CIMDERGroupDispatch.CancelDERGroupDispatchRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://iec.ch/TC57/2011/DERGroupDispatch/CancelDERGroupDispatch", ReplyAction="*")]
-        System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse> CancelDERGroupDispatchAsync(DERMSInterface.CIMDERGroupDispatch.CancelDERGroupDispatchRequest request);
-        
-        // CODEGEN: Generating message contract since the operation CloseDERGroupDispatch is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(Action="http://iec.ch/TC57/2011/DERGroupDispatch/CloseDERGroupDispatch", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchFaultMessageType), Action="http://iec.ch/TC57/2011/DERGroupDispatch/CloseDERGroupDispatch", Name="DERGroupDispatchFaultMessage", Namespace="http://iec.ch/TC57/2011/DERGroupDispatchMessage")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse CloseDERGroupDispatch(DERMSInterface.CIMDERGroupDispatch.CloseDERGroupDispatchRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://iec.ch/TC57/2011/DERGroupDispatch/CloseDERGroupDispatch", ReplyAction="*")]
-        System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse> CloseDERGroupDispatchAsync(DERMSInterface.CIMDERGroupDispatch.CloseDERGroupDispatchRequest request);
-        
-        // CODEGEN: Generating message contract since the operation DeleteDERGroupDispatch is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(Action="http://iec.ch/TC57/2011/DERGroupDispatch/DeleteDERGroupDispatch", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchFaultMessageType), Action="http://iec.ch/TC57/2011/DERGroupDispatch/DeleteDERGroupDispatch", Name="DERGroupDispatchFaultMessage", Namespace="http://iec.ch/TC57/2011/DERGroupDispatchMessage")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse DeleteDERGroupDispatch(DERMSInterface.CIMDERGroupDispatch.DeleteDERGroupDispatchRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://iec.ch/TC57/2011/DERGroupDispatch/DeleteDERGroupDispatch", ReplyAction="*")]
-        System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse> DeleteDERGroupDispatchAsync(DERMSInterface.CIMDERGroupDispatch.DeleteDERGroupDispatchRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.epri.com/2016/DERGroupDispatches/CreateDERGroupDispatches", ReplyAction="*")]
+        System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatches.CreateDERGroupDispatchesResponse> CreateDERGroupDispatchesAsync(DERMSInterface.CIMDERGroupDispatches.CreateDERGroupDispatchesRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class CreateDERGroupDispatchRequest {
+    public partial class CreateDERGroupDispatchesRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://iec.ch/TC57/2011/DERGroupDispatchMessage", Order=0)]
-        public DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType CreateDERGroupDispatch;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.epri.com/2016/DERGroupDispatchesMessage", Order=0)]
+        public DERMSInterface.CIMDERGroupDispatches.DERGroupDispatchesRequestMessageType CreateDERGroupDispatches;
         
-        public CreateDERGroupDispatchRequest() {
+        public CreateDERGroupDispatchesRequest() {
         }
         
-        public CreateDERGroupDispatchRequest(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType CreateDERGroupDispatch) {
-            this.CreateDERGroupDispatch = CreateDERGroupDispatch;
+        public CreateDERGroupDispatchesRequest(DERMSInterface.CIMDERGroupDispatches.DERGroupDispatchesRequestMessageType CreateDERGroupDispatches) {
+            this.CreateDERGroupDispatches = CreateDERGroupDispatches;
         }
     }
     
@@ -2725,227 +2688,67 @@ namespace DERMSInterface.CIMDERGroupDispatch {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class CreateDERGroupDispatchResponse {
+    public partial class CreateDERGroupDispatchesResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://iec.ch/TC57/2011/DERGroupDispatchMessage", Order=0)]
-        public DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchResponseMessageType DERGroupDispatchResponseMessage;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.epri.com/2016/DERGroupDispatchesMessage", Order=0)]
+        public DERMSInterface.CIMDERGroupDispatches.DERGroupDispatchesResponseMessageType DERGroupDispatchesResponseMessage;
         
-        public CreateDERGroupDispatchResponse() {
+        public CreateDERGroupDispatchesResponse() {
         }
         
-        public CreateDERGroupDispatchResponse(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchResponseMessageType DERGroupDispatchResponseMessage) {
-            this.DERGroupDispatchResponseMessage = DERGroupDispatchResponseMessage;
+        public CreateDERGroupDispatchesResponse(DERMSInterface.CIMDERGroupDispatches.DERGroupDispatchesResponseMessageType DERGroupDispatchesResponseMessage) {
+            this.DERGroupDispatchesResponseMessage = DERGroupDispatchesResponseMessage;
         }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface DERGroupDispatches_PortChannel : DERMSInterface.CIMDERGroupDispatches.DERGroupDispatches_Port, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class ChangeDERGroupDispatchRequest {
+    public partial class DERGroupDispatches_PortClient : System.ServiceModel.ClientBase<DERMSInterface.CIMDERGroupDispatches.DERGroupDispatches_Port>, DERMSInterface.CIMDERGroupDispatches.DERGroupDispatches_Port {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://iec.ch/TC57/2011/DERGroupDispatchMessage", Order=0)]
-        public DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType ChangeDERGroupDispatch;
-        
-        public ChangeDERGroupDispatchRequest() {
+        public DERGroupDispatches_PortClient() {
         }
         
-        public ChangeDERGroupDispatchRequest(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType ChangeDERGroupDispatch) {
-            this.ChangeDERGroupDispatch = ChangeDERGroupDispatch;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class CancelDERGroupDispatchRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://iec.ch/TC57/2011/DERGroupDispatchMessage", Order=0)]
-        public DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType CancelDERGroupDispatch;
-        
-        public CancelDERGroupDispatchRequest() {
-        }
-        
-        public CancelDERGroupDispatchRequest(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType CancelDERGroupDispatch) {
-            this.CancelDERGroupDispatch = CancelDERGroupDispatch;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class CloseDERGroupDispatchRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://iec.ch/TC57/2011/DERGroupDispatchMessage", Order=0)]
-        public DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType CloseDERGroupDispatch;
-        
-        public CloseDERGroupDispatchRequest() {
-        }
-        
-        public CloseDERGroupDispatchRequest(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType CloseDERGroupDispatch) {
-            this.CloseDERGroupDispatch = CloseDERGroupDispatch;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class DeleteDERGroupDispatchRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://iec.ch/TC57/2011/DERGroupDispatchMessage", Order=0)]
-        public DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType DeleteDERGroupDispatch;
-        
-        public DeleteDERGroupDispatchRequest() {
-        }
-        
-        public DeleteDERGroupDispatchRequest(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType DeleteDERGroupDispatch) {
-            this.DeleteDERGroupDispatch = DeleteDERGroupDispatch;
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DERGroupDispatch_PortChannel : DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port, System.ServiceModel.IClientChannel {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DERGroupDispatch_PortClient : System.ServiceModel.ClientBase<DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port>, DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port {
-        
-        public DERGroupDispatch_PortClient() {
-        }
-        
-        public DERGroupDispatch_PortClient(string endpointConfigurationName) : 
+        public DERGroupDispatches_PortClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public DERGroupDispatch_PortClient(string endpointConfigurationName, string remoteAddress) : 
+        public DERGroupDispatches_PortClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public DERGroupDispatch_PortClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public DERGroupDispatches_PortClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public DERGroupDispatch_PortClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public DERGroupDispatches_PortClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port.CreateDERGroupDispatch(DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchRequest request) {
-            return base.Channel.CreateDERGroupDispatch(request);
+        DERMSInterface.CIMDERGroupDispatches.CreateDERGroupDispatchesResponse DERMSInterface.CIMDERGroupDispatches.DERGroupDispatches_Port.CreateDERGroupDispatches(DERMSInterface.CIMDERGroupDispatches.CreateDERGroupDispatchesRequest request) {
+            return base.Channel.CreateDERGroupDispatches(request);
         }
         
-        public DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchResponseMessageType CreateDERGroupDispatch(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType CreateDERGroupDispatch1) {
-            DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchRequest inValue = new DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchRequest();
-            inValue.CreateDERGroupDispatch = CreateDERGroupDispatch1;
-            DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse retVal = ((DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port)(this)).CreateDERGroupDispatch(inValue);
-            return retVal.DERGroupDispatchResponseMessage;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse> DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port.CreateDERGroupDispatchAsync(DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchRequest request) {
-            return base.Channel.CreateDERGroupDispatchAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse> CreateDERGroupDispatchAsync(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType CreateDERGroupDispatch) {
-            DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchRequest inValue = new DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchRequest();
-            inValue.CreateDERGroupDispatch = CreateDERGroupDispatch;
-            return ((DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port)(this)).CreateDERGroupDispatchAsync(inValue);
+        public DERMSInterface.CIMDERGroupDispatches.DERGroupDispatchesResponseMessageType CreateDERGroupDispatches(DERMSInterface.CIMDERGroupDispatches.DERGroupDispatchesRequestMessageType CreateDERGroupDispatches1) {
+            DERMSInterface.CIMDERGroupDispatches.CreateDERGroupDispatchesRequest inValue = new DERMSInterface.CIMDERGroupDispatches.CreateDERGroupDispatchesRequest();
+            inValue.CreateDERGroupDispatches = CreateDERGroupDispatches1;
+            DERMSInterface.CIMDERGroupDispatches.CreateDERGroupDispatchesResponse retVal = ((DERMSInterface.CIMDERGroupDispatches.DERGroupDispatches_Port)(this)).CreateDERGroupDispatches(inValue);
+            return retVal.DERGroupDispatchesResponseMessage;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port.ChangeDERGroupDispatch(DERMSInterface.CIMDERGroupDispatch.ChangeDERGroupDispatchRequest request) {
-            return base.Channel.ChangeDERGroupDispatch(request);
+        System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatches.CreateDERGroupDispatchesResponse> DERMSInterface.CIMDERGroupDispatches.DERGroupDispatches_Port.CreateDERGroupDispatchesAsync(DERMSInterface.CIMDERGroupDispatches.CreateDERGroupDispatchesRequest request) {
+            return base.Channel.CreateDERGroupDispatchesAsync(request);
         }
         
-        public DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchResponseMessageType ChangeDERGroupDispatch(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType ChangeDERGroupDispatch1) {
-            DERMSInterface.CIMDERGroupDispatch.ChangeDERGroupDispatchRequest inValue = new DERMSInterface.CIMDERGroupDispatch.ChangeDERGroupDispatchRequest();
-            inValue.ChangeDERGroupDispatch = ChangeDERGroupDispatch1;
-            DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse retVal = ((DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port)(this)).ChangeDERGroupDispatch(inValue);
-            return retVal.DERGroupDispatchResponseMessage;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse> DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port.ChangeDERGroupDispatchAsync(DERMSInterface.CIMDERGroupDispatch.ChangeDERGroupDispatchRequest request) {
-            return base.Channel.ChangeDERGroupDispatchAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse> ChangeDERGroupDispatchAsync(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType ChangeDERGroupDispatch) {
-            DERMSInterface.CIMDERGroupDispatch.ChangeDERGroupDispatchRequest inValue = new DERMSInterface.CIMDERGroupDispatch.ChangeDERGroupDispatchRequest();
-            inValue.ChangeDERGroupDispatch = ChangeDERGroupDispatch;
-            return ((DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port)(this)).ChangeDERGroupDispatchAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port.CancelDERGroupDispatch(DERMSInterface.CIMDERGroupDispatch.CancelDERGroupDispatchRequest request) {
-            return base.Channel.CancelDERGroupDispatch(request);
-        }
-        
-        public DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchResponseMessageType CancelDERGroupDispatch(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType CancelDERGroupDispatch1) {
-            DERMSInterface.CIMDERGroupDispatch.CancelDERGroupDispatchRequest inValue = new DERMSInterface.CIMDERGroupDispatch.CancelDERGroupDispatchRequest();
-            inValue.CancelDERGroupDispatch = CancelDERGroupDispatch1;
-            DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse retVal = ((DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port)(this)).CancelDERGroupDispatch(inValue);
-            return retVal.DERGroupDispatchResponseMessage;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse> DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port.CancelDERGroupDispatchAsync(DERMSInterface.CIMDERGroupDispatch.CancelDERGroupDispatchRequest request) {
-            return base.Channel.CancelDERGroupDispatchAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse> CancelDERGroupDispatchAsync(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType CancelDERGroupDispatch) {
-            DERMSInterface.CIMDERGroupDispatch.CancelDERGroupDispatchRequest inValue = new DERMSInterface.CIMDERGroupDispatch.CancelDERGroupDispatchRequest();
-            inValue.CancelDERGroupDispatch = CancelDERGroupDispatch;
-            return ((DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port)(this)).CancelDERGroupDispatchAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port.CloseDERGroupDispatch(DERMSInterface.CIMDERGroupDispatch.CloseDERGroupDispatchRequest request) {
-            return base.Channel.CloseDERGroupDispatch(request);
-        }
-        
-        public DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchResponseMessageType CloseDERGroupDispatch(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType CloseDERGroupDispatch1) {
-            DERMSInterface.CIMDERGroupDispatch.CloseDERGroupDispatchRequest inValue = new DERMSInterface.CIMDERGroupDispatch.CloseDERGroupDispatchRequest();
-            inValue.CloseDERGroupDispatch = CloseDERGroupDispatch1;
-            DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse retVal = ((DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port)(this)).CloseDERGroupDispatch(inValue);
-            return retVal.DERGroupDispatchResponseMessage;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse> DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port.CloseDERGroupDispatchAsync(DERMSInterface.CIMDERGroupDispatch.CloseDERGroupDispatchRequest request) {
-            return base.Channel.CloseDERGroupDispatchAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse> CloseDERGroupDispatchAsync(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType CloseDERGroupDispatch) {
-            DERMSInterface.CIMDERGroupDispatch.CloseDERGroupDispatchRequest inValue = new DERMSInterface.CIMDERGroupDispatch.CloseDERGroupDispatchRequest();
-            inValue.CloseDERGroupDispatch = CloseDERGroupDispatch;
-            return ((DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port)(this)).CloseDERGroupDispatchAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port.DeleteDERGroupDispatch(DERMSInterface.CIMDERGroupDispatch.DeleteDERGroupDispatchRequest request) {
-            return base.Channel.DeleteDERGroupDispatch(request);
-        }
-        
-        public DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchResponseMessageType DeleteDERGroupDispatch(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType DeleteDERGroupDispatch1) {
-            DERMSInterface.CIMDERGroupDispatch.DeleteDERGroupDispatchRequest inValue = new DERMSInterface.CIMDERGroupDispatch.DeleteDERGroupDispatchRequest();
-            inValue.DeleteDERGroupDispatch = DeleteDERGroupDispatch1;
-            DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse retVal = ((DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port)(this)).DeleteDERGroupDispatch(inValue);
-            return retVal.DERGroupDispatchResponseMessage;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse> DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port.DeleteDERGroupDispatchAsync(DERMSInterface.CIMDERGroupDispatch.DeleteDERGroupDispatchRequest request) {
-            return base.Channel.DeleteDERGroupDispatchAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatch.CreateDERGroupDispatchResponse> DeleteDERGroupDispatchAsync(DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType DeleteDERGroupDispatch) {
-            DERMSInterface.CIMDERGroupDispatch.DeleteDERGroupDispatchRequest inValue = new DERMSInterface.CIMDERGroupDispatch.DeleteDERGroupDispatchRequest();
-            inValue.DeleteDERGroupDispatch = DeleteDERGroupDispatch;
-            return ((DERMSInterface.CIMDERGroupDispatch.DERGroupDispatch_Port)(this)).DeleteDERGroupDispatchAsync(inValue);
+        public System.Threading.Tasks.Task<DERMSInterface.CIMDERGroupDispatches.CreateDERGroupDispatchesResponse> CreateDERGroupDispatchesAsync(DERMSInterface.CIMDERGroupDispatches.DERGroupDispatchesRequestMessageType CreateDERGroupDispatches) {
+            DERMSInterface.CIMDERGroupDispatches.CreateDERGroupDispatchesRequest inValue = new DERMSInterface.CIMDERGroupDispatches.CreateDERGroupDispatchesRequest();
+            inValue.CreateDERGroupDispatches = CreateDERGroupDispatches;
+            return ((DERMSInterface.CIMDERGroupDispatches.DERGroupDispatches_Port)(this)).CreateDERGroupDispatchesAsync(inValue);
         }
     }
 }

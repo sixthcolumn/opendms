@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DERMSInterface.CIMGetDERGroupStatus {
+namespace DERMSInterface.CIMGetDERGroupStatuses {
     
     
     /// <remarks/>
@@ -3147,17 +3147,17 @@ namespace DERMSInterface.CIMGetDERGroupStatus {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.epri.com/2016/GetDERGroupStatuses", ConfigurationName="CIMGetDERGroupStatus.GetDERGroupStatuses_Port")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.epri.com/2016/GetDERGroupStatuses", ConfigurationName="CIMGetDERGroupStatuses.GetDERGroupStatuses_Port")]
     public interface GetDERGroupStatuses_Port {
         
         // CODEGEN: Generating message contract since the operation GetDERGroupStatuses is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.epri.com/2016/GetDERGroupStatuses", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesFaultMessageType), Action="http://www.epri.com/2016/GetDERGroupStatuses", Name="GetDERGroupStatusesFaultMessage", Namespace="http://www.epri.com/2016/GetDERGroupStatusesMessage")]
+        [System.ServiceModel.FaultContractAttribute(typeof(DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesFaultMessageType), Action="http://www.epri.com/2016/GetDERGroupStatuses", Name="GetDERGroupStatusesFaultMessage", Namespace="http://www.epri.com/2016/GetDERGroupStatusesMessage")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesResponse GetDERGroupStatuses(DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesRequest request);
+        DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesResponse GetDERGroupStatuses(DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://www.epri.com/2016/GetDERGroupStatuses", ReplyAction="*")]
-        System.Threading.Tasks.Task<DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesResponse> GetDERGroupStatusesAsync(DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesRequest request);
+        System.Threading.Tasks.Task<DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesResponse> GetDERGroupStatusesAsync(DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3167,12 +3167,12 @@ namespace DERMSInterface.CIMGetDERGroupStatus {
     public partial class GetDERGroupStatusesRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.epri.com/2016/GetDERGroupStatusesMessage", Order=0)]
-        public DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesRequestMessageType GetDERGroupStatusesRequestMessage;
+        public DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesRequestMessageType GetDERGroupStatusesRequestMessage;
         
         public GetDERGroupStatusesRequest() {
         }
         
-        public GetDERGroupStatusesRequest(DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesRequestMessageType GetDERGroupStatusesRequestMessage) {
+        public GetDERGroupStatusesRequest(DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesRequestMessageType GetDERGroupStatusesRequestMessage) {
             this.GetDERGroupStatusesRequestMessage = GetDERGroupStatusesRequestMessage;
         }
     }
@@ -3184,23 +3184,23 @@ namespace DERMSInterface.CIMGetDERGroupStatus {
     public partial class GetDERGroupStatusesResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.epri.com/2016/GetDERGroupStatusesMessage", Order=0)]
-        public DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesResponseMessageType GetDERGroupStatusesResponseMessage;
+        public DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesResponseMessageType GetDERGroupStatusesResponseMessage;
         
         public GetDERGroupStatusesResponse() {
         }
         
-        public GetDERGroupStatusesResponse(DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesResponseMessageType GetDERGroupStatusesResponseMessage) {
+        public GetDERGroupStatusesResponse(DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesResponseMessageType GetDERGroupStatusesResponseMessage) {
             this.GetDERGroupStatusesResponseMessage = GetDERGroupStatusesResponseMessage;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface GetDERGroupStatuses_PortChannel : DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatuses_Port, System.ServiceModel.IClientChannel {
+    public interface GetDERGroupStatuses_PortChannel : DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatuses_Port, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetDERGroupStatuses_PortClient : System.ServiceModel.ClientBase<DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatuses_Port>, DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatuses_Port {
+    public partial class GetDERGroupStatuses_PortClient : System.ServiceModel.ClientBase<DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatuses_Port>, DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatuses_Port {
         
         public GetDERGroupStatuses_PortClient() {
         }
@@ -3222,26 +3222,26 @@ namespace DERMSInterface.CIMGetDERGroupStatus {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesResponse DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatuses_Port.GetDERGroupStatuses(DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesRequest request) {
+        DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesResponse DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatuses_Port.GetDERGroupStatuses(DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesRequest request) {
             return base.Channel.GetDERGroupStatuses(request);
         }
         
-        public DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesResponseMessageType GetDERGroupStatuses(DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesRequestMessageType GetDERGroupStatusesRequestMessage) {
-            DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesRequest inValue = new DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesRequest();
+        public DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesResponseMessageType GetDERGroupStatuses(DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesRequestMessageType GetDERGroupStatusesRequestMessage) {
+            DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesRequest inValue = new DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesRequest();
             inValue.GetDERGroupStatusesRequestMessage = GetDERGroupStatusesRequestMessage;
-            DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesResponse retVal = ((DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatuses_Port)(this)).GetDERGroupStatuses(inValue);
+            DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesResponse retVal = ((DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatuses_Port)(this)).GetDERGroupStatuses(inValue);
             return retVal.GetDERGroupStatusesResponseMessage;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesResponse> DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatuses_Port.GetDERGroupStatusesAsync(DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesRequest request) {
+        System.Threading.Tasks.Task<DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesResponse> DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatuses_Port.GetDERGroupStatusesAsync(DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesRequest request) {
             return base.Channel.GetDERGroupStatusesAsync(request);
         }
         
-        public System.Threading.Tasks.Task<DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesResponse> GetDERGroupStatusesAsync(DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesRequestMessageType GetDERGroupStatusesRequestMessage) {
-            DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesRequest inValue = new DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatusesRequest();
+        public System.Threading.Tasks.Task<DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesResponse> GetDERGroupStatusesAsync(DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesRequestMessageType GetDERGroupStatusesRequestMessage) {
+            DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesRequest inValue = new DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesRequest();
             inValue.GetDERGroupStatusesRequestMessage = GetDERGroupStatusesRequestMessage;
-            return ((DERMSInterface.CIMGetDERGroupStatus.GetDERGroupStatuses_Port)(this)).GetDERGroupStatusesAsync(inValue);
+            return ((DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatuses_Port)(this)).GetDERGroupStatusesAsync(inValue);
         }
     }
 }

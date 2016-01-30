@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="r2MqXFK8s2E9DjFMP7Z3drrfoag=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="2i4hTq7E55Izc0hN3PXPK0JUdUw=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="GetDERGroupStatuses_Binding">
+    <bindingConfiguration bindingType="basicHttpBinding" name="GetDERGroupStatuses_Binding1">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>GetDERGroupStatuses_Binding</serializedValue>
+          <serializedValue>GetDERGroupStatuses_Binding1</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="GetDERGroupStatuses_Port" contract="CIMGetDERGroupStatus.GetDERGroupStatuses_Port" bindingType="basicHttpBinding" address="http://www.epri.com/2016/GetDERGroupStatuses" bindingConfiguration="GetDERGroupStatuses_Binding">
+    <endpoint name="GetDERGroupStatuses_Port1" contract="CIMGetDERGroupStatuses.GetDERGroupStatuses_Port" bindingType="basicHttpBinding" address="http://www.epri.com/2016/GetDERGroupStatuses" bindingConfiguration="GetDERGroupStatuses_Binding1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://www.epri.com/2016/GetDERGroupStatuses</serializedValue>
@@ -124,10 +124,10 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>GetDERGroupStatuses_Binding</serializedValue>
+          <serializedValue>GetDERGroupStatuses_Binding1</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>CIMGetDERGroupStatus.GetDERGroupStatuses_Port</serializedValue>
+          <serializedValue>CIMGetDERGroupStatuses.GetDERGroupStatuses_Port</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -187,7 +187,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>GetDERGroupStatuses_Port</serializedValue>
+          <serializedValue>GetDERGroupStatuses_Port1</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

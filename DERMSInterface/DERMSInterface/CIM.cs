@@ -42,6 +42,7 @@ namespace DERMSInterface
         private String _lastMessageReceived = "";
         private CIMData _data = new CIMData();
 
+
         [DllExport("add", CallingConvention = CallingConvention.Cdecl)]
         public static int TestExport(int left, int right)
         {
@@ -270,28 +271,29 @@ namespace DERMSInterface
         /// <returns></returns>
         public int DispatchDERGroup(String MRID, quantity q, Boolean isOverride = false, double overrideValue = 0.0)
         {
-            CIMDERGroupDispatch.DERGroupDispatch_PortClient client;
+            CIMDERGroupDispatches.DERGroupDispatches_PortClient client;
             CIMData.header header = _data.DispatchDERHeader;
 
             if (!hasData(header.EndPoint))
                 throw new DERConfigureException("End Point required");
 
             // initialize SOAP server
-            client = new CIMDERGroupDispatch.DERGroupDispatch_PortClient("DERGroupDispatch_Port", header.EndPoint);
+            client = new CIMDERGroupDispatches.DERGroupDispatches_PortClient("DERGroupDispatches_Port", header.EndPoint);
 
             // intiailize service arguments
-            CIMDERGroupDispatch.HeaderType to = new CIMDERGroupDispatch.HeaderType();
-            CIMDERGroupDispatch.DERGroupDispatchPayloadType payload = new CIMDERGroupDispatch.DERGroupDispatchPayloadType();
-            CIMDERGroupDispatch.DERGroupDispatchRequestMessageType req = new CIMDERGroupDispatch.DERGroupDispatchRequestMessageType();
+            CIMDERGroupDispatches.HeaderType to = new CIMDERGroupDispatches.HeaderType();
+            CIMDERGroupDispatches.DERGroupDispatchesPayloadType payload = new CIMDERGroupDispatches.DERGroupDispatchesPayloadType();
+
+            CIMDERGroupDispatches.DERGroupDispatchesRequestMessageType req = new CIMDERGroupDispatches.DERGroupDispatchesRequestMessageType();
             req.Payload = payload;
             req.Header = to;
 
             // set service header arguments
-            CIMDERGroupDispatch.HeaderTypeVerb v = new CIMDERGroupDispatch.HeaderTypeVerb();
+            CIMDERGroupDispatches.HeaderTypeVerb v = new CIMDERGroupDispatches.HeaderTypeVerb();
             if (header.Verb != null && Enum.TryParse(header.Verb, out v))
                 to.Verb = v;
             else
-                to.Verb = CIMDERGroupDispatch.HeaderTypeVerb.create;
+                to.Verb = CIMDERGroupDispatches.HeaderTypeVerb.create;
             to.Noun = header.Noun;
             to.ReplyAddress = header.ReplyAddress;
             to.Revision = header.Revision;
@@ -303,7 +305,7 @@ namespace DERMSInterface
             to.Context = header.Context;
             if (hasData(header.UserOrganization) || hasData(header.UserID))
             {
-                to.User = new CIMDERGroupDispatch.UserType();
+                to.User = new CIMDERGroupDispatches.UserType();
                 to.User.UserID = (hasData(header.UserID)) ? header.UserID : "epri"; // required
                 to.User.Organization = header.UserOrganization; // optional
             }
@@ -312,14 +314,14 @@ namespace DERMSInterface
             CIMData.DERGroup group = _data.Groups.Find(x => x.Mrid.Equals(MRID));
             if (group != null)
             {
-                payload.DERGroupDispatches = new CIMDERGroupDispatch.DERGroupDispatch[1];
-                payload.DERGroupDispatches[0] = new CIMDERGroupDispatch.DERGroupDispatch();
-                payload.DERGroupDispatches[0].DERGroup = new CIMDERGroupDispatch.DERGroup();
+                payload.DERGroupDispatches = new CIMDERGroupDispatches.DERGroupDispatch[1];
+                payload.DERGroupDispatches[0] = new CIMDERGroupDispatches.DERGroupDispatch();
+                payload.DERGroupDispatches[0].DERGroup = new CIMDERGroupDispatches.DERGroup();
                 payload.DERGroupDispatches[0].DERGroup.mRID = group.Mrid;
                 payload.DERGroupDispatches[0].DERGroup.name = group.GroupName;
                 // TODO : Docs say mrid, but name is required in wsdl. Ask Gerry.
-                payload.DERGroupDispatches[0].RequestedCapability = new CIMDERGroupDispatch.RequestedCapability();
-                payload.DERGroupDispatches[0].RequestedCapability.capabilityType = (CIMDERGroupDispatch.capabilityType)Enum.Parse(typeof(CIMDERGroupDispatch.capabilityType), q.ToString());
+                payload.DERGroupDispatches[0].RequestedCapability = new CIMDERGroupDispatches.RequestedCapability();
+                payload.DERGroupDispatches[0].RequestedCapability.capabilityType = (CIMDERGroupDispatches.capabilityType)Enum.Parse(typeof(CIMDERGroupDispatches.capabilityType), q.ToString());
 
                 // load with value passed, or reactive value, or real value
                 if (isOverride == true)
@@ -332,22 +334,22 @@ namespace DERMSInterface
                 // set the multiplier and units
                 if (q.Equals(quantity.RealPower))
                 {
-                    payload.DERGroupDispatches[0].RequestedCapability.capabilityMultiplier = CIMDERGroupDispatch.UnitMultiplier.k;
+                    payload.DERGroupDispatches[0].RequestedCapability.capabilityMultiplier = CIMDERGroupDispatches.UnitMultiplier.k;
                     payload.DERGroupDispatches[0].RequestedCapability.capabilityUnits = "W";
                 }
                 else
                 {
-                    payload.DERGroupDispatches[0].RequestedCapability.capabilityMultiplier = CIMDERGroupDispatch.UnitMultiplier.k;
+                    payload.DERGroupDispatches[0].RequestedCapability.capabilityMultiplier = CIMDERGroupDispatches.UnitMultiplier.k;
                     payload.DERGroupDispatches[0].RequestedCapability.capabilityUnits = "VAr";
                 }
 
 
                 // log message to be sent, send message, log result
-                _lastMessageSent = logMessage<DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchRequestMessageType>(req);
-                CIMDERGroupDispatch.DERGroupDispatchResponseMessageType reply = client.CreateDERGroupDispatch(req);
-                _lastMessageReceived = logMessage<CIMDERGroupDispatch.DERGroupDispatchResponseMessageType>(reply);
+                _lastMessageSent = logMessage<DERMSInterface.CIMDERGroupDispatches.DERGroupDispatchesRequestMessageType>(req);
+                CIMDERGroupDispatches.DERGroupDispatchesResponseMessageType reply = client.CreateDERGroupDispatches(req);
+                _lastMessageReceived = logMessage<CIMDERGroupDispatches.DERGroupDispatchesResponseMessageType>(reply);
 
-                if (reply.Reply.Result.CompareTo(CIMDERGroupDispatch.ReplyTypeResult.OK) == 0)
+                if (reply.Reply.Result.CompareTo(CIMDERGroupDispatches.ReplyTypeResult.OK) == 0)
                     return 0;
                 else
                     return 1;
@@ -472,29 +474,27 @@ namespace DERMSInterface
         public CIMData.DERStatus getDERGroupStatus(String mrid, quantity q)
         {
             // initialize the soap call
-            CIMGetDERGroupStatus.GetDERGroupStatus_PortClient client;
+            CIMGetDERGroupStatuses.GetDERGroupStatuses_Port client;
             CIMData.header header = _data.GetDERStatusHeader;
 
             if (!hasData(header.EndPoint))
                 throw new DERConfigureException("End Point required");
 
-            client = new CIMGetDERGroupStatus.GetDERGroupStatus_PortClient("GetDERGroupStatus_Port", header.EndPoint);
+            client = new CIMGetDERGroupStatuses.GetDERGroupStatuses_PortClient("GetDERGroupStatuses_Port", header.EndPoint);
+
 
             // initialize the vars used for the SOAP call
-            CIMGetDERGroupStatus.GetDERGroupStatusRequestMessageType req = new CIMGetDERGroupStatus.GetDERGroupStatusRequestMessageType();
-            CIMGetDERGroupStatus.DERGroupStatusPayloadType payload = new CIMGetDERGroupStatus.DERGroupStatusPayloadType();
-            CIMGetDERGroupStatus.HeaderType to = new CIMGetDERGroupStatus.HeaderType();
-            req.Payload = payload;
-            req.Header = to;
-            req.Request = new CIMGetDERGroupStatus.GetDERGroupStatusRequestType();
+            CIMGetDERGroupStatuses.GetDERGroupStatusesRequest req = new CIMGetDERGroupStatuses.GetDERGroupStatusesRequest();
+            CIMGetDERGroupStatuses.DERGroupStatusesPayloadType payload = new CIMGetDERGroupStatuses.DERGroupStatusesPayloadType();
+            CIMGetDERGroupStatuses.HeaderType to = new CIMGetDERGroupStatuses.HeaderType();
+
 
             // build header
-
-            CIMGetDERGroupStatus.HeaderTypeVerb v = new CIMGetDERGroupStatus.HeaderTypeVerb();
+            CIMGetDERGroupStatuses.HeaderTypeVerb v = new CIMGetDERGroupStatuses.HeaderTypeVerb();
             if (Enum.TryParse(header.Verb, out v))
                 to.Verb = v;
             else
-                to.Verb = CIMGetDERGroupStatus.HeaderTypeVerb.get;
+                to.Verb = CIMGetDERGroupStatuses.HeaderTypeVerb.get;
             to.Noun = header.Noun;
             to.ReplyAddress = header.ReplyAddress;
             to.Revision = header.Revision;
@@ -507,28 +507,27 @@ namespace DERMSInterface
 
             if (hasData(header.UserOrganization) || hasData(header.UserID))
             {
-                to.User = new CIMGetDERGroupStatus.UserType();
+                to.User = new CIMGetDERGroupStatuses.UserType();
                 to.User.UserID = (hasData(header.UserID)) ? header.UserID : "epri"; // required
                 to.User.Organization = header.UserOrganization; // optional
             }
 
             // load up the payload
-            payload.DERGroupStatuses = new CIMGetDERGroupStatus.EndDeviceGroup[1];
-            payload.DERGroupStatuses[0] = new CIMGetDERGroupStatus.EndDeviceGroup();
-            payload.DERGroupStatuses[0].mRID = mrid;
-            req.Payload.DERGroupStatuses[0].Version = new CIMGetDERGroupStatus.EndDeviceGroupVersion();
-            req.Payload.DERGroupStatuses[0].Version.major = _data.Version.Major;
-            req.Payload.DERGroupStatuses[0].Version.minor = _data.Version.Minor;
-            req.Payload.DERGroupStatuses[0].Version.revision = _data.Version.Revision;
-            req.Payload.DERGroupStatuses[0].Version.versionDate = _data.Version.Date;
+            req.GetDERGroupStatusesRequestMessage.Header = to;
+            req.GetDERGroupStatusesRequestMessage.Request = new CIMGetDERGroupStatuses.GetDERGroupStatusesRequestType();
+            req.GetDERGroupStatusesRequestMessage.Request.GetDERGroupStatuses = new CIMGetDERGroupStatuses.DERGroupStatus[1];
+            req.GetDERGroupStatusesRequestMessage.Request.GetDERGroupStatuses[0] = new CIMGetDERGroupStatuses.DERGroupStatus();
+            req.GetDERGroupStatusesRequestMessage.Request.GetDERGroupStatuses[0].mRID = mrid;
 
             // log outgoing, call soap, log return message
-            _lastMessageSent = logMessage<CIMGetDERGroupStatus.GetDERGroupStatusRequestMessageType>(req);
-            CIMGetDERGroupStatus.DERGroupStatusResponseMessageType reply = client.GetDERGroupStatus(req);
-            _lastMessageReceived = logMessage<CIMGetDERGroupStatus.DERGroupStatusResponseMessageType>(reply);
+            _lastMessageSent = logMessage<CIMGetDERGroupStatuses.GetDERGroupStatusesRequest>(req);
+            CIMGetDERGroupStatuses.GetDERGroupStatusesResponse reply = client.GetDERGroupStatuses(req);
+            _lastMessageReceived = logMessage<CIMGetDERGroupStatuses.GetDERGroupStatusesResponse>(reply);
 
-            // it should never return multiple groups, but just in case...
-            CIMGetDERGroupStatus.EndDeviceGroup[] statuses = reply.Payload.DERGroupStatuses;
+            
+            CIMGetDERGroupStatuses.DERGroupStatus1[] statuses = reply.GetDERGroupStatusesResponseMessage.Payload.DERGroupStatuses;
+
+
             if (statuses.Length > 1)
                 throw new DERResponseException("GETDERGroupStatus returned multiple DER Groups.");
             else if (statuses.Length < 1)
@@ -537,31 +536,16 @@ namespace DERMSInterface
             {
                 // we're loading up our own object, DERStatus
                 CIMData.DERStatus status = new CIMData.DERStatus();
-                status.Mrid = reply.Payload.DERGroupStatuses[0].mRID;
+                status.Mrid = statuses[0].mRID;
 
-                if (statuses[0].CapabilityList == null)
+                CIMGetDERGroupStatuses.EndDeviceGroup1 edg  = statuses[0].EndDeviceGroup;
+                if(edg.otherCapabilities == null )
                     return status;
 
-                CIMGetDERGroupStatus.EndDeviceGroupCapabilityList cap = statuses[0].CapabilityList;
-                if (q.Equals(quantity.RealPower))
-                {
-                    if (cap.currentActivePower != null)
-                        status.PresentValue = cap.currentActivePower.value;
-                    if (cap.minActivePower != null)
-                        status.PresentMinCapability = cap.minActivePower.value;
-                    if (cap.maxActivePower != null)
-                        status.PresentMaxCapability = cap.maxActivePower.value;
-                    // TODO : Doesn't handle case where ders have diff multipliers
-                }
-                else if (q.Equals(quantity.ApparentPower))
-                {
-                    if (cap.currentReactivePower != null)
-                        status.PresentValue = cap.currentReactivePower.value;
-                    if (cap.minReactivePower != null)
-                        status.PresentMinCapability = cap.minReactivePower.value;
-                    if (cap.maxReactivePower != null)
-                        status.PresentMaxCapability = cap.maxReactivePower.value;
-                }
+                // todo : missing values in here, problem with wsdl vs object
+                CIMGetDERGroupStatuses.otherCapability cap = edg.otherCapabilities;
+                status.PresentValue = edg.Item.value;
+
                 return status;
             }
         }
@@ -693,5 +677,9 @@ namespace DERMSInterface
             get { return _data; }
             set { _data = value; }
         }
+
+
+
+
     }
 }

@@ -61,11 +61,9 @@ namespace WindowsFormsApplication1
         private void getButton_Click(object sender, EventArgs e)
         {
             DERMSInterface.CIM cs = new DERMSInterface.CIM(_cim);
-            int rc = 0;
 
             try
             {
-                _log = new XMLForm();
                 // call SOAP Get DER
                 string[] results = cs.requestDERGroupMembers(_group.Mrid);
 
@@ -77,22 +75,16 @@ namespace WindowsFormsApplication1
                         buffer.Append(s + Environment.NewLine);
                 }
                 this.resultText.Text = buffer.ToString();
-                // print our result code to the xml form
-                _log.addBoldText("Return Code : " + rc.ToString() + Environment.NewLine + Environment.NewLine);
+
+                logControl1.addEntry(LogControl.entryType.OK, "Message Sent...", cs.LastMessageSent);
+                logControl1.addEntry(LogControl.entryType.OK, "Message Received...", cs.LastMessageReceived);
             }
             catch (Exception ex)
             {
-                _log.addBoldText("Exception...");
-                _log.addText(ex.ToString());
+                if (cs.LastMessageSent.Length > 0)
+                    logControl1.addEntry(LogControl.entryType.OK, "Message Sent...", cs.LastMessageSent);
+                logControl1.addEntry(LogControl.entryType.FAIL, "Exception...", ex.ToString());
             }
-            finally
-            {
-                _log.addBoldText("Message Sent..." + Environment.NewLine + Environment.NewLine);
-                _log.addText(cs.LastMessageSent + Environment.NewLine + Environment.NewLine);
-                _log.addBoldText("Message Received..." + Environment.NewLine + Environment.NewLine);
-                _log.addText(cs.LastMessageReceived + Environment.NewLine + Environment.NewLine);
-            }
-            _log.Show();
         }
 
 

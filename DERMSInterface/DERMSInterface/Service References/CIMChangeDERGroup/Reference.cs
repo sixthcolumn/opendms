@@ -12,7 +12,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -44,11 +44,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class ReplyType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private ReplyTypeResult resultField;
@@ -132,9 +132,9 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public enum ReplyTypeResult {
         
         /// <remarks/>
@@ -148,11 +148,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class ErrorType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string codeField;
@@ -334,9 +334,9 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public enum ErrorTypeLevel {
         
         /// <remarks/>
@@ -353,11 +353,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class LocationType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string nodeField;
@@ -413,11 +413,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="NameTypeAuthority", Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="NameTypeAuthority", Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class NameTypeAuthority1 : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string nameField;
@@ -459,11 +459,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="NameType", Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="NameType", Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class NameType1 : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string nameField;
@@ -519,11 +519,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="Name", Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="Name", Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class Name1 : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string nameField;
@@ -565,11 +565,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class ObjectType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string mRIDField;
@@ -625,7 +625,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -685,11 +685,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class HeaderType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private HeaderTypeVerb verbField;
@@ -969,9 +969,9 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public enum HeaderTypeVerb {
         
         /// <remarks/>
@@ -1018,11 +1018,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class ReplayDetectionType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string nonceField;
@@ -1064,11 +1064,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class UserType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string userIDField;
@@ -1110,11 +1110,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class MessageProperty : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string nameField;
@@ -1156,7 +1156,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1231,7 +1231,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1390,7 +1390,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1436,7 +1436,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1496,7 +1496,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1542,7 +1542,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1686,7 +1686,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1750,7 +1750,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.epri.com/2013/DERGroup#")]
     public enum multiplier {
@@ -1781,7 +1781,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1845,7 +1845,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1909,7 +1909,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1983,7 +1983,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2057,7 +2057,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2131,7 +2131,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2191,7 +2191,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2251,11 +2251,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class OperationSet : object, System.ComponentModel.INotifyPropertyChanged {
         
         private bool enforceMsgSequenceField;
@@ -2339,11 +2339,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class OperationType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string operationIdField;
@@ -2432,11 +2432,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class OptionType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string nameField;
@@ -2478,11 +2478,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class RequestType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private System.DateTime startTimeField;
@@ -2594,11 +2594,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class RequestTypeID : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string idTypeField;
@@ -2696,9 +2696,9 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public enum IDKindType {
         
         /// <remarks/>
@@ -2715,7 +2715,7 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2775,11 +2775,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class ErrorTypeID : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string idTypeField;
@@ -2877,11 +2877,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class ErrorTypeRelatedID : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string idTypeField;
@@ -2979,11 +2979,11 @@ namespace DERMSInterface.CIMChangeDERGroup {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://iec.ch/TC57/2011/schema/message")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.iec.ch/TC57/2011/schema/message")]
     public partial class ReplyTypeID : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string idTypeField;

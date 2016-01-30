@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:msg="http://iec.ch/TC57/2011/schema/message" xmlns:tns="http://iec.ch/TC57/2011/DERGroupMessage" xmlns:obj="http://www.epri.com/2013/DERGroup#" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://iec.ch/TC57/2011/DERGroupMessage" version="1.0.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="Message.xsd" namespace="http://iec.ch/TC57/2011/schema/message" />
+<xs:schema xmlns:msg="http://www.iec.ch/TC57/2011/schema/message" xmlns:tns="http://iec.ch/TC57/2011/DERGroupMessage" xmlns:obj="http://www.epri.com/2013/DERGroup#" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://iec.ch/TC57/2011/DERGroupMessage" version="1.0.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="Message.xsd" namespace="http://www.iec.ch/TC57/2011/schema/message" />
   <xs:import schemaLocation="DERGroup.xsd" namespace="http://www.epri.com/2013/DERGroup#" />
   <xs:complexType name="DERGroupPayloadType">
     <xs:sequence>

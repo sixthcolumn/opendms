@@ -62,12 +62,15 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.dispatchButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.log1 = new System.Windows.Forms.GroupBox();
+            this.logControl1 = new WindowsFormsApplication1.LogControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.log1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -75,12 +78,14 @@
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 580F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.log1, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -89,7 +94,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(521, 338);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(888, 338);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // panel2
@@ -101,7 +106,7 @@
             this.panel2.Controls.Add(this.endPointText);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(515, 24);
+            this.panel2.Size = new System.Drawing.Size(574, 24);
             this.panel2.TabIndex = 0;
             // 
             // label7
@@ -391,7 +396,7 @@
             // 
             this.panel3.Controls.Add(this.dispatchButton);
             this.panel3.Controls.Add(this.cancelButton);
-            this.panel3.Location = new System.Drawing.Point(3, 303);
+            this.panel3.Location = new System.Drawing.Point(3, 309);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(515, 29);
             this.panel3.TabIndex = 33;
@@ -416,11 +421,35 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // log1
+            // 
+            this.log1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.log1.Controls.Add(this.logControl1);
+            this.log1.Location = new System.Drawing.Point(583, 3);
+            this.log1.Name = "log1";
+            this.tableLayoutPanel1.SetRowSpan(this.log1, 5);
+            this.log1.Size = new System.Drawing.Size(302, 335);
+            this.log1.TabIndex = 34;
+            this.log1.TabStop = false;
+            this.log1.Text = "Message Log";
+            // 
+            // logControl1
+            // 
+            this.logControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.logControl1.Location = new System.Drawing.Point(6, 19);
+            this.logControl1.Name = "logControl1";
+            this.logControl1.Size = new System.Drawing.Size(291, 310);
+            this.logControl1.TabIndex = 0;
+            // 
             // DispatchDERForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 343);
+            this.ClientSize = new System.Drawing.Size(895, 343);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "DispatchDERForm";
             this.Text = "DispatchDER";
@@ -435,6 +464,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.log1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -477,5 +507,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox reactiveValueText;
+        private System.Windows.Forms.GroupBox log1;
+        private LogControl logControl1;
     }
 }

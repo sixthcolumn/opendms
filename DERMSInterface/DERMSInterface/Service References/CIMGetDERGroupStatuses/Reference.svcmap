@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="47290d6f-035b-43f0-9ced-2fca47a80079" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e15f8c96-1ea3-42db-b772-86bf730a1f1a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="Z:\git\opendms\DER\wsdl\GetDERGroupStatuses.wsdl" Protocol="file" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="GetDERGroupStatuses.xsd" MetadataType="Schema" ID="0d005059-706b-4bf6-86e4-5158c1cef9c1" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/xsd/GetDERGroupStatuses.xsd" />
-    <MetadataFile FileName="GetDERGroupStatusesMessage.xsd" MetadataType="Schema" ID="4c94b9ad-4245-4f45-99f9-94881b88f631" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/xsd/GetDERGroupStatusesMessage.xsd" />
-    <MetadataFile FileName="Message1.xsd" MetadataType="Schema" ID="53a4b44a-11f9-4009-a2a6-a8bac49b279a" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/xsd/Message.xsd" />
-    <MetadataFile FileName="DERGroupStatuses.xsd" MetadataType="Schema" ID="0a6b29af-829d-4e16-b4dc-6ab4150e4ddf" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/xsd/DERGroupStatuses.xsd" />
-    <MetadataFile FileName="GetDERGroupStatuses.wsdl" MetadataType="Wsdl" ID="bf8a9428-c0d6-4bc4-b99d-ae87c367536c" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/GetDERGroupStatuses.wsdl" />
+    <MetadataFile FileName="GetDERGroupStatuses.xsd" MetadataType="Schema" ID="94065e36-e32b-4219-ab8d-3140196412ed" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/xsd/GetDERGroupStatuses.xsd" />
+    <MetadataFile FileName="GetDERGroupStatusesMessage.xsd" MetadataType="Schema" ID="0e0e44ea-eee3-4ddb-840e-38e7dde045de" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/xsd/GetDERGroupStatusesMessage.xsd" />
+    <MetadataFile FileName="Message.xsd" MetadataType="Schema" ID="68c00da4-1d7b-4c2c-81c4-4d8d827a8cb4" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/xsd/Message.xsd" />
+    <MetadataFile FileName="DERGroupStatuses.xsd" MetadataType="Schema" ID="9469befd-0a04-4efd-a4a4-e4fa201d2d44" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/xsd/DERGroupStatuses.xsd" />
+    <MetadataFile FileName="GetDERGroupStatuses.wsdl" MetadataType="Wsdl" ID="480bb7dd-3031-45aa-a128-8c48ffd8b716" SourceId="1" SourceUrl="file:///Z:/git/opendms/DER/wsdl/GetDERGroupStatuses.wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -5,6 +5,6 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="DERGroupDispatchResponseMessageType" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>DERMSInterface.CIMDERGroupDispatch.DERGroupDispatchResponseMessageType, Service References.CIMDERGroupDispatch.Reference.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+<GenericObjectDataSource DisplayName="GetDERGroupStatusesResponse" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>DERMSInterface.CIMGetDERGroupStatuses.GetDERGroupStatusesResponse, Service References.CIMGetDERGroupStatuses.Reference.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>
