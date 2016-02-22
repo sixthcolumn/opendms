@@ -1,7 +1,10 @@
 package com.sixthc.server.ws;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.ws.Holder;
 
+import org.apache.commons.lang.StringUtils;
+import org.apache.cxf.phase.PhaseInterceptorChain;
 import org.apache.log4j.Logger;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -22,6 +25,8 @@ import com.epri._2016.executedergroupdispatches.FaultMessage;
 public class ChangeDERGroupDispatchImpl implements DERGroupDispatchesPort,
 		ApplicationContextAware {
 
+
+
 	private static org.apache.log4j.Logger log = Logger
 			.getLogger(ChangeDERGroupDispatchImpl.class);
 
@@ -32,7 +37,7 @@ public class ChangeDERGroupDispatchImpl implements DERGroupDispatchesPort,
 			throws BeansException {
 		appContext = arg0;
 	}
-	
+
 	@Override
 	public void createDERGroupDispatches(Holder<HeaderType> header,
 			RequestType request, Holder<DERGroupDispatchesPayloadType> payload,
@@ -42,6 +47,9 @@ public class ChangeDERGroupDispatchImpl implements DERGroupDispatchesPort,
 
 		DERGroupDispatch e = appContext.getBean("CMIDERGroupDispatch",
 				DERGroupDispatch.class);
+		
+		HttpServletRequest request2 = (HttpServletRequest) PhaseInterceptorChain.getCurrentMessage().get("HTTP.REQUEST"); 
+		log.debug("request : " + request2.getRemoteAddr());
 
 		DERGroup dg = appContext.getBean("CMIDERGroup2", DERGroup.class);
 		e.setDERGroup(dg);
@@ -54,6 +62,12 @@ public class ChangeDERGroupDispatchImpl implements DERGroupDispatchesPort,
 
 		payload.value.getDERGroupDispatches().getDERGroupDispatch().clear();
 		payload.value.getDERGroupDispatches().getDERGroupDispatch().add(e);
+		
+		String messageID = header.value.getMessageID();
+		if( StringUtils.isBlank(messageID) )
+			log.warn("Message ID is empty");
+		else
+			header.value.setCorrelationID(messageID);
 
 		ReplyType r = appContext.getBean(("ReplyTypeBean"), ReplyType.class);
 		reply.value = r;

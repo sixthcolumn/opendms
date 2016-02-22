@@ -30,6 +30,7 @@ import java.util.logging.Logger;
 
 import javax.xml.namespace.QName;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.cxf.common.injection.NoJSR250Annotations;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.interceptor.AbstractLoggingInterceptor;
@@ -45,6 +46,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.sixthc.dao.EpriLogDao;
 import com.sixthc.model.EpriLog;
+import com.sixthc.util.XmlStringParser;
 
 /**
  * 
@@ -56,6 +58,7 @@ public class LoggingOutInterceptor extends AbstractLoggingInterceptor {
 	private String packageName = null;
 	private String resultCode = null;
 	private String stage = null;
+	private XmlStringParser parser;
 	private static final Logger LOG = LogUtils
 			.getLogger(LoggingOutInterceptor.class);
 	private static final String LOG_SETUP = LoggingOutInterceptor.class
@@ -215,7 +218,15 @@ public class LoggingOutInterceptor extends AbstractLoggingInterceptor {
 
 				writePayload(payload, cos, encoding, ct);
 				buffer.getPayload().append(payload);
-				epriLog.setPayload(payload.toString());
+				
+				String payloadString = payload.toString();
+				epriLog.setPayload(payloadString);
+				
+				// get messageID from payload and save to messageID in eprilog
+				parser = new XmlStringParser(payloadString);
+				String messageID = parser.getHeaderValueWC("CorrelationID");
+				if( !StringUtils.isBlank(messageID) )
+					epriLog.setMessageId(messageID);
 
 			} catch (Exception ex) {
 				// ignore
