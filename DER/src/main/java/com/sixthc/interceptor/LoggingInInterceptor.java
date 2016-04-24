@@ -22,6 +22,9 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang.StringUtils;
 import org.apache.cxf.helpers.CastUtils;
 import org.apache.cxf.helpers.IOUtils;
 import org.apache.cxf.interceptor.AbstractLoggingInterceptor;
@@ -30,11 +33,13 @@ import org.apache.cxf.interceptor.LoggingMessage;
 import org.apache.cxf.io.CachedOutputStream;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.Phase;
+import org.apache.cxf.phase.PhaseInterceptorChain;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.sixthc.dao.EpriLogDao;
 import com.sixthc.model.EpriLog;
+import com.sixthc.util.XmlStringParser;
 
 /**
  * A simple logging handler which outputs the bytes of the message to the
@@ -48,6 +53,8 @@ public class LoggingInInterceptor extends AbstractLoggingInterceptor {
 	private String packageName = null;
 	private String resultCode = null;
 	private String stage = null;
+	private XmlStringParser parser;
+
 
 	@Autowired
 	private EpriLogDao epriLogDao;
@@ -62,6 +69,8 @@ public class LoggingInInterceptor extends AbstractLoggingInterceptor {
 		logging(message);
 	}
 
+
+
 	protected void logging(Message message) throws Fault {
 
 		if (message.containsKey(LoggingMessage.ID_KEY)) {
@@ -73,6 +82,10 @@ public class LoggingInInterceptor extends AbstractLoggingInterceptor {
 		epriLog.setVendorRoleTypeName(getVendorRoleType());
 		epriLog.setPackageName(getPackageName());
 		epriLog.setStage(stage);
+
+		HttpServletRequest request = (HttpServletRequest) PhaseInterceptorChain
+				.getCurrentMessage().get("HTTP.REQUEST");
+		epriLog.setRemoteIp(request.getRemoteAddr());
 
 		String id = (String) message.getExchange().get(LoggingMessage.ID_KEY);
 		if (id == null) {
@@ -123,7 +136,6 @@ public class LoggingInInterceptor extends AbstractLoggingInterceptor {
 			}
 		}
 
-
 		if (headers != null) {
 			epriLog.setHeader(headers.toString());
 		}
@@ -146,9 +158,17 @@ public class LoggingInInterceptor extends AbstractLoggingInterceptor {
 				bos.flush();
 				is.close();
 
+				// save message to payload
 				message.setContent(InputStream.class, bos.getInputStream());
 				writePayload(payload, bos, encoding, ct);
-				epriLog.setPayload(payload.toString());
+				String payloadString = payload.toString();				
+				epriLog.setPayload(payloadString);
+				
+				// get messageID from payload and save to messageID in eprilog
+				parser = new XmlStringParser(payloadString);
+				String messageID = parser.getHeaderValueWC("MessageID");
+				if( !StringUtils.isBlank(messageID) )
+					epriLog.setMessageId(messageID);
 
 				bos.close();
 			} catch (Exception e) {
@@ -161,6 +181,8 @@ public class LoggingInInterceptor extends AbstractLoggingInterceptor {
 		epriLogDao.save(epriLog);
 		log.debug("DBLog id log = " + epriLog.getId());
 	}
+	
+
 
 	public String inferInterface(String action) {
 		return "";

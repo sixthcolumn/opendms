@@ -38,6 +38,7 @@ public class EpriLog {
 	private String operation;
 	private String stage;
 	private String messageId;
+	private String remoteIp;
 	@ManyToOne
 	@JoinColumn(name = "INTERFACE_ID", referencedColumnName = "ID")
 	private Iface iface;
@@ -211,6 +212,14 @@ public class EpriLog {
 
 	public void setStage(String stage) {
 		this.stage = stage;
+	}
+
+	public String getRemoteIp() {
+		return remoteIp;
+	}
+
+	public void setRemoteIp(String remoteIp) {
+		this.remoteIp = remoteIp;
 	}
 	
 	
