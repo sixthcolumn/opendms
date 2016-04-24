@@ -155,6 +155,18 @@
     <Compile Include="ScadaInfoControl.Designer.cs">
       <DependentUpon>ScadaInfoControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestScadaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TestScadaControl.Designer.cs">
+      <DependentUpon>TestScadaControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlPointGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlPointGroup.Designer.cs">
+      <DependentUpon>ControlPointGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="XMLForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,9 +225,16 @@
     <EmbeddedResource Include="ScadaInfoControl.resx">
       <DependentUpon>ScadaInfoControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TestScadaControl.resx">
+      <DependentUpon>TestScadaControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlPointGroup.resx">
+      <DependentUpon>ControlPointGroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="XMLForm.resx">
       <DependentUpon>XMLForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DERMSInterface.CIMData+DERGroup.datasource" />
     <None Include="Properties\DataSources\DERMSInterface.CIMData+device.datasource" />
@@ -238,6 +257,10 @@
     <ProjectReference Include="..\..\DERMSInterface\DERMSInterface\DERMSInterface.csproj">
       <Project>{1bab88a0-34b8-4bda-b5f9-2e922bfd69b6}</Project>
       <Name>DERMSInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SCADAInterface\SCADAInterface\SCADAInterface.csproj">
+      <Project>{416e63ea-2e5e-41d9-b8f7-33955ea4ff39}</Project>
+      <Name>SCADAInterface</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

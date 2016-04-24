@@ -38,10 +38,19 @@ namespace WindowsFormsApplication1
             string deviceDirectory = ConfigurationManager.AppSettings["deviceFilesDir"];
             if (deviceDirectory != null)
             {
-                loadDeviceTypes(deviceDirectory);
+                Console.WriteLine("Current working dir: " + Directory.GetCurrentDirectory() + " devicedir: " + deviceDirectory);
+                loadDeviceTypes(@".");
+                //loadDeviceTypes(Directory.GetCurrentDirectory());
+
                 scadaInfoControl1.setDeviceTypes(devices);
-            } else
+            }
+            else
+            {
                 MessageBox.Show("deviceFilesDir not set in config file. Device types NOT loaded", "Device Types", MessageBoxButtons.OK);
+            }
+
+            // give link so that UI rebuild can happen when device type selections are changed
+            scadaInfoControl1.setTestControls(testScadaControl1);
         }
 
 
@@ -51,23 +60,80 @@ namespace WindowsFormsApplication1
         /// <param name="path">fully qualified path to file</param>
         public void loadDeviceTypes(string path)
         {
+
+            Console.WriteLine("loading device types from: " + path);
+
             // todo : Put in place for code gen, fix
             XmlSerializer serializer = new XmlSerializer(typeof(CIMData.DeviceType));
             var files = Directory.GetFiles(path, "*_device.xml");
+
             foreach (string f in files)
             {
                 System.IO.FileStream file = new System.IO.FileStream(f, System.IO.FileMode.Open);
                 try
                 {
-                    CIMData.DeviceType device = (CIMData.DeviceType)serializer.Deserialize(file);
+                   CIMData.DeviceType device = (CIMData.DeviceType)serializer.Deserialize(file);
                     devices.Add(device);
+                   
+
+                    /*   test code
+                    CIMData.DeviceType devicex = new CIMData.DeviceType();
+                    devicex.Name = "testname";
+                    devicex.Protocols = new List<CIMData.DeviceType.Protocol>();
+                    CIMData.DeviceType.Protocol pp = new CIMData.DeviceType.Protocol();
+                    pp.Name = "proto name";
+                    pp.DNP3PointDefinitions = new List<CIMData.DeviceType.Protocol.DNP3PointTypeDef>();
+
+                    CIMData.DeviceType.Protocol.DNP3PointTypeDef ptd= new CIMData.DeviceType.Protocol.DNP3PointTypeDef();
+                    ptd.DNP3PointList = new List<CIMData.DeviceType.Protocol.DNP3PointTypeDef.DNP3PointDef>();
+
+                    CIMData.DeviceType.Protocol.DNP3PointTypeDef.DNP3PointDef pd = new CIMData.DeviceType.Protocol.DNP3PointTypeDef.DNP3PointDef();
+                    ptd.DNP3TypeName = "STATUS";
+                    pd.DNP3EventClass = 1;
+                    pd.DNP3PointDesc = "this is my descr";
+                    pd.DNP3PointName = "breaker1";
+                    pd.DNP3PointNum = 0;
+                    ptd.DNP3PointList.Add(pd);
+
+                    pp.DNP3PointDefinitions.Add(ptd);
+                    devicex.Protocols.Add(pp);
+
+                    serializer.Serialize(Console.Out, devicex);
+                     * */
                 }
+                catch (Exception ex)
+                {
+                    DumpException(ex);
+                }  
                 finally
                 {
                     file.Close();
                 }
             }
-        }
+                                 
+}
+
+public static void DumpException( Exception ex )
+{
+  Console.WriteLine( "--------- Outer Exception Data ---------" );        
+  WriteExceptionInfo( ex );
+  ex = ex.InnerException;                     
+  if( null != ex )               
+  {                                   
+    Console.WriteLine( "--------- Inner Exception Data ---------" );                
+    WriteExceptionInfo( ex.InnerException );    
+    ex = ex.InnerException;
+  }
+}
+public static void WriteExceptionInfo( Exception ex )
+{
+  Console.WriteLine( "Message: {0}", ex.Message );                  
+  Console.WriteLine( "Exception Type: {0}", ex.GetType().FullName );
+  Console.WriteLine( "Source: {0}", ex.Source );                    
+  Console.WriteLine( "StrackTrace: {0}", ex.StackTrace );           
+  Console.WriteLine( "TargetSite: {0}", ex.TargetSite );            
+}
+
 
         /// <summary>
         /// When the user selects a row, need to pass values to the info form so
@@ -81,6 +147,8 @@ namespace WindowsFormsApplication1
             CIMData.SCADAInfo row = list.ElementAt(e.RowIndex);
             scadaInfoControl1.bindScadaRecord(row, scadaDeviceView);
             dnP3Control1.bindDataSource(row.Dnp);
+            testScadaControl1.bindDataSource(row);
+
         }
 
         /// <summary>
@@ -109,8 +177,12 @@ namespace WindowsFormsApplication1
 
             // hide these columns
             scadaDeviceView.Columns["Mrid"].Visible = false;
+            scadaDeviceView.Columns["Channel"].Visible = false;
+            scadaDeviceView.Columns["Connected"].Visible = false;
+            scadaDeviceView.Columns["Master"].Visible = false;
+
+
             scadaDeviceView.Columns["LogLevel"].Visible = false;
-            scadaDeviceView.Columns["Mrid"].Visible = false;
             scadaDeviceView.Columns["Description"].Visible = false;
             scadaDeviceView.Columns["Protocol"].Visible = false;
             scadaDeviceView.Columns["DeviceType"].Visible = false;

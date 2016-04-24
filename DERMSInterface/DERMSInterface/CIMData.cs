@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.Configuration;
 
+using Automatak.DNP3.Interface;
+
 namespace DERMSInterface
 {
     /* raison d'etre. The various CIM objects do not share header namespaces. For that reason
      * we create a general base that is then inherited by specific CIM Headers for each
      * CIM operation type: ie getDer, createDer
      */
+    [Serializable]
     public class CIMData
     {
         List<header> headers = new List<header>();
@@ -412,6 +415,35 @@ namespace DERMSInterface
             private string _deviceType;
             private string _protocol;
             private DNP dnp = new DNP();
+            
+            [XmlIgnore]private bool _connected = false;
+
+            [XmlIgnore]
+            public bool Connected
+            {
+                get { return _connected; }
+                set { _connected = value; }
+            }
+
+            
+            [XmlIgnore]private IChannel _channel = null;
+
+            [XmlIgnore]public IChannel Channel
+            {
+                get { return _channel; }
+                set { _channel = value; }
+            }
+
+            [XmlIgnore]
+            private IMaster _master = null;
+
+            [XmlIgnore]
+            public IMaster Master
+            {
+                get { return _master; }
+                set { _master = value; }
+            }
+            
 
             public DNP Dnp
             {
@@ -507,6 +539,80 @@ namespace DERMSInterface
             private string confirmationTimeout;
             private string retryTimeout;
 
+            private List<DNP3PointValue<double>> analog_input_points = null;
+            private List<DNP3PointValue<double>> analog_output_points = null;
+            private List<DNP3PointValue<bool>> control_points = null;
+            private List<DNP3PointValue<bool>> status_points = null;
+            private List<DNP3PointValue<uint>> counter_points = null;
+
+            public List<DNP3PointValue<double>> Analog_input_points
+            {
+                get { return analog_input_points; }
+                set { analog_input_points = value; }
+            }
+
+            public List<DNP3PointValue<bool>> Control_points
+            {
+                get { return control_points; }
+                set { control_points = value; }
+            }
+
+            public List<DNP3PointValue<bool>> Status_points
+            {
+                get { return status_points; }
+                set { status_points = value; }
+            }
+
+            public List<DNP3PointValue<double>> Analog_output_points
+            {
+                get { return analog_output_points; }
+                set { analog_output_points = value; }
+            }
+
+            public List<DNP3PointValue<uint>> Counter_points
+            {
+                get { return counter_points; }
+                set { counter_points = value; }
+            }
+
+            public class DNP3PointValue<T>
+            {
+                private string name;
+                private ushort pindex;
+                private T pvalue;
+                private string last_updated_tstamp;
+                private string descr;
+
+                public string Name
+                {
+                    get { return name; }
+                    set { name = value; }
+                }
+
+                public string Descr
+                {
+                    get { return descr; }
+                    set { descr = value; }
+                }
+
+                public ushort Pindex
+                {
+                    get { return pindex; }
+                    set { pindex = value; }
+                }
+
+                public T Pvalue
+                {
+                    get { return pvalue; }
+                    set { pvalue = value; }
+                }
+
+                public string Last_updated_tstamp
+                {
+                    get { return last_updated_tstamp; }
+                    set { last_updated_tstamp = value; }
+                }
+            }
 
 
             public string TaskRetryRate
@@ -696,61 +802,59 @@ namespace DERMSInterface
                     set { _DNP3PointDefinitions = value; }
                 }
 
+                public class DNP3PointTypeDef
+                {
+                    private string _DNP3TypeName;
+                    private List<DNP3PointDef> _DNP3PointList = new List<DNP3PointDef>();
+
+                    public List<DNP3PointDef> DNP3PointList
+                    {
+                        get { return _DNP3PointList; }
+                        set { _DNP3PointList = value; }
+                    }
+
+                    public string DNP3TypeName
+                    {
+                        get { return _DNP3TypeName; }
+                        set { _DNP3TypeName = value; }
+                    }
+
+
+                    public class DNP3PointDef
+                    {
+                        private ushort _DNP3PointNum;
+                        private string _DNP3PointName;
+                        private string _DNP3PointDesc;
+                        private int _DNP3EventClass;
+
+
+
+                        public string DNP3PointName
+                        {
+                            get { return _DNP3PointName; }
+                            set { _DNP3PointName = value; }
+                        }
+
+                        public ushort DNP3PointNum
+                        {
+                            get { return _DNP3PointNum; }
+                            set { _DNP3PointNum = value; }
+                        }
+
+                        public string DNP3PointDesc
+                        {
+                            get { return _DNP3PointDesc; }
+                            set { _DNP3PointDesc = value; }
+                        }
+
+                        public int DNP3EventClass
+                        {
+                            get { return _DNP3EventClass; }
+                            set { _DNP3EventClass = value; }
+                        }
+                    }
+                }
             }
-
-            public class DNP3PointTypeDef
-            {
-                private string _DNP3TypeName;
-                private List<DNP3PointDef> _DNP3PointList = new List<DNP3PointDef>();
-
-                public List<DNP3PointDef> DNP3PointList
-                {
-                    get { return _DNP3PointList; }
-                    set { _DNP3PointList = value; }
-                }
-
-                public string DNP3TypeName
-                {
-                    get { return _DNP3TypeName; }
-                    set { _DNP3TypeName = value; }
-                }
-            }
-
-            public class DNP3PointDef
-            {
-                private int _DNP3PointNum;
-                private string _DNP3PointName;
-                private string _DNP3PointDesc;
-                private int _DNP3EventClass;
-
-
-
-                public string DNP3PointName
-                {
-                    get { return _DNP3PointName; }
-                    set { _DNP3PointName = value; }
-                }
-
-                public int DNP3PointNum
-                {
-                    get { return _DNP3PointNum; }
-                    set { _DNP3PointNum = value; }
-                }
-
-                public string DNP3PointDesc
-                {
-                    get { return _DNP3PointDesc; }
-                    set { _DNP3PointDesc = value; }
-                }
-
-                public int DNP3EventClass
-                {
-                    get { return _DNP3EventClass; }
-                    set { _DNP3EventClass = value; }
-                }
-            }
-
-            List<DNP3PointDef> DNP3PointList;
         }
 
 

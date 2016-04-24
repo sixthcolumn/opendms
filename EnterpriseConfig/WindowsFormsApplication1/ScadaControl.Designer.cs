@@ -32,15 +32,17 @@
             this.scadaDeviceView = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.ScadaInfo = new System.Windows.Forms.TabPage();
-            this.ScadaDNP3 = new System.Windows.Forms.TabPage();
-            this.ScadaTest = new System.Windows.Forms.TabPage();
             this.scadaInfoControl1 = new WindowsFormsApplication1.ScadaInfoControl();
+            this.ScadaDNP3 = new System.Windows.Forms.TabPage();
             this.dnP3Control1 = new WindowsFormsApplication1.DNP3Control();
+            this.ScadaTest = new System.Windows.Forms.TabPage();
+            this.testScadaControl1 = new WindowsFormsApplication1.TestScadaControl();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scadaDeviceView)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.ScadaInfo.SuspendLayout();
             this.ScadaDNP3.SuspendLayout();
+            this.ScadaTest.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -96,6 +98,17 @@
             this.ScadaInfo.Text = "Info";
             this.ScadaInfo.UseVisualStyleBackColor = true;
             // 
+            // scadaInfoControl1
+            // 
+            this.scadaInfoControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.scadaInfoControl1.Enabled = false;
+            this.scadaInfoControl1.Location = new System.Drawing.Point(3, 0);
+            this.scadaInfoControl1.Name = "scadaInfoControl1";
+            this.scadaInfoControl1.Size = new System.Drawing.Size(740, 308);
+            this.scadaInfoControl1.TabIndex = 0;
+            // 
             // ScadaDNP3
             // 
             this.ScadaDNP3.Controls.Add(this.dnP3Control1);
@@ -107,26 +120,6 @@
             this.ScadaDNP3.Text = "DNP3";
             this.ScadaDNP3.UseVisualStyleBackColor = true;
             // 
-            // ScadaTest
-            // 
-            this.ScadaTest.Location = new System.Drawing.Point(4, 22);
-            this.ScadaTest.Name = "ScadaTest";
-            this.ScadaTest.Padding = new System.Windows.Forms.Padding(3);
-            this.ScadaTest.Size = new System.Drawing.Size(749, 374);
-            this.ScadaTest.TabIndex = 2;
-            this.ScadaTest.Text = "Test";
-            this.ScadaTest.UseVisualStyleBackColor = true;
-            // 
-            // scadaInfoControl1
-            // 
-            this.scadaInfoControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.scadaInfoControl1.Location = new System.Drawing.Point(3, 0);
-            this.scadaInfoControl1.Name = "scadaInfoControl1";
-            this.scadaInfoControl1.Size = new System.Drawing.Size(740, 308);
-            this.scadaInfoControl1.TabIndex = 0;
-            // 
             // dnP3Control1
             // 
             this.dnP3Control1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -136,6 +129,27 @@
             this.dnP3Control1.Name = "dnP3Control1";
             this.dnP3Control1.Size = new System.Drawing.Size(736, 361);
             this.dnP3Control1.TabIndex = 0;
+            // 
+            // ScadaTest
+            // 
+            this.ScadaTest.Controls.Add(this.testScadaControl1);
+            this.ScadaTest.Location = new System.Drawing.Point(4, 22);
+            this.ScadaTest.Name = "ScadaTest";
+            this.ScadaTest.Padding = new System.Windows.Forms.Padding(3);
+            this.ScadaTest.Size = new System.Drawing.Size(749, 374);
+            this.ScadaTest.TabIndex = 2;
+            this.ScadaTest.Text = "Test";
+            this.ScadaTest.UseVisualStyleBackColor = true;
+            // 
+            // testScadaControl1
+            // 
+            this.testScadaControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.testScadaControl1.Location = new System.Drawing.Point(0, 3);
+            this.testScadaControl1.Name = "testScadaControl1";
+            this.testScadaControl1.Size = new System.Drawing.Size(746, 499);
+            this.testScadaControl1.TabIndex = 0;
             // 
             // ScadaControl
             // 
@@ -149,6 +163,7 @@
             this.tabControl1.ResumeLayout(false);
             this.ScadaInfo.ResumeLayout(false);
             this.ScadaDNP3.ResumeLayout(false);
+            this.ScadaTest.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -163,5 +178,6 @@
         private System.Windows.Forms.TabPage ScadaTest;
         private ScadaInfoControl scadaInfoControl1;
         private DNP3Control dnP3Control1;
+        private TestScadaControl testScadaControl1;
     }
 }

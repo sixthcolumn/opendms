@@ -44,15 +44,15 @@
             this.getDERsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DERs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.derHeaderControl1 = new WindowsFormsApplication1.DERHeaderControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.devicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dERGroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.scadaControl = new WindowsFormsApplication1.ScadaControl();
+            this.derHeaderControl1 = new WindowsFormsApplication1.DERHeaderControl();
             this.derGroupViewControl1 = new WindowsFormsApplication1.DERGroupViewControl();
+            this.scadaControl = new WindowsFormsApplication1.ScadaControl();
             this.menuStrip1.SuspendLayout();
             this.DERs.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -136,7 +136,7 @@
             this.getDERStatusToolStripMenuItem,
             this.getDERsToolStripMenuItem});
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.testToolStripMenuItem.Text = "Test";
             // 
             // createDERToolStripMenuItem
@@ -192,13 +192,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Headers";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // derHeaderControl1
-            // 
-            this.derHeaderControl1.Location = new System.Drawing.Point(6, 6);
-            this.derHeaderControl1.Name = "derHeaderControl1";
-            this.derHeaderControl1.Size = new System.Drawing.Size(629, 328);
-            this.derHeaderControl1.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -256,19 +249,29 @@
             this.tabPage4.Text = "SCADA";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // derHeaderControl1
+            // 
+            this.derHeaderControl1.Location = new System.Drawing.Point(6, 6);
+            this.derHeaderControl1.Name = "derHeaderControl1";
+            this.derHeaderControl1.Size = new System.Drawing.Size(629, 328);
+            this.derHeaderControl1.TabIndex = 0;
+            // 
+            // derGroupViewControl1
+            // 
+            this.derGroupViewControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.derGroupViewControl1.Location = new System.Drawing.Point(3, 3);
+            this.derGroupViewControl1.Name = "derGroupViewControl1";
+            this.derGroupViewControl1.Size = new System.Drawing.Size(741, 476);
+            this.derGroupViewControl1.TabIndex = 0;
+            this.derGroupViewControl1.Load += new System.EventHandler(this.derGroupViewControl1_Load);
+            // 
             // scadaControl
             // 
             this.scadaControl.Location = new System.Drawing.Point(4, 7);
             this.scadaControl.Name = "scadaControl";
             this.scadaControl.Size = new System.Drawing.Size(763, 507);
             this.scadaControl.TabIndex = 0;
-            // 
-            // derGroupViewControl1
-            // 
-            this.derGroupViewControl1.Location = new System.Drawing.Point(3, 3);
-            this.derGroupViewControl1.Name = "derGroupViewControl1";
-            this.derGroupViewControl1.Size = new System.Drawing.Size(741, 476);
-            this.derGroupViewControl1.TabIndex = 0;
             // 
             // Form1
             // 

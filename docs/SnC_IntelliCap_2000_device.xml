@@ -1,0 +1,234 @@
+<DeviceType>
+	<Name>SnC IntelliCap 2000</Name>
+	<Protocols>
+	<Protocol>
+		<Name>DNP3</Name>
+		<DNP3PointDefinitions>
+			<DNP3PointTypeDef>
+				<DNP3TypeName>Status</DNP3TypeName>
+				<DNP3PointList>
+					<DNP3PointDef>
+						<DNP3PointNum>0</DNP3PointNum>
+						<DNP3PointName>CapBankClosed</DNP3PointName>
+						<DNP3PointDesc>On if the capacitor bank is switched in.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>1</DNP3PointNum>
+						<DNP3PointName>CapBankOpen</DNP3PointName>
+						<DNP3PointDesc>On if the capacitor bank is switched out.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>2</DNP3PointNum>
+						<DNP3PointName>AutoManualOperation</DNP3PointName>
+						<DNP3PointDesc>On when the control is in the automatic mode.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>6</DNP3PointNum>
+						<DNP3PointName>OverVoltage</DNP3PointName>
+						<DNP3PointDesc>On when an overvoltage condition occurs.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>7</DNP3PointNum>
+						<DNP3PointName>UnderVoltage</DNP3PointName>
+						<DNP3PointDesc>On when an Undervoltage condition occurs.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>11</DNP3PointNum>
+						<DNP3PointName>LoadFuseBlown</DNP3PointName>
+						<DNP3PointDesc>On if AC voltage is not detected.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+				</DNP3PointList>
+			</DNP3PointTypeDef>
+			<DNP3PointTypeDef>
+				<DNP3TypeName>AnalogInput</DNP3TypeName>
+				<DNP3PointList>
+					<DNP3PointDef>
+						<DNP3PointNum>0</DNP3PointNum>
+						<DNP3PointName>90PercVoltageRefStandard</DNP3PointName>
+						<DNP3PointDesc>This is provided for the benefit of protocol implementation to conform to the RTU standard. It is loaded as a constant. The value returned is 24300.</DNP3PointDesc>
+						<DNP3EventClass>2</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>1</DNP3PointNum>
+						<DNP3PointName>0PercVoltageRefStandard</DNP3PointName>
+						<DNP3PointDesc>This is provided for the benefit of protocol implementation to conform to the RTU standard. It is loaded as a constant with the value zero.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>2</DNP3PointNum>
+						<DNP3PointName>ControlStrategy</DNP3PointName>
+						<DNP3PointDesc>This is the presently configured control strategy in use. The possible values are:
+0 Temperature
+1 Timeclock
+2 Voltage Only
+3 Time-Biased Voltage
+4 Time-Biased Temperature
+5 Auto Off-Line Mode
+6 Auto On-Line Mode
+7 Current
+8 VAR
+9 Reverse Current Voltage Only
+10 Temperature Sensor Error, Voltage Only
+11 SCADA Override
+12 Timeclock with Temperature Override
+13 Current with Temperature Override
+14 VAR with Temperature Override
+15 Manual Operation
+16 Reserved
+17 Voltage Override
+18 Reverse Current Trip Inhibit
+NOTE: Values 7, 8, 13, 14, and 18 do not apply to non-VAR versions.</DNP3PointDesc>
+						<DNP3EventClass>3</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>3</DNP3PointNum>
+						<DNP3PointName>MostRecentTemp</DNP3PointName>
+						<DNP3PointDesc>This value is in units of F.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>5</DNP3PointNum>
+						<DNP3PointName>PrimaryLineVoltage</DNP3PointName>
+						<DNP3PointDesc>Each count equals 10 VAC RMS</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>7</DNP3PointNum>
+						<DNP3PointName>NeutralCurrent</DNP3PointName>
+						<DNP3PointDesc>The data reported is the fundamental harmonic RMS value. Each count equals 1 ampere for a control with neutral current sensing installed or each count equals 1 Volt for a control with neutral voltage sensing installed.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>8</DNP3PointNum>
+						<DNP3PointName>SingleLinePhaseCurrent</DNP3PointName>
+						<DNP3PointDesc>Each count equals 1 ampere.  NOTE: Non-VAR versions will return a 0 value</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>9</DNP3PointNum>
+						<DNP3PointName>CorrectedPhaseAngle</DNP3PointName>
+						<DNP3PointDesc>Each count equals one eighth of a degree.
+NOTE: Non-VAR versions will return a -720 value</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>10</DNP3PointNum>
+						<DNP3PointName>ThreePhaseKVARS</DNP3PointName>
+						<DNP3PointDesc>KVARs (volt-amperes, reactive) are calculated from the measured single phase voltage, current and phase angles times three. Each count equals 1 kVAR.  NOTE: Non-VAR versions will return a -30000 value.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>11</DNP3PointNum>
+						<DNP3PointName>ThreePhaseKVA</DNP3PointName>
+						<DNP3PointDesc>The single-phase kVA is multiplied by three.
+NOTE: Non-VAR versions will return a 0 value.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>12</DNP3PointNum>
+						<DNP3PointName>ThreePhaseKW</DNP3PointName>
+						<DNP3PointDesc>The single-phase kW is multiplied by three.
+NOTE: Non-VAR versions will return a 0 value.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>28</DNP3PointNum>
+						<DNP3PointName>LastSwitchOperationReason</DNP3PointName>
+						<DNP3PointDesc>The possible values are:
+1 Manual Operation
+2 Reserved
+3 Voltage Override
+4 Reverse Current Inhibit
+5 Neutral Voltage or Current Corrective
+6 Temperature
+7 Timeclock
+8 Voltage
+9 Reserved
+10 Time Biased Temperature
+11 Auto Off Line
+12 Auto On Line
+13 Current
+14 VAR Mode
+15 Reserved
+16 Reserved
+17 SCADA Override
+18 Temperature Override Time Clock Strategy
+19 Temperature Override Current Strategy
+20 Temperature Override VAR Strategy
+21 Reserved
+22 Reserved
+23 Trip on Loss of Voltage
+24 User Defined Input
+25 Inconsistent Bank Position
+26 Contradictory Bank Position
+27 Holiday
+NOTE: Values 13, 14, 19, and 20 do not apply to non-VAR versions.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>35</DNP3PointNum>
+						<DNP3PointName>PowerFactor</DNP3PointName>
+						<DNP3PointDesc>Single-phase power factor measured on Pole 1, reported as the cosine of the phase angle.
+Leading power factor is represented by a negative number. Each count equals 0.001 with a 1000 offset
+(0 = -1.0 PF, 1000 = 0.0 PF, 2000 = 1.0 PF).</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>8</DNP3PointNum>
+						<DNP3PointName>SingleLinePhaseCurrent</DNP3PointName>
+						<DNP3PointDesc></DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+				</DNP3PointList>
+			</DNP3PointTypeDef>
+			<DNP3PointTypeDef>
+				<DNP3TypeName>Control</DNP3TypeName>
+				<DNP3PointList>
+					<DNP3PointDef>
+						<DNP3PointNum>0</DNP3PointNum>
+						<DNP3PointName>SwitchCloseOpen</DNP3PointName>
+						<DNP3PointDesc>NOTE: If you try to close the capacitor bank while the Reclose Delay Block is active the control reports a hardware error. The control will also return a hardware error if you attempt to operate the bank while the control is in Automatic mode, unless the SCADA Override set point is also enabled. SCADA Override can be enabled with Control Point 2.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>1</DNP3PointNum>
+						<DNP3PointName>EnableDisableAutomaticOperation</DNP3PointName>
+						<DNP3PointDesc>This command disables all Automatic Operation (the control is set to Manual mode) until a subsequent command to Enable Automatic Operation is issued.  As distinguished from Control Point 6 Inhibit Automatic Operation, this command changes the operating mode to Manual and does not time-out. Disabling Automatic Operation with Control Point 1 will cancel an active SCADA Override status without changing the bank state. In Manual mode SCADA bank state commands will still be accepted by the control as long as the faceplate SCADA Control mode is set to REMOTE.  NOTE: Automatic Operation is not disabled when the faceplate REMOTE/LOCAL switch is set to the LOCAL position.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>5</DNP3PointNum>
+						<DNP3PointName>ResetAllAlarms</DNP3PointName>
+						<DNP3PointDesc>Resets all alarms.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>14</DNP3PointNum>
+						<DNP3PointName>ClearAlarms</DNP3PointName>
+						<DNP3PointDesc>Clears all alarms.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>15</DNP3PointNum>
+						<DNP3PointName>ClearWarnings</DNP3PointName>
+						<DNP3PointDesc>Clears all warnings.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>16</DNP3PointNum>
+						<DNP3PointName>ClearErrors</DNP3PointName>
+						<DNP3PointDesc>Clears all errors.</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+				</DNP3PointList>
+			</DNP3PointTypeDef>
+		</DNP3PointDefinitions>
+	</Protocol>
+	</Protocols>
+</DeviceType>

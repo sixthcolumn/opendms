@@ -1,0 +1,334 @@
+<DeviceType>
+	<Name>Schweitzer SEL-735 Meter</Name>
+	<Protocols>
+	<Protocol>
+		<Name>DNP3</Name>
+		<DNP3PointDefinitions>
+			<DNP3PointTypeDef>
+				<DNP3TypeName>AnalogInput</DNP3TypeName>
+				<DNP3PointList>
+					<DNP3PointDef>
+						<DNP3PointNum>1</DNP3PointNum>
+						<DNP3PointName>IA</DNP3PointName>
+						<DNP3PointDesc>Amps, Phase A RMS Current</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>2</DNP3PointNum>
+						<DNP3PointName>IB</DNP3PointName>
+						<DNP3PointDesc>Amps, Phase B RMS Current</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>3</DNP3PointNum>
+						<DNP3PointName>IC</DNP3PointName>
+						<DNP3PointDesc>Amps, Phase C RMS Current</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>4</DNP3PointNum>
+						<DNP3PointName>IN</DNP3PointName>
+						<DNP3PointDesc>Amps, Neutral RMS Current</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>5</DNP3PointNum>
+						<DNP3PointName>VA</DNP3PointName>
+						<DNP3PointDesc>Voltage, Phase A RMS Line to Neutral</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>6</DNP3PointNum>
+						<DNP3PointName>VB</DNP3PointName>
+						<DNP3PointDesc>Voltage, Phase B RMS Line to Neutral</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>7</DNP3PointNum>
+						<DNP3PointName>VC</DNP3PointName>
+						<DNP3PointDesc>Voltage, Phase C RMS Line to Neutral</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>8</DNP3PointNum>
+						<DNP3PointName>VAB</DNP3PointName>
+						<DNP3PointDesc>Voltage, Phase A-B RMS Line to Line</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>9</DNP3PointNum>
+						<DNP3PointName>VBC</DNP3PointName>
+						<DNP3PointDesc>Voltage, Phase B-C RMS Line to Line</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>10</DNP3PointNum>
+						<DNP3PointName>VAC</DNP3PointName>
+						<DNP3PointDesc>Voltage, Phase C-A RMS Line to Line</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>11</DNP3PointNum>
+						<DNP3PointName>W3</DNP3PointName>
+						<DNP3PointDesc>3 phase Watts</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>12</DNP3PointNum>
+						<DNP3PointName>U3</DNP3PointName>
+						<DNP3PointDesc>3 phase apparent power</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>13</DNP3PointNum>
+						<DNP3PointName>Q3</DNP3PointName>
+						<DNP3PointDesc>3 phase reactive power</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>14</DNP3PointNum>
+						<DNP3PointName>WA</DNP3PointName>
+						<DNP3PointDesc>Phase A watts</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>15</DNP3PointNum>
+						<DNP3PointName>WB</DNP3PointName>
+						<DNP3PointDesc>Phase B watts</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>16</DNP3PointNum>
+						<DNP3PointName>WC</DNP3PointName>
+						<DNP3PointDesc>Phase C watts</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>17</DNP3PointNum>
+						<DNP3PointName>UA</DNP3PointName>
+						<DNP3PointDesc>Phase A apparent power</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>18</DNP3PointNum>
+						<DNP3PointName>UB</DNP3PointName>
+						<DNP3PointDesc>Phase B apparent power</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>19</DNP3PointNum>
+						<DNP3PointName>UC</DNP3PointName>
+						<DNP3PointDesc>Phase C apparent power</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>20</DNP3PointNum>
+						<DNP3PointName>QA</DNP3PointName>
+						<DNP3PointDesc>Phase A reactive power</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>21</DNP3PointNum>
+						<DNP3PointName>QB</DNP3PointName>
+						<DNP3PointDesc>Phase B reactive power</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>22</DNP3PointNum>
+						<DNP3PointName>QC</DNP3PointName>
+						<DNP3PointDesc>Phase C reactive power</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>200</DNP3PointNum>
+						<DNP3PointName>FREQ</DNP3PointName>
+						<DNP3PointDesc>Frequency</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+				</DNP3PointList>
+			</DNP3PointTypeDef>
+		</DNP3PointDefinitions>
+		<DNP3PointDefinitions>
+			<DNP3PointTypeDef>
+				<DNP3TypeName>Counter</DNP3TypeName>
+				<DNP3PointList>
+					<DNP3PointDef>
+						<DNP3PointNum>1</DNP3PointNum>
+						<DNP3PointName>WH3_DEL</DNP3PointName>
+						<DNP3PointDesc>3 Phase delivered active energy</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>3</DNP3PointNum>
+						<DNP3PointName>UH3_DEL</DNP3PointName>
+						<DNP3PointDesc>3 Phase delivered apparent energy</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>0</DNP3PointNum>
+						<DNP3PointName>QH3_DEL</DNP3PointName>
+						<DNP3PointDesc>3 Phase delivered reactive energy</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>2</DNP3PointNum>
+						<DNP3PointName>WH3_REC</DNP3PointName>
+						<DNP3PointDesc>3 Phase received active energy</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>4</DNP3PointNum>
+						<DNP3PointName>UH3_REC</DNP3PointName>
+						<DNP3PointDesc>3 Phase received apparent energy</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>6</DNP3PointNum>
+						<DNP3PointName>QH3_REC</DNP3PointName>
+						<DNP3PointDesc>3 Phase received reactive energy</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>7</DNP3PointNum>
+						<DNP3PointName>WHA_DEL</DNP3PointName>
+						<DNP3PointDesc>WH, phase A delivered </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>8</DNP3PointNum>
+						<DNP3PointName>WHB_DEL</DNP3PointName>
+						<DNP3PointDesc>WH, phase B delivered </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>9</DNP3PointNum>
+						<DNP3PointName>WHC_DEL</DNP3PointName>
+						<DNP3PointDesc>WH, phase C delivered </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>10</DNP3PointNum>
+						<DNP3PointName>WHA_REC</DNP3PointName>
+						<DNP3PointDesc>WH, phase A received </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>11</DNP3PointNum>
+						<DNP3PointName>WHB_REC</DNP3PointName>
+						<DNP3PointDesc>WH, phase B received </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>12</DNP3PointNum>
+						<DNP3PointName>WHC_REC</DNP3PointName>
+						<DNP3PointDesc>WH, phase C received </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>13</DNP3PointNum>
+						<DNP3PointName>WHA_NET</DNP3PointName>
+						<DNP3PointDesc>WH, phase A net </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>14</DNP3PointNum>
+						<DNP3PointName>WHB_NET</DNP3PointName>
+						<DNP3PointDesc>WH, phase B net </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>15</DNP3PointNum>
+						<DNP3PointName>WHC_NET</DNP3PointName>
+						<DNP3PointDesc>WH, phase C net </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>16</DNP3PointNum>
+						<DNP3PointName>WH3_NET</DNP3PointName>
+						<DNP3PointDesc>WH, 3 phase net </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>17</DNP3PointNum>
+						<DNP3PointName>UHA_DEL</DNP3PointName>
+						<DNP3PointDesc>VaH, phase A delivered </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>18</DNP3PointNum>
+						<DNP3PointName>UHB_DEL</DNP3PointName>
+						<DNP3PointDesc>VaH, phase B delivered </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>19</DNP3PointNum>
+						<DNP3PointName>UHC_DEL</DNP3PointName>
+						<DNP3PointDesc>VaH, phase C delivered </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>20</DNP3PointNum>
+						<DNP3PointName>UHA_REC</DNP3PointName>
+						<DNP3PointDesc>VaH, phase A received </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>21</DNP3PointNum>
+						<DNP3PointName>UHB_REC</DNP3PointName>
+						<DNP3PointDesc>VaH, phase B received </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>22</DNP3PointNum>
+						<DNP3PointName>UHC_REC</DNP3PointName>
+						<DNP3PointDesc>VaH, phase C received </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>23</DNP3PointNum>
+						<DNP3PointName>QHA_DEL</DNP3PointName>
+						<DNP3PointDesc>VARH, phase A delivered </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>24</DNP3PointNum>
+						<DNP3PointName>QHB_DEL</DNP3PointName>
+						<DNP3PointDesc>VARH, phase B delivered </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>25</DNP3PointNum>
+						<DNP3PointName>QHC_DEL</DNP3PointName>
+						<DNP3PointDesc>VARH, phase C delivered </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>26</DNP3PointNum>
+						<DNP3PointName>QHA_REC</DNP3PointName>
+						<DNP3PointDesc>VARH, phase A received </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>27</DNP3PointNum>
+						<DNP3PointName>QHB_REC</DNP3PointName>
+						<DNP3PointDesc>VARH, phase B received </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>28</DNP3PointNum>
+						<DNP3PointName>QHC_REC</DNP3PointName>
+						<DNP3PointDesc>VARH, phase C received </DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>29</DNP3PointNum>
+						<DNP3PointName>QH3_NET</DNP3PointName>
+						<DNP3PointDesc>VARH, 3 phase net</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+				</DNP3PointList>
+			</DNP3PointTypeDef>
+		</DNP3PointDefinitions>
+	</Protocol>
+	</Protocols>
+</DeviceType>

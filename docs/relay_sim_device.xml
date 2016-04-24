@@ -1,0 +1,73 @@
+<DeviceType>
+	<Name>Automatak Relay Simulator</Name>
+	<Protocols>
+	<Protocol>
+		<Name>DNP3</Name>
+		<DNP3PointDefinitions>
+			<DNP3PointTypeDef>
+				<DNP3TypeName>Control</DNP3TypeName>
+				<DNP3PointList>
+					<DNP3PointDef>
+						<DNP3PointNum>0</DNP3PointNum>
+						<DNP3PointName>RelayStateControl</DNP3PointName>
+						<DNP3PointDesc>True if closed</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+				</DNP3PointList>
+			</DNP3PointTypeDef>
+			<DNP3PointTypeDef>
+				<DNP3TypeName>Status</DNP3TypeName>
+				<DNP3PointList>
+					<DNP3PointDef>
+						<DNP3PointNum>0</DNP3PointNum>
+						<DNP3PointName>RelayState</DNP3PointName>
+						<DNP3PointDesc>True if closed</DNP3PointDesc>
+						<DNP3EventClass>1</DNP3EventClass>
+					</DNP3PointDef>
+				</DNP3PointList>
+			</DNP3PointTypeDef>
+			<DNP3PointTypeDef>
+				<DNP3TypeName>AnalogInput</DNP3TypeName>
+				<DNP3PointList>
+					<DNP3PointDef>
+						<DNP3PointNum>0</DNP3PointNum>
+						<DNP3PointName>Current_A</DNP3PointName>
+						<DNP3PointDesc>Current of phase A.</DNP3PointDesc>
+						<DNP3EventClass>2</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>1</DNP3PointNum>
+						<DNP3PointName>Current_B</DNP3PointName>
+						<DNP3PointDesc>Current of phase B.</DNP3PointDesc>
+						<DNP3EventClass>2</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>2</DNP3PointNum>
+						<DNP3PointName>Current_C</DNP3PointName>
+						<DNP3PointDesc>Current of phase C.</DNP3PointDesc>
+						<DNP3EventClass>2</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>3</DNP3PointNum>
+						<DNP3PointName>Voltage_A</DNP3PointName>
+						<DNP3PointDesc>Voltage of phase A.</DNP3PointDesc>
+						<DNP3EventClass>2</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>4</DNP3PointNum>
+						<DNP3PointName>Voltage_B</DNP3PointName>
+						<DNP3PointDesc>Voltage of phase B.</DNP3PointDesc>
+						<DNP3EventClass>2</DNP3EventClass>
+					</DNP3PointDef>
+					<DNP3PointDef>
+						<DNP3PointNum>5</DNP3PointNum>
+						<DNP3PointName>Voltage_C</DNP3PointName>
+						<DNP3PointDesc>Voltage of phase C.</DNP3PointDesc>
+						<DNP3EventClass>2</DNP3EventClass>
+					</DNP3PointDef>
+				</DNP3PointList>
+			</DNP3PointTypeDef>
+		</DNP3PointDefinitions>
+	</Protocol>
+	</Protocols>
+</DeviceType>

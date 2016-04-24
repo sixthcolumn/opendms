@@ -223,5 +223,10 @@ namespace WindowsFormsApplication1
             derGroupViewControl1.updateDERGroupViewReadOnlyCells();
         }
 
+        private void derGroupViewControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

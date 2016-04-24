@@ -22,7 +22,7 @@
 		address="/pap/createDemandResponseDeployment">
 		<jaxws:inInterceptors>
 			<bean class="com.sixthc.interceptor.LoggingInInterceptor">
-				<property name="vendorRoleType" value="DRAS" />
+				<property name="vendorRoleType" value="PAP19" />
 				<property name="packageName" value="Deploy" />
 				<property name="interfaceName" value="DemandResponseDeployment" />
 				<property name="resultCode" value="success" />
@@ -31,7 +31,7 @@
 		</jaxws:inInterceptors>
 		<jaxws:outInterceptors>
 			<bean class="com.sixthc.interceptor.LoggingOutInterceptor">
-				<property name="vendorRoleType" value="DRAS" />
+				<property name="vendorRoleType" value="PAP19" />
 				<property name="packageName" value="Deploy" />
 				<property name="interfaceName" value="DemandResponseDeployment" />
 				<property name="resultCode" value="success" />
@@ -40,7 +40,7 @@
 		</jaxws:outInterceptors>
 		<jaxws:outFaultInterceptors>
 			<bean class="com.sixthc.interceptor.LoggingOutInterceptor">
-				<property name="vendorRoleType" value="DRAS" />
+				<property name="vendorRoleType" value="PAP19" />
 				<property name="packageName" value="Deploy" />
 				<property name="interfaceName" value="DemandResponseDeployment" />
 				<property name="resultCode" value="fail" />
@@ -49,7 +49,7 @@
 		</jaxws:outFaultInterceptors>
 		<jaxws:inFaultInterceptors>
 			<bean class="com.sixthc.interceptor.LoggingInInterceptor">
-				<property name="vendorRoleType" value="DRAS" />
+				<property name="vendorRoleType" value="PAP19" />
 				<property name="packageName" value="Deploy" />
 				<property name="interfaceName" value="DemandResponseDeployment" />
 				<property name="resultCode" value="fail" />

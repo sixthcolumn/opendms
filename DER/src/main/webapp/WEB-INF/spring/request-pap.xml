@@ -16,32 +16,32 @@
 			<bean class="com.sixthc.client.PAPRequestClient">
 				<property name="loggingInInterceptor">
 					<bean class="com.sixthc.interceptor.PAPRequestLoggingInInterceptor">
-						<property name="packageName" value="Deploy" />
-						<property name="vendorRoleType" value="DRAS" />
+						<property name="packageName" value="Deploy Request" />
+						<property name="vendorRoleType" value="PAP-Request" />
 						<property name="resultCode" value="success" />
 						<property name="stage" value="clientIn" />
 					</bean>
 				</property>
 				<property name="loggingInFaultInterceptor">
 					<bean class="com.sixthc.interceptor.PAPRequestLoggingInInterceptor">
-						<property name="packageName" value="Deploy" />
-						<property name="vendorRoleType" value="DRAS" />
+						<property name="packageName" value="Deploy Request" />
+						<property name="vendorRoleType" value="PAP-Request" />
 						<property name="resultCode" value="fail" />
 						<property name="stage" value="clientInFault" />
 					</bean>
 				</property>
 				<property name="loggingOutInterceptor">
 					<bean class="com.sixthc.interceptor.PAPRequestLoggingOutInterceptor">
-						<property name="packageName" value="Deploy" />
-						<property name="vendorRoleType" value="DRAS" />
+						<property name="packageName" value="Deploy Request" />
+						<property name="vendorRoleType" value="PAP-Request" />
 						<property name="resultCode" value="success" />
 						<property name="stage" value="clientOut" />
 					</bean>
 				</property>
 				<property name="loggingOutFaultInterceptor">
 					<bean class="com.sixthc.interceptor.PAPRequestLoggingOutInterceptor">
-						<property name="packageName" value="Deploy" />
-						<property name="vendorRoleType" value="DRAS" />
+						<property name="packageName" value="Deploy Request" />
+						<property name="vendorRoleType" value="PAP-Request" />
 						<property name="resultCode" value="fail" />
 						<property name="stage" value="clientOutFault" />
 					</bean>
@@ -54,32 +54,32 @@
 		address="/requestPAP">
 		<jaxws:inInterceptors>
 			<bean class="com.sixthc.interceptor.PAPRequestLoggingInInterceptor">
-				<property name="vendorRoleType" value="DRAS" />
-				<property name="packageName" value="Deploy" />
+				<property name="vendorRoleType" value="PAP-Request" />
+				<property name="packageName" value="Deploy Request" />
 				<property name="resultCode" value="success" />
 				<property name="stage" value="serviceIn" />
 			</bean>
 		</jaxws:inInterceptors>
 		<jaxws:outInterceptors>
 			<bean class="com.sixthc.interceptor.PAPRequestLoggingOutInterceptor">
-				<property name="vendorRoleType" value="DRAS" />
-				<property name="packageName" value="Deploy" />
+				<property name="vendorRoleType" value="PAP-Request" />
+				<property name="packageName" value="Deploy Request" />
 				<property name="resultCode" value="success" />
 				<property name="stage" value="serviceOut" />
 			</bean>
 		</jaxws:outInterceptors>
 		<jaxws:outFaultInterceptors>
 			<bean class="com.sixthc.interceptor.PAPRequestLoggingOutInterceptor">
-				<property name="vendorRoleType" value="DRAS" />
-				<property name="packageName" value="Deploy" />
+				<property name="vendorRoleType" value="PAP-Request" />
+				<property name="packageName" value="Deploy Request" />
 				<property name="resultCode" value="fail" />
 				<property name="stage" value="serviceOutFault" />
 			</bean>
 		</jaxws:outFaultInterceptors>
 		<jaxws:inFaultInterceptors>
 			<bean class="com.sixthc.interceptor.PAPRequestLoggingInInterceptor">
-				<property name="vendorRoleType" value="DRAS" />
-				<property name="packageName" value="Deploy" />
+				<property name="vendorRoleType" value="PAP-Request" />
+				<property name="packageName" value="Deploy Request" />
 				<property name="resultCode" value="fail" />
 				<property name="stage" value="serviceInFault" />
 			</bean>
