@@ -82,6 +82,7 @@
             this.tabControl1.Controls.Add(this.ScadaDNP3);
             this.tabControl1.Controls.Add(this.ScadaTest);
             this.tabControl1.Location = new System.Drawing.Point(3, 167);
+            this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(757, 400);
@@ -146,9 +147,10 @@
             this.testScadaControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.testScadaControl1.AutoSize = true;
             this.testScadaControl1.Location = new System.Drawing.Point(0, 3);
             this.testScadaControl1.Name = "testScadaControl1";
-            this.testScadaControl1.Size = new System.Drawing.Size(746, 499);
+            this.testScadaControl1.Size = new System.Drawing.Size(747, 517);
             this.testScadaControl1.TabIndex = 0;
             // 
             // ScadaControl
@@ -164,6 +166,7 @@
             this.ScadaInfo.ResumeLayout(false);
             this.ScadaDNP3.ResumeLayout(false);
             this.ScadaTest.ResumeLayout(false);
+            this.ScadaTest.PerformLayout();
             this.ResumeLayout(false);
 
         }
