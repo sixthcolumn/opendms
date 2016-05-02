@@ -56,6 +56,7 @@ namespace DERMSInterface
             AppDomain.CurrentDomain.SetData("APP_CONFIG_FILE", path);
         }
 
+        
         /// <summary>
         /// base constructor. Do not use
         /// </summary>

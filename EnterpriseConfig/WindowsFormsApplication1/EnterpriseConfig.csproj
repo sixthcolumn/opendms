@@ -258,10 +258,6 @@
       <Project>{1bab88a0-34b8-4bda-b5f9-2e922bfd69b6}</Project>
       <Name>DERMSInterface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\SCADAInterface\SCADAInterface\SCADAInterface.csproj">
-      <Project>{416e63ea-2e5e-41d9-b8f7-33955ea4ff39}</Project>
-      <Name>SCADAInterface</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Copy_6524.png" />

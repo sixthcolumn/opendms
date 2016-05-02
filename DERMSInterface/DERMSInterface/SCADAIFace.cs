@@ -119,7 +119,7 @@ namespace SCADAInterface
             scadaDev.Connected = true;
         }
 
-        [DllExport("loadConfigFile", CallingConvention = CallingConvention.Cdecl)]
+        [DllExport("ScadaLoadConfigFile", CallingConvention = CallingConvention.Cdecl)]
         public static int loadConfigFile([MarshalAs(UnmanagedType.LPTStr)]ref String path)
         {
             Console.WriteLine("loading config file : " + path);
@@ -130,7 +130,7 @@ namespace SCADAInterface
             return 0;
         }
 
-        [DllExport("Init", CallingConvention = CallingConvention.Cdecl)]
+        [DllExport("ScadaInit", CallingConvention = CallingConvention.Cdecl)]
         public static int Init()
         {
             if (!SCADAIFace._config_file_loaded)

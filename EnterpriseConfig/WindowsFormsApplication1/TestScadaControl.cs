@@ -76,7 +76,8 @@ namespace WindowsFormsApplication1
                     foreach (var cp in scada.Dnp.Analog_input_points)
                     {
                         // create string
-                        string tmps = cp.Name + " : " + cp.Pvalue + " : " + cp.Descr;
+                        string tmps = string.Format("{0}  :  {1}   :  {2}", 
+                             cp.Name.PadRight(12, ' '), cp.Pvalue.ToString().PadRight(12,' '), cp.Descr);
                         listBox1.Items.Add(tmps);
                     }
                 };
@@ -150,13 +151,5 @@ namespace WindowsFormsApplication1
             
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string devfile = "twodevtest.xml";
-            SCADAIFace.loadConfigFile(ref devfile);
-
-            SCADAIFace.Init();
-
-        }
-    }
+     }
 }

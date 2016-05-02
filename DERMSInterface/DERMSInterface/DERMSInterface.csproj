@@ -74,9 +74,8 @@
       <HintPath>..\..\EnterpriseConfig\packages\opendnp3.2.1.0\lib\net45\DNP3CLRInterface.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RGiesecke.DllExport.Metadata, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8f52d83c1a22df51, processorArchitecture=MSIL">
-      <HintPath>..\packages\UnmanagedExports.1.2.7\lib\net\RGiesecke.DllExport.Metadata.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="RGiesecke.DllExport.Metadata">
+      <HintPath>..\..\..\..\src3\opendms\EnterpriseConfig\packages\UnmanagedExports.1.2.7\lib\net\RGiesecke.DllExport.Metadata.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -95,12 +94,14 @@
     <Compile Include="CIMExternal.cs" />
     <Compile Include="DERConfigigurationException.cs" />
     <Compile Include="DERResponseException.cs" />
+    <Compile Include="HandleSOEData.cs" />
     <Compile Include="HeaderNotFoundException.cs" />
     <Compile Include="DERGroupStatusResponse.cs" />
     <Compile Include="Multispeak.cs" />
     <Compile Include="MultiSpeakMsgHeader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DERResult.cs" />
+    <Compile Include="SCADAIFace.cs" />
     <Compile Include="Service References\CIMChangeDERGroup\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -73,7 +73,7 @@ namespace Automatak.DNP3.Interface
                 Print(pair.Value, pair.Index);
                 foreach (var pv in _scadaDev.Dnp.Analog_input_points)
                 {
-                    if (pv.Pindex == pair.Index)
+                    if (pv.Pindex+1 == pair.Index)
                     {
                         pv.Pvalue = pair.Value.Value;
                         pv.Last_updated_tstamp = utcNow.ToString() + ", " + utcNow.Kind;
@@ -94,7 +94,7 @@ namespace Automatak.DNP3.Interface
 
                 foreach (var pv in _scadaDev.Dnp.Counter_points)
                 {
-                    if (pv.Pindex == pair.Index)
+                    if (pv.Pindex+1 == pair.Index)
                     {
                         pv.Pvalue = pair.Value.Value;
                         pv.Last_updated_tstamp = utcNow.ToString() + ", " + utcNow.Kind;
@@ -123,7 +123,7 @@ namespace Automatak.DNP3.Interface
                 Print(pair.Value, pair.Index);
                 foreach (var pv in _scadaDev.Dnp.Status_points)
                 {
-                    if (pv.Pindex == pair.Index)
+                    if (pv.Pindex+1 == pair.Index)
                     {
                         pv.Pvalue = pair.Value.Value;
                         pv.Last_updated_tstamp = utcNow.ToString() + ", " + utcNow.Kind;
@@ -143,7 +143,7 @@ namespace Automatak.DNP3.Interface
                 // find value and set it
                 foreach (var pv in _scadaDev.Dnp.Analog_output_points)
                 {
-                    if (pv.Pindex == pair.Index)
+                    if (pv.Pindex+1 == pair.Index)
                     {
                         pv.Pvalue = pair.Value.Value;
                         pv.Last_updated_tstamp = utcNow.ToString() + ", " + utcNow.Kind;
