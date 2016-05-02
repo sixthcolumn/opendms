@@ -1,9 +1,19 @@
+from sys import exit
 import ctypes
+from ctypes import *
+import os
 
 # load the dll library 
 a = ctypes.cdll.LoadLibrary("DERMSInterface.dll")
+appConfig = c_wchar_p(os.path.realpath("app.config"))
+a.loadAppConfig(appConfig)
+
+s = a.getHello()
+print s
 
 carray = (ctypes.c_wchar_p * 4)()
+
+      appConfig = os.path.realpath("app.config")
 
 # full path required for this call. Sorry
 a.loadAppConfig('Z:/git/opendms/DERMSInterface/DERMSInterface/bin/x86/Release/app.config');

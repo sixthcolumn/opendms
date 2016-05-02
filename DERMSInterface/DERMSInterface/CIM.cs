@@ -223,6 +223,14 @@ namespace DERMSInterface
             }
         }
 
+        [DllExport("getHello", CallingConvention = CallingConvention.Cdecl)]
+        public static String getHello()
+        {
+            foostr = "hello World";
+            Console.WriteLine("Getting Hello world");
+            return foostr;
+        }
+
         [DllExport("foo2", CallingConvention = CallingConvention.Cdecl)]
         public static String foo2()
         {
