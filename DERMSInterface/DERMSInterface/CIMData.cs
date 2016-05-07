@@ -80,10 +80,16 @@ namespace DERMSInterface
             XmlSerializer serializer = new XmlSerializer(typeof(CIMData));
             System.IO.FileStream file = new System.IO.FileStream(path, System.IO.FileMode.Open);
             CIMData data;
+
             try
             {
                 data = (CIMData)serializer.Deserialize(file);
                 return data;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error on deserialize :{0} " + e);
+                return null;
             }
             finally
             {
@@ -415,8 +421,9 @@ namespace DERMSInterface
             private string _deviceType;
             private string _protocol;
             private DNP dnp = new DNP();
-            
-            [XmlIgnore]private bool _connected = false;
+
+            [XmlIgnore]
+            private bool _connected = false;
 
             [XmlIgnore]
             public bool Connected
@@ -425,10 +432,12 @@ namespace DERMSInterface
                 set { _connected = value; }
             }
 
-            
-            [XmlIgnore]private IChannel _channel = null;
 
-            [XmlIgnore]public IChannel Channel
+            [XmlIgnore]
+            private IChannel _channel = null;
+
+            [XmlIgnore]
+            public IChannel Channel
             {
                 get { return _channel; }
                 set { _channel = value; }
@@ -443,7 +452,7 @@ namespace DERMSInterface
                 get { return _master; }
                 set { _master = value; }
             }
-            
+
 
             public DNP Dnp
             {

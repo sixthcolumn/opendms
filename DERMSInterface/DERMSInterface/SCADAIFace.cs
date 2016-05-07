@@ -119,16 +119,17 @@ namespace SCADAInterface
             scadaDev.Connected = true;
         }
 
-        [DllExport("ScadaLoadConfigFile", CallingConvention = CallingConvention.Cdecl)]
-        public static int loadConfigFile([MarshalAs(UnmanagedType.LPTStr)]ref String path)
+
+        [DllExport("LoadScadaConfigFile", CallingConvention = CallingConvention.Cdecl)]
+        public static void loadScadaConfigFile([MarshalAs(UnmanagedType.LPTStr)] String path)
         {
-            Console.WriteLine("loading config file : " + path);
+           Console.WriteLine("loading config file : " + path);
 
             _cim = DERMSInterface.CIMData.read(path);
 
-            SCADAIFace._config_file_loaded = true;
-            return 0;
+            // SCADAIFace._config_file_loaded = true;
         }
+
 
         [DllExport("ScadaInit", CallingConvention = CallingConvention.Cdecl)]
         public static int Init()
