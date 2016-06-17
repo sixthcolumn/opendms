@@ -121,7 +121,7 @@ namespace Automatak.DNP3.Interface
             foreach (var pair in values)
             {
                 Print(pair.Value, pair.Index);
-                foreach (var pv in _scadaDev.Dnp.Status_points)
+                foreach (var pv in _scadaDev.Dnp.Control_points)
                 {
                     if (pv.Pindex+1 == pair.Index)
                     {

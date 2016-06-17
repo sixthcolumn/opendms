@@ -159,11 +159,11 @@ namespace WindowsFormsApplication1
                     Console.WriteLine("found match: " + dt.Name);
 
                     // allocate arrays
-                    scada.Dnp.Status_points = new List<CIMData.DNP.DNP3PointValue<bool>>();
                     scada.Dnp.Analog_input_points = new List<CIMData.DNP.DNP3PointValue<double>>();
                     scada.Dnp.Analog_output_points = new List<CIMData.DNP.DNP3PointValue<double>>();
                     scada.Dnp.Control_points = new List<CIMData.DNP.DNP3PointValue<bool>>();
                     scada.Dnp.Counter_points = new List<CIMData.DNP.DNP3PointValue<uint>>();
+                    scada.Dnp.Binary_input_points = new List<CIMData.DNP.DNP3PointValue<bool>>();
 
                     // copy over points
                     foreach (var pp in dt.Protocols)
@@ -173,10 +173,7 @@ namespace WindowsFormsApplication1
                         {
                             foreach (var ppd in pd.DNP3PointList)
                             {
-                                if (pd.DNP3TypeName.Equals("Status")) 
-                                {
-                                    scada.Dnp.Status_points.Add(new CIMData.DNP.DNP3PointValue<bool>{Name = ppd.DNP3PointName, Pindex = ppd.DNP3PointNum, Descr = ppd.DNP3PointDesc });
-                                } else if (pd.DNP3TypeName.Equals("AnalogInput")) 
+                                if (pd.DNP3TypeName.Equals("AnalogInput")) 
                                 {
                                     scada.Dnp.Analog_input_points.Add(new CIMData.DNP.DNP3PointValue<double> { Name = ppd.DNP3PointName, Pindex = ppd.DNP3PointNum, Descr = ppd.DNP3PointDesc });
 
@@ -188,12 +185,18 @@ namespace WindowsFormsApplication1
                                 {
                                     scada.Dnp.Control_points.Add(new CIMData.DNP.DNP3PointValue<bool> { Name = ppd.DNP3PointName, Pindex = ppd.DNP3PointNum, Descr = ppd.DNP3PointDesc });
 
-                                } else if (pd.DNP3TypeName.Equals("Counter")) 
+                                } else if (pd.DNP3TypeName.Equals("BinaryInput")) 
+                                {
+                                    scada.Dnp.Binary_input_points.Add(new CIMData.DNP.DNP3PointValue<bool> { Name = ppd.DNP3PointName, Pindex = ppd.DNP3PointNum, Descr = ppd.DNP3PointDesc });
+
+                                }
+                                else if (pd.DNP3TypeName.Equals("Counter"))
                                 {
                                     scada.Dnp.Counter_points.Add(new CIMData.DNP.DNP3PointValue<uint> { Name = ppd.DNP3PointName, Pindex = ppd.DNP3PointNum, Descr = ppd.DNP3PointDesc });
-
-                                } else {
-                                    Console.WriteLine("Error when settin gup DNP3 points, unknown point type: " + pd.DNP3TypeName);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Error when setting up DNP3 points, unknown point type: " + pd.DNP3TypeName);
                                 }
 
                             }

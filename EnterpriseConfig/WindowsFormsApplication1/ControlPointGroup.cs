@@ -72,6 +72,7 @@ namespace WindowsFormsApplication1
 
             // call DLL operate
             SCADAIFace.OperateDevice(_device_mrid, commandname, _command_index);
+           //Console.WriteLine("device operation:  " + tr.Result.ToString());
         }
 
         

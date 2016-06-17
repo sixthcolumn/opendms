@@ -77,13 +77,21 @@ namespace DERMSInterface
         /// <returns></returns>
         public static CIMData read(String path)
         {
+            Console.WriteLine("reading file: " + path);
             XmlSerializer serializer = new XmlSerializer(typeof(CIMData));
-            System.IO.FileStream file = new System.IO.FileStream(path, System.IO.FileMode.Open);
-            CIMData data;
+            System.IO.FileStream file = null;
 
             try
             {
+                file = new System.IO.FileStream(path, System.IO.FileMode.Open);
+                CIMData data;
+
+                Console.WriteLine("reading2");
+
+            
                 data = (CIMData)serializer.Deserialize(file);
+
+                Console.WriteLine("reading done");
                 return data;
             }
             catch (Exception e)
@@ -93,7 +101,8 @@ namespace DERMSInterface
             }
             finally
             {
-                file.Close();
+                if (file != null)
+                    file.Close();
             }
         }
 
@@ -524,7 +533,7 @@ namespace DERMSInterface
             private string remoteAddress;
             private string localAddress;
             private string port;
-            private string integrityScanRate;
+            private string integrityScanRate = "60000";
             private string saveInterval;
             private bool isUnsolictedOnStartup;
             private bool isEnableUnsolicited;
@@ -551,8 +560,9 @@ namespace DERMSInterface
             private List<DNP3PointValue<double>> analog_input_points = null;
             private List<DNP3PointValue<double>> analog_output_points = null;
             private List<DNP3PointValue<bool>> control_points = null;
-            private List<DNP3PointValue<bool>> status_points = null;
             private List<DNP3PointValue<uint>> counter_points = null;
+            private List<DNP3PointValue<bool>> binary_input_points = null;
+
 
             public List<DNP3PointValue<double>> Analog_input_points
             {
@@ -566,12 +576,6 @@ namespace DERMSInterface
                 set { control_points = value; }
             }
 
-            public List<DNP3PointValue<bool>> Status_points
-            {
-                get { return status_points; }
-                set { status_points = value; }
-            }
-
             public List<DNP3PointValue<double>> Analog_output_points
             {
                 get { return analog_output_points; }
@@ -582,6 +586,12 @@ namespace DERMSInterface
             {
                 get { return counter_points; }
                 set { counter_points = value; }
+            }
+
+            public List<DNP3PointValue<bool>> Binary_input_points
+            {
+                get { return binary_input_points; }
+                set { binary_input_points = value; }
             }
 
             public class DNP3PointValue<T>

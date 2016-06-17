@@ -18,4 +18,4 @@ a.loadAppConfig(appConfig)
 # read meter
 r = a.ReadMeter(site)
 
-p c_char_p(s).value
+print (r)

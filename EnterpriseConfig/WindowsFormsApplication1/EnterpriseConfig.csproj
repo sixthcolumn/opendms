@@ -52,6 +52,14 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DNP3CLRAdapter, Version=1.0.5982.12496, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\opendnp3.4.0.0\lib\net45\DNP3CLRAdapter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DNP3CLRInterface, Version=2.0.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\opendnp3.4.0.0\lib\net45\DNP3CLRInterface.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="RGiesecke.DllExport.Metadata, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8f52d83c1a22df51, processorArchitecture=MSIL">
       <HintPath>..\packages\UnmanagedExports.1.2.7\lib\net\RGiesecke.DllExport.Metadata.dll</HintPath>
       <Private>False</Private>
@@ -227,6 +235,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TestScadaControl.resx">
       <DependentUpon>TestScadaControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlPointGroup.resx">
       <DependentUpon>ControlPointGroup.cs</DependentUpon>
