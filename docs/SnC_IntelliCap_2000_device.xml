@@ -5,7 +5,7 @@
 		<Name>DNP3</Name>
 		<DNP3PointDefinitions>
 			<DNP3PointTypeDef>
-				<DNP3TypeName>Status</DNP3TypeName>
+				<DNP3TypeName>BinaryInput</DNP3TypeName>
 				<DNP3PointList>
 					<DNP3PointDef>
 						<DNP3PointNum>0</DNP3PointNum>
@@ -198,7 +198,7 @@ Leading power factor is represented by a negative number. Each count equals 0.00
 					</DNP3PointDef>
 					<DNP3PointDef>
 						<DNP3PointNum>1</DNP3PointNum>
-						<DNP3PointName>EnableDisableAutomaticOperation</DNP3PointName>
+						<DNP3PointName>AutoOperation</DNP3PointName>
 						<DNP3PointDesc>This command disables all Automatic Operation (the control is set to Manual mode) until a subsequent command to Enable Automatic Operation is issued.  As distinguished from Control Point 6 Inhibit Automatic Operation, this command changes the operating mode to Manual and does not time-out. Disabling Automatic Operation with Control Point 1 will cancel an active SCADA Override status without changing the bank state. In Manual mode SCADA bank state commands will still be accepted by the control as long as the faceplate SCADA Control mode is set to REMOTE.  NOTE: Automatic Operation is not disabled when the faceplate REMOTE/LOCAL switch is set to the LOCAL position.</DNP3PointDesc>
 						<DNP3EventClass>1</DNP3EventClass>
 					</DNP3PointDef>
